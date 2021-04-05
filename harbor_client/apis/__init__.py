@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.artifact_api import ArtifactApi
+#   from .api.chart_repository_api import ChartRepositoryApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,8 +14,9 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from harbor_client.api.artifact_api import ArtifactApi
-from harbor_client.api.auditlog_api import AuditlogApi
-from harbor_client.api.project_api import ProjectApi
-from harbor_client.api.repository_api import RepositoryApi
-from harbor_client.api.scan_api import ScanApi
+from harbor_client.api.chart_repository_api import ChartRepositoryApi
+from harbor_client.api.label_api import LabelApi
+from harbor_client.api.products_api import ProductsApi
+from harbor_client.api.quota_api import QuotaApi
+from harbor_client.api.scanners_api import ScannersApi
+from harbor_client.api.system_api import SystemApi

@@ -82,7 +82,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../README.md#basic)
+[basic](../_README.md#basic)
 
 ### HTTP request headers
 
@@ -100,7 +100,7 @@ void (empty response body)
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
 
 # **get_repository**
 > Repository get_repository(project_name, repository_name)
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../README.md#basic)
+[basic](../_README.md#basic)
 
 ### HTTP request headers
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
 
 # **list_repositories**
 > [Repository] list_repositories(project_name)
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../README.md#basic)
+[basic](../_README.md#basic)
 
 ### HTTP request headers
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
 
 # **update_repository**
 > update_repository(project_name, repository_name, repository)
@@ -380,7 +380,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../README.md#basic)
+[basic](../_README.md#basic)
 
 ### HTTP request headers
 
@@ -398,5 +398,5 @@ void (empty response body)
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
 

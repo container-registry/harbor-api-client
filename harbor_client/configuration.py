@@ -384,7 +384,7 @@ conf = harbor_client.Configuration(
         """
         auth = {}
         if self.username is not None and self.password is not None:
-            auth['basic'] = {
+            auth['basicAuth'] = {
                 'type': 'basic',
                 'in': 'header',
                 'key': 'Authorization',

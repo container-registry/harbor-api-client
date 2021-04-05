@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **immutable** | **bool** | The immutable status of the tag | [optional] 
 **signed** | **bool** | The attribute indicates whether the tag is signed or not | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../_README.md#documentation-for-models) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to README]](../_README.md)
 
 

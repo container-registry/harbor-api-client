@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **operation** | **str** | The operation against the repository in this log entry. | [optional] 
 **op_time** | **str** | The time when this operation is triggered. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../_README.md#documentation-for-models) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to README]](../_README.md)
 
 

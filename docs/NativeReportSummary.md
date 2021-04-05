@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **end_time** | **datetime** | The end time of the scan process that generating report | [optional] 
 **complete_percent** | **int** | The complete percent of the scanning which value is between 0 and 100 | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../_README.md#documentation-for-models) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to README]](../_README.md)
 
 

@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **annotations** | [**Annotations**](Annotations.md) |  | [optional] 
 **urls** | **[str]** | The download URLs | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../_README.md#documentation-for-models) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to README]](../_README.md)
 
 

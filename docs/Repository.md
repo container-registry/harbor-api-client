@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **creation_time** | **datetime** | The creation time of the repository | [optional] 
 **update_time** | **datetime** | The update time of the repository | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../_README.md#documentation-for-models) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to README]](../_README.md)
 
 
