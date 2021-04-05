@@ -10,8 +10,8 @@
 
 import unittest
 
-import harbor-client
-from harbor-client.api.repository_api import RepositoryApi  # noqa: E501
+import harbor_client
+from harbor_client.api.repository_api import RepositoryApi  # noqa: E501
 
 
 class TestRepositoryApi(unittest.TestCase):

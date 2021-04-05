@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.error import Error
+import harbor_client
+from harbor_client.model.error import Error
 
 
 class TestError(unittest.TestCase):

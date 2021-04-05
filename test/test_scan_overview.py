@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.native_report_summary import NativeReportSummary
+import harbor_client
+from harbor_client.model.native_report_summary import NativeReportSummary
 globals()['NativeReportSummary'] = NativeReportSummary
-from harbor-client.model.scan_overview import ScanOverview
+from harbor_client.model.scan_overview import ScanOverview
 
 
 class TestScanOverview(unittest.TestCase):

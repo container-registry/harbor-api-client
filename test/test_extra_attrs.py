@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.extra_attrs import ExtraAttrs
+import harbor_client
+from harbor_client.model.extra_attrs import ExtraAttrs
 
 
 class TestExtraAttrs(unittest.TestCase):

@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.label import Label
+import harbor_client
+from harbor_client.model.label import Label
 
 
 class TestLabel(unittest.TestCase):

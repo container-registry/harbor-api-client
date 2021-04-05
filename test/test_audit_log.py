@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.audit_log import AuditLog
+import harbor_client
+from harbor_client.model.audit_log import AuditLog
 
 
 class TestAuditLog(unittest.TestCase):

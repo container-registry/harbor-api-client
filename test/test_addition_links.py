@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.addition_link import AdditionLink
+import harbor_client
+from harbor_client.model.addition_link import AdditionLink
 globals()['AdditionLink'] = AdditionLink
-from harbor-client.model.addition_links import AdditionLinks
+from harbor_client.model.addition_links import AdditionLinks
 
 
 class TestAdditionLinks(unittest.TestCase):

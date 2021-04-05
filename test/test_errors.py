@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.error import Error
+import harbor_client
+from harbor_client.model.error import Error
 globals()['Error'] = Error
-from harbor-client.model.errors import Errors
+from harbor_client.model.errors import Errors
 
 
 class TestErrors(unittest.TestCase):

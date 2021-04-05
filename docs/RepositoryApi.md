@@ -1,4 +1,4 @@
-# harbor-client.RepositoryApi
+# harbor_client.RepositoryApi
 
 All URIs are relative to *http://localhost/api/v2.0*
 
@@ -22,13 +22,13 @@ Delete the repository specified by name
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import repository_api
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import repository_api
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -38,13 +38,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = repository_api.RepositoryApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -55,7 +55,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Delete repository
         api_instance.delete_repository(project_name, repository_name)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling RepositoryApi->delete_repository: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -63,7 +63,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Delete repository
         api_instance.delete_repository(project_name, repository_name, x_request_id=x_request_id)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling RepositoryApi->delete_repository: %s\n" % e)
 ```
 
@@ -114,14 +114,14 @@ Get the repository specified by name
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import repository_api
-from harbor-client.model.repository import Repository
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import repository_api
+from harbor_client.model.repository import Repository
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -131,13 +131,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = repository_api.RepositoryApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -149,7 +149,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # Get repository
         api_response = api_instance.get_repository(project_name, repository_name)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling RepositoryApi->get_repository: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -158,7 +158,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # Get repository
         api_response = api_instance.get_repository(project_name, repository_name, x_request_id=x_request_id)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling RepositoryApi->get_repository: %s\n" % e)
 ```
 
@@ -209,14 +209,14 @@ List repositories of the specified project
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import repository_api
-from harbor-client.model.repository import Repository
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import repository_api
+from harbor_client.model.repository import Repository
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -226,13 +226,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = repository_api.RepositoryApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -246,7 +246,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # List repositories
         api_response = api_instance.list_repositories(project_name)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling RepositoryApi->list_repositories: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -255,7 +255,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # List repositories
         api_response = api_instance.list_repositories(project_name, x_request_id=x_request_id, q=q, page=page, page_size=page_size)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling RepositoryApi->list_repositories: %s\n" % e)
 ```
 
@@ -308,14 +308,14 @@ Update the repository specified by name
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import repository_api
-from harbor-client.model.repository import Repository
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import repository_api
+from harbor_client.model.repository import Repository
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -325,13 +325,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = repository_api.RepositoryApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -352,7 +352,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Update repository
         api_instance.update_repository(project_name, repository_name, repository)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling RepositoryApi->update_repository: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -360,7 +360,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Update repository
         api_instance.update_repository(project_name, repository_name, repository, x_request_id=x_request_id)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling RepositoryApi->update_repository: %s\n" % e)
 ```
 

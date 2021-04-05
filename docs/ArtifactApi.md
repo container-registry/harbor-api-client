@@ -1,4 +1,4 @@
-# harbor-client.ArtifactApi
+# harbor_client.ArtifactApi
 
 All URIs are relative to *http://localhost/api/v2.0*
 
@@ -28,14 +28,14 @@ Add label to the specified artiact.
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.label import Label
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.label import Label
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -45,13 +45,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -73,7 +73,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Add label to artifact
         api_instance.add_label(project_name, repository_name, reference, label)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->add_label: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -81,7 +81,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Add label to artifact
         api_instance.add_label(project_name, repository_name, reference, label, x_request_id=x_request_id)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->add_label: %s\n" % e)
 ```
 
@@ -135,13 +135,13 @@ Copy the artifact specified in the \"from\" parameter to the repository.
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -151,13 +151,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -169,7 +169,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Copy artifact
         api_instance.copy_artifact(project_name, repository_name, _from)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->copy_artifact: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -177,7 +177,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Copy artifact
         api_instance.copy_artifact(project_name, repository_name, _from, x_request_id=x_request_id)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->copy_artifact: %s\n" % e)
 ```
 
@@ -229,14 +229,14 @@ Create a tag for the specified artifact
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.tag import Tag
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.tag import Tag
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -246,13 +246,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -274,7 +274,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Create tag
         api_instance.create_tag(project_name, repository_name, reference, tag)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->create_tag: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -282,7 +282,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Create tag
         api_instance.create_tag(project_name, repository_name, reference, tag, x_request_id=x_request_id)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->create_tag: %s\n" % e)
 ```
 
@@ -336,13 +336,13 @@ Delete the artifact specified by the reference under the project and repository.
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -352,13 +352,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -370,7 +370,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Delete the specific artifact
         api_instance.delete_artifact(project_name, repository_name, reference)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->delete_artifact: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -378,7 +378,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Delete the specific artifact
         api_instance.delete_artifact(project_name, repository_name, reference, x_request_id=x_request_id)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->delete_artifact: %s\n" % e)
 ```
 
@@ -429,13 +429,13 @@ Delete the tag of the specified artifact
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -445,13 +445,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -464,7 +464,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Delete tag
         api_instance.delete_tag(project_name, repository_name, reference, tag_name)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->delete_tag: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -472,7 +472,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Delete tag
         api_instance.delete_tag(project_name, repository_name, reference, tag_name, x_request_id=x_request_id)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->delete_tag: %s\n" % e)
 ```
 
@@ -524,13 +524,13 @@ Get the addition of the artifact specified by the reference under the project an
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -540,13 +540,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -560,7 +560,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # Get the addition of the specific artifact
         api_response = api_instance.get_addition(project_name, repository_name, reference, addition)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->get_addition: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -569,7 +569,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # Get the addition of the specific artifact
         api_response = api_instance.get_addition(project_name, repository_name, reference, addition, x_request_id=x_request_id)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->get_addition: %s\n" % e)
 ```
 
@@ -622,14 +622,14 @@ Get the artifact specified by the reference under the project and repository. Th
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.artifact import Artifact
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.artifact import Artifact
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -639,13 +639,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -665,7 +665,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # Get the specific artifact
         api_response = api_instance.get_artifact(project_name, repository_name, reference)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->get_artifact: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -674,7 +674,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # Get the specific artifact
         api_response = api_instance.get_artifact(project_name, repository_name, reference, x_request_id=x_request_id, page=page, page_size=page_size, with_tag=with_tag, with_label=with_label, with_scan_overview=with_scan_overview, with_signature=with_signature, with_immutable_status=with_immutable_status)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->get_artifact: %s\n" % e)
 ```
 
@@ -733,14 +733,14 @@ List artifacts under the specific project and repository. Except the basic prope
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.artifact import Artifact
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.artifact import Artifact
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -750,13 +750,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -776,7 +776,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # List artifacts
         api_response = api_instance.list_artifacts(project_name, repository_name)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->list_artifacts: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -785,7 +785,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # List artifacts
         api_response = api_instance.list_artifacts(project_name, repository_name, x_request_id=x_request_id, q=q, page=page, page_size=page_size, with_tag=with_tag, with_label=with_label, with_scan_overview=with_scan_overview, with_signature=with_signature, with_immutable_status=with_immutable_status)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->list_artifacts: %s\n" % e)
 ```
 
@@ -844,14 +844,14 @@ List tags of the specific artifact
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.tag import Tag
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.tag import Tag
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -861,13 +861,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -885,7 +885,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # List tags
         api_response = api_instance.list_tags(project_name, repository_name, reference)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->list_tags: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -894,7 +894,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # List tags
         api_response = api_instance.list_tags(project_name, repository_name, reference, x_request_id=x_request_id, q=q, page=page, page_size=page_size, with_signature=with_signature, with_immutable_status=with_immutable_status)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->list_tags: %s\n" % e)
 ```
 
@@ -951,13 +951,13 @@ Remove the label from the specified artiact.
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import artifact_api
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -967,13 +967,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifact_api.ArtifactApi(api_client)
     project_name = "project_name_example" # str | The name of the project
@@ -986,7 +986,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Remove label from artifact
         api_instance.remove_label(project_name, repository_name, reference, label_id)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->remove_label: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -994,7 +994,7 @@ with harbor-client.ApiClient(configuration) as api_client:
     try:
         # Remove label from artifact
         api_instance.remove_label(project_name, repository_name, reference, label_id, x_request_id=x_request_id)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->remove_label: %s\n" % e)
 ```
 

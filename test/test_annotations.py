@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.annotations import Annotations
+import harbor_client
+from harbor_client.model.annotations import Annotations
 
 
 class TestAnnotations(unittest.TestCase):

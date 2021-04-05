@@ -11,12 +11,12 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.annotations import Annotations
-from harbor-client.model.platform import Platform
+import harbor_client
+from harbor_client.model.annotations import Annotations
+from harbor_client.model.platform import Platform
 globals()['Annotations'] = Annotations
 globals()['Platform'] = Platform
-from harbor-client.model.reference import Reference
+from harbor_client.model.reference import Reference
 
 
 class TestReference(unittest.TestCase):

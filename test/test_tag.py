@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.tag import Tag
+import harbor_client
+from harbor_client.model.tag import Tag
 
 
 class TestTag(unittest.TestCase):

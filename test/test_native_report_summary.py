@@ -11,10 +11,10 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.vulnerability_summary import VulnerabilitySummary
+import harbor_client
+from harbor_client.model.vulnerability_summary import VulnerabilitySummary
 globals()['VulnerabilitySummary'] = VulnerabilitySummary
-from harbor-client.model.native_report_summary import NativeReportSummary
+from harbor_client.model.native_report_summary import NativeReportSummary
 
 
 class TestNativeReportSummary(unittest.TestCase):

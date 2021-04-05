@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.platform import Platform
+import harbor_client
+from harbor_client.model.platform import Platform
 
 
 class TestPlatform(unittest.TestCase):

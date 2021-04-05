@@ -10,8 +10,8 @@
 
 import unittest
 
-import harbor-client
-from harbor-client.api.project_api import ProjectApi  # noqa: E501
+import harbor_client
+from harbor_client.api.project_api import ProjectApi  # noqa: E501
 
 
 class TestProjectApi(unittest.TestCase):

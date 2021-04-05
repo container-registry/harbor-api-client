@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.repository import Repository
+import harbor_client
+from harbor_client.model.repository import Repository
 
 
 class TestRepository(unittest.TestCase):

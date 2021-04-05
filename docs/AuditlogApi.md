@@ -1,4 +1,4 @@
-# harbor-client.AuditlogApi
+# harbor_client.AuditlogApi
 
 All URIs are relative to *http://localhost/api/v2.0*
 
@@ -19,14 +19,14 @@ This endpoint let user see the recent operation logs of the projects which he is
 * Basic Authentication (basic):
 ```python
 import time
-import harbor-client
-from harbor-client.api import auditlog_api
-from harbor-client.model.audit_log import AuditLog
-from harbor-client.model.errors import Errors
+import harbor_client
+from harbor_client.api import auditlog_api
+from harbor_client.model.audit_log import AuditLog
+from harbor_client.model.errors import Errors
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     host = "http://localhost/api/v2.0"
 )
 
@@ -36,13 +36,13 @@ configuration = harbor-client.Configuration(
 # satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor-client.Configuration(
+configuration = harbor_client.Configuration(
     username = 'YOUR_USERNAME',
     password = 'YOUR_PASSWORD'
 )
 
 # Enter a context with an instance of the API client
-with harbor-client.ApiClient(configuration) as api_client:
+with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auditlog_api.AuditlogApi(api_client)
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
@@ -56,7 +56,7 @@ with harbor-client.ApiClient(configuration) as api_client:
         # Get recent logs of the projects which the user is a member of
         api_response = api_instance.list_audit_logs(x_request_id=x_request_id, q=q, page=page, page_size=page_size)
         pprint(api_response)
-    except harbor-client.ApiException as e:
+    except harbor_client.ApiException as e:
         print("Exception when calling AuditlogApi->list_audit_logs: %s\n" % e)
 ```
 

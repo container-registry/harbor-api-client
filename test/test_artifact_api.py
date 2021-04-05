@@ -10,8 +10,8 @@
 
 import unittest
 
-import harbor-client
-from harbor-client.api.artifact_api import ArtifactApi  # noqa: E501
+import harbor_client
+from harbor_client.api.artifact_api import ArtifactApi  # noqa: E501
 
 
 class TestArtifactApi(unittest.TestCase):

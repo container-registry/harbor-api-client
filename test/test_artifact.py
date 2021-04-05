@@ -11,14 +11,14 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.addition_links import AdditionLinks
-from harbor-client.model.annotations import Annotations
-from harbor-client.model.extra_attrs import ExtraAttrs
-from harbor-client.model.label import Label
-from harbor-client.model.reference import Reference
-from harbor-client.model.scan_overview import ScanOverview
-from harbor-client.model.tag import Tag
+import harbor_client
+from harbor_client.model.addition_links import AdditionLinks
+from harbor_client.model.annotations import Annotations
+from harbor_client.model.extra_attrs import ExtraAttrs
+from harbor_client.model.label import Label
+from harbor_client.model.reference import Reference
+from harbor_client.model.scan_overview import ScanOverview
+from harbor_client.model.tag import Tag
 globals()['AdditionLinks'] = AdditionLinks
 globals()['Annotations'] = Annotations
 globals()['ExtraAttrs'] = ExtraAttrs
@@ -26,7 +26,7 @@ globals()['Label'] = Label
 globals()['Reference'] = Reference
 globals()['ScanOverview'] = ScanOverview
 globals()['Tag'] = Tag
-from harbor-client.model.artifact import Artifact
+from harbor_client.model.artifact import Artifact
 
 
 class TestArtifact(unittest.TestCase):

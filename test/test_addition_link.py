@@ -11,8 +11,8 @@
 import sys
 import unittest
 
-import harbor-client
-from harbor-client.model.addition_link import AdditionLink
+import harbor_client
+from harbor_client.model.addition_link import AdditionLink
 
 
 class TestAdditionLink(unittest.TestCase):

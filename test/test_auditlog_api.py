@@ -10,8 +10,8 @@
 
 import unittest
 
-import harbor-client
-from harbor-client.api.auditlog_api import AuditlogApi  # noqa: E501
+import harbor_client
+from harbor_client.api.auditlog_api import AuditlogApi  # noqa: E501
 
 
 class TestAuditlogApi(unittest.TestCase):
