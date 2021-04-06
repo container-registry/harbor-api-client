@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **scan_artifact**
 > scan_artifact(project_name, repository_name, reference)
@@ -179,7 +179,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -191,10 +191,11 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Accepted |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+**400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -12,7 +12,9 @@ import sys
 import unittest
 
 import harbor_client
+from harbor_client.model.scanner import Scanner
 from harbor_client.model.vulnerability_summary import VulnerabilitySummary
+globals()['Scanner'] = Scanner
 globals()['VulnerabilitySummary'] = VulnerabilitySummary
 from harbor_client.model.native_report_summary import NativeReportSummary
 

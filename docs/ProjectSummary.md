@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **repo_count** | **int** | The number of the repositories under this project. | [optional] 
 **quota** | [**ProjectSummaryQuota**](ProjectSummaryQuota.md) |  | [optional] 
 **guest_count** | **int** | The total number of guest members. | [optional] 
+**limited_guest_count** | **int** | The total number of limited guest members. | [optional] 
 **registry** | [**Registry**](Registry.md) |  | [optional] 
 **chart_count** | **int** | The total number of charts under this project. | [optional] 
 

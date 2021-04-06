@@ -81,9 +81,9 @@ class ProjectReq(ModelNormal):
         return {
             'project_name': (str,),  # noqa: E501
             'cve_allowlist': (CVEAllowlist,),  # noqa: E501
-            'count_limit': (int,),  # noqa: E501
-            'registry_id': (int,),  # noqa: E501
-            'storage_limit': (int,),  # noqa: E501
+            'registry_id': (int, none_type,),  # noqa: E501
+            'public': (bool, none_type,),  # noqa: E501
+            'storage_limit': (int, none_type,),  # noqa: E501
             'metadata': (ProjectMetadata,),  # noqa: E501
         }
 
@@ -95,8 +95,8 @@ class ProjectReq(ModelNormal):
     attribute_map = {
         'project_name': 'project_name',  # noqa: E501
         'cve_allowlist': 'cve_allowlist',  # noqa: E501
-        'count_limit': 'count_limit',  # noqa: E501
         'registry_id': 'registry_id',  # noqa: E501
+        'public': 'public',  # noqa: E501
         'storage_limit': 'storage_limit',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
     }
@@ -149,9 +149,9 @@ class ProjectReq(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             project_name (str): The name of the project.. [optional]  # noqa: E501
             cve_allowlist (CVEAllowlist): [optional]  # noqa: E501
-            count_limit (int): The count quota of the project.. [optional]  # noqa: E501
-            registry_id (int): The ID of referenced registry when creating the proxy cache project. [optional]  # noqa: E501
-            storage_limit (int): The storage quota of the project.. [optional]  # noqa: E501
+            registry_id (int, none_type): The ID of referenced registry when creating the proxy cache project. [optional]  # noqa: E501
+            public (bool, none_type): deprecated, reserved for project creation in replication. [optional]  # noqa: E501
+            storage_limit (int, none_type): The storage quota of the project.. [optional]  # noqa: E501
             metadata (ProjectMetadata): [optional]  # noqa: E501
         """
 

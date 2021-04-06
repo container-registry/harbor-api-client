@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**delete_tag**](ArtifactApi.md#delete_tag) | **DELETE** /projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/tags/{tag_name} | Delete tag
 [**get_addition**](ArtifactApi.md#get_addition) | **GET** /projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/additions/{addition} | Get the addition of the specific artifact
 [**get_artifact**](ArtifactApi.md#get_artifact) | **GET** /projects/{project_name}/repositories/{repository_name}/artifacts/{reference} | Get the specific artifact
+[**get_vulnerabilities_addition**](ArtifactApi.md#get_vulnerabilities_addition) | **GET** /projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/additions/vulnerabilities | Get the vulnerabilities addition of the specific artifact
 [**list_artifacts**](ArtifactApi.md#list_artifacts) | **GET** /projects/{project_name}/repositories/{repository_name}/artifacts | List artifacts
 [**list_tags**](ArtifactApi.md#list_tags) | **GET** /projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/tags | List tags
 [**remove_label**](ArtifactApi.md#remove_label) | **DELETE** /projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/labels/{label_id} | Remove label from artifact
@@ -58,14 +59,14 @@ with harbor_client.ApiClient(configuration) as api_client:
     repository_name = "repository_name_example" # str | The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
     reference = "reference_example" # str | The reference of the artifact, can be digest or tag
     label = Label(
-        id=1,
-        name="name_example",
+        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
         description="description_example",
         color="color_example",
+        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
         scope="scope_example",
         project_id=1,
-        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        id=1,
+        name="name_example",
     ) # Label | The label that added to the artifact. Only the ID property is needed.
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
 
@@ -102,7 +103,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -121,7 +122,7 @@ void (empty response body)
 **409** | Conflict |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **copy_artifact**
 > copy_artifact(project_name, repository_name, _from)
@@ -197,7 +198,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -213,9 +214,10 @@ void (empty response body)
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+**405** | Method not allowed |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tag**
 > create_tag(project_name, repository_name, reference, tag)
@@ -231,8 +233,8 @@ Create a tag for the specified artifact
 import time
 import harbor_client
 from harbor_client.api import artifact_api
-from harbor_client.model.tag import Tag
 from harbor_client.model.errors import Errors
+from harbor_client.model.tag import Tag
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
@@ -259,14 +261,14 @@ with harbor_client.ApiClient(configuration) as api_client:
     repository_name = "repository_name_example" # str | The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
     reference = "reference_example" # str | The reference of the artifact, can be digest or tag
     tag = Tag(
-        id=1,
         repository_id=1,
-        artifact_id=1,
         name="name_example",
         push_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
         pull_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        immutable=True,
         signed=True,
+        id=1,
+        immutable=True,
+        artifact_id=1,
     ) # Tag | The JSON object of tag.
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
 
@@ -303,7 +305,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -319,10 +321,11 @@ void (empty response body)
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+**405** | Method not allowed |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **409** | Conflict |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_artifact**
 > delete_artifact(project_name, repository_name, reference)
@@ -398,7 +401,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -415,7 +418,7 @@ void (empty response body)
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_tag**
 > delete_tag(project_name, repository_name, reference, tag_name)
@@ -493,7 +496,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -510,7 +513,7 @@ void (empty response body)
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_addition**
 > str get_addition(project_name, repository_name, reference, addition)
@@ -590,7 +593,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -608,7 +611,7 @@ Name | Type | Description  | Notes
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_artifact**
 > Artifact get_artifact(project_name, repository_name, reference)
@@ -654,6 +657,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
     page = 1 # int | The page number (optional) if omitted the server will use the default value of 1
     page_size = 10 # int | The size of per page (optional) if omitted the server will use the default value of 10
+    x_accept_vulnerabilities = "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0" # str | A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports 'application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' and 'application/vnd.security.vulnerability.report; version=1.1' (optional) if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
     with_tag = True # bool | Specify whether the tags are inclued inside the returning artifacts (optional) if omitted the server will use the default value of True
     with_label = False # bool | Specify whether the labels are inclued inside the returning artifacts (optional) if omitted the server will use the default value of False
     with_scan_overview = False # bool | Specify whether the scan overview is inclued inside the returning artifacts (optional) if omitted the server will use the default value of False
@@ -672,7 +676,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get the specific artifact
-        api_response = api_instance.get_artifact(project_name, repository_name, reference, x_request_id=x_request_id, page=page, page_size=page_size, with_tag=with_tag, with_label=with_label, with_scan_overview=with_scan_overview, with_signature=with_signature, with_immutable_status=with_immutable_status)
+        api_response = api_instance.get_artifact(project_name, repository_name, reference, x_request_id=x_request_id, page=page, page_size=page_size, x_accept_vulnerabilities=x_accept_vulnerabilities, with_tag=with_tag, with_label=with_label, with_scan_overview=with_scan_overview, with_signature=with_signature, with_immutable_status=with_immutable_status)
         pprint(api_response)
     except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->get_artifact: %s\n" % e)
@@ -689,6 +693,7 @@ Name | Type | Description  | Notes
  **x_request_id** | **str**| An unique ID for the request | [optional]
  **page** | **int**| The page number | [optional] if omitted the server will use the default value of 1
  **page_size** | **int**| The size of per page | [optional] if omitted the server will use the default value of 10
+ **x_accept_vulnerabilities** | **str**| A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports &#39;application/vnd.scanner.adapter.vuln.report.harbor+json; version&#x3D;1.0&#39; and &#39;application/vnd.security.vulnerability.report; version&#x3D;1.1&#39; | [optional] if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
  **with_tag** | **bool**| Specify whether the tags are inclued inside the returning artifacts | [optional] if omitted the server will use the default value of True
  **with_label** | **bool**| Specify whether the labels are inclued inside the returning artifacts | [optional] if omitted the server will use the default value of False
  **with_scan_overview** | **bool**| Specify whether the scan overview is inclued inside the returning artifacts | [optional] if omitted the server will use the default value of False
@@ -701,7 +706,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -719,7 +724,105 @@ Name | Type | Description  | Notes
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_vulnerabilities_addition**
+> str get_vulnerabilities_addition(project_name, repository_name, reference)
+
+Get the vulnerabilities addition of the specific artifact
+
+Get the vulnerabilities addition of the artifact specified by the reference under the project and repository.
+
+### Example
+
+* Basic Authentication (basic):
+```python
+import time
+import harbor_client
+from harbor_client.api import artifact_api
+from harbor_client.model.errors import Errors
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost/api/v2.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = harbor_client.Configuration(
+    host = "http://localhost/api/v2.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = harbor_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with harbor_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = artifact_api.ArtifactApi(api_client)
+    project_name = "project_name_example" # str | The name of the project
+    repository_name = "repository_name_example" # str | The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
+    reference = "reference_example" # str | The reference of the artifact, can be digest or tag
+    x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
+    x_accept_vulnerabilities = "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0" # str | A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports 'application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' and 'application/vnd.security.vulnerability.report; version=1.1' (optional) if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get the vulnerabilities addition of the specific artifact
+        api_response = api_instance.get_vulnerabilities_addition(project_name, repository_name, reference)
+        pprint(api_response)
+    except harbor_client.ApiException as e:
+        print("Exception when calling ArtifactApi->get_vulnerabilities_addition: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get the vulnerabilities addition of the specific artifact
+        api_response = api_instance.get_vulnerabilities_addition(project_name, repository_name, reference, x_request_id=x_request_id, x_accept_vulnerabilities=x_accept_vulnerabilities)
+        pprint(api_response)
+    except harbor_client.ApiException as e:
+        print("Exception when calling ArtifactApi->get_vulnerabilities_addition: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_name** | **str**| The name of the project |
+ **repository_name** | **str**| The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -&gt; a%252Fb |
+ **reference** | **str**| The reference of the artifact, can be digest or tag |
+ **x_request_id** | **str**| An unique ID for the request | [optional]
+ **x_accept_vulnerabilities** | **str**| A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports &#39;application/vnd.scanner.adapter.vuln.report.harbor+json; version&#x3D;1.0&#39; and &#39;application/vnd.security.vulnerability.report; version&#x3D;1.1&#39; | [optional] if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
+
+### Return type
+
+**str**
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  * Content-Type - The content type of the addition <br>  |
+**400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+**404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_artifacts**
 > [Artifact] list_artifacts(project_name, repository_name)
@@ -765,6 +868,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     q = "q_example" # str | Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max] (optional)
     page = 1 # int | The page number (optional) if omitted the server will use the default value of 1
     page_size = 10 # int | The size of per page (optional) if omitted the server will use the default value of 10
+    x_accept_vulnerabilities = "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0" # str | A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports 'application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' and 'application/vnd.security.vulnerability.report; version=1.1' (optional) if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
     with_tag = True # bool | Specify whether the tags are included inside the returning artifacts (optional) if omitted the server will use the default value of True
     with_label = False # bool | Specify whether the labels are included inside the returning artifacts (optional) if omitted the server will use the default value of False
     with_scan_overview = False # bool | Specify whether the scan overview is included inside the returning artifacts (optional) if omitted the server will use the default value of False
@@ -783,7 +887,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List artifacts
-        api_response = api_instance.list_artifacts(project_name, repository_name, x_request_id=x_request_id, q=q, page=page, page_size=page_size, with_tag=with_tag, with_label=with_label, with_scan_overview=with_scan_overview, with_signature=with_signature, with_immutable_status=with_immutable_status)
+        api_response = api_instance.list_artifacts(project_name, repository_name, x_request_id=x_request_id, q=q, page=page, page_size=page_size, x_accept_vulnerabilities=x_accept_vulnerabilities, with_tag=with_tag, with_label=with_label, with_scan_overview=with_scan_overview, with_signature=with_signature, with_immutable_status=with_immutable_status)
         pprint(api_response)
     except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->list_artifacts: %s\n" % e)
@@ -800,6 +904,7 @@ Name | Type | Description  | Notes
  **q** | **str**| Query string to query resources. Supported query patterns are \&quot;exact match(k&#x3D;v)\&quot;, \&quot;fuzzy match(k&#x3D;~v)\&quot;, \&quot;range(k&#x3D;[min~max])\&quot;, \&quot;list with union releationship(k&#x3D;{v1 v2 v3})\&quot; and \&quot;list with intersetion relationship(k&#x3D;(v1 v2 v3))\&quot;. The value of range and list can be string(enclosed by \&quot; or &#39;), integer or time(in format \&quot;2020-04-09 02:36:00\&quot;). All of these query patterns should be put in the query string \&quot;q&#x3D;xxx\&quot; and splitted by \&quot;,\&quot;. e.g. q&#x3D;k1&#x3D;v1,k2&#x3D;~v2,k3&#x3D;[min~max] | [optional]
  **page** | **int**| The page number | [optional] if omitted the server will use the default value of 1
  **page_size** | **int**| The size of per page | [optional] if omitted the server will use the default value of 10
+ **x_accept_vulnerabilities** | **str**| A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports &#39;application/vnd.scanner.adapter.vuln.report.harbor+json; version&#x3D;1.0&#39; and &#39;application/vnd.security.vulnerability.report; version&#x3D;1.1&#39; | [optional] if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
  **with_tag** | **bool**| Specify whether the tags are included inside the returning artifacts | [optional] if omitted the server will use the default value of True
  **with_label** | **bool**| Specify whether the labels are included inside the returning artifacts | [optional] if omitted the server will use the default value of False
  **with_scan_overview** | **bool**| Specify whether the scan overview is included inside the returning artifacts | [optional] if omitted the server will use the default value of False
@@ -812,7 +917,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -823,14 +928,14 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * X-Total-Count - The total count of auditlogs <br>  * Link - Link refers to the previous page and next page <br>  |
+**200** | Success |  * X-Total-Count - The total count of tags <br>  * Link - Link refers to the previous page and next page <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_tags**
 > [Tag] list_tags(project_name, repository_name, reference)
@@ -846,8 +951,8 @@ List tags of the specific artifact
 import time
 import harbor_client
 from harbor_client.api import artifact_api
-from harbor_client.model.tag import Tag
 from harbor_client.model.errors import Errors
+from harbor_client.model.tag import Tag
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
@@ -919,7 +1024,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -930,14 +1035,14 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * X-Total-Count - The total count of auditlogs <br>  * Link - Link refers to the previous page and next page <br>  |
+**200** | Success |  * X-Total-Count - The total count of tags <br>  * Link - Link refers to the previous page and next page <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_label**
 > remove_label(project_name, repository_name, reference, label_id)
@@ -1015,7 +1120,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -1033,5 +1138,5 @@ void (empty response body)
 **409** | Conflict |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -72,12 +72,12 @@ class AuditLog(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (int,),  # noqa: E501
             'username': (str,),  # noqa: E501
             'resource': (str,),  # noqa: E501
-            'resource_type': (str,),  # noqa: E501
             'operation': (str,),  # noqa: E501
-            'op_time': (str,),  # noqa: E501
+            'op_time': (datetime,),  # noqa: E501
+            'id': (int,),  # noqa: E501
+            'resource_type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -86,12 +86,12 @@ class AuditLog(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
         'username': 'username',  # noqa: E501
         'resource': 'resource',  # noqa: E501
-        'resource_type': 'resource_type',  # noqa: E501
         'operation': 'operation',  # noqa: E501
         'op_time': 'op_time',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'resource_type': 'resource_type',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -140,12 +140,12 @@ class AuditLog(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (int): The ID of the audit log entry.. [optional]  # noqa: E501
             username (str): Username of the user in this log entry.. [optional]  # noqa: E501
             resource (str): Name of the repository in this log entry.. [optional]  # noqa: E501
-            resource_type (str): Tag of the repository in this log entry.. [optional]  # noqa: E501
             operation (str): The operation against the repository in this log entry.. [optional]  # noqa: E501
-            op_time (str): The time when this operation is triggered.. [optional]  # noqa: E501
+            op_time (datetime): The time when this operation is triggered.. [optional]  # noqa: E501
+            id (int): The ID of the audit log entry.. [optional]  # noqa: E501
+            resource_type (str): Tag of the repository in this log entry.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

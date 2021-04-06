@@ -82,7 +82,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -100,7 +100,7 @@ void (empty response body)
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_repository**
 > Repository get_repository(project_name, repository_name)
@@ -116,8 +116,8 @@ Get the repository specified by name
 import time
 import harbor_client
 from harbor_client.api import repository_api
-from harbor_client.model.repository import Repository
 from harbor_client.model.errors import Errors
+from harbor_client.model.repository import Repository
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_repositories**
 > [Repository] list_repositories(project_name)
@@ -211,8 +211,8 @@ List repositories of the specified project
 import time
 import harbor_client
 from harbor_client.api import repository_api
-from harbor_client.model.repository import Repository
 from harbor_client.model.errors import Errors
+from harbor_client.model.repository import Repository
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -287,14 +287,14 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * X-Total-Count - The total count of auditlogs <br>  * Link - Link refers to the previous page and next page <br>  |
+**200** | Success |  * X-Total-Count - The total count of tags <br>  * Link - Link refers to the previous page and next page <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_repository**
 > update_repository(project_name, repository_name, repository)
@@ -310,8 +310,8 @@ Update the repository specified by name
 import time
 import harbor_client
 from harbor_client.api import repository_api
-from harbor_client.model.repository import Repository
 from harbor_client.model.errors import Errors
+from harbor_client.model.repository import Repository
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
@@ -337,14 +337,14 @@ with harbor_client.ApiClient(configuration) as api_client:
     project_name = "project_name_example" # str | The name of the project
     repository_name = "repository_name_example" # str | The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
     repository = Repository(
-        id=1,
-        project_id=1,
-        name="name_example",
+        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
         description="description_example",
-        artifact_count=1,
         pull_count=1,
         creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        artifact_count=1,
+        project_id=1,
+        id=1,
+        name="name_example",
     ) # Repository | The JSON object of repository.
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
 
@@ -380,7 +380,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../_README.md#basic)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -398,5 +398,5 @@ void (empty response body)
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
-[[Back to top]](#) [[Back to API list]](../_README.md#documentation-for-api-endpoints) [[Back to Model list]](../_README.md#documentation-for-models) [[Back to README]](../_README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

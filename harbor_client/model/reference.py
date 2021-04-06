@@ -79,12 +79,12 @@ class Reference(ModelNormal):
         """
         lazy_import()
         return {
+            'platform': (Platform,),  # noqa: E501
+            'child_digest': (str,),  # noqa: E501
+            'urls': ([str],),  # noqa: E501
             'parent_id': (int,),  # noqa: E501
             'child_id': (int,),  # noqa: E501
-            'child_digest': (str,),  # noqa: E501
-            'platform': (Platform,),  # noqa: E501
             'annotations': (Annotations,),  # noqa: E501
-            'urls': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -93,12 +93,12 @@ class Reference(ModelNormal):
 
 
     attribute_map = {
+        'platform': 'platform',  # noqa: E501
+        'child_digest': 'child_digest',  # noqa: E501
+        'urls': 'urls',  # noqa: E501
         'parent_id': 'parent_id',  # noqa: E501
         'child_id': 'child_id',  # noqa: E501
-        'child_digest': 'child_digest',  # noqa: E501
-        'platform': 'platform',  # noqa: E501
         'annotations': 'annotations',  # noqa: E501
-        'urls': 'urls',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -147,12 +147,12 @@ class Reference(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            platform (Platform): [optional]  # noqa: E501
+            child_digest (str): The digest of the child artifact. [optional]  # noqa: E501
+            urls ([str]): The download URLs. [optional]  # noqa: E501
             parent_id (int): The parent ID of the reference. [optional]  # noqa: E501
             child_id (int): The child ID of the reference. [optional]  # noqa: E501
-            child_digest (str): The digest of the child artifact. [optional]  # noqa: E501
-            platform (Platform): [optional]  # noqa: E501
             annotations (Annotations): [optional]  # noqa: E501
-            urls ([str]): The download URLs. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

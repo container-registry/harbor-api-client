@@ -89,23 +89,24 @@ class Artifact(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (int,),  # noqa: E501
-            'type': (str,),  # noqa: E501
-            'media_type': (str,),  # noqa: E501
-            'manifest_media_type': (str,),  # noqa: E501
-            'project_id': (int,),  # noqa: E501
-            'repository_id': (int,),  # noqa: E501
-            'digest': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'push_time': (datetime,),  # noqa: E501
-            'pull_time': (datetime,),  # noqa: E501
-            'extra_attrs': (ExtraAttrs,),  # noqa: E501
-            'annotations': (Annotations,),  # noqa: E501
-            'references': ([Reference],),  # noqa: E501
-            'tags': ([Tag],),  # noqa: E501
-            'addition_links': (AdditionLinks,),  # noqa: E501
-            'labels': ([Label],),  # noqa: E501
             'scan_overview': (ScanOverview,),  # noqa: E501
+            'tags': ([Tag],),  # noqa: E501
+            'pull_time': (datetime,),  # noqa: E501
+            'labels': ([Label],),  # noqa: E501
+            'references': ([Reference],),  # noqa: E501
+            'manifest_media_type': (str,),  # noqa: E501
+            'extra_attrs': (ExtraAttrs,),  # noqa: E501
+            'id': (int,),  # noqa: E501
+            'digest': (str,),  # noqa: E501
+            'icon': (str,),  # noqa: E501
+            'repository_id': (int,),  # noqa: E501
+            'addition_links': (AdditionLinks,),  # noqa: E501
+            'media_type': (str,),  # noqa: E501
+            'project_id': (int,),  # noqa: E501
+            'type': (str,),  # noqa: E501
+            'annotations': (Annotations,),  # noqa: E501
         }
 
     @cached_property
@@ -114,23 +115,24 @@ class Artifact(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'media_type': 'media_type',  # noqa: E501
-        'manifest_media_type': 'manifest_media_type',  # noqa: E501
-        'project_id': 'project_id',  # noqa: E501
-        'repository_id': 'repository_id',  # noqa: E501
-        'digest': 'digest',  # noqa: E501
         'size': 'size',  # noqa: E501
         'push_time': 'push_time',  # noqa: E501
-        'pull_time': 'pull_time',  # noqa: E501
-        'extra_attrs': 'extra_attrs',  # noqa: E501
-        'annotations': 'annotations',  # noqa: E501
-        'references': 'references',  # noqa: E501
-        'tags': 'tags',  # noqa: E501
-        'addition_links': 'addition_links',  # noqa: E501
-        'labels': 'labels',  # noqa: E501
         'scan_overview': 'scan_overview',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
+        'pull_time': 'pull_time',  # noqa: E501
+        'labels': 'labels',  # noqa: E501
+        'references': 'references',  # noqa: E501
+        'manifest_media_type': 'manifest_media_type',  # noqa: E501
+        'extra_attrs': 'extra_attrs',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'digest': 'digest',  # noqa: E501
+        'icon': 'icon',  # noqa: E501
+        'repository_id': 'repository_id',  # noqa: E501
+        'addition_links': 'addition_links',  # noqa: E501
+        'media_type': 'media_type',  # noqa: E501
+        'project_id': 'project_id',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'annotations': 'annotations',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -179,23 +181,24 @@ class Artifact(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (int): The ID of the artifact. [optional]  # noqa: E501
-            type (str): The type of the artifact, e.g. image, chart, etc. [optional]  # noqa: E501
-            media_type (str): The media type of the artifact. [optional]  # noqa: E501
-            manifest_media_type (str): The manifest media type of the artifact. [optional]  # noqa: E501
-            project_id (int): The ID of the project that the artifact belongs to. [optional]  # noqa: E501
-            repository_id (int): The ID of the repository that the artifact belongs to. [optional]  # noqa: E501
-            digest (str): The digest of the artifact. [optional]  # noqa: E501
             size (int): The size of the artifact. [optional]  # noqa: E501
             push_time (datetime): The push time of the artifact. [optional]  # noqa: E501
-            pull_time (datetime): The latest pull time of the artifact. [optional]  # noqa: E501
-            extra_attrs (ExtraAttrs): [optional]  # noqa: E501
-            annotations (Annotations): [optional]  # noqa: E501
-            references ([Reference]): [optional]  # noqa: E501
-            tags ([Tag]): [optional]  # noqa: E501
-            addition_links (AdditionLinks): [optional]  # noqa: E501
-            labels ([Label]): [optional]  # noqa: E501
             scan_overview (ScanOverview): [optional]  # noqa: E501
+            tags ([Tag]): [optional]  # noqa: E501
+            pull_time (datetime): The latest pull time of the artifact. [optional]  # noqa: E501
+            labels ([Label]): [optional]  # noqa: E501
+            references ([Reference]): [optional]  # noqa: E501
+            manifest_media_type (str): The manifest media type of the artifact. [optional]  # noqa: E501
+            extra_attrs (ExtraAttrs): [optional]  # noqa: E501
+            id (int): The ID of the artifact. [optional]  # noqa: E501
+            digest (str): The digest of the artifact. [optional]  # noqa: E501
+            icon (str): The digest of the icon. [optional]  # noqa: E501
+            repository_id (int): The ID of the repository that the artifact belongs to. [optional]  # noqa: E501
+            addition_links (AdditionLinks): [optional]  # noqa: E501
+            media_type (str): The media type of the artifact. [optional]  # noqa: E501
+            project_id (int): The ID of the project that the artifact belongs to. [optional]  # noqa: E501
+            type (str): The type of the artifact, e.g. image, chart, etc. [optional]  # noqa: E501
+            annotations (Annotations): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

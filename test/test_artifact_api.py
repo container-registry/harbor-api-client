@@ -72,6 +72,13 @@ class TestArtifactApi(unittest.TestCase):
         """
         pass
 
+    def test_get_vulnerabilities_addition(self):
+        """Test case for get_vulnerabilities_addition
+
+        Get the vulnerabilities addition of the specific artifact  # noqa: E501
+        """
+        pass
+
     def test_list_artifacts(self):
         """Test case for list_artifacts
 

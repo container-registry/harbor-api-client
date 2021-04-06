@@ -947,8 +947,7 @@ class ArtifactApi(object):
                         "BUILD_HISTORY": "build_history",
                         "VALUES.YAML": "values.yaml",
                         "README.MD": "readme.md",
-                        "DEPENDENCIES": "dependencies",
-                        "VULNERABILITIES": "vulnerabilities"
+                        "DEPENDENCIES": "dependencies"
                     },
                 },
                 'openapi_types': {
@@ -1015,6 +1014,7 @@ class ArtifactApi(object):
                 x_request_id (str): An unique ID for the request. [optional]
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
+                x_accept_vulnerabilities (str): A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports 'application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' and 'application/vnd.security.vulnerability.report; version=1.1'. [optional] if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
                 with_tag (bool): Specify whether the tags are inclued inside the returning artifacts. [optional] if omitted the server will use the default value of True
                 with_label (bool): Specify whether the labels are inclued inside the returning artifacts. [optional] if omitted the server will use the default value of False
                 with_scan_overview (bool): Specify whether the scan overview is inclued inside the returning artifacts. [optional] if omitted the server will use the default value of False
@@ -1091,11 +1091,201 @@ class ArtifactApi(object):
                     'x_request_id',
                     'page',
                     'page_size',
+                    'x_accept_vulnerabilities',
                     'with_tag',
                     'with_label',
                     'with_scan_overview',
                     'with_signature',
                     'with_immutable_status',
+                ],
+                'required': [
+                    'project_name',
+                    'repository_name',
+                    'reference',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'x_request_id',
+                    'page_size',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('x_request_id',): {
+
+                        'min_length': 1,
+                    },
+                    ('page_size',): {
+
+                        'inclusive_maximum': 100,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_name':
+                        (str,),
+                    'repository_name':
+                        (str,),
+                    'reference':
+                        (str,),
+                    'x_request_id':
+                        (str,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
+                    'x_accept_vulnerabilities':
+                        (str,),
+                    'with_tag':
+                        (bool,),
+                    'with_label':
+                        (bool,),
+                    'with_scan_overview':
+                        (bool,),
+                    'with_signature':
+                        (bool,),
+                    'with_immutable_status':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'project_name': 'project_name',
+                    'repository_name': 'repository_name',
+                    'reference': 'reference',
+                    'x_request_id': 'X-Request-Id',
+                    'page': 'page',
+                    'page_size': 'page_size',
+                    'x_accept_vulnerabilities': 'X-Accept-Vulnerabilities',
+                    'with_tag': 'with_tag',
+                    'with_label': 'with_label',
+                    'with_scan_overview': 'with_scan_overview',
+                    'with_signature': 'with_signature',
+                    'with_immutable_status': 'with_immutable_status',
+                },
+                'location_map': {
+                    'project_name': 'path',
+                    'repository_name': 'path',
+                    'reference': 'path',
+                    'x_request_id': 'header',
+                    'page': 'query',
+                    'page_size': 'query',
+                    'x_accept_vulnerabilities': 'header',
+                    'with_tag': 'query',
+                    'with_label': 'query',
+                    'with_scan_overview': 'query',
+                    'with_signature': 'query',
+                    'with_immutable_status': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_artifact
+        )
+
+        def __get_vulnerabilities_addition(
+            self,
+            project_name,
+            repository_name,
+            reference,
+            **kwargs
+        ):
+            """Get the vulnerabilities addition of the specific artifact  # noqa: E501
+
+            Get the vulnerabilities addition of the artifact specified by the reference under the project and repository.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.get_vulnerabilities_addition(project_name, repository_name, reference, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_name (str): The name of the project
+                repository_name (str): The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
+                reference (str): The reference of the artifact, can be digest or tag
+
+            Keyword Args:
+                x_request_id (str): An unique ID for the request. [optional]
+                x_accept_vulnerabilities (str): A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports 'application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' and 'application/vnd.security.vulnerability.report; version=1.1'. [optional] if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                str
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_name'] = \
+                project_name
+            kwargs['repository_name'] = \
+                repository_name
+            kwargs['reference'] = \
+                reference
+            return self.call_with_http_info(**kwargs)
+
+        self.get_vulnerabilities_addition = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/additions/vulnerabilities',
+                'operation_id': 'get_vulnerabilities_addition',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_name',
+                    'repository_name',
+                    'reference',
+                    'x_request_id',
+                    'x_accept_vulnerabilities',
                 ],
                 'required': [
                     'project_name',
@@ -1128,46 +1318,22 @@ class ArtifactApi(object):
                         (str,),
                     'x_request_id':
                         (str,),
-                    'page':
-                        (int,),
-                    'page_size':
-                        (int,),
-                    'with_tag':
-                        (bool,),
-                    'with_label':
-                        (bool,),
-                    'with_scan_overview':
-                        (bool,),
-                    'with_signature':
-                        (bool,),
-                    'with_immutable_status':
-                        (bool,),
+                    'x_accept_vulnerabilities':
+                        (str,),
                 },
                 'attribute_map': {
                     'project_name': 'project_name',
                     'repository_name': 'repository_name',
                     'reference': 'reference',
                     'x_request_id': 'X-Request-Id',
-                    'page': 'page',
-                    'page_size': 'page_size',
-                    'with_tag': 'with_tag',
-                    'with_label': 'with_label',
-                    'with_scan_overview': 'with_scan_overview',
-                    'with_signature': 'with_signature',
-                    'with_immutable_status': 'with_immutable_status',
+                    'x_accept_vulnerabilities': 'X-Accept-Vulnerabilities',
                 },
                 'location_map': {
                     'project_name': 'path',
                     'repository_name': 'path',
                     'reference': 'path',
                     'x_request_id': 'header',
-                    'page': 'query',
-                    'page_size': 'query',
-                    'with_tag': 'query',
-                    'with_label': 'query',
-                    'with_scan_overview': 'query',
-                    'with_signature': 'query',
-                    'with_immutable_status': 'query',
+                    'x_accept_vulnerabilities': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -1179,7 +1345,7 @@ class ArtifactApi(object):
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__get_artifact
+            callable=__get_vulnerabilities_addition
         )
 
         def __list_artifacts(
@@ -1206,6 +1372,7 @@ class ArtifactApi(object):
                 q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
+                x_accept_vulnerabilities (str): A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports 'application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' and 'application/vnd.security.vulnerability.report; version=1.1'. [optional] if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
                 with_tag (bool): Specify whether the tags are included inside the returning artifacts. [optional] if omitted the server will use the default value of True
                 with_label (bool): Specify whether the labels are included inside the returning artifacts. [optional] if omitted the server will use the default value of False
                 with_scan_overview (bool): Specify whether the scan overview is included inside the returning artifacts. [optional] if omitted the server will use the default value of False
@@ -1280,6 +1447,7 @@ class ArtifactApi(object):
                     'q',
                     'page',
                     'page_size',
+                    'x_accept_vulnerabilities',
                     'with_tag',
                     'with_label',
                     'with_scan_overview',
@@ -1296,6 +1464,7 @@ class ArtifactApi(object):
                 ],
                 'validation': [
                     'x_request_id',
+                    'page_size',
                 ]
             },
             root_map={
@@ -1303,6 +1472,10 @@ class ArtifactApi(object):
                     ('x_request_id',): {
 
                         'min_length': 1,
+                    },
+                    ('page_size',): {
+
+                        'inclusive_maximum': 100,
                     },
                 },
                 'allowed_values': {
@@ -1320,6 +1493,8 @@ class ArtifactApi(object):
                         (int,),
                     'page_size':
                         (int,),
+                    'x_accept_vulnerabilities':
+                        (str,),
                     'with_tag':
                         (bool,),
                     'with_label':
@@ -1338,6 +1513,7 @@ class ArtifactApi(object):
                     'q': 'q',
                     'page': 'page',
                     'page_size': 'page_size',
+                    'x_accept_vulnerabilities': 'X-Accept-Vulnerabilities',
                     'with_tag': 'with_tag',
                     'with_label': 'with_label',
                     'with_scan_overview': 'with_scan_overview',
@@ -1351,6 +1527,7 @@ class ArtifactApi(object):
                     'q': 'query',
                     'page': 'query',
                     'page_size': 'query',
+                    'x_accept_vulnerabilities': 'header',
                     'with_tag': 'query',
                     'with_label': 'query',
                     'with_scan_overview': 'query',
@@ -1484,6 +1661,7 @@ class ArtifactApi(object):
                 ],
                 'validation': [
                     'x_request_id',
+                    'page_size',
                 ]
             },
             root_map={
@@ -1491,6 +1669,10 @@ class ArtifactApi(object):
                     ('x_request_id',): {
 
                         'min_length': 1,
+                    },
+                    ('page_size',): {
+
+                        'inclusive_maximum': 100,
                     },
                 },
                 'allowed_values': {

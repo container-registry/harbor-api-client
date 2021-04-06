@@ -85,6 +85,7 @@ class ProjectSummary(ModelNormal):
             'repo_count': (int,),  # noqa: E501
             'quota': (ProjectSummaryQuota,),  # noqa: E501
             'guest_count': (int,),  # noqa: E501
+            'limited_guest_count': (int,),  # noqa: E501
             'registry': (Registry,),  # noqa: E501
             'chart_count': (int,),  # noqa: E501
         }
@@ -101,6 +102,7 @@ class ProjectSummary(ModelNormal):
         'repo_count': 'repo_count',  # noqa: E501
         'quota': 'quota',  # noqa: E501
         'guest_count': 'guest_count',  # noqa: E501
+        'limited_guest_count': 'limited_guest_count',  # noqa: E501
         'registry': 'registry',  # noqa: E501
         'chart_count': 'chart_count',  # noqa: E501
     }
@@ -157,6 +159,7 @@ class ProjectSummary(ModelNormal):
             repo_count (int): The number of the repositories under this project.. [optional]  # noqa: E501
             quota (ProjectSummaryQuota): [optional]  # noqa: E501
             guest_count (int): The total number of guest members.. [optional]  # noqa: E501
+            limited_guest_count (int): The total number of limited guest members.. [optional]  # noqa: E501
             registry (Registry): [optional]  # noqa: E501
             chart_count (int): The total number of charts under this project.. [optional]  # noqa: E501
         """

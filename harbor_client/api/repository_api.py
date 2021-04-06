@@ -415,6 +415,7 @@ class RepositoryApi(object):
                 ],
                 'validation': [
                     'x_request_id',
+                    'page_size',
                 ]
             },
             root_map={
@@ -422,6 +423,10 @@ class RepositoryApi(object):
                     ('x_request_id',): {
 
                         'min_length': 1,
+                    },
+                    ('page_size',): {
+
+                        'inclusive_maximum': 100,
                     },
                 },
                 'allowed_values': {
