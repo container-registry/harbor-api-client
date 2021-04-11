@@ -14,6 +14,7 @@ paths:
         The endpoint returns the health stauts of the system.
       tags:
         - Products
+      operationId: health
       responses:
         '200':
           description: The system health status.
@@ -21,14 +22,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OverallHealthStatus'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/OverallHealthStatus'
   '/projects/{project_id}/metadatas':
     get:
       summary: Get project metadata.
       description: |
         This endpoint returns metadata of the project specified by project ID.
+      operationId: projectMetadata
       parameters:
         - name: project_id
           in: path
@@ -46,9 +45,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectMetadata'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ProjectMetadata'
         '401':
           description: User need to login first.
         '500':
@@ -57,6 +53,7 @@ paths:
       summary: Add metadata for the project.
       description: |
         This endpoint is aimed to add metadata of a project.
+      operationId: setProjectMetadata
       parameters:
         - name: project_id
           in: path
@@ -94,6 +91,7 @@ paths:
       summary: Get project metadata
       description: |
         This endpoint returns specified metadata of a project.
+      operationId: specifiedProjectMetadata
       parameters:
         - name: project_id
           in: path
@@ -117,9 +115,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectMetadata'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ProjectMetadata'
         '401':
           description: User need to log in first.
         '500':
@@ -128,6 +123,7 @@ paths:
       summary: Update metadata of a project.
       description: |
         This endpoint is aimed to update the metadata of a project.
+      operationId: updateProjectMetadata
       parameters:
         - name: project_id
           in: path
@@ -161,6 +157,7 @@ paths:
       summary: Delete metadata of a project
       description: |
         This endpoint is aimed to delete metadata of a project.
+      operationId: removeProjectMetadata
       parameters:
         - name: project_id
           in: path
@@ -192,6 +189,7 @@ paths:
     get:
       summary: Get all project member information
       description: Get all project member information
+      operationId: allProjectMembers
       parameters:
         - name: project_id
           in: path
@@ -216,11 +214,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ProjectMemberEntity'
-            text/plain:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ProjectMemberEntity'
         '400':
           description: The project id is invalid.
         '401':
@@ -241,6 +234,7 @@ paths:
         user. The group_member need to specify id or ldap_group_dn. If the group
         already exist in harbor DB. specify the user group's id,  If does not
         exist, it will SearchAndOnBoard the group.
+      operationId: createProjectMemberRelationship
       tags:
         - Products
       parameters:
@@ -282,6 +276,7 @@ paths:
     get:
       summary: Get the project member information
       description: Get the project member information
+      operationId: projectMember
       tags:
         - Products
       parameters:
@@ -306,9 +301,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectMemberEntity'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ProjectMemberEntity'
         '400':
           description: 'Illegal format of project member or invalid project id, member id.'
         '401':
@@ -322,6 +314,7 @@ paths:
     put:
       summary: Update project member
       description: Update project member relationship
+      operationId: setProjectMember
       tags:
         - Products
       parameters:
@@ -361,6 +354,7 @@ paths:
           description: Unexpected internal errors.
     delete:
       summary: Delete project member
+      operationId: deleteProjectMember
       tags:
         - Products
       parameters:
@@ -397,6 +391,7 @@ paths:
         repositories number relevant to the logined user, also the public
         projects number and repositories number. If the user is admin, he can
         also get total projects number and total repositories number.
+      operationId: statistics
       tags:
         - Products
       responses:
@@ -406,9 +401,6 @@ paths:
             successfully.
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/StatisticMap'
-            text/plain:
               schema:
                 $ref: '#/components/schemas/StatisticMap'
         '401':
@@ -422,6 +414,7 @@ paths:
         This endpoint is for user to search registered users, support for
         filtering results with username.Notice, by now this operation is only
         for administrator.
+      operationId: users
       parameters:
         - name: username
           in: query
@@ -469,11 +462,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-            text/plain:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
         '400':
           description: Invalid user ID.
         '401':
@@ -486,6 +474,7 @@ paths:
       summary: Creates a new user account.
       description: |
         This endpoint is to create a user if the user does not already exist.
+      operationId: createUser
       requestBody:
         content:
           application/json:
@@ -518,6 +507,7 @@ paths:
       summary: Get current user info.
       description: |
         This endpoint is to get the current user information.
+      operationId: currentUser
       tags:
         - Products
       responses:
@@ -527,9 +517,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/User'
         '401':
           description: User need to log in first.
   '/users/current/permissions':
@@ -537,6 +524,7 @@ paths:
       summary: Get current user permissions.
       description: |
         This endpoint is to get the current user permissions.
+      operationId: currentUserPermissions
       parameters:
         - name: scope
           in: query
@@ -565,11 +553,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Permission'
-            text/plain:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Permission'
         '401':
           description: User need to log in first.
         '500':
@@ -579,6 +562,7 @@ paths:
       summary: Search users by username
       description: |
         This endpoint is to search the users by username.
+      operationId: searchUser
       parameters:
         - name: username
           in: query
@@ -620,11 +604,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserSearch'
-            text/plain:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UserSearch'
         '500':
           description: Unexpected internal errors.
   '/users/{user_id}':
@@ -632,6 +611,7 @@ paths:
       summary: Get a user's profile.
       description: |
         Get user's profile with user id.
+      operationId: user
       parameters:
         - name: user_id
           in: path
@@ -649,9 +629,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/User'
         '400':
           description: Invalid user ID.
         '401':
@@ -666,6 +643,7 @@ paths:
       summary: Update a registered user to change his profile.
       description: |
         This endpoint let a registered user change his profile.
+      operationId: updateUser
       parameters:
         - name: user_id
           in: path
@@ -701,6 +679,7 @@ paths:
       description: |
         This endpoint let administrator of Harbor mark a registered user as
         be removed.It actually won't be deleted from DB.
+      operationId: removeUser
       parameters:
         - name: user_id
           in: path
@@ -731,6 +710,7 @@ paths:
         This endpoint is for user to update password. Users with the admin role
         can change any user's password. Guest users can change only their own
         password.
+      operationId: changePassword
       parameters:
         - name: user_id
           in: path
@@ -770,6 +750,7 @@ paths:
       description: |
         This endpoint let a registered user change to be an administrator
         of Harbor.
+      operationId: makeAdmin
       parameters:
         - name: user_id
           in: path
@@ -811,6 +792,7 @@ paths:
         invalid, as there will be only one CLI secret
 
         for a user.
+      operationId: setCliSecret
       parameters:
         - name: user_id
           in: path
@@ -856,6 +838,7 @@ paths:
       summary: List labels according to the query strings.
       description: |
         This endpoint let user list labels by name, scope and project_id
+      operationId: listLabel
       parameters:
         - name: name
           in: query
@@ -912,11 +895,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Label'
-            text/plain:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Label'
         '400':
           description: Invalid parameters.
         '401':
@@ -927,6 +905,7 @@ paths:
       summary: Post creates a label
       description: |
         This endpoint let user creates a label.
+      operationId: createLabel
       requestBody:
         content:
           application/json:
@@ -959,6 +938,7 @@ paths:
       summary: Get the label specified by ID.
       description: |
         This endpoint let user get the label by specific ID.
+      operationId: label
       parameters:
         - name: id
           in: path
@@ -976,9 +956,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Label'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/Label'
         '401':
           description: User need to log in first.
         '404':
@@ -989,6 +966,7 @@ paths:
       summary: Update the label properties.
       description: |
         This endpoint let user update label properties.
+      operationId: updateLabel
       parameters:
         - name: id
           in: path
@@ -1023,6 +1001,7 @@ paths:
       summary: Delete the label specified by ID.
       description: |
         Delete the label specified by ID.
+      operationId: removeLabelById
       parameters:
         - name: id
           in: path
@@ -1044,10 +1023,11 @@ paths:
           description: The resource does not exist.
         '500':
           description: Unexpected internal errors.
-  '/usergroups':
+  /usergroups:
     get:
       summary: Get all user groups information
       description: Get all user groups information
+      operationId: listUserGroups
       tags:
         - Products
       responses:
@@ -1055,11 +1035,6 @@ paths:
           description: Get user group successfully.
           content:
             application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UserGroup'
-            text/plain:
               schema:
                 type: array
                 items:
@@ -1073,6 +1048,7 @@ paths:
     post:
       summary: Create user group
       description: Create user group information
+      operationId: createUsergroup
       tags:
         - Products
       requestBody:
@@ -1101,6 +1077,7 @@ paths:
     get:
       summary: Get user group information
       description: Get user group information
+      operationId: usergroup
       tags:
         - Products
       parameters:
@@ -1118,9 +1095,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserGroup'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/UserGroup'
         '400':
           description: The user group id is invalid.
         '401':
@@ -1134,6 +1108,7 @@ paths:
     put:
       summary: Update group information
       description: Update user group information
+      operationId: updateUsergroup
       tags:
         - Products
       parameters:
@@ -1162,6 +1137,7 @@ paths:
     delete:
       summary: Delete user group
       description: Delete user group
+      operationId: deleteUsergroup
       tags:
         - Products
       parameters:
@@ -1187,6 +1163,7 @@ paths:
       description: >
         This endpoint is for retrieving system configurations that only provides
         for admin user.
+      operationId: systemConfiguration
       tags:
         - Products
       responses:
@@ -1194,9 +1171,6 @@ paths:
           description: Get system configurations successfully. The response body is a map.
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ConfigurationsResponse'
-            text/plain:
               schema:
                 $ref: '#/components/schemas/ConfigurationsResponse'
         '401':
@@ -1210,6 +1184,7 @@ paths:
       description: >
         This endpoint is for modifying system configurations that only provides
         for admin user.
+      operationId: updateSystemConfiguration
       tags:
         - Products
       requestBody:
@@ -1233,6 +1208,7 @@ paths:
   '/email/ping':
     post:
       summary: Test connection and authentication with email server.
+      operationId: emailPing
       description: |
         Test connection and authentication with email server.
       requestBody:
@@ -1262,6 +1238,7 @@ paths:
     get:
       summary: Return the attahced labels of chart.
       description: Return the attahced labels of the specified chart version.
+      operationId: listAttahcedLabelsOfChart
       tags:
         - Products
         - Chart Repository
@@ -1299,6 +1276,7 @@ paths:
     post:
       summary: Mark label to chart.
       description: Mark label to the specified chart version.
+      operationId: markLabelToChart
       tags:
         - Products
         - Chart Repository
@@ -1348,6 +1326,7 @@ paths:
     delete:
       summary: Remove label from chart.
       description: Remove label from the specified chart version.
+      operationId: removeLabelFromChart
       tags:
         - Products
         - Chart Repository
@@ -1390,6 +1369,7 @@ paths:
           $ref: '#/components/schemas/NotFoundChartAPIError'
         '500':
           $ref: '#/components/schemas/InternalChartAPIError'
+
   /search:
     get:
       summary: 'Search for projects, repositories and helm charts'
@@ -2025,7 +2005,7 @@ paths:
       description: Copy the artifact specified in the "from" parameter to the repository.
       tags:
         - artifact
-      operationId: CopyArtifact
+      operationId: copyArtifact
       parameters:
         - $ref: '#/components/parameters/requestId'
         - $ref: '#/components/parameters/projectName'
@@ -4825,6 +4805,7 @@ paths:
         This API is for retrieving general system info, this can be called by
         anonymous request.  Some attributes will be omitted in the response when
         this API is called by anonymous request.
+      operationId: systeminfo
       tags:
         - systeminfo
       responses:
@@ -4843,6 +4824,7 @@ paths:
         This endpoint is for retrieving system volume info that only provides
         for admin user.  Note that the response only reflects the storage status
         of local disk.
+      operationId: systeminfoVolumes
       tags:
         - systeminfo
       responses:
@@ -4865,6 +4847,7 @@ paths:
       summary: Get default root certificate.
       description: |
         This endpoint is for downloading a default root certificate.
+      operationId: systeminfoCert
       tags:
         - systeminfo
       responses:
@@ -5199,6 +5182,7 @@ paths:
       description: >-
         This API simply replies a pong to indicate the process to handle API is
         up, disregarding the health status of dependent components.
+      operationId: ping
       tags:
         - ping
       responses:

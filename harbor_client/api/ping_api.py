@@ -35,7 +35,7 @@ class PingApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        def __ping_get(
+        def __ping(
             self,
             **kwargs
         ):
@@ -45,7 +45,7 @@ class PingApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.ping_get(async_req=True)
+            >>> thread = api.ping(async_req=True)
             >>> result = thread.get()
 
 
@@ -96,14 +96,14 @@ class PingApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             return self.call_with_http_info(**kwargs)
 
-        self.ping_get = _Endpoint(
+        self.ping = _Endpoint(
             settings={
                 'response_type': (str,),
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/ping',
-                'operation_id': 'ping_get',
+                'operation_id': 'ping',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -139,5 +139,5 @@ class PingApi(object):
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__ping_get
+            callable=__ping
         )

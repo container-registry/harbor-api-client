@@ -575,7 +575,7 @@ paths:
       description: Copy the artifact specified in the "from" parameter to the repository.
       tags:
         - artifact
-      operationId: CopyArtifact
+      operationId: copyArtifact
       parameters:
         - $ref: '#/parameters/requestId'
         - $ref: '#/parameters/projectName'

@@ -53,7 +53,1539 @@ class ProductsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        def __chartrepo_repo_charts_name_version_labels_get(
+        def __all_project_members(
+            self,
+            project_id,
+            **kwargs
+        ):
+            """Get all project member information  # noqa: E501
+
+            Get all project member information  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.all_project_members(project_id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_id (int): Relevant project ID.
+
+            Keyword Args:
+                entityname (str): The entity name to search.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [ProjectMemberEntity]
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_id'] = \
+                project_id
+            return self.call_with_http_info(**kwargs)
+
+        self.all_project_members = _Endpoint(
+            settings={
+                'response_type': ([ProjectMemberEntity],),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_id}/members',
+                'operation_id': 'all_project_members',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                    'entityname',
+                ],
+                'required': [
+                    'project_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (int,),
+                    'entityname':
+                        (str,),
+                },
+                'attribute_map': {
+                    'project_id': 'project_id',
+                    'entityname': 'entityname',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                    'entityname': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__all_project_members
+        )
+
+        def __change_password(
+            self,
+            user_id,
+            password,
+            **kwargs
+        ):
+            """Change the password on a user that already exists.  # noqa: E501
+
+            This endpoint is for user to update password. Users with the admin role can change any user's password. Guest users can change only their own password.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.change_password(user_id, password, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                user_id (int): Registered user ID.
+                password (Password): Password to be updated, the attribute 'old_password' is optional when the API is called by the system administrator.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['user_id'] = \
+                user_id
+            kwargs['password'] = \
+                password
+            return self.call_with_http_info(**kwargs)
+
+        self.change_password = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/users/{user_id}/password',
+                'operation_id': 'change_password',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                    'password',
+                ],
+                'required': [
+                    'user_id',
+                    'password',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (int,),
+                    'password':
+                        (Password,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                    'password': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__change_password
+        )
+
+        def __create_label(
+            self,
+            label,
+            **kwargs
+        ):
+            """Post creates a label  # noqa: E501
+
+            This endpoint let user creates a label.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.create_label(label, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                label (Label): The json object of label.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['label'] = \
+                label
+            return self.call_with_http_info(**kwargs)
+
+        self.create_label = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/labels',
+                'operation_id': 'create_label',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'label',
+                ],
+                'required': [
+                    'label',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'label':
+                        (Label,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'label': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__create_label
+        )
+
+        def __create_project_member_relationship(
+            self,
+            project_id,
+            **kwargs
+        ):
+            """Create project member  # noqa: E501
+
+            Create project member relationship, the member can be one of the user_member and group_member,  The user_member need to specify user_id or username. If the user already exist in harbor DB, specify the user_id,  If does not exist in harbor DB, it will SearchAndOnBoard the user. The group_member need to specify id or ldap_group_dn. If the group already exist in harbor DB. specify the user group's id,  If does not exist, it will SearchAndOnBoard the group.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.create_project_member_relationship(project_id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_id (int): Relevant project ID.
+
+            Keyword Args:
+                project_member (ProjectMember): [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_id'] = \
+                project_id
+            return self.call_with_http_info(**kwargs)
+
+        self.create_project_member_relationship = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_id}/members',
+                'operation_id': 'create_project_member_relationship',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                    'project_member',
+                ],
+                'required': [
+                    'project_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (int,),
+                    'project_member':
+                        (ProjectMember,),
+                },
+                'attribute_map': {
+                    'project_id': 'project_id',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                    'project_member': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__create_project_member_relationship
+        )
+
+        def __create_user(
+            self,
+            user,
+            **kwargs
+        ):
+            """Creates a new user account.  # noqa: E501
+
+            This endpoint is to create a user if the user does not already exist.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.create_user(user, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                user (User): New created user.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['user'] = \
+                user
+            return self.call_with_http_info(**kwargs)
+
+        self.create_user = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/users',
+                'operation_id': 'create_user',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user',
+                ],
+                'required': [
+                    'user',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user':
+                        (User,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'user': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__create_user
+        )
+
+        def __create_usergroup(
+            self,
+            **kwargs
+        ):
+            """Create user group  # noqa: E501
+
+            Create user group information  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.create_usergroup(async_req=True)
+            >>> result = thread.get()
+
+
+            Keyword Args:
+                user_group (UserGroup): [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
+
+        self.create_usergroup = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/usergroups',
+                'operation_id': 'create_usergroup',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_group',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_group':
+                        (UserGroup,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'user_group': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__create_usergroup
+        )
+
+        def __current_user(
+            self,
+            **kwargs
+        ):
+            """Get current user info.  # noqa: E501
+
+            This endpoint is to get the current user information.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.current_user(async_req=True)
+            >>> result = thread.get()
+
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                User
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
+
+        self.current_user = _Endpoint(
+            settings={
+                'response_type': (User,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/users/current',
+                'operation_id': 'current_user',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__current_user
+        )
+
+        def __current_user_permissions(
+            self,
+            **kwargs
+        ):
+            """Get current user permissions.  # noqa: E501
+
+            This endpoint is to get the current user permissions.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.current_user_permissions(async_req=True)
+            >>> result = thread.get()
+
+
+            Keyword Args:
+                scope (str): Get permissions of the scope. [optional]
+                relative (bool): If true, the resources in the response are relative to the scope, eg for resource '/project/1/repository' if relative is 'true' then the resource in response will be 'repository'. . [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [Permission]
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
+
+        self.current_user_permissions = _Endpoint(
+            settings={
+                'response_type': ([Permission],),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/users/current/permissions',
+                'operation_id': 'current_user_permissions',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'scope',
+                    'relative',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'scope':
+                        (str,),
+                    'relative':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'scope': 'scope',
+                    'relative': 'relative',
+                },
+                'location_map': {
+                    'scope': 'query',
+                    'relative': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__current_user_permissions
+        )
+
+        def __delete_project_member(
+            self,
+            project_id,
+            mid,
+            **kwargs
+        ):
+            """Delete project member  # noqa: E501
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.delete_project_member(project_id, mid, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_id (int): Relevant project ID.
+                mid (int): Member ID.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_id'] = \
+                project_id
+            kwargs['mid'] = \
+                mid
+            return self.call_with_http_info(**kwargs)
+
+        self.delete_project_member = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_id}/members/{mid}',
+                'operation_id': 'delete_project_member',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                    'mid',
+                ],
+                'required': [
+                    'project_id',
+                    'mid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (int,),
+                    'mid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'project_id': 'project_id',
+                    'mid': 'mid',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                    'mid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__delete_project_member
+        )
+
+        def __delete_usergroup(
+            self,
+            group_id,
+            **kwargs
+        ):
+            """Delete user group  # noqa: E501
+
+            Delete user group  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.delete_usergroup(group_id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                group_id (int):
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['group_id'] = \
+                group_id
+            return self.call_with_http_info(**kwargs)
+
+        self.delete_usergroup = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/usergroups/{group_id}',
+                'operation_id': 'delete_usergroup',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'group_id',
+                ],
+                'required': [
+                    'group_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'group_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'group_id': 'group_id',
+                },
+                'location_map': {
+                    'group_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__delete_usergroup
+        )
+
+        def __email_ping(
+            self,
+            **kwargs
+        ):
+            """Test connection and authentication with email server.  # noqa: E501
+
+            Test connection and authentication with email server.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.email_ping(async_req=True)
+            >>> result = thread.get()
+
+
+            Keyword Args:
+                email_server_setting (EmailServerSetting): Email server settings, if some of the settings are not assigned, they will be read from system configuration.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
+
+        self.email_ping = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/email/ping',
+                'operation_id': 'email_ping',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'email_server_setting',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'email_server_setting':
+                        (EmailServerSetting,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'email_server_setting': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__email_ping
+        )
+
+        def __health(
+            self,
+            **kwargs
+        ):
+            """Health check API  # noqa: E501
+
+            The endpoint returns the health stauts of the system.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.health(async_req=True)
+            >>> result = thread.get()
+
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                OverallHealthStatus
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
+
+        self.health = _Endpoint(
+            settings={
+                'response_type': (OverallHealthStatus,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/health',
+                'operation_id': 'health',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__health
+        )
+
+        def __label(
+            self,
+            id,
+            **kwargs
+        ):
+            """Get the label specified by ID.  # noqa: E501
+
+            This endpoint let user get the label by specific ID.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.label(id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                id (int): Label ID
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                Label
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
+
+        self.label = _Endpoint(
+            settings={
+                'response_type': (Label,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/labels/{id}',
+                'operation_id': 'label',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__label
+        )
+
+        def __list_attahced_labels_of_chart(
             self,
             repo,
             name,
@@ -66,7 +1598,7 @@ class ProductsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.chartrepo_repo_charts_name_version_labels_get(repo, name, version, async_req=True)
+            >>> thread = api.list_attahced_labels_of_chart(repo, name, version, async_req=True)
             >>> result = thread.get()
 
             Args:
@@ -127,14 +1659,14 @@ class ProductsApi(object):
                 version
             return self.call_with_http_info(**kwargs)
 
-        self.chartrepo_repo_charts_name_version_labels_get = _Endpoint(
+        self.list_attahced_labels_of_chart = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/chartrepo/{repo}/charts/{name}/{version}/labels',
-                'operation_id': 'chartrepo_repo_charts_name_version_labels_get',
+                'operation_id': 'list_attahced_labels_of_chart',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -187,31 +1719,277 @@ class ProductsApi(object):
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__chartrepo_repo_charts_name_version_labels_get
+            callable=__list_attahced_labels_of_chart
         )
 
-        def __chartrepo_repo_charts_name_version_labels_id_delete(
+        def __list_label(
             self,
-            repo,
-            name,
-            version,
-            id,
+            scope,
             **kwargs
         ):
-            """Remove label from chart.  # noqa: E501
+            """List labels according to the query strings.  # noqa: E501
 
-            Remove label from the specified chart version.  # noqa: E501
+            This endpoint let user list labels by name, scope and project_id   # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.chartrepo_repo_charts_name_version_labels_id_delete(repo, name, version, id, async_req=True)
+            >>> thread = api.list_label(scope, async_req=True)
             >>> result = thread.get()
 
             Args:
-                repo (str): The project name
-                name (str): The chart name
-                version (str): The chart version
-                id (int): The label ID
+                scope (str): The label scope. Valid values are g and p. g for global labels and p for project labels.
+
+            Keyword Args:
+                name (str): The label name.. [optional]
+                project_id (int): Relevant project ID, required when scope is p.. [optional]
+                page (int): The page number.. [optional]
+                page_size (int): The size of per page.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [Label]
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['scope'] = \
+                scope
+            return self.call_with_http_info(**kwargs)
+
+        self.list_label = _Endpoint(
+            settings={
+                'response_type': ([Label],),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/labels',
+                'operation_id': 'list_label',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'scope',
+                    'name',
+                    'project_id',
+                    'page',
+                    'page_size',
+                ],
+                'required': [
+                    'scope',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'scope':
+                        (str,),
+                    'name':
+                        (str,),
+                    'project_id':
+                        (int,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
+                },
+                'attribute_map': {
+                    'scope': 'scope',
+                    'name': 'name',
+                    'project_id': 'project_id',
+                    'page': 'page',
+                    'page_size': 'page_size',
+                },
+                'location_map': {
+                    'scope': 'query',
+                    'name': 'query',
+                    'project_id': 'query',
+                    'page': 'query',
+                    'page_size': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__list_label
+        )
+
+        def __list_user_groups(
+            self,
+            **kwargs
+        ):
+            """Get all user groups information  # noqa: E501
+
+            Get all user groups information  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.list_user_groups(async_req=True)
+            >>> result = thread.get()
+
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [UserGroup]
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
+
+        self.list_user_groups = _Endpoint(
+            settings={
+                'response_type': ([UserGroup],),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/usergroups',
+                'operation_id': 'list_user_groups',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__list_user_groups
+        )
+
+        def __make_admin(
+            self,
+            user_id,
+            sys_admin_flag,
+            **kwargs
+        ):
+            """Update a registered user to change to be an administrator of Harbor.  # noqa: E501
+
+            This endpoint let a registered user change to be an administrator of Harbor.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.make_admin(user_id, sys_admin_flag, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                user_id (int): Registered user ID
+                sys_admin_flag (SysAdminFlag): Toggle a user to admin or not.
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -258,39 +2036,31 @@ class ProductsApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['repo'] = \
-                repo
-            kwargs['name'] = \
-                name
-            kwargs['version'] = \
-                version
-            kwargs['id'] = \
-                id
+            kwargs['user_id'] = \
+                user_id
+            kwargs['sys_admin_flag'] = \
+                sys_admin_flag
             return self.call_with_http_info(**kwargs)
 
-        self.chartrepo_repo_charts_name_version_labels_id_delete = _Endpoint(
+        self.make_admin = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
-                'endpoint_path': '/chartrepo/{repo}/charts/{name}/{version}/labels/{id}',
-                'operation_id': 'chartrepo_repo_charts_name_version_labels_id_delete',
-                'http_method': 'DELETE',
+                'endpoint_path': '/users/{user_id}/sysadmin',
+                'operation_id': 'make_admin',
+                'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'repo',
-                    'name',
-                    'version',
-                    'id',
+                    'user_id',
+                    'sys_admin_flag',
                 ],
                 'required': [
-                    'repo',
-                    'name',
-                    'version',
-                    'id',
+                    'user_id',
+                    'sys_admin_flag',
                 ],
                 'nullable': [
                 ],
@@ -305,39 +2075,32 @@ class ProductsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'repo':
-                        (str,),
-                    'name':
-                        (str,),
-                    'version':
-                        (str,),
-                    'id':
+                    'user_id':
                         (int,),
+                    'sys_admin_flag':
+                        (SysAdminFlag,),
                 },
                 'attribute_map': {
-                    'repo': 'repo',
-                    'name': 'name',
-                    'version': 'version',
-                    'id': 'id',
+                    'user_id': 'user_id',
                 },
                 'location_map': {
-                    'repo': 'path',
-                    'name': 'path',
-                    'version': 'path',
-                    'id': 'path',
+                    'user_id': 'path',
+                    'sys_admin_flag': 'body',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
                 'accept': [],
-                'content_type': [],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client,
-            callable=__chartrepo_repo_charts_name_version_labels_id_delete
+            callable=__make_admin
         )
 
-        def __chartrepo_repo_charts_name_version_labels_post(
+        def __mark_label_to_chart(
             self,
             repo,
             name,
@@ -351,7 +2114,7 @@ class ProductsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.chartrepo_repo_charts_name_version_labels_post(repo, name, version, label, async_req=True)
+            >>> thread = api.mark_label_to_chart(repo, name, version, label, async_req=True)
             >>> result = thread.get()
 
             Args:
@@ -415,14 +2178,14 @@ class ProductsApi(object):
                 label
             return self.call_with_http_info(**kwargs)
 
-        self.chartrepo_repo_charts_name_version_labels_post = _Endpoint(
+        self.mark_label_to_chart = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/chartrepo/{repo}/charts/{name}/{version}/labels',
-                'operation_id': 'chartrepo_repo_charts_name_version_labels_post',
+                'operation_id': 'mark_label_to_chart',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -482,1335 +2245,10 @@ class ProductsApi(object):
                 ]
             },
             api_client=api_client,
-            callable=__chartrepo_repo_charts_name_version_labels_post
+            callable=__mark_label_to_chart
         )
 
-        def __configurations_get(
-            self,
-            **kwargs
-        ):
-            """Get system configurations.  # noqa: E501
-
-            This endpoint is for retrieving system configurations that only provides for admin user.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.configurations_get(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ConfigurationsResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.configurations_get = _Endpoint(
-            settings={
-                'response_type': (ConfigurationsResponse,),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/configurations',
-                'operation_id': 'configurations_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__configurations_get
-        )
-
-        def __configurations_put(
-            self,
-            configurations,
-            **kwargs
-        ):
-            """Modify system configurations.  # noqa: E501
-
-            This endpoint is for modifying system configurations that only provides for admin user.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.configurations_put(configurations, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                configurations (Configurations): The configuration map can contain a subset of the attributes of the schema, which are to be updated.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['configurations'] = \
-                configurations
-            return self.call_with_http_info(**kwargs)
-
-        self.configurations_put = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/configurations',
-                'operation_id': 'configurations_put',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'configurations',
-                ],
-                'required': [
-                    'configurations',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'configurations':
-                        (Configurations,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'configurations': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client,
-            callable=__configurations_put
-        )
-
-        def __email_ping_post(
-            self,
-            **kwargs
-        ):
-            """Test connection and authentication with email server.  # noqa: E501
-
-            Test connection and authentication with email server.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.email_ping_post(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                email_server_setting (EmailServerSetting): Email server settings, if some of the settings are not assigned, they will be read from system configuration.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.email_ping_post = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/email/ping',
-                'operation_id': 'email_ping_post',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'email_server_setting',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'email_server_setting':
-                        (EmailServerSetting,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'email_server_setting': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client,
-            callable=__email_ping_post
-        )
-
-        def __health_get(
-            self,
-            **kwargs
-        ):
-            """Health check API  # noqa: E501
-
-            The endpoint returns the health stauts of the system.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.health_get(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                OverallHealthStatus
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.health_get = _Endpoint(
-            settings={
-                'response_type': (OverallHealthStatus,),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/health',
-                'operation_id': 'health_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__health_get
-        )
-
-        def __labels_get(
-            self,
-            scope,
-            **kwargs
-        ):
-            """List labels according to the query strings.  # noqa: E501
-
-            This endpoint let user list labels by name, scope and project_id   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.labels_get(scope, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                scope (str): The label scope. Valid values are g and p. g for global labels and p for project labels.
-
-            Keyword Args:
-                name (str): The label name.. [optional]
-                project_id (int): Relevant project ID, required when scope is p.. [optional]
-                page (int): The page number.. [optional]
-                page_size (int): The size of per page.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [Label]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['scope'] = \
-                scope
-            return self.call_with_http_info(**kwargs)
-
-        self.labels_get = _Endpoint(
-            settings={
-                'response_type': ([Label],),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/labels',
-                'operation_id': 'labels_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'scope',
-                    'name',
-                    'project_id',
-                    'page',
-                    'page_size',
-                ],
-                'required': [
-                    'scope',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'scope':
-                        (str,),
-                    'name':
-                        (str,),
-                    'project_id':
-                        (int,),
-                    'page':
-                        (int,),
-                    'page_size':
-                        (int,),
-                },
-                'attribute_map': {
-                    'scope': 'scope',
-                    'name': 'name',
-                    'project_id': 'project_id',
-                    'page': 'page',
-                    'page_size': 'page_size',
-                },
-                'location_map': {
-                    'scope': 'query',
-                    'name': 'query',
-                    'project_id': 'query',
-                    'page': 'query',
-                    'page_size': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__labels_get
-        )
-
-        def __labels_id_delete(
-            self,
-            id,
-            **kwargs
-        ):
-            """Delete the label specified by ID.  # noqa: E501
-
-            Delete the label specified by ID.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.labels_id_delete(id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                id (int): Label ID
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['id'] = \
-                id
-            return self.call_with_http_info(**kwargs)
-
-        self.labels_id_delete = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/labels/{id}',
-                'operation_id': 'labels_id_delete',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__labels_id_delete
-        )
-
-        def __labels_id_get(
-            self,
-            id,
-            **kwargs
-        ):
-            """Get the label specified by ID.  # noqa: E501
-
-            This endpoint let user get the label by specific ID.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.labels_id_get(id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                id (int): Label ID
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Label
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['id'] = \
-                id
-            return self.call_with_http_info(**kwargs)
-
-        self.labels_id_get = _Endpoint(
-            settings={
-                'response_type': (Label,),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/labels/{id}',
-                'operation_id': 'labels_id_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__labels_id_get
-        )
-
-        def __labels_id_put(
-            self,
-            id,
-            label,
-            **kwargs
-        ):
-            """Update the label properties.  # noqa: E501
-
-            This endpoint let user update label properties.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.labels_id_put(id, label, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                id (int): Label ID
-                label (Label): The updated label json object.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['id'] = \
-                id
-            kwargs['label'] = \
-                label
-            return self.call_with_http_info(**kwargs)
-
-        self.labels_id_put = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/labels/{id}',
-                'operation_id': 'labels_id_put',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'label',
-                ],
-                'required': [
-                    'id',
-                    'label',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (int,),
-                    'label':
-                        (Label,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'label': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client,
-            callable=__labels_id_put
-        )
-
-        def __labels_post(
-            self,
-            label,
-            **kwargs
-        ):
-            """Post creates a label  # noqa: E501
-
-            This endpoint let user creates a label.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.labels_post(label, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                label (Label): The json object of label.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['label'] = \
-                label
-            return self.call_with_http_info(**kwargs)
-
-        self.labels_post = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/labels',
-                'operation_id': 'labels_post',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'label',
-                ],
-                'required': [
-                    'label',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'label':
-                        (Label,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'label': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client,
-            callable=__labels_post
-        )
-
-        def __projects_project_id_members_get(
-            self,
-            project_id,
-            **kwargs
-        ):
-            """Get all project member information  # noqa: E501
-
-            Get all project member information  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.projects_project_id_members_get(project_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                project_id (int): Relevant project ID.
-
-            Keyword Args:
-                entityname (str): The entity name to search.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [ProjectMemberEntity]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['project_id'] = \
-                project_id
-            return self.call_with_http_info(**kwargs)
-
-        self.projects_project_id_members_get = _Endpoint(
-            settings={
-                'response_type': ([ProjectMemberEntity],),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/projects/{project_id}/members',
-                'operation_id': 'projects_project_id_members_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'project_id',
-                    'entityname',
-                ],
-                'required': [
-                    'project_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'project_id':
-                        (int,),
-                    'entityname':
-                        (str,),
-                },
-                'attribute_map': {
-                    'project_id': 'project_id',
-                    'entityname': 'entityname',
-                },
-                'location_map': {
-                    'project_id': 'path',
-                    'entityname': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__projects_project_id_members_get
-        )
-
-        def __projects_project_id_members_mid_delete(
-            self,
-            project_id,
-            mid,
-            **kwargs
-        ):
-            """Delete project member  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.projects_project_id_members_mid_delete(project_id, mid, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                project_id (int): Relevant project ID.
-                mid (int): Member ID.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['project_id'] = \
-                project_id
-            kwargs['mid'] = \
-                mid
-            return self.call_with_http_info(**kwargs)
-
-        self.projects_project_id_members_mid_delete = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/projects/{project_id}/members/{mid}',
-                'operation_id': 'projects_project_id_members_mid_delete',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'project_id',
-                    'mid',
-                ],
-                'required': [
-                    'project_id',
-                    'mid',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'project_id':
-                        (int,),
-                    'mid':
-                        (int,),
-                },
-                'attribute_map': {
-                    'project_id': 'project_id',
-                    'mid': 'mid',
-                },
-                'location_map': {
-                    'project_id': 'path',
-                    'mid': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__projects_project_id_members_mid_delete
-        )
-
-        def __projects_project_id_members_mid_get(
+        def __project_member(
             self,
             project_id,
             mid,
@@ -1822,7 +2260,7 @@ class ProductsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.projects_project_id_members_mid_get(project_id, mid, async_req=True)
+            >>> thread = api.project_member(project_id, mid, async_req=True)
             >>> result = thread.get()
 
             Args:
@@ -1880,14 +2318,14 @@ class ProductsApi(object):
                 mid
             return self.call_with_http_info(**kwargs)
 
-        self.projects_project_id_members_mid_get = _Endpoint(
+        self.project_member = _Endpoint(
             settings={
                 'response_type': (ProjectMemberEntity,),
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/projects/{project_id}/members/{mid}',
-                'operation_id': 'projects_project_id_members_mid_get',
+                'operation_id': 'project_member',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1931,16 +2369,901 @@ class ProductsApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/json',
-                    'text/plain'
+                    'application/json'
                 ],
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__projects_project_id_members_mid_get
+            callable=__project_member
         )
 
-        def __projects_project_id_members_mid_put(
+        def __project_metadata(
+            self,
+            project_id,
+            **kwargs
+        ):
+            """Get project metadata.  # noqa: E501
+
+            This endpoint returns metadata of the project specified by project ID.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.project_metadata(project_id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_id (int): The ID of project.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                ProjectMetadata
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_id'] = \
+                project_id
+            return self.call_with_http_info(**kwargs)
+
+        self.project_metadata = _Endpoint(
+            settings={
+                'response_type': (ProjectMetadata,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_id}/metadatas',
+                'operation_id': 'project_metadata',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                ],
+                'required': [
+                    'project_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'project_id': 'project_id',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__project_metadata
+        )
+
+        def __remove_label_by_id(
+            self,
+            id,
+            **kwargs
+        ):
+            """Delete the label specified by ID.  # noqa: E501
+
+            Delete the label specified by ID.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.remove_label_by_id(id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                id (int): Label ID
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
+
+        self.remove_label_by_id = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/labels/{id}',
+                'operation_id': 'remove_label_by_id',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__remove_label_by_id
+        )
+
+        def __remove_label_from_chart(
+            self,
+            repo,
+            name,
+            version,
+            id,
+            **kwargs
+        ):
+            """Remove label from chart.  # noqa: E501
+
+            Remove label from the specified chart version.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.remove_label_from_chart(repo, name, version, id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                repo (str): The project name
+                name (str): The chart name
+                version (str): The chart version
+                id (int): The label ID
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['repo'] = \
+                repo
+            kwargs['name'] = \
+                name
+            kwargs['version'] = \
+                version
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
+
+        self.remove_label_from_chart = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/chartrepo/{repo}/charts/{name}/{version}/labels/{id}',
+                'operation_id': 'remove_label_from_chart',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'repo',
+                    'name',
+                    'version',
+                    'id',
+                ],
+                'required': [
+                    'repo',
+                    'name',
+                    'version',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'repo':
+                        (str,),
+                    'name':
+                        (str,),
+                    'version':
+                        (str,),
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'repo': 'repo',
+                    'name': 'name',
+                    'version': 'version',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'repo': 'path',
+                    'name': 'path',
+                    'version': 'path',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__remove_label_from_chart
+        )
+
+        def __remove_project_metadata(
+            self,
+            project_id,
+            meta_name,
+            **kwargs
+        ):
+            """Delete metadata of a project  # noqa: E501
+
+            This endpoint is aimed to delete metadata of a project.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.remove_project_metadata(project_id, meta_name, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_id (int): The ID of project.
+                meta_name (str): The name of metadat.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_id'] = \
+                project_id
+            kwargs['meta_name'] = \
+                meta_name
+            return self.call_with_http_info(**kwargs)
+
+        self.remove_project_metadata = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_id}/metadatas/{meta_name}',
+                'operation_id': 'remove_project_metadata',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                    'meta_name',
+                ],
+                'required': [
+                    'project_id',
+                    'meta_name',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (int,),
+                    'meta_name':
+                        (str,),
+                },
+                'attribute_map': {
+                    'project_id': 'project_id',
+                    'meta_name': 'meta_name',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                    'meta_name': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__remove_project_metadata
+        )
+
+        def __remove_user(
+            self,
+            user_id,
+            **kwargs
+        ):
+            """Mark a registered user as be removed.  # noqa: E501
+
+            This endpoint let administrator of Harbor mark a registered user as be removed.It actually won't be deleted from DB.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.remove_user(user_id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                user_id (int): User ID for marking as to be removed.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['user_id'] = \
+                user_id
+            return self.call_with_http_info(**kwargs)
+
+        self.remove_user = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/users/{user_id}',
+                'operation_id': 'remove_user',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                ],
+                'required': [
+                    'user_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__remove_user
+        )
+
+        def __search_user(
+            self,
+            username,
+            **kwargs
+        ):
+            """Search users by username  # noqa: E501
+
+            This endpoint is to search the users by username.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.search_user(username, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                username (str): Username for filtering results.
+
+            Keyword Args:
+                page (int): The page number, default is 1.. [optional]
+                page_size (int): The size of per page.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [UserSearch]
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['username'] = \
+                username
+            return self.call_with_http_info(**kwargs)
+
+        self.search_user = _Endpoint(
+            settings={
+                'response_type': ([UserSearch],),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/users/search',
+                'operation_id': 'search_user',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'username',
+                    'page',
+                    'page_size',
+                ],
+                'required': [
+                    'username',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'username':
+                        (str,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
+                },
+                'attribute_map': {
+                    'username': 'username',
+                    'page': 'page',
+                    'page_size': 'page_size',
+                },
+                'location_map': {
+                    'username': 'query',
+                    'page': 'query',
+                    'page_size': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__search_user
+        )
+
+        def __set_cli_secret(
+            self,
+            user_id,
+            inline_object,
+            **kwargs
+        ):
+            """Set CLI secret for a user.  # noqa: E501
+
+            This endpoint let user generate a new CLI secret for himself.  This API only works when auth mode is set to 'OIDC'. Once this API returns with successful status, the old secret will be invalid, as there will be only one CLI secret for a user.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.set_cli_secret(user_id, inline_object, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                user_id (int): User ID
+                inline_object (InlineObject):
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['user_id'] = \
+                user_id
+            kwargs['inline_object'] = \
+                inline_object
+            return self.call_with_http_info(**kwargs)
+
+        self.set_cli_secret = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/users/{user_id}/cli_secret',
+                'operation_id': 'set_cli_secret',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                    'inline_object',
+                ],
+                'required': [
+                    'user_id',
+                    'inline_object',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (int,),
+                    'inline_object':
+                        (InlineObject,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                    'inline_object': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__set_cli_secret
+        )
+
+        def __set_project_member(
             self,
             project_id,
             mid,
@@ -1952,7 +3275,7 @@ class ProductsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.projects_project_id_members_mid_put(project_id, mid, async_req=True)
+            >>> thread = api.set_project_member(project_id, mid, async_req=True)
             >>> result = thread.get()
 
             Args:
@@ -2011,14 +3334,14 @@ class ProductsApi(object):
                 mid
             return self.call_with_http_info(**kwargs)
 
-        self.projects_project_id_members_mid_put = _Endpoint(
+        self.set_project_member = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/projects/{project_id}/members/{mid}',
-                'operation_id': 'projects_project_id_members_mid_put',
+                'operation_id': 'set_project_member',
                 'http_method': 'PUT',
                 'servers': None,
             },
@@ -2071,638 +3394,10 @@ class ProductsApi(object):
                 ]
             },
             api_client=api_client,
-            callable=__projects_project_id_members_mid_put
+            callable=__set_project_member
         )
 
-        def __projects_project_id_members_post(
-            self,
-            project_id,
-            **kwargs
-        ):
-            """Create project member  # noqa: E501
-
-            Create project member relationship, the member can be one of the user_member and group_member,  The user_member need to specify user_id or username. If the user already exist in harbor DB, specify the user_id,  If does not exist in harbor DB, it will SearchAndOnBoard the user. The group_member need to specify id or ldap_group_dn. If the group already exist in harbor DB. specify the user group's id,  If does not exist, it will SearchAndOnBoard the group.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.projects_project_id_members_post(project_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                project_id (int): Relevant project ID.
-
-            Keyword Args:
-                project_member (ProjectMember): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['project_id'] = \
-                project_id
-            return self.call_with_http_info(**kwargs)
-
-        self.projects_project_id_members_post = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/projects/{project_id}/members',
-                'operation_id': 'projects_project_id_members_post',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'project_id',
-                    'project_member',
-                ],
-                'required': [
-                    'project_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'project_id':
-                        (int,),
-                    'project_member':
-                        (ProjectMember,),
-                },
-                'attribute_map': {
-                    'project_id': 'project_id',
-                },
-                'location_map': {
-                    'project_id': 'path',
-                    'project_member': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client,
-            callable=__projects_project_id_members_post
-        )
-
-        def __projects_project_id_metadatas_get(
-            self,
-            project_id,
-            **kwargs
-        ):
-            """Get project metadata.  # noqa: E501
-
-            This endpoint returns metadata of the project specified by project ID.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.projects_project_id_metadatas_get(project_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                project_id (int): The ID of project.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ProjectMetadata
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['project_id'] = \
-                project_id
-            return self.call_with_http_info(**kwargs)
-
-        self.projects_project_id_metadatas_get = _Endpoint(
-            settings={
-                'response_type': (ProjectMetadata,),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/projects/{project_id}/metadatas',
-                'operation_id': 'projects_project_id_metadatas_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'project_id',
-                ],
-                'required': [
-                    'project_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'project_id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'project_id': 'project_id',
-                },
-                'location_map': {
-                    'project_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__projects_project_id_metadatas_get
-        )
-
-        def __projects_project_id_metadatas_meta_name_delete(
-            self,
-            project_id,
-            meta_name,
-            **kwargs
-        ):
-            """Delete metadata of a project  # noqa: E501
-
-            This endpoint is aimed to delete metadata of a project.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.projects_project_id_metadatas_meta_name_delete(project_id, meta_name, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                project_id (int): The ID of project.
-                meta_name (str): The name of metadat.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['project_id'] = \
-                project_id
-            kwargs['meta_name'] = \
-                meta_name
-            return self.call_with_http_info(**kwargs)
-
-        self.projects_project_id_metadatas_meta_name_delete = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/projects/{project_id}/metadatas/{meta_name}',
-                'operation_id': 'projects_project_id_metadatas_meta_name_delete',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'project_id',
-                    'meta_name',
-                ],
-                'required': [
-                    'project_id',
-                    'meta_name',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'project_id':
-                        (int,),
-                    'meta_name':
-                        (str,),
-                },
-                'attribute_map': {
-                    'project_id': 'project_id',
-                    'meta_name': 'meta_name',
-                },
-                'location_map': {
-                    'project_id': 'path',
-                    'meta_name': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__projects_project_id_metadatas_meta_name_delete
-        )
-
-        def __projects_project_id_metadatas_meta_name_get(
-            self,
-            project_id,
-            meta_name,
-            **kwargs
-        ):
-            """Get project metadata  # noqa: E501
-
-            This endpoint returns specified metadata of a project.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.projects_project_id_metadatas_meta_name_get(project_id, meta_name, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                project_id (int): Project ID for filtering results.
-                meta_name (str): The name of metadat.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                ProjectMetadata
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['project_id'] = \
-                project_id
-            kwargs['meta_name'] = \
-                meta_name
-            return self.call_with_http_info(**kwargs)
-
-        self.projects_project_id_metadatas_meta_name_get = _Endpoint(
-            settings={
-                'response_type': (ProjectMetadata,),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/projects/{project_id}/metadatas/{meta_name}',
-                'operation_id': 'projects_project_id_metadatas_meta_name_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'project_id',
-                    'meta_name',
-                ],
-                'required': [
-                    'project_id',
-                    'meta_name',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'project_id':
-                        (int,),
-                    'meta_name':
-                        (str,),
-                },
-                'attribute_map': {
-                    'project_id': 'project_id',
-                    'meta_name': 'meta_name',
-                },
-                'location_map': {
-                    'project_id': 'path',
-                    'meta_name': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__projects_project_id_metadatas_meta_name_get
-        )
-
-        def __projects_project_id_metadatas_meta_name_put(
-            self,
-            project_id,
-            meta_name,
-            **kwargs
-        ):
-            """Update metadata of a project.  # noqa: E501
-
-            This endpoint is aimed to update the metadata of a project.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.projects_project_id_metadatas_meta_name_put(project_id, meta_name, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                project_id (int): The ID of project.
-                meta_name (str): The name of metadat.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['project_id'] = \
-                project_id
-            kwargs['meta_name'] = \
-                meta_name
-            return self.call_with_http_info(**kwargs)
-
-        self.projects_project_id_metadatas_meta_name_put = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/projects/{project_id}/metadatas/{meta_name}',
-                'operation_id': 'projects_project_id_metadatas_meta_name_put',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'project_id',
-                    'meta_name',
-                ],
-                'required': [
-                    'project_id',
-                    'meta_name',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'project_id':
-                        (int,),
-                    'meta_name':
-                        (str,),
-                },
-                'attribute_map': {
-                    'project_id': 'project_id',
-                    'meta_name': 'meta_name',
-                },
-                'location_map': {
-                    'project_id': 'path',
-                    'meta_name': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__projects_project_id_metadatas_meta_name_put
-        )
-
-        def __projects_project_id_metadatas_post(
+        def __set_project_metadata(
             self,
             project_id,
             project_metadata,
@@ -2714,7 +3409,7 @@ class ProductsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.projects_project_id_metadatas_post(project_id, project_metadata, async_req=True)
+            >>> thread = api.set_project_metadata(project_id, project_metadata, async_req=True)
             >>> result = thread.get()
 
             Args:
@@ -2772,14 +3467,14 @@ class ProductsApi(object):
                 project_metadata
             return self.call_with_http_info(**kwargs)
 
-        self.projects_project_id_metadatas_post = _Endpoint(
+        self.set_project_metadata = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/projects/{project_id}/metadatas',
-                'operation_id': 'projects_project_id_metadatas_post',
+                'operation_id': 'set_project_metadata',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -2827,10 +3522,139 @@ class ProductsApi(object):
                 ]
             },
             api_client=api_client,
-            callable=__projects_project_id_metadatas_post
+            callable=__set_project_metadata
         )
 
-        def __statistics_get(
+        def __specified_project_metadata(
+            self,
+            project_id,
+            meta_name,
+            **kwargs
+        ):
+            """Get project metadata  # noqa: E501
+
+            This endpoint returns specified metadata of a project.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.specified_project_metadata(project_id, meta_name, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_id (int): Project ID for filtering results.
+                meta_name (str): The name of metadat.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                ProjectMetadata
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_id'] = \
+                project_id
+            kwargs['meta_name'] = \
+                meta_name
+            return self.call_with_http_info(**kwargs)
+
+        self.specified_project_metadata = _Endpoint(
+            settings={
+                'response_type': (ProjectMetadata,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_id}/metadatas/{meta_name}',
+                'operation_id': 'specified_project_metadata',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_id',
+                    'meta_name',
+                ],
+                'required': [
+                    'project_id',
+                    'meta_name',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_id':
+                        (int,),
+                    'meta_name':
+                        (str,),
+                },
+                'attribute_map': {
+                    'project_id': 'project_id',
+                    'meta_name': 'meta_name',
+                },
+                'location_map': {
+                    'project_id': 'path',
+                    'meta_name': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__specified_project_metadata
+        )
+
+        def __statistics(
             self,
             **kwargs
         ):
@@ -2840,7 +3664,7 @@ class ProductsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.statistics_get(async_req=True)
+            >>> thread = api.statistics(async_req=True)
             >>> result = thread.get()
 
 
@@ -2891,14 +3715,14 @@ class ProductsApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             return self.call_with_http_info(**kwargs)
 
-        self.statistics_get = _Endpoint(
+        self.statistics = _Endpoint(
             settings={
                 'response_type': (StatisticMap,),
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/statistics',
-                'operation_id': 'statistics_get',
+                'operation_id': 'statistics',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -2929,26 +3753,25 @@ class ProductsApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/json',
-                    'text/plain'
+                    'application/json'
                 ],
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__statistics_get
+            callable=__statistics
         )
 
-        def __usergroups_get(
+        def __system_configuration(
             self,
             **kwargs
         ):
-            """Get all user groups information  # noqa: E501
+            """Get system configurations.  # noqa: E501
 
-            Get all user groups information  # noqa: E501
+            This endpoint is for retrieving system configurations that only provides for admin user.   # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.usergroups_get(async_req=True)
+            >>> thread = api.system_configuration(async_req=True)
             >>> result = thread.get()
 
 
@@ -2974,7 +3797,7 @@ class ProductsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                [UserGroup]
+                ConfigurationsResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -2999,14 +3822,14 @@ class ProductsApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             return self.call_with_http_info(**kwargs)
 
-        self.usergroups_get = _Endpoint(
+        self.system_configuration = _Endpoint(
             settings={
-                'response_type': ([UserGroup],),
+                'response_type': (ConfigurationsResponse,),
                 'auth': [
                     'basic'
                 ],
-                'endpoint_path': '/usergroups',
-                'operation_id': 'usergroups_get',
+                'endpoint_path': '/configurations',
+                'operation_id': 'system_configuration',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -3037,31 +3860,32 @@ class ProductsApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/json',
-                    'text/plain'
+                    'application/json'
                 ],
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__usergroups_get
+            callable=__system_configuration
         )
 
-        def __usergroups_group_id_delete(
+        def __update_label(
             self,
-            group_id,
+            id,
+            label,
             **kwargs
         ):
-            """Delete user group  # noqa: E501
+            """Update the label properties.  # noqa: E501
 
-            Delete user group  # noqa: E501
+            This endpoint let user update label properties.   # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.usergroups_group_id_delete(group_id, async_req=True)
+            >>> thread = api.update_label(id, label, async_req=True)
             >>> result = thread.get()
 
             Args:
-                group_id (int):
+                id (int): Label ID
+                label (Label): The updated label json object.
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -3108,266 +3932,31 @@ class ProductsApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['group_id'] = \
-                group_id
+            kwargs['id'] = \
+                id
+            kwargs['label'] = \
+                label
             return self.call_with_http_info(**kwargs)
 
-        self.usergroups_group_id_delete = _Endpoint(
+        self.update_label = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
-                'endpoint_path': '/usergroups/{group_id}',
-                'operation_id': 'usergroups_group_id_delete',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'group_id',
-                ],
-                'required': [
-                    'group_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'group_id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'group_id': 'group_id',
-                },
-                'location_map': {
-                    'group_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__usergroups_group_id_delete
-        )
-
-        def __usergroups_group_id_get(
-            self,
-            group_id,
-            **kwargs
-        ):
-            """Get user group information  # noqa: E501
-
-            Get user group information  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.usergroups_group_id_get(group_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                group_id (int): Group ID
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                UserGroup
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['group_id'] = \
-                group_id
-            return self.call_with_http_info(**kwargs)
-
-        self.usergroups_group_id_get = _Endpoint(
-            settings={
-                'response_type': (UserGroup,),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/usergroups/{group_id}',
-                'operation_id': 'usergroups_group_id_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'group_id',
-                ],
-                'required': [
-                    'group_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'group_id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'group_id': 'group_id',
-                },
-                'location_map': {
-                    'group_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__usergroups_group_id_get
-        )
-
-        def __usergroups_group_id_put(
-            self,
-            group_id,
-            **kwargs
-        ):
-            """Update group information  # noqa: E501
-
-            Update user group information  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.usergroups_group_id_put(group_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                group_id (int): Group ID
-
-            Keyword Args:
-                user_group (UserGroup): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['group_id'] = \
-                group_id
-            return self.call_with_http_info(**kwargs)
-
-        self.usergroups_group_id_put = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/usergroups/{group_id}',
-                'operation_id': 'usergroups_group_id_put',
+                'endpoint_path': '/labels/{id}',
+                'operation_id': 'update_label',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'group_id',
-                    'user_group',
+                    'id',
+                    'label',
                 ],
                 'required': [
-                    'group_id',
+                    'id',
+                    'label',
                 ],
                 'nullable': [
                 ],
@@ -3382,17 +3971,17 @@ class ProductsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'group_id':
+                    'id':
                         (int,),
-                    'user_group':
-                        (UserGroup,),
+                    'label':
+                        (Label,),
                 },
                 'attribute_map': {
-                    'group_id': 'group_id',
+                    'id': 'id',
                 },
                 'location_map': {
-                    'group_id': 'path',
-                    'user_group': 'body',
+                    'id': 'path',
+                    'label': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -3404,497 +3993,27 @@ class ProductsApi(object):
                 ]
             },
             api_client=api_client,
-            callable=__usergroups_group_id_put
+            callable=__update_label
         )
 
-        def __usergroups_post(
+        def __update_project_metadata(
             self,
+            project_id,
+            meta_name,
             **kwargs
         ):
-            """Create user group  # noqa: E501
+            """Update metadata of a project.  # noqa: E501
 
-            Create user group information  # noqa: E501
+            This endpoint is aimed to update the metadata of a project.   # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.usergroups_post(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                user_group (UserGroup): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.usergroups_post = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/usergroups',
-                'operation_id': 'usergroups_post',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_group',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'user_group':
-                        (UserGroup,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'user_group': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client,
-            callable=__usergroups_post
-        )
-
-        def __users_current_get(
-            self,
-            **kwargs
-        ):
-            """Get current user info.  # noqa: E501
-
-            This endpoint is to get the current user information.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.users_current_get(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                User
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.users_current_get = _Endpoint(
-            settings={
-                'response_type': (User,),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/users/current',
-                'operation_id': 'users_current_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__users_current_get
-        )
-
-        def __users_current_permissions_get(
-            self,
-            **kwargs
-        ):
-            """Get current user permissions.  # noqa: E501
-
-            This endpoint is to get the current user permissions.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.users_current_permissions_get(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                scope (str): Get permissions of the scope. [optional]
-                relative (bool): If true, the resources in the response are relative to the scope, eg for resource '/project/1/repository' if relative is 'true' then the resource in response will be 'repository'. . [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [Permission]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.users_current_permissions_get = _Endpoint(
-            settings={
-                'response_type': ([Permission],),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/users/current/permissions',
-                'operation_id': 'users_current_permissions_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'scope',
-                    'relative',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'scope':
-                        (str,),
-                    'relative':
-                        (bool,),
-                },
-                'attribute_map': {
-                    'scope': 'scope',
-                    'relative': 'relative',
-                },
-                'location_map': {
-                    'scope': 'query',
-                    'relative': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__users_current_permissions_get
-        )
-
-        def __users_get(
-            self,
-            **kwargs
-        ):
-            """Get registered users of Harbor.  # noqa: E501
-
-            This endpoint is for user to search registered users, support for filtering results with username.Notice, by now this operation is only for administrator.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.users_get(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                username (str): Username for filtering results.. [optional]
-                email (str): Email for filtering results.. [optional]
-                page (int): The page number, default is 1.. [optional]
-                page_size (int): The size of per page.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [User]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.users_get = _Endpoint(
-            settings={
-                'response_type': ([User],),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/users',
-                'operation_id': 'users_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'username',
-                    'email',
-                    'page',
-                    'page_size',
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'username':
-                        (str,),
-                    'email':
-                        (str,),
-                    'page':
-                        (int,),
-                    'page_size':
-                        (int,),
-                },
-                'attribute_map': {
-                    'username': 'username',
-                    'email': 'email',
-                    'page': 'page',
-                    'page_size': 'page_size',
-                },
-                'location_map': {
-                    'username': 'query',
-                    'email': 'query',
-                    'page': 'query',
-                    'page_size': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__users_get
-        )
-
-        def __users_post(
-            self,
-            user,
-            **kwargs
-        ):
-            """Creates a new user account.  # noqa: E501
-
-            This endpoint is to create a user if the user does not already exist.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.users_post(user, async_req=True)
+            >>> thread = api.update_project_metadata(project_id, meta_name, async_req=True)
             >>> result = thread.get()
 
             Args:
-                user (User): New created user.
+                project_id (int): The ID of project.
+                meta_name (str): The name of metadat.
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -3941,283 +4060,31 @@ class ProductsApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['user'] = \
-                user
+            kwargs['project_id'] = \
+                project_id
+            kwargs['meta_name'] = \
+                meta_name
             return self.call_with_http_info(**kwargs)
 
-        self.users_post = _Endpoint(
+        self.update_project_metadata = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
-                'endpoint_path': '/users',
-                'operation_id': 'users_post',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user',
-                ],
-                'required': [
-                    'user',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'user':
-                        (User,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'user': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client,
-            callable=__users_post
-        )
-
-        def __users_search_get(
-            self,
-            username,
-            **kwargs
-        ):
-            """Search users by username  # noqa: E501
-
-            This endpoint is to search the users by username.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.users_search_get(username, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                username (str): Username for filtering results.
-
-            Keyword Args:
-                page (int): The page number, default is 1.. [optional]
-                page_size (int): The size of per page.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                [UserSearch]
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['username'] = \
-                username
-            return self.call_with_http_info(**kwargs)
-
-        self.users_search_get = _Endpoint(
-            settings={
-                'response_type': ([UserSearch],),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/users/search',
-                'operation_id': 'users_search_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'username',
-                    'page',
-                    'page_size',
-                ],
-                'required': [
-                    'username',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'username':
-                        (str,),
-                    'page':
-                        (int,),
-                    'page_size':
-                        (int,),
-                },
-                'attribute_map': {
-                    'username': 'username',
-                    'page': 'page',
-                    'page_size': 'page_size',
-                },
-                'location_map': {
-                    'username': 'query',
-                    'page': 'query',
-                    'page_size': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__users_search_get
-        )
-
-        def __users_user_id_cli_secret_put(
-            self,
-            user_id,
-            inline_object,
-            **kwargs
-        ):
-            """Set CLI secret for a user.  # noqa: E501
-
-            This endpoint let user generate a new CLI secret for himself.  This API only works when auth mode is set to 'OIDC'. Once this API returns with successful status, the old secret will be invalid, as there will be only one CLI secret for a user.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.users_user_id_cli_secret_put(user_id, inline_object, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                user_id (int): User ID
-                inline_object (InlineObject):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['user_id'] = \
-                user_id
-            kwargs['inline_object'] = \
-                inline_object
-            return self.call_with_http_info(**kwargs)
-
-        self.users_user_id_cli_secret_put = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/users/{user_id}/cli_secret',
-                'operation_id': 'users_user_id_cli_secret_put',
+                'endpoint_path': '/projects/{project_id}/metadatas/{meta_name}',
+                'operation_id': 'update_project_metadata',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'user_id',
-                    'inline_object',
+                    'project_id',
+                    'meta_name',
                 ],
                 'required': [
-                    'user_id',
-                    'inline_object',
+                    'project_id',
+                    'meta_name',
                 ],
                 'nullable': [
                 ],
@@ -4232,47 +4099,46 @@ class ProductsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'user_id':
+                    'project_id':
                         (int,),
-                    'inline_object':
-                        (InlineObject,),
+                    'meta_name':
+                        (str,),
                 },
                 'attribute_map': {
-                    'user_id': 'user_id',
+                    'project_id': 'project_id',
+                    'meta_name': 'meta_name',
                 },
                 'location_map': {
-                    'user_id': 'path',
-                    'inline_object': 'body',
+                    'project_id': 'path',
+                    'meta_name': 'path',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
                 'accept': [],
-                'content_type': [
-                    'application/json'
-                ]
+                'content_type': [],
             },
             api_client=api_client,
-            callable=__users_user_id_cli_secret_put
+            callable=__update_project_metadata
         )
 
-        def __users_user_id_delete(
+        def __update_system_configuration(
             self,
-            user_id,
+            configurations,
             **kwargs
         ):
-            """Mark a registered user as be removed.  # noqa: E501
+            """Modify system configurations.  # noqa: E501
 
-            This endpoint let administrator of Harbor mark a registered user as be removed.It actually won't be deleted from DB.   # noqa: E501
+            This endpoint is for modifying system configurations that only provides for admin user.   # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.users_user_id_delete(user_id, async_req=True)
+            >>> thread = api.update_system_configuration(configurations, async_req=True)
             >>> result = thread.get()
 
             Args:
-                user_id (int): User ID for marking as to be removed.
+                configurations (Configurations): The configuration map can contain a subset of the attributes of the schema, which are to be updated.
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -4319,270 +4185,27 @@ class ProductsApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['user_id'] = \
-                user_id
+            kwargs['configurations'] = \
+                configurations
             return self.call_with_http_info(**kwargs)
 
-        self.users_user_id_delete = _Endpoint(
+        self.update_system_configuration = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
-                'endpoint_path': '/users/{user_id}',
-                'operation_id': 'users_user_id_delete',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_id',
-                ],
-                'required': [
-                    'user_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'user_id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'user_id': 'user_id',
-                },
-                'location_map': {
-                    'user_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__users_user_id_delete
-        )
-
-        def __users_user_id_get(
-            self,
-            user_id,
-            **kwargs
-        ):
-            """Get a user's profile.  # noqa: E501
-
-            Get user's profile with user id.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.users_user_id_get(user_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                user_id (int): Registered user ID
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                User
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['user_id'] = \
-                user_id
-            return self.call_with_http_info(**kwargs)
-
-        self.users_user_id_get = _Endpoint(
-            settings={
-                'response_type': (User,),
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/users/{user_id}',
-                'operation_id': 'users_user_id_get',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'user_id',
-                ],
-                'required': [
-                    'user_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'user_id':
-                        (int,),
-                },
-                'attribute_map': {
-                    'user_id': 'user_id',
-                },
-                'location_map': {
-                    'user_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json',
-                    'text/plain'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client,
-            callable=__users_user_id_get
-        )
-
-        def __users_user_id_password_put(
-            self,
-            user_id,
-            password,
-            **kwargs
-        ):
-            """Change the password on a user that already exists.  # noqa: E501
-
-            This endpoint is for user to update password. Users with the admin role can change any user's password. Guest users can change only their own password.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.users_user_id_password_put(user_id, password, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                user_id (int): Registered user ID.
-                password (Password): Password to be updated, the attribute 'old_password' is optional when the API is called by the system administrator.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['user_id'] = \
-                user_id
-            kwargs['password'] = \
-                password
-            return self.call_with_http_info(**kwargs)
-
-        self.users_user_id_password_put = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'basic'
-                ],
-                'endpoint_path': '/users/{user_id}/password',
-                'operation_id': 'users_user_id_password_put',
+                'endpoint_path': '/configurations',
+                'operation_id': 'update_system_configuration',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'user_id',
-                    'password',
+                    'configurations',
                 ],
                 'required': [
-                    'user_id',
-                    'password',
+                    'configurations',
                 ],
                 'nullable': [
                 ],
@@ -4597,17 +4220,13 @@ class ProductsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'user_id':
-                        (int,),
-                    'password':
-                        (Password,),
+                    'configurations':
+                        (Configurations,),
                 },
                 'attribute_map': {
-                    'user_id': 'user_id',
                 },
                 'location_map': {
-                    'user_id': 'path',
-                    'password': 'body',
+                    'configurations': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -4619,10 +4238,10 @@ class ProductsApi(object):
                 ]
             },
             api_client=api_client,
-            callable=__users_user_id_password_put
+            callable=__update_system_configuration
         )
 
-        def __users_user_id_put(
+        def __update_user(
             self,
             user_id,
             user_profile,
@@ -4634,7 +4253,7 @@ class ProductsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.users_user_id_put(user_id, user_profile, async_req=True)
+            >>> thread = api.update_user(user_id, user_profile, async_req=True)
             >>> result = thread.get()
 
             Args:
@@ -4692,14 +4311,14 @@ class ProductsApi(object):
                 user_profile
             return self.call_with_http_info(**kwargs)
 
-        self.users_user_id_put = _Endpoint(
+        self.update_user = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/users/{user_id}',
-                'operation_id': 'users_user_id_put',
+                'operation_id': 'update_user',
                 'http_method': 'PUT',
                 'servers': None,
             },
@@ -4747,29 +4366,28 @@ class ProductsApi(object):
                 ]
             },
             api_client=api_client,
-            callable=__users_user_id_put
+            callable=__update_user
         )
 
-        def __users_user_id_sysadmin_put(
+        def __update_usergroup(
             self,
-            user_id,
-            sys_admin_flag,
+            group_id,
             **kwargs
         ):
-            """Update a registered user to change to be an administrator of Harbor.  # noqa: E501
+            """Update group information  # noqa: E501
 
-            This endpoint let a registered user change to be an administrator of Harbor.   # noqa: E501
+            Update user group information  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.users_user_id_sysadmin_put(user_id, sys_admin_flag, async_req=True)
+            >>> thread = api.update_usergroup(group_id, async_req=True)
             >>> result = thread.get()
 
             Args:
-                user_id (int): Registered user ID
-                sys_admin_flag (SysAdminFlag): Toggle a user to admin or not.
+                group_id (int): Group ID
 
             Keyword Args:
+                user_group (UserGroup): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -4814,31 +4432,150 @@ class ProductsApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['user_id'] = \
-                user_id
-            kwargs['sys_admin_flag'] = \
-                sys_admin_flag
+            kwargs['group_id'] = \
+                group_id
             return self.call_with_http_info(**kwargs)
 
-        self.users_user_id_sysadmin_put = _Endpoint(
+        self.update_usergroup = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
-                'endpoint_path': '/users/{user_id}/sysadmin',
-                'operation_id': 'users_user_id_sysadmin_put',
+                'endpoint_path': '/usergroups/{group_id}',
+                'operation_id': 'update_usergroup',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
+                    'group_id',
+                    'user_group',
+                ],
+                'required': [
+                    'group_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'group_id':
+                        (int,),
+                    'user_group':
+                        (UserGroup,),
+                },
+                'attribute_map': {
+                    'group_id': 'group_id',
+                },
+                'location_map': {
+                    'group_id': 'path',
+                    'user_group': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__update_usergroup
+        )
+
+        def __user(
+            self,
+            user_id,
+            **kwargs
+        ):
+            """Get a user's profile.  # noqa: E501
+
+            Get user's profile with user id.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.user(user_id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                user_id (int): Registered user ID
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                User
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['user_id'] = \
+                user_id
+            return self.call_with_http_info(**kwargs)
+
+        self.user = _Endpoint(
+            settings={
+                'response_type': (User,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/users/{user_id}',
+                'operation_id': 'user',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
                     'user_id',
-                    'sys_admin_flag',
                 ],
                 'required': [
                     'user_id',
-                    'sys_admin_flag',
                 ],
                 'nullable': [
                 ],
@@ -4855,25 +4592,272 @@ class ProductsApi(object):
                 'openapi_types': {
                     'user_id':
                         (int,),
-                    'sys_admin_flag':
-                        (SysAdminFlag,),
                 },
                 'attribute_map': {
                     'user_id': 'user_id',
                 },
                 'location_map': {
                     'user_id': 'path',
-                    'sys_admin_flag': 'body',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
-                'accept': [],
-                'content_type': [
+                'accept': [
                     'application/json'
-                ]
+                ],
+                'content_type': [],
             },
             api_client=api_client,
-            callable=__users_user_id_sysadmin_put
+            callable=__user
+        )
+
+        def __usergroup(
+            self,
+            group_id,
+            **kwargs
+        ):
+            """Get user group information  # noqa: E501
+
+            Get user group information  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.usergroup(group_id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                group_id (int): Group ID
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                UserGroup
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['group_id'] = \
+                group_id
+            return self.call_with_http_info(**kwargs)
+
+        self.usergroup = _Endpoint(
+            settings={
+                'response_type': (UserGroup,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/usergroups/{group_id}',
+                'operation_id': 'usergroup',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'group_id',
+                ],
+                'required': [
+                    'group_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'group_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'group_id': 'group_id',
+                },
+                'location_map': {
+                    'group_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__usergroup
+        )
+
+        def __users(
+            self,
+            **kwargs
+        ):
+            """Get registered users of Harbor.  # noqa: E501
+
+            This endpoint is for user to search registered users, support for filtering results with username.Notice, by now this operation is only for administrator.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.users(async_req=True)
+            >>> result = thread.get()
+
+
+            Keyword Args:
+                username (str): Username for filtering results.. [optional]
+                email (str): Email for filtering results.. [optional]
+                page (int): The page number, default is 1.. [optional]
+                page_size (int): The size of per page.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [User]
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
+
+        self.users = _Endpoint(
+            settings={
+                'response_type': ([User],),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/users',
+                'operation_id': 'users',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'username',
+                    'email',
+                    'page',
+                    'page_size',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'username':
+                        (str,),
+                    'email':
+                        (str,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
+                },
+                'attribute_map': {
+                    'username': 'username',
+                    'email': 'email',
+                    'page': 'page',
+                    'page_size': 'page_size',
+                },
+                'location_map': {
+                    'username': 'query',
+                    'email': 'query',
+                    'page': 'query',
+                    'page_size': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__users
         )

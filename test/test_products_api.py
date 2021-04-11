@@ -184,20 +184,6 @@ class TestProductsApi(unittest.TestCase):
         """
         pass
 
-    def test_system_cve_allowlist_get(self):
-        """Test case for system_cve_allowlist_get
-
-        Get the system level allowlist of CVE.  # noqa: E501
-        """
-        pass
-
-    def test_system_cve_allowlist_put(self):
-        """Test case for system_cve_allowlist_put
-
-        Update the system level allowlist of CVE.  # noqa: E501
-        """
-        pass
-
     def test_usergroups_get(self):
         """Test case for usergroups_get
 

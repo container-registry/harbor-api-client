@@ -762,10 +762,10 @@ class Endpoint(object):
         Example:
 
         api_instance = ChartRepositoryApi()
-        api_instance.chartrepo_repo_charts_name_version_labels_get  # this is an instance of the class Endpoint
-        api_instance.chartrepo_repo_charts_name_version_labels_get()  # this invokes api_instance.chartrepo_repo_charts_name_version_labels_get.__call__()
+        api_instance.list_attahced_labels_of_chart  # this is an instance of the class Endpoint
+        api_instance.list_attahced_labels_of_chart()  # this invokes api_instance.list_attahced_labels_of_chart.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.chartrepo_repo_charts_name_version_labels_get.callable or self.callable in this class
+        api_instance.list_attahced_labels_of_chart.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

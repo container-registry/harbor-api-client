@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**systeminfo_get**](SysteminfoApi.md#systeminfo_get) | **GET** /systeminfo | Get general system info
-[**systeminfo_getcert_get**](SysteminfoApi.md#systeminfo_getcert_get) | **GET** /systeminfo/getcert | Get default root certificate.
-[**systeminfo_volumes_get**](SysteminfoApi.md#systeminfo_volumes_get) | **GET** /systeminfo/volumes | Get system volume info (total/free size).
+[**systeminfo**](SysteminfoApi.md#systeminfo) | **GET** /systeminfo | Get general system info
+[**systeminfo_cert**](SysteminfoApi.md#systeminfo_cert) | **GET** /systeminfo/getcert | Get default root certificate.
+[**systeminfo_volumes**](SysteminfoApi.md#systeminfo_volumes) | **GET** /systeminfo/volumes | Get system volume info (total/free size).
 
 
-# **systeminfo_get**
-> GeneralInfo systeminfo_get()
+# **systeminfo**
+> GeneralInfo systeminfo()
 
 Get general system info
 
@@ -51,10 +51,10 @@ with harbor_client.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # Get general system info
-        api_response = api_instance.systeminfo_get()
+        api_response = api_instance.systeminfo()
         pprint(api_response)
     except harbor_client.ApiException as e:
-        print("Exception when calling SysteminfoApi->systeminfo_get: %s\n" % e)
+        print("Exception when calling SysteminfoApi->systeminfo: %s\n" % e)
 ```
 
 
@@ -83,8 +83,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **systeminfo_getcert_get**
-> file_type systeminfo_getcert_get()
+# **systeminfo_cert**
+> file_type systeminfo_cert()
 
 Get default root certificate.
 
@@ -124,10 +124,10 @@ with harbor_client.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # Get default root certificate.
-        api_response = api_instance.systeminfo_getcert_get()
+        api_response = api_instance.systeminfo_cert()
         pprint(api_response)
     except harbor_client.ApiException as e:
-        print("Exception when calling SysteminfoApi->systeminfo_getcert_get: %s\n" % e)
+        print("Exception when calling SysteminfoApi->systeminfo_cert: %s\n" % e)
 ```
 
 
@@ -157,8 +157,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **systeminfo_volumes_get**
-> SystemInfo systeminfo_volumes_get()
+# **systeminfo_volumes**
+> SystemInfo systeminfo_volumes()
 
 Get system volume info (total/free size).
 
@@ -199,10 +199,10 @@ with harbor_client.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # Get system volume info (total/free size).
-        api_response = api_instance.systeminfo_volumes_get()
+        api_response = api_instance.systeminfo_volumes()
         pprint(api_response)
     except harbor_client.ApiException as e:
-        print("Exception when calling SysteminfoApi->systeminfo_volumes_get: %s\n" % e)
+        print("Exception when calling SysteminfoApi->systeminfo_volumes: %s\n" % e)
 ```
 
 

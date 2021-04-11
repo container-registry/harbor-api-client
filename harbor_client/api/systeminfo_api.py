@@ -38,7 +38,7 @@ class SysteminfoApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        def __systeminfo_get(
+        def __systeminfo(
             self,
             **kwargs
         ):
@@ -48,7 +48,7 @@ class SysteminfoApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.systeminfo_get(async_req=True)
+            >>> thread = api.systeminfo(async_req=True)
             >>> result = thread.get()
 
 
@@ -99,14 +99,14 @@ class SysteminfoApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             return self.call_with_http_info(**kwargs)
 
-        self.systeminfo_get = _Endpoint(
+        self.systeminfo = _Endpoint(
             settings={
                 'response_type': (GeneralInfo,),
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/systeminfo',
-                'operation_id': 'systeminfo_get',
+                'operation_id': 'systeminfo',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -142,10 +142,10 @@ class SysteminfoApi(object):
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__systeminfo_get
+            callable=__systeminfo
         )
 
-        def __systeminfo_getcert_get(
+        def __systeminfo_cert(
             self,
             **kwargs
         ):
@@ -155,7 +155,7 @@ class SysteminfoApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.systeminfo_getcert_get(async_req=True)
+            >>> thread = api.systeminfo_cert(async_req=True)
             >>> result = thread.get()
 
 
@@ -206,14 +206,14 @@ class SysteminfoApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             return self.call_with_http_info(**kwargs)
 
-        self.systeminfo_getcert_get = _Endpoint(
+        self.systeminfo_cert = _Endpoint(
             settings={
                 'response_type': (file_type,),
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/systeminfo/getcert',
-                'operation_id': 'systeminfo_getcert_get',
+                'operation_id': 'systeminfo_cert',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -250,10 +250,10 @@ class SysteminfoApi(object):
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__systeminfo_getcert_get
+            callable=__systeminfo_cert
         )
 
-        def __systeminfo_volumes_get(
+        def __systeminfo_volumes(
             self,
             **kwargs
         ):
@@ -263,7 +263,7 @@ class SysteminfoApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.systeminfo_volumes_get(async_req=True)
+            >>> thread = api.systeminfo_volumes(async_req=True)
             >>> result = thread.get()
 
 
@@ -314,14 +314,14 @@ class SysteminfoApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             return self.call_with_http_info(**kwargs)
 
-        self.systeminfo_volumes_get = _Endpoint(
+        self.systeminfo_volumes = _Endpoint(
             settings={
                 'response_type': (SystemInfo,),
                 'auth': [
                     'basic'
                 ],
                 'endpoint_path': '/systeminfo/volumes',
-                'operation_id': 'systeminfo_volumes_get',
+                'operation_id': 'systeminfo_volumes',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -357,5 +357,5 @@ class SysteminfoApi(object):
                 'content_type': [],
             },
             api_client=api_client,
-            callable=__systeminfo_volumes_get
+            callable=__systeminfo_volumes
         )

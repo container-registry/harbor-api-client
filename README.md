@@ -79,9 +79,9 @@ version = "version_example" # str | The chart version
 
     try:
         # Return the attahced labels of chart.
-        api_instance.chartrepo_repo_charts_name_version_labels_get(repo, name, version)
+        api_instance.list_attahced_labels_of_chart(repo, name, version)
     except harbor_client.ApiException as e:
-        print("Exception when calling ChartRepositoryApi->chartrepo_repo_charts_name_version_labels_get: %s\n" % e)
+        print("Exception when calling ChartRepositoryApi->list_attahced_labels_of_chart: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -90,55 +90,55 @@ All URIs are relative to *http://localhost/api/v2.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ChartRepositoryApi* | [**chartrepo_repo_charts_name_version_labels_get**](docs/ChartRepositoryApi.md#chartrepo_repo_charts_name_version_labels_get) | **GET** /chartrepo/{repo}/charts/{name}/{version}/labels | Return the attahced labels of chart.
-*ChartRepositoryApi* | [**chartrepo_repo_charts_name_version_labels_id_delete**](docs/ChartRepositoryApi.md#chartrepo_repo_charts_name_version_labels_id_delete) | **DELETE** /chartrepo/{repo}/charts/{name}/{version}/labels/{id} | Remove label from chart.
-*ChartRepositoryApi* | [**chartrepo_repo_charts_name_version_labels_post**](docs/ChartRepositoryApi.md#chartrepo_repo_charts_name_version_labels_post) | **POST** /chartrepo/{repo}/charts/{name}/{version}/labels | Mark label to chart.
-*LabelApi* | [**chartrepo_repo_charts_name_version_labels_get**](docs/LabelApi.md#chartrepo_repo_charts_name_version_labels_get) | **GET** /chartrepo/{repo}/charts/{name}/{version}/labels | Return the attahced labels of chart.
-*LabelApi* | [**chartrepo_repo_charts_name_version_labels_id_delete**](docs/LabelApi.md#chartrepo_repo_charts_name_version_labels_id_delete) | **DELETE** /chartrepo/{repo}/charts/{name}/{version}/labels/{id} | Remove label from chart.
-*LabelApi* | [**chartrepo_repo_charts_name_version_labels_post**](docs/LabelApi.md#chartrepo_repo_charts_name_version_labels_post) | **POST** /chartrepo/{repo}/charts/{name}/{version}/labels | Mark label to chart.
+*ChartRepositoryApi* | [**list_attahced_labels_of_chart**](docs/ChartRepositoryApi.md#list_attahced_labels_of_chart) | **GET** /chartrepo/{repo}/charts/{name}/{version}/labels | Return the attahced labels of chart.
+*ChartRepositoryApi* | [**mark_label_to_chart**](docs/ChartRepositoryApi.md#mark_label_to_chart) | **POST** /chartrepo/{repo}/charts/{name}/{version}/labels | Mark label to chart.
+*ChartRepositoryApi* | [**remove_label_from_chart**](docs/ChartRepositoryApi.md#remove_label_from_chart) | **DELETE** /chartrepo/{repo}/charts/{name}/{version}/labels/{id} | Remove label from chart.
+*LabelApi* | [**list_attahced_labels_of_chart**](docs/LabelApi.md#list_attahced_labels_of_chart) | **GET** /chartrepo/{repo}/charts/{name}/{version}/labels | Return the attahced labels of chart.
+*LabelApi* | [**mark_label_to_chart**](docs/LabelApi.md#mark_label_to_chart) | **POST** /chartrepo/{repo}/charts/{name}/{version}/labels | Mark label to chart.
+*LabelApi* | [**remove_label_from_chart**](docs/LabelApi.md#remove_label_from_chart) | **DELETE** /chartrepo/{repo}/charts/{name}/{version}/labels/{id} | Remove label from chart.
 *LdapApi* | [**import_ldap_user**](docs/LdapApi.md#import_ldap_user) | **POST** /ldap/users/import | Import selected available ldap users.
 *LdapApi* | [**ping_ldap**](docs/LdapApi.md#ping_ldap) | **POST** /ldap/ping | Ping available ldap service.
 *LdapApi* | [**search_ldap_group**](docs/LdapApi.md#search_ldap_group) | **GET** /ldap/groups/search | Search available ldap groups.
 *LdapApi* | [**search_ldap_user**](docs/LdapApi.md#search_ldap_user) | **GET** /ldap/users/search | Search available ldap users.
-*ProductsApi* | [**chartrepo_repo_charts_name_version_labels_get**](docs/ProductsApi.md#chartrepo_repo_charts_name_version_labels_get) | **GET** /chartrepo/{repo}/charts/{name}/{version}/labels | Return the attahced labels of chart.
-*ProductsApi* | [**chartrepo_repo_charts_name_version_labels_id_delete**](docs/ProductsApi.md#chartrepo_repo_charts_name_version_labels_id_delete) | **DELETE** /chartrepo/{repo}/charts/{name}/{version}/labels/{id} | Remove label from chart.
-*ProductsApi* | [**chartrepo_repo_charts_name_version_labels_post**](docs/ProductsApi.md#chartrepo_repo_charts_name_version_labels_post) | **POST** /chartrepo/{repo}/charts/{name}/{version}/labels | Mark label to chart.
-*ProductsApi* | [**configurations_get**](docs/ProductsApi.md#configurations_get) | **GET** /configurations | Get system configurations.
-*ProductsApi* | [**configurations_put**](docs/ProductsApi.md#configurations_put) | **PUT** /configurations | Modify system configurations.
-*ProductsApi* | [**email_ping_post**](docs/ProductsApi.md#email_ping_post) | **POST** /email/ping | Test connection and authentication with email server.
-*ProductsApi* | [**health_get**](docs/ProductsApi.md#health_get) | **GET** /health | Health check API
-*ProductsApi* | [**labels_get**](docs/ProductsApi.md#labels_get) | **GET** /labels | List labels according to the query strings.
-*ProductsApi* | [**labels_id_delete**](docs/ProductsApi.md#labels_id_delete) | **DELETE** /labels/{id} | Delete the label specified by ID.
-*ProductsApi* | [**labels_id_get**](docs/ProductsApi.md#labels_id_get) | **GET** /labels/{id} | Get the label specified by ID.
-*ProductsApi* | [**labels_id_put**](docs/ProductsApi.md#labels_id_put) | **PUT** /labels/{id} | Update the label properties.
-*ProductsApi* | [**labels_post**](docs/ProductsApi.md#labels_post) | **POST** /labels | Post creates a label
-*ProductsApi* | [**projects_project_id_members_get**](docs/ProductsApi.md#projects_project_id_members_get) | **GET** /projects/{project_id}/members | Get all project member information
-*ProductsApi* | [**projects_project_id_members_mid_delete**](docs/ProductsApi.md#projects_project_id_members_mid_delete) | **DELETE** /projects/{project_id}/members/{mid} | Delete project member
-*ProductsApi* | [**projects_project_id_members_mid_get**](docs/ProductsApi.md#projects_project_id_members_mid_get) | **GET** /projects/{project_id}/members/{mid} | Get the project member information
-*ProductsApi* | [**projects_project_id_members_mid_put**](docs/ProductsApi.md#projects_project_id_members_mid_put) | **PUT** /projects/{project_id}/members/{mid} | Update project member
-*ProductsApi* | [**projects_project_id_members_post**](docs/ProductsApi.md#projects_project_id_members_post) | **POST** /projects/{project_id}/members | Create project member
-*ProductsApi* | [**projects_project_id_metadatas_get**](docs/ProductsApi.md#projects_project_id_metadatas_get) | **GET** /projects/{project_id}/metadatas | Get project metadata.
-*ProductsApi* | [**projects_project_id_metadatas_meta_name_delete**](docs/ProductsApi.md#projects_project_id_metadatas_meta_name_delete) | **DELETE** /projects/{project_id}/metadatas/{meta_name} | Delete metadata of a project
-*ProductsApi* | [**projects_project_id_metadatas_meta_name_get**](docs/ProductsApi.md#projects_project_id_metadatas_meta_name_get) | **GET** /projects/{project_id}/metadatas/{meta_name} | Get project metadata
-*ProductsApi* | [**projects_project_id_metadatas_meta_name_put**](docs/ProductsApi.md#projects_project_id_metadatas_meta_name_put) | **PUT** /projects/{project_id}/metadatas/{meta_name} | Update metadata of a project.
-*ProductsApi* | [**projects_project_id_metadatas_post**](docs/ProductsApi.md#projects_project_id_metadatas_post) | **POST** /projects/{project_id}/metadatas | Add metadata for the project.
-*ProductsApi* | [**statistics_get**](docs/ProductsApi.md#statistics_get) | **GET** /statistics | Get projects number and repositories number relevant to the user
-*ProductsApi* | [**usergroups_get**](docs/ProductsApi.md#usergroups_get) | **GET** /usergroups | Get all user groups information
-*ProductsApi* | [**usergroups_group_id_delete**](docs/ProductsApi.md#usergroups_group_id_delete) | **DELETE** /usergroups/{group_id} | Delete user group
-*ProductsApi* | [**usergroups_group_id_get**](docs/ProductsApi.md#usergroups_group_id_get) | **GET** /usergroups/{group_id} | Get user group information
-*ProductsApi* | [**usergroups_group_id_put**](docs/ProductsApi.md#usergroups_group_id_put) | **PUT** /usergroups/{group_id} | Update group information
-*ProductsApi* | [**usergroups_post**](docs/ProductsApi.md#usergroups_post) | **POST** /usergroups | Create user group
-*ProductsApi* | [**users_current_get**](docs/ProductsApi.md#users_current_get) | **GET** /users/current | Get current user info.
-*ProductsApi* | [**users_current_permissions_get**](docs/ProductsApi.md#users_current_permissions_get) | **GET** /users/current/permissions | Get current user permissions.
-*ProductsApi* | [**users_get**](docs/ProductsApi.md#users_get) | **GET** /users | Get registered users of Harbor.
-*ProductsApi* | [**users_post**](docs/ProductsApi.md#users_post) | **POST** /users | Creates a new user account.
-*ProductsApi* | [**users_search_get**](docs/ProductsApi.md#users_search_get) | **GET** /users/search | Search users by username
-*ProductsApi* | [**users_user_id_cli_secret_put**](docs/ProductsApi.md#users_user_id_cli_secret_put) | **PUT** /users/{user_id}/cli_secret | Set CLI secret for a user.
-*ProductsApi* | [**users_user_id_delete**](docs/ProductsApi.md#users_user_id_delete) | **DELETE** /users/{user_id} | Mark a registered user as be removed.
-*ProductsApi* | [**users_user_id_get**](docs/ProductsApi.md#users_user_id_get) | **GET** /users/{user_id} | Get a user&#39;s profile.
-*ProductsApi* | [**users_user_id_password_put**](docs/ProductsApi.md#users_user_id_password_put) | **PUT** /users/{user_id}/password | Change the password on a user that already exists.
-*ProductsApi* | [**users_user_id_put**](docs/ProductsApi.md#users_user_id_put) | **PUT** /users/{user_id} | Update a registered user to change his profile.
-*ProductsApi* | [**users_user_id_sysadmin_put**](docs/ProductsApi.md#users_user_id_sysadmin_put) | **PUT** /users/{user_id}/sysadmin | Update a registered user to change to be an administrator of Harbor.
+*ProductsApi* | [**all_project_members**](docs/ProductsApi.md#all_project_members) | **GET** /projects/{project_id}/members | Get all project member information
+*ProductsApi* | [**change_password**](docs/ProductsApi.md#change_password) | **PUT** /users/{user_id}/password | Change the password on a user that already exists.
+*ProductsApi* | [**create_label**](docs/ProductsApi.md#create_label) | **POST** /labels | Post creates a label
+*ProductsApi* | [**create_project_member_relationship**](docs/ProductsApi.md#create_project_member_relationship) | **POST** /projects/{project_id}/members | Create project member
+*ProductsApi* | [**create_user**](docs/ProductsApi.md#create_user) | **POST** /users | Creates a new user account.
+*ProductsApi* | [**create_usergroup**](docs/ProductsApi.md#create_usergroup) | **POST** /usergroups | Create user group
+*ProductsApi* | [**current_user**](docs/ProductsApi.md#current_user) | **GET** /users/current | Get current user info.
+*ProductsApi* | [**current_user_permissions**](docs/ProductsApi.md#current_user_permissions) | **GET** /users/current/permissions | Get current user permissions.
+*ProductsApi* | [**delete_project_member**](docs/ProductsApi.md#delete_project_member) | **DELETE** /projects/{project_id}/members/{mid} | Delete project member
+*ProductsApi* | [**delete_usergroup**](docs/ProductsApi.md#delete_usergroup) | **DELETE** /usergroups/{group_id} | Delete user group
+*ProductsApi* | [**email_ping**](docs/ProductsApi.md#email_ping) | **POST** /email/ping | Test connection and authentication with email server.
+*ProductsApi* | [**health**](docs/ProductsApi.md#health) | **GET** /health | Health check API
+*ProductsApi* | [**label**](docs/ProductsApi.md#label) | **GET** /labels/{id} | Get the label specified by ID.
+*ProductsApi* | [**list_attahced_labels_of_chart**](docs/ProductsApi.md#list_attahced_labels_of_chart) | **GET** /chartrepo/{repo}/charts/{name}/{version}/labels | Return the attahced labels of chart.
+*ProductsApi* | [**list_label**](docs/ProductsApi.md#list_label) | **GET** /labels | List labels according to the query strings.
+*ProductsApi* | [**list_user_groups**](docs/ProductsApi.md#list_user_groups) | **GET** /usergroups | Get all user groups information
+*ProductsApi* | [**make_admin**](docs/ProductsApi.md#make_admin) | **PUT** /users/{user_id}/sysadmin | Update a registered user to change to be an administrator of Harbor.
+*ProductsApi* | [**mark_label_to_chart**](docs/ProductsApi.md#mark_label_to_chart) | **POST** /chartrepo/{repo}/charts/{name}/{version}/labels | Mark label to chart.
+*ProductsApi* | [**project_member**](docs/ProductsApi.md#project_member) | **GET** /projects/{project_id}/members/{mid} | Get the project member information
+*ProductsApi* | [**project_metadata**](docs/ProductsApi.md#project_metadata) | **GET** /projects/{project_id}/metadatas | Get project metadata.
+*ProductsApi* | [**remove_label_by_id**](docs/ProductsApi.md#remove_label_by_id) | **DELETE** /labels/{id} | Delete the label specified by ID.
+*ProductsApi* | [**remove_label_from_chart**](docs/ProductsApi.md#remove_label_from_chart) | **DELETE** /chartrepo/{repo}/charts/{name}/{version}/labels/{id} | Remove label from chart.
+*ProductsApi* | [**remove_project_metadata**](docs/ProductsApi.md#remove_project_metadata) | **DELETE** /projects/{project_id}/metadatas/{meta_name} | Delete metadata of a project
+*ProductsApi* | [**remove_user**](docs/ProductsApi.md#remove_user) | **DELETE** /users/{user_id} | Mark a registered user as be removed.
+*ProductsApi* | [**search_user**](docs/ProductsApi.md#search_user) | **GET** /users/search | Search users by username
+*ProductsApi* | [**set_cli_secret**](docs/ProductsApi.md#set_cli_secret) | **PUT** /users/{user_id}/cli_secret | Set CLI secret for a user.
+*ProductsApi* | [**set_project_member**](docs/ProductsApi.md#set_project_member) | **PUT** /projects/{project_id}/members/{mid} | Update project member
+*ProductsApi* | [**set_project_metadata**](docs/ProductsApi.md#set_project_metadata) | **POST** /projects/{project_id}/metadatas | Add metadata for the project.
+*ProductsApi* | [**specified_project_metadata**](docs/ProductsApi.md#specified_project_metadata) | **GET** /projects/{project_id}/metadatas/{meta_name} | Get project metadata
+*ProductsApi* | [**statistics**](docs/ProductsApi.md#statistics) | **GET** /statistics | Get projects number and repositories number relevant to the user
+*ProductsApi* | [**system_configuration**](docs/ProductsApi.md#system_configuration) | **GET** /configurations | Get system configurations.
+*ProductsApi* | [**update_label**](docs/ProductsApi.md#update_label) | **PUT** /labels/{id} | Update the label properties.
+*ProductsApi* | [**update_project_metadata**](docs/ProductsApi.md#update_project_metadata) | **PUT** /projects/{project_id}/metadatas/{meta_name} | Update metadata of a project.
+*ProductsApi* | [**update_system_configuration**](docs/ProductsApi.md#update_system_configuration) | **PUT** /configurations | Modify system configurations.
+*ProductsApi* | [**update_user**](docs/ProductsApi.md#update_user) | **PUT** /users/{user_id} | Update a registered user to change his profile.
+*ProductsApi* | [**update_usergroup**](docs/ProductsApi.md#update_usergroup) | **PUT** /usergroups/{group_id} | Update group information
+*ProductsApi* | [**user**](docs/ProductsApi.md#user) | **GET** /users/{user_id} | Get a user&#39;s profile.
+*ProductsApi* | [**usergroup**](docs/ProductsApi.md#usergroup) | **GET** /usergroups/{group_id} | Get user group information
+*ProductsApi* | [**users**](docs/ProductsApi.md#users) | **GET** /users | Get registered users of Harbor.
 *RetentionApi* | [**create_retention**](docs/RetentionApi.md#create_retention) | **POST** /retentions | Create Retention Policy
 *RetentionApi* | [**get_rentenition_metadata**](docs/RetentionApi.md#get_rentenition_metadata) | **GET** /retentions/metadatas | Get Retention Metadatas
 *RetentionApi* | [**get_retention**](docs/RetentionApi.md#get_retention) | **GET** /retentions/{id} | Get Retention Policy
@@ -174,7 +174,7 @@ Class | Method | HTTP request | Description
 *ImmutableApi* | [**list_immu_rules**](docs/ImmutableApi.md#list_immu_rules) | **GET** /projects/{project_name_or_id}/immutabletagrules | List all immutable tag rules of current project
 *ImmutableApi* | [**update_immu_rule**](docs/ImmutableApi.md#update_immu_rule) | **PUT** /projects/{project_name_or_id}/immutabletagrules/{immutable_rule_id} | Update the immutable tag rule or enable or disable the rule
 *OidcApi* | [**ping_oidc**](docs/OidcApi.md#ping_oidc) | **POST** /system/oidc/ping | Test the OIDC endpoint.
-*PingApi* | [**ping_get**](docs/PingApi.md#ping_get) | **GET** /ping | Ping Harbor to check if it&#39;s alive.
+*PingApi* | [**ping**](docs/PingApi.md#ping) | **GET** /ping | Ping Harbor to check if it&#39;s alive.
 *PreheatApi* | [**create_instance**](docs/PreheatApi.md#create_instance) | **POST** /p2p/preheat/instances | Create p2p provider instances
 *PreheatApi* | [**create_policy**](docs/PreheatApi.md#create_policy) | **POST** /projects/{project_name}/preheat/policies | Create a preheat policy under a project
 *PreheatApi* | [**delete_instance**](docs/PreheatApi.md#delete_instance) | **DELETE** /p2p/preheat/instances/{preheat_instance_name} | Delete the specified P2P provider instance
@@ -260,9 +260,9 @@ Class | Method | HTTP request | Description
 *ScannerApi* | [**set_scanner_as_default**](docs/ScannerApi.md#set_scanner_as_default) | **PATCH** /scanners/{registration_id} | Set system default scanner registration
 *ScannerApi* | [**update_scanner**](docs/ScannerApi.md#update_scanner) | **PUT** /scanners/{registration_id} | Update a scanner registration
 *SearchApi* | [**search**](docs/SearchApi.md#search) | **GET** /search | Search for projects, repositories and helm charts
-*SysteminfoApi* | [**systeminfo_get**](docs/SysteminfoApi.md#systeminfo_get) | **GET** /systeminfo | Get general system info
-*SysteminfoApi* | [**systeminfo_getcert_get**](docs/SysteminfoApi.md#systeminfo_getcert_get) | **GET** /systeminfo/getcert | Get default root certificate.
-*SysteminfoApi* | [**systeminfo_volumes_get**](docs/SysteminfoApi.md#systeminfo_volumes_get) | **GET** /systeminfo/volumes | Get system volume info (total/free size).
+*SysteminfoApi* | [**systeminfo**](docs/SysteminfoApi.md#systeminfo) | **GET** /systeminfo | Get general system info
+*SysteminfoApi* | [**systeminfo_cert**](docs/SysteminfoApi.md#systeminfo_cert) | **GET** /systeminfo/getcert | Get default root certificate.
+*SysteminfoApi* | [**systeminfo_volumes**](docs/SysteminfoApi.md#systeminfo_volumes) | **GET** /systeminfo/volumes | Get system volume info (total/free size).
 *WebhookApi* | [**create_webhook_policy_of_project**](docs/WebhookApi.md#create_webhook_policy_of_project) | **POST** /projects/{project_name_or_id}/webhook/policies | Create project webhook policy.
 *WebhookApi* | [**delete_webhook_policy_of_project**](docs/WebhookApi.md#delete_webhook_policy_of_project) | **DELETE** /projects/{project_name_or_id}/webhook/policies/{webhook_policy_id} | Delete webhook policy of a project
 *WebhookApi* | [**get_supported_event_types**](docs/WebhookApi.md#get_supported_event_types) | **GET** /projects/{project_name_or_id}/webhook/events | Get supported event types and notify types.

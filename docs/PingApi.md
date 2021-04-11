@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ping_get**](PingApi.md#ping_get) | **GET** /ping | Ping Harbor to check if it&#39;s alive.
+[**ping**](PingApi.md#ping) | **GET** /ping | Ping Harbor to check if it&#39;s alive.
 
 
-# **ping_get**
-> str ping_get()
+# **ping**
+> str ping()
 
 Ping Harbor to check if it's alive.
 
@@ -47,10 +47,10 @@ with harbor_client.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # Ping Harbor to check if it's alive.
-        api_response = api_instance.ping_get()
+        api_response = api_instance.ping()
         pprint(api_response)
     except harbor_client.ApiException as e:
-        print("Exception when calling PingApi->ping_get: %s\n" % e)
+        print("Exception when calling PingApi->ping: %s\n" % e)
 ```
 
 
