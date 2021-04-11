@@ -77,11 +77,11 @@ class Stats(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'metrics': ({str: (int,)},),  # noqa: E501
             'total': (int,),  # noqa: E501
             'completed': (int,),  # noqa: E501
-            'trigger': (str,),  # noqa: E501
+            'metrics': ({str: (int,)},),  # noqa: E501
             'ongoing': (bool,),  # noqa: E501
+            'trigger': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -90,11 +90,11 @@ class Stats(ModelNormal):
 
 
     attribute_map = {
-        'metrics': 'metrics',  # noqa: E501
         'total': 'total',  # noqa: E501
         'completed': 'completed',  # noqa: E501
-        'trigger': 'trigger',  # noqa: E501
+        'metrics': 'metrics',  # noqa: E501
         'ongoing': 'ongoing',  # noqa: E501
+        'trigger': 'trigger',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -143,11 +143,11 @@ class Stats(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            metrics ({str: (int,)}): The metrics data for the each status. [optional]  # noqa: E501
             total (int): The total number of scan processes triggered by the scan all action. [optional]  # noqa: E501
             completed (int): The number of the finished scan processes triggered by the scan all action. [optional]  # noqa: E501
-            trigger (str): The trigger of the scan all job.. [optional]  # noqa: E501
+            metrics ({str: (int,)}): The metrics data for the each status. [optional]  # noqa: E501
             ongoing (bool): A flag indicating job status of scan all.. [optional]  # noqa: E501
+            trigger (str): The trigger of the scan all job.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

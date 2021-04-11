@@ -188,7 +188,8 @@ class ScanApi(object):
             },
             headers_map={
                 'accept': [
-                    'text/plain'
+                    'text/plain',
+                    'application/json'
                 ],
                 'content_type': [],
             },

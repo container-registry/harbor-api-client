@@ -72,13 +72,13 @@ class Metrics(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'pending_task_count': (int,),  # noqa: E501
-            'error_task_count': (int,),  # noqa: E501
             'task_count': (int,),  # noqa: E501
-            'scheduled_task_count': (int,),  # noqa: E501
             'success_task_count': (int,),  # noqa: E501
-            'stopped_task_count': (int,),  # noqa: E501
+            'error_task_count': (int,),  # noqa: E501
+            'pending_task_count': (int,),  # noqa: E501
             'running_task_count': (int,),  # noqa: E501
+            'scheduled_task_count': (int,),  # noqa: E501
+            'stopped_task_count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -87,13 +87,13 @@ class Metrics(ModelNormal):
 
 
     attribute_map = {
-        'pending_task_count': 'pending_task_count',  # noqa: E501
-        'error_task_count': 'error_task_count',  # noqa: E501
         'task_count': 'task_count',  # noqa: E501
-        'scheduled_task_count': 'scheduled_task_count',  # noqa: E501
         'success_task_count': 'success_task_count',  # noqa: E501
-        'stopped_task_count': 'stopped_task_count',  # noqa: E501
+        'error_task_count': 'error_task_count',  # noqa: E501
+        'pending_task_count': 'pending_task_count',  # noqa: E501
         'running_task_count': 'running_task_count',  # noqa: E501
+        'scheduled_task_count': 'scheduled_task_count',  # noqa: E501
+        'stopped_task_count': 'stopped_task_count',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -142,13 +142,13 @@ class Metrics(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            pending_task_count (int): The count of pending task. [optional]  # noqa: E501
-            error_task_count (int): The count of error task. [optional]  # noqa: E501
             task_count (int): The count of task. [optional]  # noqa: E501
-            scheduled_task_count (int): The count of scheduled task. [optional]  # noqa: E501
             success_task_count (int): The count of success task. [optional]  # noqa: E501
-            stopped_task_count (int): The count of stopped task. [optional]  # noqa: E501
+            error_task_count (int): The count of error task. [optional]  # noqa: E501
+            pending_task_count (int): The count of pending task. [optional]  # noqa: E501
             running_task_count (int): The count of running task. [optional]  # noqa: E501
+            scheduled_task_count (int): The count of scheduled task. [optional]  # noqa: E501
+            stopped_task_count (int): The count of stopped task. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

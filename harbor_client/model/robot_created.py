@@ -72,11 +72,11 @@ class RobotCreated(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'id': (int,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'secret': (str,),  # noqa: E501
             'creation_time': (datetime,),  # noqa: E501
-            'id': (int,),  # noqa: E501
             'expires_at': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -85,11 +85,11 @@ class RobotCreated(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'secret': 'secret',  # noqa: E501
         'creation_time': 'creation_time',  # noqa: E501
-        'id': 'id',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
-        'name': 'name',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -138,11 +138,11 @@ class RobotCreated(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (int): The ID of the robot. [optional]  # noqa: E501
+            name (str): The name of the tag. [optional]  # noqa: E501
             secret (str): The secret of the robot. [optional]  # noqa: E501
             creation_time (datetime): The creation time of the robot.. [optional]  # noqa: E501
-            id (int): The ID of the robot. [optional]  # noqa: E501
             expires_at (int): The expiration data of the robot. [optional]  # noqa: E501
-            name (str): The name of the tag. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

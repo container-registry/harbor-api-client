@@ -72,9 +72,9 @@ class Scanner(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'version': (str,),  # noqa: E501
-            'vendor': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'vendor': (str,),  # noqa: E501
+            'version': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -83,9 +83,9 @@ class Scanner(ModelNormal):
 
 
     attribute_map = {
-        'version': 'version',  # noqa: E501
-        'vendor': 'vendor',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'vendor': 'vendor',  # noqa: E501
+        'version': 'version',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -134,9 +134,9 @@ class Scanner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            version (str): Version of the scanner adapter. [optional]  # noqa: E501
-            vendor (str): Name of the scanner provider. [optional]  # noqa: E501
             name (str): Name of the scanner. [optional]  # noqa: E501
+            vendor (str): Name of the scanner provider. [optional]  # noqa: E501
+            version (str): Version of the scanner adapter. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

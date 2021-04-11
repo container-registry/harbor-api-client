@@ -72,7 +72,8 @@ class InlineObject(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'action': (str,),  # noqa: E501
+            'url': (str,),  # noqa: E501
+            'verify_cert': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -81,7 +82,8 @@ class InlineObject(ModelNormal):
 
 
     attribute_map = {
-        'action': 'action',  # noqa: E501
+        'url': 'url',  # noqa: E501
+        'verify_cert': 'verify_cert',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -130,7 +132,8 @@ class InlineObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            action (str): [optional]  # noqa: E501
+            url (str): The URL of OIDC endpoint to be tested.. [optional]  # noqa: E501
+            verify_cert (bool): Whether the certificate should be verified. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

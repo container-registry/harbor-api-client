@@ -244,7 +244,8 @@ class SysteminfoApi(object):
             },
             headers_map={
                 'accept': [
-                    'application/octet-stream'
+                    'application/octet-stream',
+                    'application/json'
                 ],
                 'content_type': [],
             },

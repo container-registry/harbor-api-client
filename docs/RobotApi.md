@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_robot**
-> RobotCreated create_robot(robot)
+> RobotCreated create_robot(robot_create)
 
 Create a robot account
 
@@ -51,24 +51,24 @@ configuration = harbor_client.Configuration(
 with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = robot_api.RobotApi(api_client)
-    robot = RobotCreate(
-        secret="secret_example",
-        disable=True,
+    robot_create = RobotCreate(
         name="name_example",
-        level="level_example",
-        duration=1,
         description="description_example",
+        secret="secret_example",
+        level="level_example",
+        disable=True,
+        duration=1,
         permissions=[
             RobotPermission(
+                kind="kind_example",
+                namespace="namespace_example",
                 access=[
                     Access(
-                        action="action_example",
                         resource="resource_example",
+                        action="action_example",
                         effect="effect_example",
                     ),
                 ],
-                kind="kind_example",
-                namespace="namespace_example",
             ),
         ],
     ) # RobotCreate | The JSON object of a robot account.
@@ -77,7 +77,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create a robot account
-        api_response = api_instance.create_robot(robot)
+        api_response = api_instance.create_robot(robot_create)
         pprint(api_response)
     except harbor_client.ApiException as e:
         print("Exception when calling RobotApi->create_robot: %s\n" % e)
@@ -86,7 +86,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a robot account
-        api_response = api_instance.create_robot(robot, x_request_id=x_request_id)
+        api_response = api_instance.create_robot(robot_create, x_request_id=x_request_id)
         pprint(api_response)
     except harbor_client.ApiException as e:
         print("Exception when calling RobotApi->create_robot: %s\n" % e)
@@ -97,7 +97,7 @@ with harbor_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **robot** | [**RobotCreate**](RobotCreate.md)| The JSON object of a robot account. |
+ **robot_create** | [**RobotCreate**](RobotCreate.md)| The JSON object of a robot account. |
  **x_request_id** | **str**| An unique ID for the request | [optional]
 
 ### Return type
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The location of the resource <br>  |
+**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The URL of the created resource <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -348,6 +348,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     api_instance = robot_api.RobotApi(api_client)
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
     q = "q_example" # str | Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max] (optional)
+    sort = "sort_example" # str | Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\" (optional)
     page = 1 # int | The page number (optional) if omitted the server will use the default value of 1
     page_size = 10 # int | The size of per page (optional) if omitted the server will use the default value of 10
 
@@ -355,7 +356,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get robot account
-        api_response = api_instance.list_robot(x_request_id=x_request_id, q=q, page=page, page_size=page_size)
+        api_response = api_instance.list_robot(x_request_id=x_request_id, q=q, sort=sort, page=page, page_size=page_size)
         pprint(api_response)
     except harbor_client.ApiException as e:
         print("Exception when calling RobotApi->list_robot: %s\n" % e)
@@ -368,6 +369,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| An unique ID for the request | [optional]
  **q** | **str**| Query string to query resources. Supported query patterns are \&quot;exact match(k&#x3D;v)\&quot;, \&quot;fuzzy match(k&#x3D;~v)\&quot;, \&quot;range(k&#x3D;[min~max])\&quot;, \&quot;list with union releationship(k&#x3D;{v1 v2 v3})\&quot; and \&quot;list with intersetion relationship(k&#x3D;(v1 v2 v3))\&quot;. The value of range and list can be string(enclosed by \&quot; or &#39;), integer or time(in format \&quot;2020-04-09 02:36:00\&quot;). All of these query patterns should be put in the query string \&quot;q&#x3D;xxx\&quot; and splitted by \&quot;,\&quot;. e.g. q&#x3D;k1&#x3D;v1,k2&#x3D;~v2,k3&#x3D;[min~max] | [optional]
+ **sort** | **str**| Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \&quot;sort&#x3D;field1,-field2\&quot; | [optional]
  **page** | **int**| The page number | [optional] if omitted the server will use the default value of 1
  **page_size** | **int**| The size of per page | [optional] if omitted the server will use the default value of 10
 
@@ -388,7 +390,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * X-Total-Count - The total count of tags <br>  * Link - Link refers to the previous page and next page <br>  |
+**200** | Success |  * X-Total-Count - The total count of available items <br>  * Link - Link to previous page and next page <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -532,30 +534,30 @@ with harbor_client.ApiClient(configuration) as api_client:
     api_instance = robot_api.RobotApi(api_client)
     robot_id = 1 # int | Robot ID
     robot = Robot(
-        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        description="description_example",
-        level="level_example",
-        editable=True,
-        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        expires_at=1,
-        name="name_example",
-        secret="secret_example",
-        disable=True,
-        duration=1,
         id=1,
+        name="name_example",
+        description="description_example",
+        secret="secret_example",
+        level="level_example",
+        duration=1,
+        editable=True,
+        disable=True,
+        expires_at=1,
         permissions=[
             RobotPermission(
+                kind="kind_example",
+                namespace="namespace_example",
                 access=[
                     Access(
-                        action="action_example",
                         resource="resource_example",
+                        action="action_example",
                         effect="effect_example",
                     ),
                 ],
-                kind="kind_example",
-                namespace="namespace_example",
             ),
         ],
+        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
     ) # Robot | The JSON object of a robot account.
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
 

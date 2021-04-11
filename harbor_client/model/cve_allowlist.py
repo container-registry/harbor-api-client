@@ -77,12 +77,12 @@ class CVEAllowlist(ModelNormal):
         """
         lazy_import()
         return {
-            'update_time': (datetime,),  # noqa: E501
-            'items': ([CVEAllowlistItem],),  # noqa: E501
-            'project_id': (int,),  # noqa: E501
-            'creation_time': (datetime,),  # noqa: E501
             'id': (int,),  # noqa: E501
+            'project_id': (int,),  # noqa: E501
             'expires_at': (int, none_type,),  # noqa: E501
+            'items': ([CVEAllowlistItem],),  # noqa: E501
+            'creation_time': (datetime,),  # noqa: E501
+            'update_time': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -91,12 +91,12 @@ class CVEAllowlist(ModelNormal):
 
 
     attribute_map = {
-        'update_time': 'update_time',  # noqa: E501
-        'items': 'items',  # noqa: E501
-        'project_id': 'project_id',  # noqa: E501
-        'creation_time': 'creation_time',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'project_id': 'project_id',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
+        'items': 'items',  # noqa: E501
+        'creation_time': 'creation_time',  # noqa: E501
+        'update_time': 'update_time',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -145,12 +145,12 @@ class CVEAllowlist(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            update_time (datetime): The update time of the allowlist.. [optional]  # noqa: E501
-            items ([CVEAllowlistItem]): [optional]  # noqa: E501
-            project_id (int): ID of the project which the allowlist belongs to.  For system level allowlist this attribute is zero.. [optional]  # noqa: E501
-            creation_time (datetime): The creation time of the allowlist.. [optional]  # noqa: E501
             id (int): ID of the allowlist. [optional]  # noqa: E501
+            project_id (int): ID of the project which the allowlist belongs to.  For system level allowlist this attribute is zero.. [optional]  # noqa: E501
             expires_at (int, none_type): the time for expiration of the allowlist, in the form of seconds since epoch.  This is an optional attribute, if it's not set the CVE allowlist does not expire.. [optional]  # noqa: E501
+            items ([CVEAllowlistItem]): [optional]  # noqa: E501
+            creation_time (datetime): The creation time of the allowlist.. [optional]  # noqa: E501
+            update_time (datetime): The update time of the allowlist.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

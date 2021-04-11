@@ -23,6 +23,7 @@ from harbor_client.model_utils import (  # noqa: F401
 )
 from harbor_client.model.errors import Errors
 from harbor_client.model.replication_execution import ReplicationExecution
+from harbor_client.model.replication_policy import ReplicationPolicy
 from harbor_client.model.replication_task import ReplicationTask
 from harbor_client.model.start_replication_execution import StartReplicationExecution
 
@@ -38,6 +39,245 @@ class ReplicationApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+        def __create_replication_policy(
+            self,
+            replication_policy,
+            **kwargs
+        ):
+            """Create a replication policy  # noqa: E501
+
+            Create a replication policy  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.create_replication_policy(replication_policy, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                replication_policy (ReplicationPolicy): The replication policy
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['replication_policy'] = \
+                replication_policy
+            return self.call_with_http_info(**kwargs)
+
+        self.create_replication_policy = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/replication/policies',
+                'operation_id': 'create_replication_policy',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'replication_policy',
+                ],
+                'required': [
+                    'replication_policy',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'replication_policy':
+                        (ReplicationPolicy,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'replication_policy': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__create_replication_policy
+        )
+
+        def __delete_replication_policy(
+            self,
+            id,
+            **kwargs
+        ):
+            """Delete the specific replication policy  # noqa: E501
+
+            Delete the specific replication policy  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.delete_replication_policy(id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                id (int): Replication policy ID
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
+
+        self.delete_replication_policy = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/replication/policies/{id}',
+                'operation_id': 'delete_replication_policy',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__delete_replication_policy
+        )
 
         def __get_replication_execution(
             self,
@@ -279,12 +519,132 @@ class ReplicationApi(object):
             },
             headers_map={
                 'accept': [
-                    'text/plain'
+                    'text/plain',
+                    'application/json'
                 ],
                 'content_type': [],
             },
             api_client=api_client,
             callable=__get_replication_log
+        )
+
+        def __get_replication_policy(
+            self,
+            id,
+            **kwargs
+        ):
+            """Get the specific replication policy  # noqa: E501
+
+            Get the specific replication policy  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.get_replication_policy(id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                id (int): Policy ID
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                ReplicationPolicy
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
+
+        self.get_replication_policy = _Endpoint(
+            settings={
+                'response_type': (ReplicationPolicy,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/replication/policies/{id}',
+                'operation_id': 'get_replication_policy',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_replication_policy
         )
 
         def __list_replication_executions(
@@ -302,6 +662,7 @@ class ReplicationApi(object):
 
 
             Keyword Args:
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
                 policy_id (int): The ID of the policy that the executions belong to.. [optional]
@@ -366,6 +727,7 @@ class ReplicationApi(object):
             },
             params_map={
                 'all': [
+                    'sort',
                     'page',
                     'page_size',
                     'policy_id',
@@ -391,6 +753,8 @@ class ReplicationApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'sort':
+                        (str,),
                     'page':
                         (int,),
                     'page_size':
@@ -403,6 +767,7 @@ class ReplicationApi(object):
                         (str,),
                 },
                 'attribute_map': {
+                    'sort': 'sort',
                     'page': 'page',
                     'page_size': 'page_size',
                     'policy_id': 'policy_id',
@@ -410,6 +775,7 @@ class ReplicationApi(object):
                     'trigger': 'trigger',
                 },
                 'location_map': {
+                    'sort': 'query',
                     'page': 'query',
                     'page_size': 'query',
                     'policy_id': 'query',
@@ -427,6 +793,148 @@ class ReplicationApi(object):
             },
             api_client=api_client,
             callable=__list_replication_executions
+        )
+
+        def __list_replication_policies(
+            self,
+            **kwargs
+        ):
+            """List replication policies  # noqa: E501
+
+            List replication policies  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.list_replication_policies(async_req=True)
+            >>> result = thread.get()
+
+
+            Keyword Args:
+                q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
+                page (int): The page number. [optional] if omitted the server will use the default value of 1
+                page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
+                name (str): Deprecated, use \"query\" instead. The policy name.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [ReplicationPolicy]
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
+
+        self.list_replication_policies = _Endpoint(
+            settings={
+                'response_type': ([ReplicationPolicy],),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/replication/policies',
+                'operation_id': 'list_replication_policies',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'q',
+                    'sort',
+                    'page',
+                    'page_size',
+                    'name',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'page_size',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('page_size',): {
+
+                        'inclusive_maximum': 100,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'q':
+                        (str,),
+                    'sort':
+                        (str,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
+                    'name':
+                        (str,),
+                },
+                'attribute_map': {
+                    'q': 'q',
+                    'sort': 'sort',
+                    'page': 'page',
+                    'page_size': 'page_size',
+                    'name': 'name',
+                },
+                'location_map': {
+                    'q': 'query',
+                    'sort': 'query',
+                    'page': 'query',
+                    'page_size': 'query',
+                    'name': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__list_replication_policies
         )
 
         def __list_replication_tasks(
@@ -447,6 +955,7 @@ class ReplicationApi(object):
                 id (int): The ID of the execution that the tasks belongs to.
 
             Keyword Args:
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
                 status (str): The task status.. [optional]
@@ -513,6 +1022,7 @@ class ReplicationApi(object):
             params_map={
                 'all': [
                     'id',
+                    'sort',
                     'page',
                     'page_size',
                     'status',
@@ -541,6 +1051,8 @@ class ReplicationApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
+                    'sort':
+                        (str,),
                     'page':
                         (int,),
                     'page_size':
@@ -552,6 +1064,7 @@ class ReplicationApi(object):
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'sort': 'sort',
                     'page': 'page',
                     'page_size': 'page_size',
                     'status': 'status',
@@ -559,6 +1072,7 @@ class ReplicationApi(object):
                 },
                 'location_map': {
                     'id': 'path',
+                    'sort': 'query',
                     'page': 'query',
                     'page_size': 'query',
                     'status': 'query',
@@ -579,7 +1093,7 @@ class ReplicationApi(object):
 
         def __start_replication(
             self,
-            execution,
+            start_replication_execution,
             **kwargs
         ):
             """Start one replication execution  # noqa: E501
@@ -588,11 +1102,11 @@ class ReplicationApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.start_replication(execution, async_req=True)
+            >>> thread = api.start_replication(start_replication_execution, async_req=True)
             >>> result = thread.get()
 
             Args:
-                execution (StartReplicationExecution): The ID of policy that the execution belongs to
+                start_replication_execution (StartReplicationExecution): The ID of policy that the execution belongs to
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -639,8 +1153,8 @@ class ReplicationApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['execution'] = \
-                execution
+            kwargs['start_replication_execution'] = \
+                start_replication_execution
             return self.call_with_http_info(**kwargs)
 
         self.start_replication = _Endpoint(
@@ -656,10 +1170,10 @@ class ReplicationApi(object):
             },
             params_map={
                 'all': [
-                    'execution',
+                    'start_replication_execution',
                 ],
                 'required': [
-                    'execution',
+                    'start_replication_execution',
                 ],
                 'nullable': [
                 ],
@@ -674,13 +1188,13 @@ class ReplicationApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'execution':
+                    'start_replication_execution':
                         (StartReplicationExecution,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'execution': 'body',
+                    'start_replication_execution': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -814,4 +1328,134 @@ class ReplicationApi(object):
             },
             api_client=api_client,
             callable=__stop_replication
+        )
+
+        def __update_replication_policy(
+            self,
+            id,
+            replication_policy,
+            **kwargs
+        ):
+            """Update the replication policy  # noqa: E501
+
+            Update the replication policy  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.update_replication_policy(id, replication_policy, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                id (int): The policy ID
+                replication_policy (ReplicationPolicy): The replication policy
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['id'] = \
+                id
+            kwargs['replication_policy'] = \
+                replication_policy
+            return self.call_with_http_info(**kwargs)
+
+        self.update_replication_policy = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/replication/policies/{id}',
+                'operation_id': 'update_replication_policy',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'replication_policy',
+                ],
+                'required': [
+                    'id',
+                    'replication_policy',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'replication_policy':
+                        (ReplicationPolicy,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'replication_policy': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__update_replication_policy
         )

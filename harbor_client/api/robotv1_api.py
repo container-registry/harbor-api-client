@@ -42,7 +42,7 @@ class Robotv1Api(object):
         def __create_robot_v1(
             self,
             project_name_or_id,
-            robot,
+            robot_create_v1,
             **kwargs
         ):
             """Create a robot account  # noqa: E501
@@ -51,12 +51,12 @@ class Robotv1Api(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.create_robot_v1(project_name_or_id, robot, async_req=True)
+            >>> thread = api.create_robot_v1(project_name_or_id, robot_create_v1, async_req=True)
             >>> result = thread.get()
 
             Args:
                 project_name_or_id (str): The name or id of the project
-                robot (RobotCreateV1): The JSON object of a robot account.
+                robot_create_v1 (RobotCreateV1): The JSON object of a robot account.
 
             Keyword Args:
                 x_request_id (str): An unique ID for the request. [optional]
@@ -107,8 +107,8 @@ class Robotv1Api(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
                 project_name_or_id
-            kwargs['robot'] = \
-                robot
+            kwargs['robot_create_v1'] = \
+                robot_create_v1
             return self.call_with_http_info(**kwargs)
 
         self.create_robot_v1 = _Endpoint(
@@ -125,13 +125,13 @@ class Robotv1Api(object):
             params_map={
                 'all': [
                     'project_name_or_id',
-                    'robot',
+                    'robot_create_v1',
                     'x_request_id',
                     'x_is_resource_name',
                 ],
                 'required': [
                     'project_name_or_id',
-                    'robot',
+                    'robot_create_v1',
                 ],
                 'nullable': [
                 ],
@@ -153,7 +153,7 @@ class Robotv1Api(object):
                 'openapi_types': {
                     'project_name_or_id':
                         (str,),
-                    'robot':
+                    'robot_create_v1':
                         (RobotCreateV1,),
                     'x_request_id':
                         (str,),
@@ -167,7 +167,7 @@ class Robotv1Api(object):
                 },
                 'location_map': {
                     'project_name_or_id': 'path',
-                    'robot': 'body',
+                    'robot_create_v1': 'body',
                     'x_request_id': 'header',
                     'x_is_resource_name': 'header',
                 },
@@ -501,6 +501,7 @@ class Robotv1Api(object):
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
                 q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -568,6 +569,7 @@ class Robotv1Api(object):
                     'page',
                     'page_size',
                     'q',
+                    'sort',
                 ],
                 'required': [
                     'project_name_or_id',
@@ -607,6 +609,8 @@ class Robotv1Api(object):
                         (int,),
                     'q':
                         (str,),
+                    'sort':
+                        (str,),
                 },
                 'attribute_map': {
                     'project_name_or_id': 'project_name_or_id',
@@ -615,6 +619,7 @@ class Robotv1Api(object):
                     'page': 'page',
                     'page_size': 'page_size',
                     'q': 'q',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'project_name_or_id': 'path',
@@ -623,6 +628,7 @@ class Robotv1Api(object):
                     'page': 'query',
                     'page_size': 'query',
                     'q': 'query',
+                    'sort': 'query',
                 },
                 'collection_format_map': {
                 }

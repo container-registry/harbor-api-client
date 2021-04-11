@@ -77,16 +77,16 @@ class Registry(ModelNormal):
         """
         lazy_import()
         return {
-            'status': (str,),  # noqa: E501
-            'credential': (RegistryCredential,),  # noqa: E501
-            'update_time': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'url': (str,),  # noqa: E501
-            'insecure': (bool,),  # noqa: E501
-            'creation_time': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
             'id': (int,),  # noqa: E501
+            'url': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'credential': (RegistryCredential,),  # noqa: E501
+            'type': (str,),  # noqa: E501
+            'insecure': (bool,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'creation_time': (datetime,),  # noqa: E501
+            'update_time': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -95,16 +95,16 @@ class Registry(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'credential': 'credential',  # noqa: E501
-        'update_time': 'update_time',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'url': 'url',  # noqa: E501
-        'insecure': 'insecure',  # noqa: E501
-        'creation_time': 'creation_time',  # noqa: E501
-        'type': 'type',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'url': 'url',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'credential': 'credential',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'insecure': 'insecure',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'creation_time': 'creation_time',  # noqa: E501
+        'update_time': 'update_time',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -153,16 +153,16 @@ class Registry(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): Health status of the registry.. [optional]  # noqa: E501
-            credential (RegistryCredential): [optional]  # noqa: E501
-            update_time (str): The update time of the policy.. [optional]  # noqa: E501
-            name (str): The registry name.. [optional]  # noqa: E501
-            url (str): The registry URL string.. [optional]  # noqa: E501
-            insecure (bool): Whether or not the certificate will be verified when Harbor tries to access the server.. [optional]  # noqa: E501
-            creation_time (str): The create time of the policy.. [optional]  # noqa: E501
-            type (str): Type of the registry, e.g. 'harbor'.. [optional]  # noqa: E501
             id (int): The registry ID.. [optional]  # noqa: E501
+            url (str): The registry URL string.. [optional]  # noqa: E501
+            name (str): The registry name.. [optional]  # noqa: E501
+            credential (RegistryCredential): [optional]  # noqa: E501
+            type (str): Type of the registry, e.g. 'harbor'.. [optional]  # noqa: E501
+            insecure (bool): Whether or not the certificate will be verified when Harbor tries to access the server.. [optional]  # noqa: E501
             description (str): Description of the registry.. [optional]  # noqa: E501
+            status (str): Health status of the registry.. [optional]  # noqa: E501
+            creation_time (datetime): The create time of the policy.. [optional]  # noqa: E501
+            update_time (datetime): The update time of the policy.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

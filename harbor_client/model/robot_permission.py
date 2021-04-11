@@ -77,9 +77,9 @@ class RobotPermission(ModelNormal):
         """
         lazy_import()
         return {
-            'access': ([Access],),  # noqa: E501
             'kind': (str,),  # noqa: E501
             'namespace': (str,),  # noqa: E501
+            'access': ([Access],),  # noqa: E501
         }
 
     @cached_property
@@ -88,9 +88,9 @@ class RobotPermission(ModelNormal):
 
 
     attribute_map = {
-        'access': 'access',  # noqa: E501
         'kind': 'kind',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
+        'access': 'access',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -139,9 +139,9 @@ class RobotPermission(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            access ([Access]): [optional]  # noqa: E501
             kind (str): The kind of the permission. [optional]  # noqa: E501
             namespace (str): The namespace of the permission. [optional]  # noqa: E501
+            access ([Access]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

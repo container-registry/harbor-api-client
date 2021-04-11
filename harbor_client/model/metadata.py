@@ -72,12 +72,12 @@ class Metadata(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'source': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'icon': (str,),  # noqa: E501
             'maintainers': ([str],),  # noqa: E501
             'version': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
-            'icon': (str,),  # noqa: E501
+            'source': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -86,12 +86,12 @@ class Metadata(ModelNormal):
 
 
     attribute_map = {
-        'source': 'source',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'icon': 'icon',  # noqa: E501
         'maintainers': 'maintainers',  # noqa: E501
         'version': 'version',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'icon': 'icon',  # noqa: E501
+        'source': 'source',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -140,12 +140,12 @@ class Metadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            source (str): source. [optional]  # noqa: E501
+            id (str): id. [optional]  # noqa: E501
+            name (str): name. [optional]  # noqa: E501
+            icon (str): icon. [optional]  # noqa: E501
             maintainers ([str]): maintainers. [optional]  # noqa: E501
             version (str): version. [optional]  # noqa: E501
-            name (str): name. [optional]  # noqa: E501
-            id (str): id. [optional]  # noqa: E501
-            icon (str): icon. [optional]  # noqa: E501
+            source (str): source. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

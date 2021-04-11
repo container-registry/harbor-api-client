@@ -59,14 +59,14 @@ with harbor_client.ApiClient(configuration) as api_client:
     repository_name = "repository_name_example" # str | The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
     reference = "reference_example" # str | The reference of the artifact, can be digest or tag
     label = Label(
-        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        description="description_example",
-        color="color_example",
-        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        scope="scope_example",
-        project_id=1,
         id=1,
         name="name_example",
+        description="description_example",
+        color="color_example",
+        scope="scope_example",
+        project_id=1,
+        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
     ) # Label | The label that added to the artifact. Only the ID property is needed.
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
 
@@ -209,7 +209,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The location of the resource <br>  |
+**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The URL of the created resource <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -261,14 +261,14 @@ with harbor_client.ApiClient(configuration) as api_client:
     repository_name = "repository_name_example" # str | The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
     reference = "reference_example" # str | The reference of the artifact, can be digest or tag
     tag = Tag(
+        id=1,
         repository_id=1,
+        artifact_id=1,
         name="name_example",
         push_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
         pull_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        signed=True,
-        id=1,
         immutable=True,
-        artifact_id=1,
+        signed=True,
     ) # Tag | The JSON object of tag.
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
 
@@ -316,7 +316,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The location of the resource <br>  |
+**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The URL of the created resource <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Content-Type - The content type of the addition <br>  |
+**200** | Success |  * Content-Type - The content type of response body <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -815,7 +815,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Content-Type - The content type of the addition <br>  |
+**200** | Success |  * Content-Type - The content type of response body <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -866,6 +866,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     repository_name = "repository_name_example" # str | The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
     q = "q_example" # str | Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max] (optional)
+    sort = "sort_example" # str | Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\" (optional)
     page = 1 # int | The page number (optional) if omitted the server will use the default value of 1
     page_size = 10 # int | The size of per page (optional) if omitted the server will use the default value of 10
     x_accept_vulnerabilities = "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0" # str | A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports 'application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' and 'application/vnd.security.vulnerability.report; version=1.1' (optional) if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
@@ -887,7 +888,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List artifacts
-        api_response = api_instance.list_artifacts(project_name, repository_name, x_request_id=x_request_id, q=q, page=page, page_size=page_size, x_accept_vulnerabilities=x_accept_vulnerabilities, with_tag=with_tag, with_label=with_label, with_scan_overview=with_scan_overview, with_signature=with_signature, with_immutable_status=with_immutable_status)
+        api_response = api_instance.list_artifacts(project_name, repository_name, x_request_id=x_request_id, q=q, sort=sort, page=page, page_size=page_size, x_accept_vulnerabilities=x_accept_vulnerabilities, with_tag=with_tag, with_label=with_label, with_scan_overview=with_scan_overview, with_signature=with_signature, with_immutable_status=with_immutable_status)
         pprint(api_response)
     except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->list_artifacts: %s\n" % e)
@@ -902,6 +903,7 @@ Name | Type | Description  | Notes
  **repository_name** | **str**| The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -&gt; a%252Fb |
  **x_request_id** | **str**| An unique ID for the request | [optional]
  **q** | **str**| Query string to query resources. Supported query patterns are \&quot;exact match(k&#x3D;v)\&quot;, \&quot;fuzzy match(k&#x3D;~v)\&quot;, \&quot;range(k&#x3D;[min~max])\&quot;, \&quot;list with union releationship(k&#x3D;{v1 v2 v3})\&quot; and \&quot;list with intersetion relationship(k&#x3D;(v1 v2 v3))\&quot;. The value of range and list can be string(enclosed by \&quot; or &#39;), integer or time(in format \&quot;2020-04-09 02:36:00\&quot;). All of these query patterns should be put in the query string \&quot;q&#x3D;xxx\&quot; and splitted by \&quot;,\&quot;. e.g. q&#x3D;k1&#x3D;v1,k2&#x3D;~v2,k3&#x3D;[min~max] | [optional]
+ **sort** | **str**| Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \&quot;sort&#x3D;field1,-field2\&quot; | [optional]
  **page** | **int**| The page number | [optional] if omitted the server will use the default value of 1
  **page_size** | **int**| The size of per page | [optional] if omitted the server will use the default value of 10
  **x_accept_vulnerabilities** | **str**| A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it. Currently the mime type supports &#39;application/vnd.scanner.adapter.vuln.report.harbor+json; version&#x3D;1.0&#39; and &#39;application/vnd.security.vulnerability.report; version&#x3D;1.1&#39; | [optional] if omitted the server will use the default value of "application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
@@ -928,7 +930,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * X-Total-Count - The total count of tags <br>  * Link - Link refers to the previous page and next page <br>  |
+**200** | Success |  * X-Total-Count - The total count of available items <br>  * Link - Link to previous page and next page <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -980,6 +982,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     reference = "reference_example" # str | The reference of the artifact, can be digest or tag
     x_request_id = "X-Request-Id_example" # str | An unique ID for the request (optional)
     q = "q_example" # str | Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max] (optional)
+    sort = "sort_example" # str | Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\" (optional)
     page = 1 # int | The page number (optional) if omitted the server will use the default value of 1
     page_size = 10 # int | The size of per page (optional) if omitted the server will use the default value of 10
     with_signature = False # bool | Specify whether the signature is included inside the returning tags (optional) if omitted the server will use the default value of False
@@ -997,7 +1000,7 @@ with harbor_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List tags
-        api_response = api_instance.list_tags(project_name, repository_name, reference, x_request_id=x_request_id, q=q, page=page, page_size=page_size, with_signature=with_signature, with_immutable_status=with_immutable_status)
+        api_response = api_instance.list_tags(project_name, repository_name, reference, x_request_id=x_request_id, q=q, sort=sort, page=page, page_size=page_size, with_signature=with_signature, with_immutable_status=with_immutable_status)
         pprint(api_response)
     except harbor_client.ApiException as e:
         print("Exception when calling ArtifactApi->list_tags: %s\n" % e)
@@ -1013,6 +1016,7 @@ Name | Type | Description  | Notes
  **reference** | **str**| The reference of the artifact, can be digest or tag |
  **x_request_id** | **str**| An unique ID for the request | [optional]
  **q** | **str**| Query string to query resources. Supported query patterns are \&quot;exact match(k&#x3D;v)\&quot;, \&quot;fuzzy match(k&#x3D;~v)\&quot;, \&quot;range(k&#x3D;[min~max])\&quot;, \&quot;list with union releationship(k&#x3D;{v1 v2 v3})\&quot; and \&quot;list with intersetion relationship(k&#x3D;(v1 v2 v3))\&quot;. The value of range and list can be string(enclosed by \&quot; or &#39;), integer or time(in format \&quot;2020-04-09 02:36:00\&quot;). All of these query patterns should be put in the query string \&quot;q&#x3D;xxx\&quot; and splitted by \&quot;,\&quot;. e.g. q&#x3D;k1&#x3D;v1,k2&#x3D;~v2,k3&#x3D;[min~max] | [optional]
+ **sort** | **str**| Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \&quot;sort&#x3D;field1,-field2\&quot; | [optional]
  **page** | **int**| The page number | [optional] if omitted the server will use the default value of 1
  **page_size** | **int**| The size of per page | [optional] if omitted the server will use the default value of 10
  **with_signature** | **bool**| Specify whether the signature is included inside the returning tags | [optional] if omitted the server will use the default value of False
@@ -1035,7 +1039,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * X-Total-Count - The total count of tags <br>  * Link - Link refers to the previous page and next page <br>  |
+**200** | Success |  * X-Total-Count - The total count of available items <br>  * Link - Link to previous page and next page <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |

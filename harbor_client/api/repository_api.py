@@ -337,6 +337,7 @@ class RepositoryApi(object):
             Keyword Args:
                 x_request_id (str): An unique ID for the request. [optional]
                 q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
                 _return_http_data_only (bool): response data without head status
@@ -403,6 +404,7 @@ class RepositoryApi(object):
                     'project_name',
                     'x_request_id',
                     'q',
+                    'sort',
                     'page',
                     'page_size',
                 ],
@@ -438,6 +440,8 @@ class RepositoryApi(object):
                         (str,),
                     'q':
                         (str,),
+                    'sort':
+                        (str,),
                     'page':
                         (int,),
                     'page_size':
@@ -447,6 +451,7 @@ class RepositoryApi(object):
                     'project_name': 'project_name',
                     'x_request_id': 'X-Request-Id',
                     'q': 'q',
+                    'sort': 'sort',
                     'page': 'page',
                     'page_size': 'page_size',
                 },
@@ -454,6 +459,7 @@ class RepositoryApi(object):
                     'project_name': 'path',
                     'x_request_id': 'header',
                     'q': 'query',
+                    'sort': 'query',
                     'page': 'query',
                     'page_size': 'query',
                 },

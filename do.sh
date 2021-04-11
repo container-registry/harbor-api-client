@@ -5,7 +5,7 @@
 set -e -u # -e "Automatic exit from bash shell script on error"  -u "Treat unset variables and parameters as errors"
 
 generateClient() {
-  openapi-generator generate -i harbor-openapi-3.yaml -g python --package-name harbor_client \
+  openapi-generator generate -i swagger.yaml -g python --package-name harbor_client \
   --additional-properties=packageVersion=2.2  --additional-properties=projectName=harbor_client -o .
 }
 

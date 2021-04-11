@@ -77,19 +77,19 @@ class GeneralInfo(ModelNormal):
         """
         lazy_import()
         return {
-            'read_only': (bool, none_type,),  # noqa: E501
-            'authproxy_settings': (AuthproxySetting,),  # noqa: E501
-            'harbor_version': (str, none_type,),  # noqa: E501
-            'notification_enable': (bool, none_type,),  # noqa: E501
-            'auth_mode': (str, none_type,),  # noqa: E501
-            'self_registration': (bool, none_type,),  # noqa: E501
-            'external_url': (str, none_type,),  # noqa: E501
-            'project_creation_restriction': (str, none_type,),  # noqa: E501
-            'has_ca_root': (bool, none_type,),  # noqa: E501
             'with_notary': (bool, none_type,),  # noqa: E501
-            'registry_storage_provider_name': (str, none_type,),  # noqa: E501
             'with_chartmuseum': (bool, none_type,),  # noqa: E501
             'registry_url': (str, none_type,),  # noqa: E501
+            'external_url': (str, none_type,),  # noqa: E501
+            'auth_mode': (str, none_type,),  # noqa: E501
+            'project_creation_restriction': (str, none_type,),  # noqa: E501
+            'self_registration': (bool, none_type,),  # noqa: E501
+            'has_ca_root': (bool, none_type,),  # noqa: E501
+            'harbor_version': (str, none_type,),  # noqa: E501
+            'registry_storage_provider_name': (str, none_type,),  # noqa: E501
+            'read_only': (bool, none_type,),  # noqa: E501
+            'notification_enable': (bool, none_type,),  # noqa: E501
+            'authproxy_settings': (AuthproxySetting,),  # noqa: E501
         }
 
     @cached_property
@@ -98,19 +98,19 @@ class GeneralInfo(ModelNormal):
 
 
     attribute_map = {
-        'read_only': 'read_only',  # noqa: E501
-        'authproxy_settings': 'authproxy_settings',  # noqa: E501
-        'harbor_version': 'harbor_version',  # noqa: E501
-        'notification_enable': 'notification_enable',  # noqa: E501
-        'auth_mode': 'auth_mode',  # noqa: E501
-        'self_registration': 'self_registration',  # noqa: E501
-        'external_url': 'external_url',  # noqa: E501
-        'project_creation_restriction': 'project_creation_restriction',  # noqa: E501
-        'has_ca_root': 'has_ca_root',  # noqa: E501
         'with_notary': 'with_notary',  # noqa: E501
-        'registry_storage_provider_name': 'registry_storage_provider_name',  # noqa: E501
         'with_chartmuseum': 'with_chartmuseum',  # noqa: E501
         'registry_url': 'registry_url',  # noqa: E501
+        'external_url': 'external_url',  # noqa: E501
+        'auth_mode': 'auth_mode',  # noqa: E501
+        'project_creation_restriction': 'project_creation_restriction',  # noqa: E501
+        'self_registration': 'self_registration',  # noqa: E501
+        'has_ca_root': 'has_ca_root',  # noqa: E501
+        'harbor_version': 'harbor_version',  # noqa: E501
+        'registry_storage_provider_name': 'registry_storage_provider_name',  # noqa: E501
+        'read_only': 'read_only',  # noqa: E501
+        'notification_enable': 'notification_enable',  # noqa: E501
+        'authproxy_settings': 'authproxy_settings',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -159,19 +159,19 @@ class GeneralInfo(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            read_only (bool, none_type): The flag to indicate whether Harbor is in readonly mode.. [optional]  # noqa: E501
-            authproxy_settings (AuthproxySetting): [optional]  # noqa: E501
-            harbor_version (str, none_type): The build version of Harbor.. [optional]  # noqa: E501
-            notification_enable (bool, none_type): The flag to indicate whether notification mechanism is enabled on Harbor instance.. [optional]  # noqa: E501
-            auth_mode (str, none_type): The auth mode of current Harbor instance.. [optional]  # noqa: E501
-            self_registration (bool, none_type): Indicate whether the Harbor instance enable user to register himself.. [optional]  # noqa: E501
-            external_url (str, none_type): The external URL of Harbor, with protocol.. [optional]  # noqa: E501
-            project_creation_restriction (str, none_type): Indicate who can create projects, it could be 'adminonly' or 'everyone'.. [optional]  # noqa: E501
-            has_ca_root (bool, none_type): Indicate whether there is a ca root cert file ready for download in the file system.. [optional]  # noqa: E501
             with_notary (bool, none_type): If the Harbor instance is deployed with nested notary.. [optional]  # noqa: E501
-            registry_storage_provider_name (str, none_type): The storage provider's name of Harbor registry. [optional]  # noqa: E501
             with_chartmuseum (bool, none_type): If the Harbor instance is deployed with nested chartmuseum.. [optional]  # noqa: E501
             registry_url (str, none_type): The url of registry against which the docker command should be issued.. [optional]  # noqa: E501
+            external_url (str, none_type): The external URL of Harbor, with protocol.. [optional]  # noqa: E501
+            auth_mode (str, none_type): The auth mode of current Harbor instance.. [optional]  # noqa: E501
+            project_creation_restriction (str, none_type): Indicate who can create projects, it could be 'adminonly' or 'everyone'.. [optional]  # noqa: E501
+            self_registration (bool, none_type): Indicate whether the Harbor instance enable user to register himself.. [optional]  # noqa: E501
+            has_ca_root (bool, none_type): Indicate whether there is a ca root cert file ready for download in the file system.. [optional]  # noqa: E501
+            harbor_version (str, none_type): The build version of Harbor.. [optional]  # noqa: E501
+            registry_storage_provider_name (str, none_type): The storage provider's name of Harbor registry. [optional]  # noqa: E501
+            read_only (bool, none_type): The flag to indicate whether Harbor is in readonly mode.. [optional]  # noqa: E501
+            notification_enable (bool, none_type): The flag to indicate whether notification mechanism is enabled on Harbor instance.. [optional]  # noqa: E501
+            authproxy_settings (AuthproxySetting): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

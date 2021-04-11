@@ -77,12 +77,12 @@ class RobotCreate(ModelNormal):
         """
         lazy_import()
         return {
-            'secret': (str,),  # noqa: E501
-            'disable': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'level': (str,),  # noqa: E501
-            'duration': (int,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'secret': (str,),  # noqa: E501
+            'level': (str,),  # noqa: E501
+            'disable': (bool,),  # noqa: E501
+            'duration': (int,),  # noqa: E501
             'permissions': ([RobotPermission],),  # noqa: E501
         }
 
@@ -92,12 +92,12 @@ class RobotCreate(ModelNormal):
 
 
     attribute_map = {
-        'secret': 'secret',  # noqa: E501
-        'disable': 'disable',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'level': 'level',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'secret': 'secret',  # noqa: E501
+        'level': 'level',  # noqa: E501
+        'disable': 'disable',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
     }
 
@@ -147,12 +147,12 @@ class RobotCreate(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            secret (str): The secret of the robot. [optional]  # noqa: E501
-            disable (bool): The disable status of the robot. [optional]  # noqa: E501
             name (str): The name of the tag. [optional]  # noqa: E501
-            level (str): The level of the robot, project or system. [optional]  # noqa: E501
-            duration (int): The duration of the robot in days. [optional]  # noqa: E501
             description (str): The description of the robot. [optional]  # noqa: E501
+            secret (str): The secret of the robot. [optional]  # noqa: E501
+            level (str): The level of the robot, project or system. [optional]  # noqa: E501
+            disable (bool): The disable status of the robot. [optional]  # noqa: E501
+            duration (int): The duration of the robot in days. [optional]  # noqa: E501
             permissions ([RobotPermission]): [optional]  # noqa: E501
         """
 

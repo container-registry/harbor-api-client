@@ -73,8 +73,8 @@ class RetentionRuleTrigger(ModelNormal):
         """
         return {
             'kind': (str,),  # noqa: E501
-            'references': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'settings': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'references': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
     @cached_property
@@ -84,8 +84,8 @@ class RetentionRuleTrigger(ModelNormal):
 
     attribute_map = {
         'kind': 'kind',  # noqa: E501
-        'references': 'references',  # noqa: E501
         'settings': 'settings',  # noqa: E501
+        'references': 'references',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -135,8 +135,8 @@ class RetentionRuleTrigger(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             kind (str): [optional]  # noqa: E501
-            references ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             settings ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            references ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

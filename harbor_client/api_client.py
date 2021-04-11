@@ -761,11 +761,11 @@ class Endpoint(object):
         """ This method is invoked when endpoints are called
         Example:
 
-        api_instance = RetentionApi()
-        api_instance.create_retention  # this is an instance of the class Endpoint
-        api_instance.create_retention()  # this invokes api_instance.create_retention.__call__()
+        api_instance = LdapApi()
+        api_instance.import_ldap_user  # this is an instance of the class Endpoint
+        api_instance.import_ldap_user()  # this invokes api_instance.import_ldap_user.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.create_retention.callable or self.callable in this class
+        api_instance.import_ldap_user.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

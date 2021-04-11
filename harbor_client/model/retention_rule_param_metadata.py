@@ -72,9 +72,9 @@ class RetentionRuleParamMetadata(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'required': (bool,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'unit': (str,),  # noqa: E501
+            'required': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -83,9 +83,9 @@ class RetentionRuleParamMetadata(ModelNormal):
 
 
     attribute_map = {
-        'required': 'required',  # noqa: E501
         'type': 'type',  # noqa: E501
         'unit': 'unit',  # noqa: E501
+        'required': 'required',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -134,9 +134,9 @@ class RetentionRuleParamMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            required (bool): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
             unit (str): [optional]  # noqa: E501
+            required (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

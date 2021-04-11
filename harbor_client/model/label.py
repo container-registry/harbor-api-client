@@ -72,14 +72,14 @@ class Label(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'update_time': (datetime,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'color': (str,),  # noqa: E501
-            'creation_time': (datetime,),  # noqa: E501
-            'scope': (str,),  # noqa: E501
-            'project_id': (int,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'color': (str,),  # noqa: E501
+            'scope': (str,),  # noqa: E501
+            'project_id': (int,),  # noqa: E501
+            'creation_time': (datetime,),  # noqa: E501
+            'update_time': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -88,14 +88,14 @@ class Label(ModelNormal):
 
 
     attribute_map = {
-        'update_time': 'update_time',  # noqa: E501
-        'description': 'description',  # noqa: E501
-        'color': 'color',  # noqa: E501
-        'creation_time': 'creation_time',  # noqa: E501
-        'scope': 'scope',  # noqa: E501
-        'project_id': 'project_id',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'color': 'color',  # noqa: E501
+        'scope': 'scope',  # noqa: E501
+        'project_id': 'project_id',  # noqa: E501
+        'creation_time': 'creation_time',  # noqa: E501
+        'update_time': 'update_time',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -144,14 +144,14 @@ class Label(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            update_time (datetime): The update time of the label. [optional]  # noqa: E501
-            description (str): The description the label. [optional]  # noqa: E501
-            color (str): The color the label. [optional]  # noqa: E501
-            creation_time (datetime): The creation time the label. [optional]  # noqa: E501
-            scope (str): The scope the label. [optional]  # noqa: E501
-            project_id (int): The ID of project that the label belongs to. [optional]  # noqa: E501
             id (int): The ID of the label. [optional]  # noqa: E501
             name (str): The name the label. [optional]  # noqa: E501
+            description (str): The description the label. [optional]  # noqa: E501
+            color (str): The color the label. [optional]  # noqa: E501
+            scope (str): The scope the label. [optional]  # noqa: E501
+            project_id (int): The ID of project that the label belongs to. [optional]  # noqa: E501
+            creation_time (datetime): The creation time the label. [optional]  # noqa: E501
+            update_time (datetime): The update time of the label. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

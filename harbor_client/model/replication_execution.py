@@ -72,18 +72,18 @@ class ReplicationExecution(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str,),  # noqa: E501
-            'status_text': (str,),  # noqa: E501
-            'trigger': (str,),  # noqa: E501
-            'start_time': (datetime,),  # noqa: E501
-            'failed': (int,),  # noqa: E501
-            'succeed': (int,),  # noqa: E501
-            'stopped': (int,),  # noqa: E501
-            'end_time': (datetime,),  # noqa: E501
-            'in_progress': (int,),  # noqa: E501
-            'total': (int,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'policy_id': (int,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'trigger': (str,),  # noqa: E501
+            'start_time': (datetime,),  # noqa: E501
+            'end_time': (datetime,),  # noqa: E501
+            'status_text': (str,),  # noqa: E501
+            'total': (int,),  # noqa: E501
+            'failed': (int,),  # noqa: E501
+            'succeed': (int,),  # noqa: E501
+            'in_progress': (int,),  # noqa: E501
+            'stopped': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -92,18 +92,18 @@ class ReplicationExecution(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'status_text': 'status_text',  # noqa: E501
-        'trigger': 'trigger',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
-        'failed': 'failed',  # noqa: E501
-        'succeed': 'succeed',  # noqa: E501
-        'stopped': 'stopped',  # noqa: E501
-        'end_time': 'end_time',  # noqa: E501
-        'in_progress': 'in_progress',  # noqa: E501
-        'total': 'total',  # noqa: E501
         'id': 'id',  # noqa: E501
         'policy_id': 'policy_id',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'trigger': 'trigger',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
+        'end_time': 'end_time',  # noqa: E501
+        'status_text': 'status_text',  # noqa: E501
+        'total': 'total',  # noqa: E501
+        'failed': 'failed',  # noqa: E501
+        'succeed': 'succeed',  # noqa: E501
+        'in_progress': 'in_progress',  # noqa: E501
+        'stopped': 'stopped',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -152,18 +152,18 @@ class ReplicationExecution(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): The status of the execution. [optional]  # noqa: E501
-            status_text (str): The status text. [optional]  # noqa: E501
-            trigger (str): The trigger mode. [optional]  # noqa: E501
-            start_time (datetime): The start time. [optional]  # noqa: E501
-            failed (int): The count of failed executions. [optional]  # noqa: E501
-            succeed (int): The count of succeed executions. [optional]  # noqa: E501
-            stopped (int): The count of stopped executions. [optional]  # noqa: E501
-            end_time (datetime): The end time. [optional]  # noqa: E501
-            in_progress (int): The count of in_progress executions. [optional]  # noqa: E501
-            total (int): The total count of all executions. [optional]  # noqa: E501
             id (int): The ID of the execution. [optional]  # noqa: E501
             policy_id (int): The ID if the policy that the execution belongs to. [optional]  # noqa: E501
+            status (str): The status of the execution. [optional]  # noqa: E501
+            trigger (str): The trigger mode. [optional]  # noqa: E501
+            start_time (datetime): The start time. [optional]  # noqa: E501
+            end_time (datetime): The end time. [optional]  # noqa: E501
+            status_text (str): The status text. [optional]  # noqa: E501
+            total (int): The total count of all executions. [optional]  # noqa: E501
+            failed (int): The count of failed executions. [optional]  # noqa: E501
+            succeed (int): The count of succeed executions. [optional]  # noqa: E501
+            in_progress (int): The count of in_progress executions. [optional]  # noqa: E501
+            stopped (int): The count of stopped executions. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -77,18 +77,18 @@ class Robot(ModelNormal):
         """
         lazy_import()
         return {
-            'update_time': (datetime,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'level': (str,),  # noqa: E501
-            'editable': (bool,),  # noqa: E501
-            'creation_time': (datetime,),  # noqa: E501
-            'expires_at': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'secret': (str,),  # noqa: E501
-            'disable': (bool,),  # noqa: E501
-            'duration': (int,),  # noqa: E501
             'id': (int,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'secret': (str,),  # noqa: E501
+            'level': (str,),  # noqa: E501
+            'duration': (int,),  # noqa: E501
+            'editable': (bool,),  # noqa: E501
+            'disable': (bool,),  # noqa: E501
+            'expires_at': (int,),  # noqa: E501
             'permissions': ([RobotPermission],),  # noqa: E501
+            'creation_time': (datetime,),  # noqa: E501
+            'update_time': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -97,18 +97,18 @@ class Robot(ModelNormal):
 
 
     attribute_map = {
-        'update_time': 'update_time',  # noqa: E501
-        'description': 'description',  # noqa: E501
-        'level': 'level',  # noqa: E501
-        'editable': 'editable',  # noqa: E501
-        'creation_time': 'creation_time',  # noqa: E501
-        'expires_at': 'expires_at',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'secret': 'secret',  # noqa: E501
-        'disable': 'disable',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'secret': 'secret',  # noqa: E501
+        'level': 'level',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
+        'editable': 'editable',  # noqa: E501
+        'disable': 'disable',  # noqa: E501
+        'expires_at': 'expires_at',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
+        'creation_time': 'creation_time',  # noqa: E501
+        'update_time': 'update_time',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -157,18 +157,18 @@ class Robot(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            update_time (datetime): The update time of the robot.. [optional]  # noqa: E501
-            description (str): The description of the robot. [optional]  # noqa: E501
-            level (str): The level of the robot, project or system. [optional]  # noqa: E501
-            editable (bool): The editable status of the robot. [optional]  # noqa: E501
-            creation_time (datetime): The creation time of the robot.. [optional]  # noqa: E501
-            expires_at (int): The expiration data of the robot. [optional]  # noqa: E501
-            name (str): The name of the tag. [optional]  # noqa: E501
-            secret (str): The secret of the robot. [optional]  # noqa: E501
-            disable (bool): The disable status of the robot. [optional]  # noqa: E501
-            duration (int): The duration of the robot in days. [optional]  # noqa: E501
             id (int): The ID of the robot. [optional]  # noqa: E501
+            name (str): The name of the tag. [optional]  # noqa: E501
+            description (str): The description of the robot. [optional]  # noqa: E501
+            secret (str): The secret of the robot. [optional]  # noqa: E501
+            level (str): The level of the robot, project or system. [optional]  # noqa: E501
+            duration (int): The duration of the robot in days. [optional]  # noqa: E501
+            editable (bool): The editable status of the robot. [optional]  # noqa: E501
+            disable (bool): The disable status of the robot. [optional]  # noqa: E501
+            expires_at (int): The expiration data of the robot. [optional]  # noqa: E501
             permissions ([RobotPermission]): [optional]  # noqa: E501
+            creation_time (datetime): The creation time of the robot.. [optional]  # noqa: E501
+            update_time (datetime): The update time of the robot.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

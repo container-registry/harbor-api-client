@@ -77,15 +77,15 @@ class GCHistory(ModelNormal):
         """
         lazy_import()
         return {
-            'job_status': (str,),  # noqa: E501
-            'update_time': (datetime,),  # noqa: E501
-            'job_parameters': (str,),  # noqa: E501
-            'schedule': (ScheduleObj,),  # noqa: E501
-            'deleted': (bool,),  # noqa: E501
-            'job_kind': (str,),  # noqa: E501
-            'creation_time': (datetime,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'job_name': (str,),  # noqa: E501
+            'job_kind': (str,),  # noqa: E501
+            'job_parameters': (str,),  # noqa: E501
+            'schedule': (ScheduleObj,),  # noqa: E501
+            'job_status': (str,),  # noqa: E501
+            'deleted': (bool,),  # noqa: E501
+            'creation_time': (datetime,),  # noqa: E501
+            'update_time': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -94,15 +94,15 @@ class GCHistory(ModelNormal):
 
 
     attribute_map = {
-        'job_status': 'job_status',  # noqa: E501
-        'update_time': 'update_time',  # noqa: E501
-        'job_parameters': 'job_parameters',  # noqa: E501
-        'schedule': 'schedule',  # noqa: E501
-        'deleted': 'deleted',  # noqa: E501
-        'job_kind': 'job_kind',  # noqa: E501
-        'creation_time': 'creation_time',  # noqa: E501
         'id': 'id',  # noqa: E501
         'job_name': 'job_name',  # noqa: E501
+        'job_kind': 'job_kind',  # noqa: E501
+        'job_parameters': 'job_parameters',  # noqa: E501
+        'schedule': 'schedule',  # noqa: E501
+        'job_status': 'job_status',  # noqa: E501
+        'deleted': 'deleted',  # noqa: E501
+        'creation_time': 'creation_time',  # noqa: E501
+        'update_time': 'update_time',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -151,15 +151,15 @@ class GCHistory(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            job_status (str): the status of gc job.. [optional]  # noqa: E501
-            update_time (datetime): the update time of gc job.. [optional]  # noqa: E501
-            job_parameters (str): the job parameters of gc job.. [optional]  # noqa: E501
-            schedule (ScheduleObj): [optional]  # noqa: E501
-            deleted (bool): if gc job was deleted.. [optional]  # noqa: E501
-            job_kind (str): the job kind of gc job.. [optional]  # noqa: E501
-            creation_time (datetime): the creation time of gc job.. [optional]  # noqa: E501
             id (int): the id of gc job.. [optional]  # noqa: E501
             job_name (str): the job name of gc job.. [optional]  # noqa: E501
+            job_kind (str): the job kind of gc job.. [optional]  # noqa: E501
+            job_parameters (str): the job parameters of gc job.. [optional]  # noqa: E501
+            schedule (ScheduleObj): [optional]  # noqa: E501
+            job_status (str): the status of gc job.. [optional]  # noqa: E501
+            deleted (bool): if gc job was deleted.. [optional]  # noqa: E501
+            creation_time (datetime): the creation time of gc job.. [optional]  # noqa: E501
+            update_time (datetime): the update time of gc job.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

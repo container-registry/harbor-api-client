@@ -79,15 +79,15 @@ class NativeReportSummary(ModelNormal):
         """
         lazy_import()
         return {
-            'scanner': (Scanner,),  # noqa: E501
-            'start_time': (datetime,),  # noqa: E501
-            'scan_status': (str,),  # noqa: E501
-            'summary': (VulnerabilitySummary,),  # noqa: E501
-            'complete_percent': (int,),  # noqa: E501
-            'end_time': (datetime,),  # noqa: E501
-            'duration': (int,),  # noqa: E501
             'report_id': (str,),  # noqa: E501
+            'scan_status': (str,),  # noqa: E501
             'severity': (str,),  # noqa: E501
+            'duration': (int,),  # noqa: E501
+            'summary': (VulnerabilitySummary,),  # noqa: E501
+            'start_time': (datetime,),  # noqa: E501
+            'end_time': (datetime,),  # noqa: E501
+            'complete_percent': (int,),  # noqa: E501
+            'scanner': (Scanner,),  # noqa: E501
         }
 
     @cached_property
@@ -96,15 +96,15 @@ class NativeReportSummary(ModelNormal):
 
 
     attribute_map = {
-        'scanner': 'scanner',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
-        'scan_status': 'scan_status',  # noqa: E501
-        'summary': 'summary',  # noqa: E501
-        'complete_percent': 'complete_percent',  # noqa: E501
-        'end_time': 'end_time',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
         'report_id': 'report_id',  # noqa: E501
+        'scan_status': 'scan_status',  # noqa: E501
         'severity': 'severity',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
+        'summary': 'summary',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
+        'end_time': 'end_time',  # noqa: E501
+        'complete_percent': 'complete_percent',  # noqa: E501
+        'scanner': 'scanner',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -153,15 +153,15 @@ class NativeReportSummary(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            scanner (Scanner): [optional]  # noqa: E501
-            start_time (datetime): The start time of the scan process that generating report. [optional]  # noqa: E501
-            scan_status (str): The status of the report generating process. [optional]  # noqa: E501
-            summary (VulnerabilitySummary): [optional]  # noqa: E501
-            complete_percent (int): The complete percent of the scanning which value is between 0 and 100. [optional]  # noqa: E501
-            end_time (datetime): The end time of the scan process that generating report. [optional]  # noqa: E501
-            duration (int): The seconds spent for generating the report. [optional]  # noqa: E501
             report_id (str): id of the native scan report. [optional]  # noqa: E501
+            scan_status (str): The status of the report generating process. [optional]  # noqa: E501
             severity (str): The overall severity. [optional]  # noqa: E501
+            duration (int): The seconds spent for generating the report. [optional]  # noqa: E501
+            summary (VulnerabilitySummary): [optional]  # noqa: E501
+            start_time (datetime): The start time of the scan process that generating report. [optional]  # noqa: E501
+            end_time (datetime): The end time of the scan process that generating report. [optional]  # noqa: E501
+            complete_percent (int): The complete percent of the scanning which value is between 0 and 100. [optional]  # noqa: E501
+            scanner (Scanner): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

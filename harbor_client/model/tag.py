@@ -72,14 +72,14 @@ class Tag(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'id': (int,),  # noqa: E501
             'repository_id': (int,),  # noqa: E501
+            'artifact_id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'push_time': (datetime,),  # noqa: E501
             'pull_time': (datetime,),  # noqa: E501
-            'signed': (bool,),  # noqa: E501
-            'id': (int,),  # noqa: E501
             'immutable': (bool,),  # noqa: E501
-            'artifact_id': (int,),  # noqa: E501
+            'signed': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -88,14 +88,14 @@ class Tag(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'repository_id': 'repository_id',  # noqa: E501
+        'artifact_id': 'artifact_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'push_time': 'push_time',  # noqa: E501
         'pull_time': 'pull_time',  # noqa: E501
-        'signed': 'signed',  # noqa: E501
-        'id': 'id',  # noqa: E501
         'immutable': 'immutable',  # noqa: E501
-        'artifact_id': 'artifact_id',  # noqa: E501
+        'signed': 'signed',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -144,14 +144,14 @@ class Tag(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (int): The ID of the tag. [optional]  # noqa: E501
             repository_id (int): The ID of the repository that the tag belongs to. [optional]  # noqa: E501
+            artifact_id (int): The ID of the artifact that the tag attached to. [optional]  # noqa: E501
             name (str): The name of the tag. [optional]  # noqa: E501
             push_time (datetime): The push time of the tag. [optional]  # noqa: E501
             pull_time (datetime): The latest pull time of the tag. [optional]  # noqa: E501
-            signed (bool): The attribute indicates whether the tag is signed or not. [optional]  # noqa: E501
-            id (int): The ID of the tag. [optional]  # noqa: E501
             immutable (bool): The immutable status of the tag. [optional]  # noqa: E501
-            artifact_id (int): The ID of the artifact that the tag attached to. [optional]  # noqa: E501
+            signed (bool): The attribute indicates whether the tag is signed or not. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

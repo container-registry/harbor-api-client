@@ -80,8 +80,8 @@ class RetentionMetadata(ModelNormal):
         lazy_import()
         return {
             'templates': ([RetentionRuleMetadata],),  # noqa: E501
-            'tag_selectors': ([RetentionSelectorMetadata],),  # noqa: E501
             'scope_selectors': ([RetentionSelectorMetadata],),  # noqa: E501
+            'tag_selectors': ([RetentionSelectorMetadata],),  # noqa: E501
         }
 
     @cached_property
@@ -91,8 +91,8 @@ class RetentionMetadata(ModelNormal):
 
     attribute_map = {
         'templates': 'templates',  # noqa: E501
-        'tag_selectors': 'tag_selectors',  # noqa: E501
         'scope_selectors': 'scope_selectors',  # noqa: E501
+        'tag_selectors': 'tag_selectors',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -142,8 +142,8 @@ class RetentionMetadata(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             templates ([RetentionRuleMetadata]): templates. [optional]  # noqa: E501
-            tag_selectors ([RetentionSelectorMetadata]): supported tag selectors. [optional]  # noqa: E501
             scope_selectors ([RetentionSelectorMetadata]): supported scope selectors. [optional]  # noqa: E501
+            tag_selectors ([RetentionSelectorMetadata]): supported tag selectors. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

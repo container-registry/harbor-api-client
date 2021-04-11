@@ -72,15 +72,15 @@ class ReplicationTask(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str,),  # noqa: E501
-            'job_id': (str,),  # noqa: E501
-            'start_time': (datetime,),  # noqa: E501
-            'dst_resource': (str,),  # noqa: E501
-            'src_resource': (str,),  # noqa: E501
-            'resource_type': (str,),  # noqa: E501
-            'operation': (str,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'execution_id': (int,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'job_id': (str,),  # noqa: E501
+            'operation': (str,),  # noqa: E501
+            'resource_type': (str,),  # noqa: E501
+            'src_resource': (str,),  # noqa: E501
+            'dst_resource': (str,),  # noqa: E501
+            'start_time': (datetime,),  # noqa: E501
             'end_time': (datetime,),  # noqa: E501
         }
 
@@ -90,15 +90,15 @@ class ReplicationTask(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'job_id': 'job_id',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
-        'dst_resource': 'dst_resource',  # noqa: E501
-        'src_resource': 'src_resource',  # noqa: E501
-        'resource_type': 'resource_type',  # noqa: E501
-        'operation': 'operation',  # noqa: E501
         'id': 'id',  # noqa: E501
         'execution_id': 'execution_id',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'job_id': 'job_id',  # noqa: E501
+        'operation': 'operation',  # noqa: E501
+        'resource_type': 'resource_type',  # noqa: E501
+        'src_resource': 'src_resource',  # noqa: E501
+        'dst_resource': 'dst_resource',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
         'end_time': 'end_time',  # noqa: E501
     }
 
@@ -148,15 +148,15 @@ class ReplicationTask(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): The status of the task. [optional]  # noqa: E501
-            job_id (str): The ID of the underlying job that the task related to. [optional]  # noqa: E501
-            start_time (datetime): The start time of the task. [optional]  # noqa: E501
-            dst_resource (str): The destination resource that the task operates. [optional]  # noqa: E501
-            src_resource (str): The source resource that the task operates. [optional]  # noqa: E501
-            resource_type (str): The type of the resource that the task operates. [optional]  # noqa: E501
-            operation (str): The operation of the task. [optional]  # noqa: E501
             id (int): The ID of the task. [optional]  # noqa: E501
             execution_id (int): The ID of the execution that the task belongs to. [optional]  # noqa: E501
+            status (str): The status of the task. [optional]  # noqa: E501
+            job_id (str): The ID of the underlying job that the task related to. [optional]  # noqa: E501
+            operation (str): The operation of the task. [optional]  # noqa: E501
+            resource_type (str): The type of the resource that the task operates. [optional]  # noqa: E501
+            src_resource (str): The source resource that the task operates. [optional]  # noqa: E501
+            dst_resource (str): The destination resource that the task operates. [optional]  # noqa: E501
+            start_time (datetime): The start time of the task. [optional]  # noqa: E501
             end_time (datetime): The end time of the task. [optional]  # noqa: E501
         """
 

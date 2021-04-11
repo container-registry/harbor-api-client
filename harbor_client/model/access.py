@@ -72,8 +72,8 @@ class Access(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'action': (str,),  # noqa: E501
             'resource': (str,),  # noqa: E501
+            'action': (str,),  # noqa: E501
             'effect': (str,),  # noqa: E501
         }
 
@@ -83,8 +83,8 @@ class Access(ModelNormal):
 
 
     attribute_map = {
-        'action': 'action',  # noqa: E501
         'resource': 'resource',  # noqa: E501
+        'action': 'action',  # noqa: E501
         'effect': 'effect',  # noqa: E501
     }
 
@@ -134,8 +134,8 @@ class Access(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            action (str): The action of the access. [optional]  # noqa: E501
             resource (str): The resource of the access. [optional]  # noqa: E501
+            action (str): The action of the access. [optional]  # noqa: E501
             effect (str): The effect of the access. [optional]  # noqa: E501
         """
 

@@ -72,8 +72,8 @@ class RetentionPolicyScope(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'ref': (int,),  # noqa: E501
             'level': (str,),  # noqa: E501
+            'ref': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -82,8 +82,8 @@ class RetentionPolicyScope(ModelNormal):
 
 
     attribute_map = {
-        'ref': 'ref',  # noqa: E501
         'level': 'level',  # noqa: E501
+        'ref': 'ref',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -132,8 +132,8 @@ class RetentionPolicyScope(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ref (int): [optional]  # noqa: E501
             level (str): [optional]  # noqa: E501
+            ref (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

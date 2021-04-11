@@ -65,6 +65,13 @@ class TestProjectApi(unittest.TestCase):
         """
         pass
 
+    def test_get_scanner_of_project(self):
+        """Test case for get_scanner_of_project
+
+        Get project level scanner  # noqa: E501
+        """
+        pass
+
     def test_head_project(self):
         """Test case for head_project
 
@@ -76,6 +83,20 @@ class TestProjectApi(unittest.TestCase):
         """Test case for list_projects
 
         List projects  # noqa: E501
+        """
+        pass
+
+    def test_list_scanner_candidates_of_project(self):
+        """Test case for list_scanner_candidates_of_project
+
+        Get scanner registration candidates for configurating project level scanner  # noqa: E501
+        """
+        pass
+
+    def test_set_scanner_of_project(self):
+        """Test case for set_scanner_of_project
+
+        Configure scanner for the specified project  # noqa: E501
         """
         pass
 

@@ -77,10 +77,10 @@ class RobotCreateV1(ModelNormal):
         """
         lazy_import()
         return {
-            'access': ([Access],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'expires_at': (int,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'expires_at': (int,),  # noqa: E501
+            'access': ([Access],),  # noqa: E501
         }
 
     @cached_property
@@ -89,10 +89,10 @@ class RobotCreateV1(ModelNormal):
 
 
     attribute_map = {
-        'access': 'access',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'expires_at': 'expires_at',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'expires_at': 'expires_at',  # noqa: E501
+        'access': 'access',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -141,10 +141,10 @@ class RobotCreateV1(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            access ([Access]): The permission of robot account. [optional]  # noqa: E501
             name (str): The name of robot account. [optional]  # noqa: E501
-            expires_at (int): The expiration time on or after which the JWT MUST NOT be accepted for processing.. [optional]  # noqa: E501
             description (str): The description of robot account. [optional]  # noqa: E501
+            expires_at (int): The expiration time on or after which the JWT MUST NOT be accepted for processing.. [optional]  # noqa: E501
+            access ([Access]): The permission of robot account. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

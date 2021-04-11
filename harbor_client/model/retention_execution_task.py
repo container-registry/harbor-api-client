@@ -72,17 +72,17 @@ class RetentionExecutionTask(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str,),  # noqa: E501
-            'retained': (int,),  # noqa: E501
-            'job_id': (str,),  # noqa: E501
-            'repository': (str,),  # noqa: E501
-            'status_code': (int,),  # noqa: E501
-            'start_time': (str,),  # noqa: E501
-            'status_revision': (int,),  # noqa: E501
-            'end_time': (str,),  # noqa: E501
-            'total': (int,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'execution_id': (int,),  # noqa: E501
+            'repository': (str,),  # noqa: E501
+            'job_id': (str,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'status_code': (int,),  # noqa: E501
+            'status_revision': (int,),  # noqa: E501
+            'start_time': (str,),  # noqa: E501
+            'end_time': (str,),  # noqa: E501
+            'total': (int,),  # noqa: E501
+            'retained': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -91,17 +91,17 @@ class RetentionExecutionTask(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'retained': 'retained',  # noqa: E501
-        'job_id': 'job_id',  # noqa: E501
-        'repository': 'repository',  # noqa: E501
-        'status_code': 'status_code',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
-        'status_revision': 'status_revision',  # noqa: E501
-        'end_time': 'end_time',  # noqa: E501
-        'total': 'total',  # noqa: E501
         'id': 'id',  # noqa: E501
         'execution_id': 'execution_id',  # noqa: E501
+        'repository': 'repository',  # noqa: E501
+        'job_id': 'job_id',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'status_code': 'status_code',  # noqa: E501
+        'status_revision': 'status_revision',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
+        'end_time': 'end_time',  # noqa: E501
+        'total': 'total',  # noqa: E501
+        'retained': 'retained',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -150,17 +150,17 @@ class RetentionExecutionTask(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): [optional]  # noqa: E501
-            retained (int): [optional]  # noqa: E501
-            job_id (str): [optional]  # noqa: E501
-            repository (str): [optional]  # noqa: E501
-            status_code (int): [optional]  # noqa: E501
-            start_time (str): [optional]  # noqa: E501
-            status_revision (int): [optional]  # noqa: E501
-            end_time (str): [optional]  # noqa: E501
-            total (int): [optional]  # noqa: E501
             id (int): [optional]  # noqa: E501
             execution_id (int): [optional]  # noqa: E501
+            repository (str): [optional]  # noqa: E501
+            job_id (str): [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
+            status_code (int): [optional]  # noqa: E501
+            status_revision (int): [optional]  # noqa: E501
+            start_time (str): [optional]  # noqa: E501
+            end_time (str): [optional]  # noqa: E501
+            total (int): [optional]  # noqa: E501
+            retained (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

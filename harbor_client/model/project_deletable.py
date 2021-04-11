@@ -72,8 +72,8 @@ class ProjectDeletable(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'message': (str,),  # noqa: E501
             'deletable': (bool,),  # noqa: E501
+            'message': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -82,8 +82,8 @@ class ProjectDeletable(ModelNormal):
 
 
     attribute_map = {
-        'message': 'message',  # noqa: E501
         'deletable': 'deletable',  # noqa: E501
+        'message': 'message',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -132,8 +132,8 @@ class ProjectDeletable(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            message (str): The detail message when the project can not be deleted.. [optional]  # noqa: E501
             deletable (bool): Whether the project can be deleted.. [optional]  # noqa: E501
+            message (str): The detail message when the project can not be deleted.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -80,8 +80,8 @@ class ScheduleObj(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'cron': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
+            'cron': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -90,8 +90,8 @@ class ScheduleObj(ModelNormal):
 
 
     attribute_map = {
-        'cron': 'cron',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'cron': 'cron',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -140,8 +140,8 @@ class ScheduleObj(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            cron (str): A cron expression, a time-based job scheduler.. [optional]  # noqa: E501
             type (str): The schedule type. The valid values are 'Hourly', 'Daily', 'Weekly', 'Custom', 'Manual' and 'None'. 'Manual' means to trigger it right away and 'None' means to cancel the schedule. . [optional]  # noqa: E501
+            cron (str): A cron expression, a time-based job scheduler.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

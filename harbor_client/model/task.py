@@ -77,16 +77,16 @@ class Task(ModelNormal):
         """
         lazy_import()
         return {
-            'status': (str,),  # noqa: E501
-            'update_time': (str,),  # noqa: E501
-            'extra_attrs': (ExtraAttrs,),  # noqa: E501
-            'start_time': (str,),  # noqa: E501
-            'creation_time': (str,),  # noqa: E501
-            'end_time': (str,),  # noqa: E501
-            'run_count': (int,),  # noqa: E501
-            'status_message': (str,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'execution_id': (int,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'status_message': (str,),  # noqa: E501
+            'run_count': (int,),  # noqa: E501
+            'extra_attrs': (ExtraAttrs,),  # noqa: E501
+            'creation_time': (str,),  # noqa: E501
+            'update_time': (str,),  # noqa: E501
+            'start_time': (str,),  # noqa: E501
+            'end_time': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,16 +95,16 @@ class Task(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'update_time': 'update_time',  # noqa: E501
-        'extra_attrs': 'extra_attrs',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
-        'creation_time': 'creation_time',  # noqa: E501
-        'end_time': 'end_time',  # noqa: E501
-        'run_count': 'run_count',  # noqa: E501
-        'status_message': 'status_message',  # noqa: E501
         'id': 'id',  # noqa: E501
         'execution_id': 'execution_id',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'status_message': 'status_message',  # noqa: E501
+        'run_count': 'run_count',  # noqa: E501
+        'extra_attrs': 'extra_attrs',  # noqa: E501
+        'creation_time': 'creation_time',  # noqa: E501
+        'update_time': 'update_time',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
+        'end_time': 'end_time',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -153,16 +153,16 @@ class Task(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): The status of task. [optional]  # noqa: E501
-            update_time (str): The update time of task. [optional]  # noqa: E501
-            extra_attrs (ExtraAttrs): [optional]  # noqa: E501
-            start_time (str): The start time of task. [optional]  # noqa: E501
-            creation_time (str): The creation time of task. [optional]  # noqa: E501
-            end_time (str): The end time of task. [optional]  # noqa: E501
-            run_count (int): The count of task run. [optional]  # noqa: E501
-            status_message (str): The status message of task. [optional]  # noqa: E501
             id (int): The ID of task. [optional]  # noqa: E501
             execution_id (int): The ID of task execution. [optional]  # noqa: E501
+            status (str): The status of task. [optional]  # noqa: E501
+            status_message (str): The status message of task. [optional]  # noqa: E501
+            run_count (int): The count of task run. [optional]  # noqa: E501
+            extra_attrs (ExtraAttrs): [optional]  # noqa: E501
+            creation_time (str): The creation time of task. [optional]  # noqa: E501
+            update_time (str): The update time of task. [optional]  # noqa: E501
+            start_time (str): The start time of task. [optional]  # noqa: E501
+            end_time (str): The end time of task. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

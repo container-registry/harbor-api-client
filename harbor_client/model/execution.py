@@ -79,16 +79,16 @@ class Execution(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (int,),  # noqa: E501
+            'vendor_type': (str,),  # noqa: E501
+            'vendor_id': (int,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'status_message': (str,),  # noqa: E501
-            'start_time': (str,),  # noqa: E501
-            'vendor_id': (int,),  # noqa: E501
             'metrics': (Metrics,),  # noqa: E501
             'trigger': (str,),  # noqa: E501
-            'end_time': (str,),  # noqa: E501
-            'vendor_type': (str,),  # noqa: E501
             'extra_attrs': (ExtraAttrs,),  # noqa: E501
-            'id': (int,),  # noqa: E501
+            'start_time': (str,),  # noqa: E501
+            'end_time': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -97,16 +97,16 @@ class Execution(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
+        'vendor_type': 'vendor_type',  # noqa: E501
+        'vendor_id': 'vendor_id',  # noqa: E501
         'status': 'status',  # noqa: E501
         'status_message': 'status_message',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
-        'vendor_id': 'vendor_id',  # noqa: E501
         'metrics': 'metrics',  # noqa: E501
         'trigger': 'trigger',  # noqa: E501
-        'end_time': 'end_time',  # noqa: E501
-        'vendor_type': 'vendor_type',  # noqa: E501
         'extra_attrs': 'extra_attrs',  # noqa: E501
-        'id': 'id',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
+        'end_time': 'end_time',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -155,16 +155,16 @@ class Execution(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (int): The ID of execution. [optional]  # noqa: E501
+            vendor_type (str): The vendor type of execution. [optional]  # noqa: E501
+            vendor_id (int): The vendor id of execution. [optional]  # noqa: E501
             status (str): The status of execution. [optional]  # noqa: E501
             status_message (str): The status message of execution. [optional]  # noqa: E501
-            start_time (str): The start time of execution. [optional]  # noqa: E501
-            vendor_id (int): The vendor id of execution. [optional]  # noqa: E501
             metrics (Metrics): [optional]  # noqa: E501
             trigger (str): The trigger of execution. [optional]  # noqa: E501
-            end_time (str): The end time of execution. [optional]  # noqa: E501
-            vendor_type (str): The vendor type of execution. [optional]  # noqa: E501
             extra_attrs (ExtraAttrs): [optional]  # noqa: E501
-            id (int): The ID of execution. [optional]  # noqa: E501
+            start_time (str): The start time of execution. [optional]  # noqa: E501
+            end_time (str): The end time of execution. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

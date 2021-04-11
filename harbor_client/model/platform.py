@@ -72,11 +72,11 @@ class Platform(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'os': (str,),  # noqa: E501
-            'variant': (str,),  # noqa: E501
             'architecture': (str,),  # noqa: E501
-            'os_features': ([str],),  # noqa: E501
+            'os': (str,),  # noqa: E501
             'os_version': (str,),  # noqa: E501
+            'os_features': ([str],),  # noqa: E501
+            'variant': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -85,11 +85,11 @@ class Platform(ModelNormal):
 
 
     attribute_map = {
-        'os': 'os',  # noqa: E501
-        'variant': 'variant',  # noqa: E501
         'architecture': 'architecture',  # noqa: E501
-        'os_features': '&#39;os.features&#39;',  # noqa: E501
+        'os': 'os',  # noqa: E501
         'os_version': '&#39;os.version&#39;',  # noqa: E501
+        'os_features': '&#39;os.features&#39;',  # noqa: E501
+        'variant': 'variant',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -138,11 +138,11 @@ class Platform(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            os (str): The OS that the artifact applys to. [optional]  # noqa: E501
-            variant (str): The variant of the CPU. [optional]  # noqa: E501
             architecture (str): The architecture that the artifact applys to. [optional]  # noqa: E501
-            os_features ([str]): The features of the OS that the artifact applys to. [optional]  # noqa: E501
+            os (str): The OS that the artifact applys to. [optional]  # noqa: E501
             os_version (str): The version of the OS that the artifact applys to. [optional]  # noqa: E501
+            os_features ([str]): The features of the OS that the artifact applys to. [optional]  # noqa: E501
+            variant (str): The variant of the CPU. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

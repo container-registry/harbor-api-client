@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **create_retention**
-> create_retention(policy)
+> create_retention(retention_policy)
 
 Create Retention Policy
 
@@ -53,54 +53,54 @@ configuration = harbor_client.Configuration(
 with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = retention_api.RetentionApi(api_client)
-    policy = RetentionPolicy(
+    retention_policy = RetentionPolicy(
+        id=1,
+        algorithm="algorithm_example",
         rules=[
             RetentionRule(
+                id=1,
                 priority=1,
+                disabled=True,
+                action="action_example",
+                template="template_example",
+                params={
+                    "key": {},
+                },
+                tag_selectors=[
+                    RetentionSelector(
+                        kind="kind_example",
+                        decoration="decoration_example",
+                        pattern="pattern_example",
+                        extras="extras_example",
+                    ),
+                ],
                 scope_selectors={
                     "key": [
                         RetentionSelector(
+                            kind="kind_example",
                             decoration="decoration_example",
                             pattern="pattern_example",
-                            kind="kind_example",
                             extras="extras_example",
                         ),
                     ],
                 },
-                disabled=True,
-                params={
-                    "key": {},
-                },
-                template="template_example",
-                action="action_example",
-                tag_selectors=[
-                    RetentionSelector(
-                        decoration="decoration_example",
-                        pattern="pattern_example",
-                        kind="kind_example",
-                        extras="extras_example",
-                    ),
-                ],
-                id=1,
             ),
         ],
-        scope=RetentionPolicyScope(
-            ref=1,
-            level="level_example",
-        ),
         trigger=RetentionRuleTrigger(
             kind="kind_example",
-            references={},
             settings={},
+            references={},
         ),
-        id=1,
-        algorithm="algorithm_example",
+        scope=RetentionPolicyScope(
+            level="level_example",
+            ref=1,
+        ),
     ) # RetentionPolicy | Create Retention Policy successfully.
 
     # example passing only required values which don't have defaults set
     try:
         # Create Retention Policy
-        api_instance.create_retention(policy)
+        api_instance.create_retention(retention_policy)
     except harbor_client.ApiException as e:
         print("Exception when calling RetentionApi->create_retention: %s\n" % e)
 ```
@@ -110,7 +110,7 @@ with harbor_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policy** | [**RetentionPolicy**](RetentionPolicy.md)| Create Retention Policy successfully. |
+ **retention_policy** | [**RetentionPolicy**](RetentionPolicy.md)| Create Retention Policy successfully. |
 
 ### Return type
 
@@ -129,7 +129,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The location of the resource <br>  |
+**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The URL of the created resource <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain
+ - **Accept**: text/plain, application/json
 
 
 ### HTTP response details
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Get a Retention execution successfully. |  * X-Total-Count - The total count of tags <br>  * Link - Link refers to the previous page and next page <br>  |
+**200** | Get a Retention execution successfully. |  * X-Total-Count - The total count of available items <br>  * Link - Link to previous page and next page <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -553,7 +553,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Get Retention job tasks successfully. |  * X-Total-Count - The total count of tags <br>  * Link - Link refers to the previous page and next page <br>  |
+**200** | Get Retention job tasks successfully. |  * X-Total-Count - The total count of available items <br>  * Link - Link to previous page and next page <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **operate_retention_execution**
-> operate_retention_execution(id, eid, body)
+> operate_retention_execution(id, eid, inline_object2)
 
 Stop a Retention execution
 
@@ -575,7 +575,7 @@ import time
 import harbor_client
 from harbor_client.api import retention_api
 from harbor_client.model.errors import Errors
-from harbor_client.model.inline_object import InlineObject
+from harbor_client.model.inline_object2 import InlineObject2
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
@@ -600,14 +600,14 @@ with harbor_client.ApiClient(configuration) as api_client:
     api_instance = retention_api.RetentionApi(api_client)
     id = 1 # int | Retention ID.
     eid = 1 # int | Retention execution ID.
-    body = InlineObject(
+    inline_object2 = InlineObject2(
         action="action_example",
-    ) # InlineObject | 
+    ) # InlineObject2 | 
 
     # example passing only required values which don't have defaults set
     try:
         # Stop a Retention execution
-        api_instance.operate_retention_execution(id, eid, body)
+        api_instance.operate_retention_execution(id, eid, inline_object2)
     except harbor_client.ApiException as e:
         print("Exception when calling RetentionApi->operate_retention_execution: %s\n" % e)
 ```
@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Retention ID. |
  **eid** | **int**| Retention execution ID. |
- **body** | [**InlineObject**](InlineObject.md)|  |
+ **inline_object2** | [**InlineObject2**](InlineObject2.md)|  |
 
 ### Return type
 
@@ -646,7 +646,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **trigger_retention_execution**
-> trigger_retention_execution(id, body)
+> trigger_retention_execution(id, inline_object1)
 
 Trigger a Retention Execution
 
@@ -684,14 +684,14 @@ with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = retention_api.RetentionApi(api_client)
     id = 1 # int | Retention ID.
-    body = InlineObject1(
+    inline_object1 = InlineObject1(
         dry_run=True,
     ) # InlineObject1 | 
 
     # example passing only required values which don't have defaults set
     try:
         # Trigger a Retention Execution
-        api_instance.trigger_retention_execution(id, body)
+        api_instance.trigger_retention_execution(id, inline_object1)
     except harbor_client.ApiException as e:
         print("Exception when calling RetentionApi->trigger_retention_execution: %s\n" % e)
 ```
@@ -702,7 +702,7 @@ with harbor_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Retention ID. |
- **body** | [**InlineObject1**](InlineObject1.md)|  |
+ **inline_object1** | [**InlineObject1**](InlineObject1.md)|  |
 
 ### Return type
 
@@ -715,14 +715,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: text/plain
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Trigger a Retention job successfully. |  -  |
-**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The location of the resource <br>  |
+**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The URL of the created resource <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -730,7 +730,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_retention**
-> update_retention(id, policy)
+> update_retention(id, retention_policy)
 
 Update Retention Policy
 
@@ -768,54 +768,54 @@ with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = retention_api.RetentionApi(api_client)
     id = 1 # int | Retention ID.
-    policy = RetentionPolicy(
+    retention_policy = RetentionPolicy(
+        id=1,
+        algorithm="algorithm_example",
         rules=[
             RetentionRule(
+                id=1,
                 priority=1,
+                disabled=True,
+                action="action_example",
+                template="template_example",
+                params={
+                    "key": {},
+                },
+                tag_selectors=[
+                    RetentionSelector(
+                        kind="kind_example",
+                        decoration="decoration_example",
+                        pattern="pattern_example",
+                        extras="extras_example",
+                    ),
+                ],
                 scope_selectors={
                     "key": [
                         RetentionSelector(
+                            kind="kind_example",
                             decoration="decoration_example",
                             pattern="pattern_example",
-                            kind="kind_example",
                             extras="extras_example",
                         ),
                     ],
                 },
-                disabled=True,
-                params={
-                    "key": {},
-                },
-                template="template_example",
-                action="action_example",
-                tag_selectors=[
-                    RetentionSelector(
-                        decoration="decoration_example",
-                        pattern="pattern_example",
-                        kind="kind_example",
-                        extras="extras_example",
-                    ),
-                ],
-                id=1,
             ),
         ],
-        scope=RetentionPolicyScope(
-            ref=1,
-            level="level_example",
-        ),
         trigger=RetentionRuleTrigger(
             kind="kind_example",
-            references={},
             settings={},
+            references={},
         ),
-        id=1,
-        algorithm="algorithm_example",
+        scope=RetentionPolicyScope(
+            level="level_example",
+            ref=1,
+        ),
     ) # RetentionPolicy | 
 
     # example passing only required values which don't have defaults set
     try:
         # Update Retention Policy
-        api_instance.update_retention(id, policy)
+        api_instance.update_retention(id, retention_policy)
     except harbor_client.ApiException as e:
         print("Exception when calling RetentionApi->update_retention: %s\n" % e)
 ```
@@ -826,7 +826,7 @@ with harbor_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Retention ID. |
- **policy** | [**RetentionPolicy**](RetentionPolicy.md)|  |
+ **retention_policy** | [**RetentionPolicy**](RetentionPolicy.md)|  |
 
 ### Return type
 

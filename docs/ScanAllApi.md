@@ -50,17 +50,17 @@ with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scan_all_api.ScanAllApi(api_client)
     schedule = Schedule(
+        id=1,
         status="status_example",
+        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
         update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        schedule=ScheduleObj(
+            type="Hourly",
+            cron="cron_example",
+        ),
         parameters={
             "key": {},
         },
-        schedule=ScheduleObj(
-            cron="cron_example",
-            type="Hourly",
-        ),
-        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        id=1,
     ) # Schedule | Create a schedule or a manual trigger for the scan all job.
 
     # example passing only required values which don't have defaults set
@@ -95,7 +95,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The location of the resource <br>  |
+**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The URL of the created resource <br>  |
 **400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 **403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
@@ -375,17 +375,17 @@ with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = scan_all_api.ScanAllApi(api_client)
     schedule = Schedule(
+        id=1,
         status="status_example",
+        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
         update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        schedule=ScheduleObj(
+            type="Hourly",
+            cron="cron_example",
+        ),
         parameters={
             "key": {},
         },
-        schedule=ScheduleObj(
-            cron="cron_example",
-            type="Hourly",
-        ),
-        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        id=1,
     ) # Schedule | Updates the schedule of scan all job, which scans all of images in Harbor.
 
     # example passing only required values which don't have defaults set

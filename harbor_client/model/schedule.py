@@ -77,12 +77,12 @@ class Schedule(ModelNormal):
         """
         lazy_import()
         return {
-            'status': (str,),  # noqa: E501
-            'update_time': (datetime,),  # noqa: E501
-            'parameters': ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},),  # noqa: E501
-            'schedule': (ScheduleObj,),  # noqa: E501
-            'creation_time': (datetime,),  # noqa: E501
             'id': (int,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'creation_time': (datetime,),  # noqa: E501
+            'update_time': (datetime,),  # noqa: E501
+            'schedule': (ScheduleObj,),  # noqa: E501
+            'parameters': ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},),  # noqa: E501
         }
 
     @cached_property
@@ -91,12 +91,12 @@ class Schedule(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'update_time': 'update_time',  # noqa: E501
-        'parameters': 'parameters',  # noqa: E501
-        'schedule': 'schedule',  # noqa: E501
-        'creation_time': 'creation_time',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'creation_time': 'creation_time',  # noqa: E501
+        'update_time': 'update_time',  # noqa: E501
+        'schedule': 'schedule',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -145,12 +145,12 @@ class Schedule(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): The status of the schedule.. [optional]  # noqa: E501
-            update_time (datetime): the update time of the schedule.. [optional]  # noqa: E501
-            parameters ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): The parameters of schedule job. [optional]  # noqa: E501
-            schedule (ScheduleObj): [optional]  # noqa: E501
-            creation_time (datetime): the creation time of the schedule.. [optional]  # noqa: E501
             id (int): The id of the schedule.. [optional]  # noqa: E501
+            status (str): The status of the schedule.. [optional]  # noqa: E501
+            creation_time (datetime): the creation time of the schedule.. [optional]  # noqa: E501
+            update_time (datetime): the update time of the schedule.. [optional]  # noqa: E501
+            schedule (ScheduleObj): [optional]  # noqa: E501
+            parameters ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): The parameters of schedule job. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

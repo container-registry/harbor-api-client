@@ -26,7 +26,9 @@ from harbor_client.model.errors import Errors
 from harbor_client.model.project import Project
 from harbor_client.model.project_deletable import ProjectDeletable
 from harbor_client.model.project_req import ProjectReq
+from harbor_client.model.project_scanner import ProjectScanner
 from harbor_client.model.project_summary import ProjectSummary
+from harbor_client.model.scanner_registration import ScannerRegistration
 
 
 class ProjectApi(object):
@@ -43,7 +45,7 @@ class ProjectApi(object):
 
         def __create_project(
             self,
-            project,
+            project_req,
             **kwargs
         ):
             """Create a new project.  # noqa: E501
@@ -52,11 +54,11 @@ class ProjectApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.create_project(project, async_req=True)
+            >>> thread = api.create_project(project_req, async_req=True)
             >>> result = thread.get()
 
             Args:
-                project (ProjectReq): New created project.
+                project_req (ProjectReq): New created project.
 
             Keyword Args:
                 x_request_id (str): An unique ID for the request. [optional]
@@ -105,8 +107,8 @@ class ProjectApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['project'] = \
-                project
+            kwargs['project_req'] = \
+                project_req
             return self.call_with_http_info(**kwargs)
 
         self.create_project = _Endpoint(
@@ -122,12 +124,12 @@ class ProjectApi(object):
             },
             params_map={
                 'all': [
-                    'project',
+                    'project_req',
                     'x_request_id',
                     'x_resource_name_in_location',
                 ],
                 'required': [
-                    'project',
+                    'project_req',
                 ],
                 'nullable': [
                 ],
@@ -147,7 +149,7 @@ class ProjectApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'project':
+                    'project_req':
                         (ProjectReq,),
                     'x_request_id':
                         (str,),
@@ -159,7 +161,7 @@ class ProjectApi(object):
                     'x_resource_name_in_location': 'X-Resource-Name-In-Location',
                 },
                 'location_map': {
-                    'project': 'body',
+                    'project_req': 'body',
                     'x_request_id': 'header',
                     'x_resource_name_in_location': 'header',
                 },
@@ -334,6 +336,7 @@ class ProjectApi(object):
             Keyword Args:
                 x_request_id (str): An unique ID for the request. [optional]
                 q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
                 _return_http_data_only (bool): response data without head status
@@ -400,6 +403,7 @@ class ProjectApi(object):
                     'project_name',
                     'x_request_id',
                     'q',
+                    'sort',
                     'page',
                     'page_size',
                 ],
@@ -435,6 +439,8 @@ class ProjectApi(object):
                         (str,),
                     'q':
                         (str,),
+                    'sort':
+                        (str,),
                     'page':
                         (int,),
                     'page_size':
@@ -444,6 +450,7 @@ class ProjectApi(object):
                     'project_name': 'project_name',
                     'x_request_id': 'X-Request-Id',
                     'q': 'q',
+                    'sort': 'sort',
                     'page': 'page',
                     'page_size': 'page_size',
                 },
@@ -451,6 +458,7 @@ class ProjectApi(object):
                     'project_name': 'path',
                     'x_request_id': 'header',
                     'q': 'query',
+                    'sort': 'query',
                     'page': 'query',
                     'page_size': 'query',
                 },
@@ -875,6 +883,142 @@ class ProjectApi(object):
             callable=__get_project_summary
         )
 
+        def __get_scanner_of_project(
+            self,
+            project_name_or_id,
+            **kwargs
+        ):
+            """Get project level scanner  # noqa: E501
+
+            Get the scanner registration of the specified project. If no scanner registration is configured for the specified project, the system default scanner registration will be returned.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.get_scanner_of_project(project_name_or_id, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_name_or_id (str): The name or id of the project
+
+            Keyword Args:
+                x_request_id (str): An unique ID for the request. [optional]
+                x_is_resource_name (bool): The flag to indicate whether the parameter which supports both name and id in the path is the name of the resource. When the X-Is-Resource-Name is false and the parameter can be converted to an integer, the parameter will be as an id, otherwise, it will be as a name.. [optional] if omitted the server will use the default value of False
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                ScannerRegistration
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_name_or_id'] = \
+                project_name_or_id
+            return self.call_with_http_info(**kwargs)
+
+        self.get_scanner_of_project = _Endpoint(
+            settings={
+                'response_type': (ScannerRegistration,),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_name_or_id}/scanner',
+                'operation_id': 'get_scanner_of_project',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_name_or_id',
+                    'x_request_id',
+                    'x_is_resource_name',
+                ],
+                'required': [
+                    'project_name_or_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'x_request_id',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('x_request_id',): {
+
+                        'min_length': 1,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_name_or_id':
+                        (str,),
+                    'x_request_id':
+                        (str,),
+                    'x_is_resource_name':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'project_name_or_id': 'project_name_or_id',
+                    'x_request_id': 'X-Request-Id',
+                    'x_is_resource_name': 'X-Is-Resource-Name',
+                },
+                'location_map': {
+                    'project_name_or_id': 'path',
+                    'x_request_id': 'header',
+                    'x_is_resource_name': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_scanner_of_project
+        )
+
         def __head_project(
             self,
             project_name,
@@ -1021,8 +1165,10 @@ class ProjectApi(object):
 
             Keyword Args:
                 x_request_id (str): An unique ID for the request. [optional]
+                q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 name (str): The name of project.. [optional]
                 public (bool): The project is public or private.. [optional]
                 owner (str): The name of project owner.. [optional]
@@ -1087,8 +1233,10 @@ class ProjectApi(object):
             params_map={
                 'all': [
                     'x_request_id',
+                    'q',
                     'page',
                     'page_size',
+                    'sort',
                     'name',
                     'public',
                     'owner',
@@ -1120,10 +1268,14 @@ class ProjectApi(object):
                 'openapi_types': {
                     'x_request_id':
                         (str,),
+                    'q':
+                        (str,),
                     'page':
                         (int,),
                     'page_size':
                         (int,),
+                    'sort':
+                        (str,),
                     'name':
                         (str,),
                     'public':
@@ -1135,8 +1287,10 @@ class ProjectApi(object):
                 },
                 'attribute_map': {
                     'x_request_id': 'X-Request-Id',
+                    'q': 'q',
                     'page': 'page',
                     'page_size': 'page_size',
+                    'sort': 'sort',
                     'name': 'name',
                     'public': 'public',
                     'owner': 'owner',
@@ -1144,8 +1298,10 @@ class ProjectApi(object):
                 },
                 'location_map': {
                     'x_request_id': 'header',
+                    'q': 'query',
                     'page': 'query',
                     'page_size': 'query',
+                    'sort': 'query',
                     'name': 'query',
                     'public': 'query',
                     'owner': 'query',
@@ -1164,24 +1320,189 @@ class ProjectApi(object):
             callable=__list_projects
         )
 
-        def __update_project(
+        def __list_scanner_candidates_of_project(
             self,
             project_name_or_id,
-            project,
             **kwargs
         ):
-            """Update properties for a selected project.  # noqa: E501
+            """Get scanner registration candidates for configurating project level scanner  # noqa: E501
 
-            This endpoint is aimed to update the properties of a project.  # noqa: E501
+            Retrieve the system configured scanner registrations as candidates of setting project level scanner.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.update_project(project_name_or_id, project, async_req=True)
+            >>> thread = api.list_scanner_candidates_of_project(project_name_or_id, async_req=True)
             >>> result = thread.get()
 
             Args:
                 project_name_or_id (str): The name or id of the project
-                project (ProjectReq): Updates of project.
+
+            Keyword Args:
+                x_request_id (str): An unique ID for the request. [optional]
+                x_is_resource_name (bool): The flag to indicate whether the parameter which supports both name and id in the path is the name of the resource. When the X-Is-Resource-Name is false and the parameter can be converted to an integer, the parameter will be as an id, otherwise, it will be as a name.. [optional] if omitted the server will use the default value of False
+                q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
+                page (int): The page number. [optional] if omitted the server will use the default value of 1
+                page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [ScannerRegistration]
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_name_or_id'] = \
+                project_name_or_id
+            return self.call_with_http_info(**kwargs)
+
+        self.list_scanner_candidates_of_project = _Endpoint(
+            settings={
+                'response_type': ([ScannerRegistration],),
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_name_or_id}/scanner/candidates',
+                'operation_id': 'list_scanner_candidates_of_project',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_name_or_id',
+                    'x_request_id',
+                    'x_is_resource_name',
+                    'q',
+                    'sort',
+                    'page',
+                    'page_size',
+                ],
+                'required': [
+                    'project_name_or_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'x_request_id',
+                    'page_size',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('x_request_id',): {
+
+                        'min_length': 1,
+                    },
+                    ('page_size',): {
+
+                        'inclusive_maximum': 100,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_name_or_id':
+                        (str,),
+                    'x_request_id':
+                        (str,),
+                    'x_is_resource_name':
+                        (bool,),
+                    'q':
+                        (str,),
+                    'sort':
+                        (str,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
+                },
+                'attribute_map': {
+                    'project_name_or_id': 'project_name_or_id',
+                    'x_request_id': 'X-Request-Id',
+                    'x_is_resource_name': 'X-Is-Resource-Name',
+                    'q': 'q',
+                    'sort': 'sort',
+                    'page': 'page',
+                    'page_size': 'page_size',
+                },
+                'location_map': {
+                    'project_name_or_id': 'path',
+                    'x_request_id': 'header',
+                    'x_is_resource_name': 'header',
+                    'q': 'query',
+                    'sort': 'query',
+                    'page': 'query',
+                    'page_size': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__list_scanner_candidates_of_project
+        )
+
+        def __set_scanner_of_project(
+            self,
+            project_name_or_id,
+            project_scanner,
+            **kwargs
+        ):
+            """Configure scanner for the specified project  # noqa: E501
+
+            Set one of the system configured scanner registration as the indepndent scanner of the specified project.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.set_scanner_of_project(project_name_or_id, project_scanner, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_name_or_id (str): The name or id of the project
+                project_scanner (ProjectScanner):
 
             Keyword Args:
                 x_request_id (str): An unique ID for the request. [optional]
@@ -1232,31 +1553,31 @@ class ProjectApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
                 project_name_or_id
-            kwargs['project'] = \
-                project
+            kwargs['project_scanner'] = \
+                project_scanner
             return self.call_with_http_info(**kwargs)
 
-        self.update_project = _Endpoint(
+        self.set_scanner_of_project = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'basic'
                 ],
-                'endpoint_path': '/projects/{project_name_or_id}',
-                'operation_id': 'update_project',
+                'endpoint_path': '/projects/{project_name_or_id}/scanner',
+                'operation_id': 'set_scanner_of_project',
                 'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'project_name_or_id',
-                    'project',
+                    'project_scanner',
                     'x_request_id',
                     'x_is_resource_name',
                 ],
                 'required': [
                     'project_name_or_id',
-                    'project',
+                    'project_scanner',
                 ],
                 'nullable': [
                 ],
@@ -1278,7 +1599,154 @@ class ProjectApi(object):
                 'openapi_types': {
                     'project_name_or_id':
                         (str,),
-                    'project':
+                    'project_scanner':
+                        (ProjectScanner,),
+                    'x_request_id':
+                        (str,),
+                    'x_is_resource_name':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'project_name_or_id': 'project_name_or_id',
+                    'x_request_id': 'X-Request-Id',
+                    'x_is_resource_name': 'X-Is-Resource-Name',
+                },
+                'location_map': {
+                    'project_name_or_id': 'path',
+                    'project_scanner': 'body',
+                    'x_request_id': 'header',
+                    'x_is_resource_name': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__set_scanner_of_project
+        )
+
+        def __update_project(
+            self,
+            project_name_or_id,
+            project_req,
+            **kwargs
+        ):
+            """Update properties for a selected project.  # noqa: E501
+
+            This endpoint is aimed to update the properties of a project.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.update_project(project_name_or_id, project_req, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                project_name_or_id (str): The name or id of the project
+                project_req (ProjectReq): Updates of project.
+
+            Keyword Args:
+                x_request_id (str): An unique ID for the request. [optional]
+                x_is_resource_name (bool): The flag to indicate whether the parameter which supports both name and id in the path is the name of the resource. When the X-Is-Resource-Name is false and the parameter can be converted to an integer, the parameter will be as an id, otherwise, it will be as a name.. [optional] if omitted the server will use the default value of False
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['project_name_or_id'] = \
+                project_name_or_id
+            kwargs['project_req'] = \
+                project_req
+            return self.call_with_http_info(**kwargs)
+
+        self.update_project = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'basic'
+                ],
+                'endpoint_path': '/projects/{project_name_or_id}',
+                'operation_id': 'update_project',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'project_name_or_id',
+                    'project_req',
+                    'x_request_id',
+                    'x_is_resource_name',
+                ],
+                'required': [
+                    'project_name_or_id',
+                    'project_req',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'x_request_id',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('x_request_id',): {
+
+                        'min_length': 1,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'project_name_or_id':
+                        (str,),
+                    'project_req':
                         (ProjectReq,),
                     'x_request_id':
                         (str,),
@@ -1292,7 +1760,7 @@ class ProjectApi(object):
                 },
                 'location_map': {
                     'project_name_or_id': 'path',
-                    'project': 'body',
+                    'project_req': 'body',
                     'x_request_id': 'header',
                     'x_is_resource_name': 'header',
                 },

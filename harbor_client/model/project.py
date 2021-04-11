@@ -79,21 +79,21 @@ class Project(ModelNormal):
         """
         lazy_import()
         return {
-            'update_time': (datetime,),  # noqa: E501
-            'owner_name': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'deleted': (bool,),  # noqa: E501
+            'project_id': (int,),  # noqa: E501
             'owner_id': (int,),  # noqa: E501
-            'repo_count': (int,),  # noqa: E501
-            'chart_count': (int,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'registry_id': (int,),  # noqa: E501
             'creation_time': (datetime,),  # noqa: E501
+            'update_time': (datetime,),  # noqa: E501
+            'deleted': (bool,),  # noqa: E501
+            'owner_name': (str,),  # noqa: E501
             'togglable': (bool,),  # noqa: E501
             'current_user_role_id': (int,),  # noqa: E501
             'current_user_role_ids': ([int],),  # noqa: E501
-            'cve_allowlist': (CVEAllowlist,),  # noqa: E501
-            'project_id': (int,),  # noqa: E501
-            'registry_id': (int,),  # noqa: E501
+            'repo_count': (int,),  # noqa: E501
+            'chart_count': (int,),  # noqa: E501
             'metadata': (ProjectMetadata,),  # noqa: E501
+            'cve_allowlist': (CVEAllowlist,),  # noqa: E501
         }
 
     @cached_property
@@ -102,21 +102,21 @@ class Project(ModelNormal):
 
 
     attribute_map = {
-        'update_time': 'update_time',  # noqa: E501
-        'owner_name': 'owner_name',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'deleted': 'deleted',  # noqa: E501
+        'project_id': 'project_id',  # noqa: E501
         'owner_id': 'owner_id',  # noqa: E501
-        'repo_count': 'repo_count',  # noqa: E501
-        'chart_count': 'chart_count',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'registry_id': 'registry_id',  # noqa: E501
         'creation_time': 'creation_time',  # noqa: E501
+        'update_time': 'update_time',  # noqa: E501
+        'deleted': 'deleted',  # noqa: E501
+        'owner_name': 'owner_name',  # noqa: E501
         'togglable': 'togglable',  # noqa: E501
         'current_user_role_id': 'current_user_role_id',  # noqa: E501
         'current_user_role_ids': 'current_user_role_ids',  # noqa: E501
-        'cve_allowlist': 'cve_allowlist',  # noqa: E501
-        'project_id': 'project_id',  # noqa: E501
-        'registry_id': 'registry_id',  # noqa: E501
+        'repo_count': 'repo_count',  # noqa: E501
+        'chart_count': 'chart_count',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
+        'cve_allowlist': 'cve_allowlist',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -165,21 +165,21 @@ class Project(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            update_time (datetime): The update time of the project.. [optional]  # noqa: E501
-            owner_name (str): The owner name of the project.. [optional]  # noqa: E501
-            name (str): The name of the project.. [optional]  # noqa: E501
-            deleted (bool): A deletion mark of the project.. [optional]  # noqa: E501
+            project_id (int): Project ID. [optional]  # noqa: E501
             owner_id (int): The owner ID of the project always means the creator of the project.. [optional]  # noqa: E501
-            repo_count (int): The number of the repositories under this project.. [optional]  # noqa: E501
-            chart_count (int): The total number of charts under this project.. [optional]  # noqa: E501
+            name (str): The name of the project.. [optional]  # noqa: E501
+            registry_id (int): The ID of referenced registry when the project is a proxy cache project.. [optional]  # noqa: E501
             creation_time (datetime): The creation time of the project.. [optional]  # noqa: E501
-            togglable (bool): Correspond to the UI about whether the project's publicity is  updatable (for UI). [optional]  # noqa: E501
+            update_time (datetime): The update time of the project.. [optional]  # noqa: E501
+            deleted (bool): A deletion mark of the project.. [optional]  # noqa: E501
+            owner_name (str): The owner name of the project.. [optional]  # noqa: E501
+            togglable (bool): Correspond to the UI about whether the project's publicity is updatable (for UI). [optional]  # noqa: E501
             current_user_role_id (int): The role ID with highest permission of the current user who triggered the API (for UI).  This attribute is deprecated and will be removed in future versions.. [optional]  # noqa: E501
             current_user_role_ids ([int]): The list of role ID of the current user who triggered the API (for UI). [optional]  # noqa: E501
-            cve_allowlist (CVEAllowlist): [optional]  # noqa: E501
-            project_id (int): Project ID. [optional]  # noqa: E501
-            registry_id (int): The ID of referenced registry when the project is a proxy cache project.. [optional]  # noqa: E501
+            repo_count (int): The number of the repositories under this project.. [optional]  # noqa: E501
+            chart_count (int): The total number of charts under this project.. [optional]  # noqa: E501
             metadata (ProjectMetadata): [optional]  # noqa: E501
+            cve_allowlist (CVEAllowlist): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

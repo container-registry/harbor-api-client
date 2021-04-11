@@ -72,13 +72,13 @@ class RetentionExecution(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str,),  # noqa: E501
-            'trigger': (str,),  # noqa: E501
-            'end_time': (str,),  # noqa: E501
-            'dry_run': (bool,),  # noqa: E501
-            'start_time': (str,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'policy_id': (int,),  # noqa: E501
+            'start_time': (str,),  # noqa: E501
+            'end_time': (str,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'trigger': (str,),  # noqa: E501
+            'dry_run': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -87,13 +87,13 @@ class RetentionExecution(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'trigger': 'trigger',  # noqa: E501
-        'end_time': 'end_time',  # noqa: E501
-        'dry_run': 'dry_run',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
         'id': 'id',  # noqa: E501
         'policy_id': 'policy_id',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
+        'end_time': 'end_time',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'trigger': 'trigger',  # noqa: E501
+        'dry_run': 'dry_run',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -142,13 +142,13 @@ class RetentionExecution(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): [optional]  # noqa: E501
-            trigger (str): [optional]  # noqa: E501
-            end_time (str): [optional]  # noqa: E501
-            dry_run (bool): [optional]  # noqa: E501
-            start_time (str): [optional]  # noqa: E501
             id (int): [optional]  # noqa: E501
             policy_id (int): [optional]  # noqa: E501
+            start_time (str): [optional]  # noqa: E501
+            end_time (str): [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
+            trigger (str): [optional]  # noqa: E501
+            dry_run (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

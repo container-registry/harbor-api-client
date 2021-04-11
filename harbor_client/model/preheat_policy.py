@@ -72,17 +72,17 @@ class PreheatPolicy(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'provider_id': (int,),  # noqa: E501
+            'id': (int,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'project_id': (int,),  # noqa: E501
+            'provider_id': (int,),  # noqa: E501
+            'provider_name': (str,),  # noqa: E501
+            'filters': (str,),  # noqa: E501
+            'trigger': (str,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
             'creation_time': (datetime,),  # noqa: E501
             'update_time': (datetime,),  # noqa: E501
-            'trigger': (str,),  # noqa: E501
-            'filters': (str,),  # noqa: E501
-            'provider_name': (str,),  # noqa: E501
-            'project_id': (int,),  # noqa: E501
-            'id': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -91,17 +91,17 @@ class PreheatPolicy(ModelNormal):
 
 
     attribute_map = {
-        'provider_id': 'provider_id',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'project_id': 'project_id',  # noqa: E501
+        'provider_id': 'provider_id',  # noqa: E501
+        'provider_name': 'provider_name',  # noqa: E501
+        'filters': 'filters',  # noqa: E501
+        'trigger': 'trigger',  # noqa: E501
         'enabled': 'enabled',  # noqa: E501
         'creation_time': 'creation_time',  # noqa: E501
         'update_time': 'update_time',  # noqa: E501
-        'trigger': 'trigger',  # noqa: E501
-        'filters': 'filters',  # noqa: E501
-        'provider_name': 'provider_name',  # noqa: E501
-        'project_id': 'project_id',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -150,17 +150,17 @@ class PreheatPolicy(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            provider_id (int): The ID of preheat policy provider. [optional]  # noqa: E501
+            id (int): The ID of preheat policy. [optional]  # noqa: E501
+            name (str): The Name of preheat policy. [optional]  # noqa: E501
             description (str): The Description of preheat policy. [optional]  # noqa: E501
+            project_id (int): The ID of preheat policy project. [optional]  # noqa: E501
+            provider_id (int): The ID of preheat policy provider. [optional]  # noqa: E501
+            provider_name (str): The Name of preheat policy provider. [optional]  # noqa: E501
+            filters (str): The Filters of preheat policy. [optional]  # noqa: E501
+            trigger (str): The Trigger of preheat policy. [optional]  # noqa: E501
             enabled (bool): Whether the preheat policy enabled. [optional]  # noqa: E501
             creation_time (datetime): The Create Time of preheat policy. [optional]  # noqa: E501
             update_time (datetime): The Update Time of preheat policy. [optional]  # noqa: E501
-            trigger (str): The Trigger of preheat policy. [optional]  # noqa: E501
-            filters (str): The Filters of preheat policy. [optional]  # noqa: E501
-            provider_name (str): The Name of preheat policy provider. [optional]  # noqa: E501
-            project_id (int): The ID of preheat policy project. [optional]  # noqa: E501
-            id (int): The ID of preheat policy. [optional]  # noqa: E501
-            name (str): The Name of preheat policy. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

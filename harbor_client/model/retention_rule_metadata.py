@@ -77,10 +77,10 @@ class RetentionRuleMetadata(ModelNormal):
         """
         lazy_import()
         return {
+            'rule_template': (str,),  # noqa: E501
             'display_text': (str,),  # noqa: E501
             'action': (str,),  # noqa: E501
             'params': ([RetentionRuleParamMetadata],),  # noqa: E501
-            'rule_template': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -89,10 +89,10 @@ class RetentionRuleMetadata(ModelNormal):
 
 
     attribute_map = {
+        'rule_template': 'rule_template',  # noqa: E501
         'display_text': 'display_text',  # noqa: E501
         'action': 'action',  # noqa: E501
         'params': 'params',  # noqa: E501
-        'rule_template': 'rule_template',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -141,10 +141,10 @@ class RetentionRuleMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            rule_template (str): rule id. [optional]  # noqa: E501
             display_text (str): rule display text. [optional]  # noqa: E501
             action (str): rule action. [optional]  # noqa: E501
             params ([RetentionRuleParamMetadata]): rule params. [optional]  # noqa: E501
-            rule_template (str): rule id. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -72,8 +72,8 @@ class Error(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'message': (str,),  # noqa: E501
             'code': (str,),  # noqa: E501
+            'message': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -82,8 +82,8 @@ class Error(ModelNormal):
 
 
     attribute_map = {
-        'message': 'message',  # noqa: E501
         'code': 'code',  # noqa: E501
+        'message': 'message',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -132,8 +132,8 @@ class Error(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            message (str): The error message. [optional]  # noqa: E501
             code (str): The error code. [optional]  # noqa: E501
+            message (str): The error message. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

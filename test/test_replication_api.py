@@ -23,6 +23,20 @@ class TestReplicationApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_replication_policy(self):
+        """Test case for create_replication_policy
+
+        Create a replication policy  # noqa: E501
+        """
+        pass
+
+    def test_delete_replication_policy(self):
+        """Test case for delete_replication_policy
+
+        Delete the specific replication policy  # noqa: E501
+        """
+        pass
+
     def test_get_replication_execution(self):
         """Test case for get_replication_execution
 
@@ -37,10 +51,24 @@ class TestReplicationApi(unittest.TestCase):
         """
         pass
 
+    def test_get_replication_policy(self):
+        """Test case for get_replication_policy
+
+        Get the specific replication policy  # noqa: E501
+        """
+        pass
+
     def test_list_replication_executions(self):
         """Test case for list_replication_executions
 
         List replication executions  # noqa: E501
+        """
+        pass
+
+    def test_list_replication_policies(self):
+        """Test case for list_replication_policies
+
+        List replication policies  # noqa: E501
         """
         pass
 
@@ -62,6 +90,13 @@ class TestReplicationApi(unittest.TestCase):
         """Test case for stop_replication
 
         Stop the specific replication execution  # noqa: E501
+        """
+        pass
+
+    def test_update_replication_policy(self):
+        """Test case for update_replication_policy
+
+        Update the replication policy  # noqa: E501
         """
         pass
 

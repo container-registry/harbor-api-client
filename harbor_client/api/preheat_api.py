@@ -176,7 +176,7 @@ class PreheatApi(object):
         def __create_policy(
             self,
             project_name,
-            policy,
+            preheat_policy,
             **kwargs
         ):
             """Create a preheat policy under a project  # noqa: E501
@@ -185,12 +185,12 @@ class PreheatApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.create_policy(project_name, policy, async_req=True)
+            >>> thread = api.create_policy(project_name, preheat_policy, async_req=True)
             >>> result = thread.get()
 
             Args:
                 project_name (str): The name of the project
-                policy (PreheatPolicy): The policy schema info
+                preheat_policy (PreheatPolicy): The policy schema info
 
             Keyword Args:
                 x_request_id (str): An unique ID for the request. [optional]
@@ -240,8 +240,8 @@ class PreheatApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
                 project_name
-            kwargs['policy'] = \
-                policy
+            kwargs['preheat_policy'] = \
+                preheat_policy
             return self.call_with_http_info(**kwargs)
 
         self.create_policy = _Endpoint(
@@ -258,12 +258,12 @@ class PreheatApi(object):
             params_map={
                 'all': [
                     'project_name',
-                    'policy',
+                    'preheat_policy',
                     'x_request_id',
                 ],
                 'required': [
                     'project_name',
-                    'policy',
+                    'preheat_policy',
                 ],
                 'nullable': [
                 ],
@@ -285,7 +285,7 @@ class PreheatApi(object):
                 'openapi_types': {
                     'project_name':
                         (str,),
-                    'policy':
+                    'preheat_policy':
                         (PreheatPolicy,),
                     'x_request_id':
                         (str,),
@@ -296,7 +296,7 @@ class PreheatApi(object):
                 },
                 'location_map': {
                     'project_name': 'path',
-                    'policy': 'body',
+                    'preheat_policy': 'body',
                     'x_request_id': 'header',
                 },
                 'collection_format_map': {
@@ -1156,7 +1156,8 @@ class PreheatApi(object):
             },
             headers_map={
                 'accept': [
-                    'text/plain'
+                    'text/plain',
+                    'application/json'
                 ],
                 'content_type': [],
             },
@@ -1188,6 +1189,7 @@ class PreheatApi(object):
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
                 q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1257,6 +1259,7 @@ class PreheatApi(object):
                     'page',
                     'page_size',
                     'q',
+                    'sort',
                 ],
                 'required': [
                     'project_name',
@@ -1297,6 +1300,8 @@ class PreheatApi(object):
                         (int,),
                     'q':
                         (str,),
+                    'sort':
+                        (str,),
                 },
                 'attribute_map': {
                     'project_name': 'project_name',
@@ -1305,6 +1310,7 @@ class PreheatApi(object):
                     'page': 'page',
                     'page_size': 'page_size',
                     'q': 'q',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'project_name': 'path',
@@ -1313,6 +1319,7 @@ class PreheatApi(object):
                     'page': 'query',
                     'page_size': 'query',
                     'q': 'query',
+                    'sort': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1346,6 +1353,7 @@ class PreheatApi(object):
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
                 q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1409,6 +1417,7 @@ class PreheatApi(object):
                     'page',
                     'page_size',
                     'q',
+                    'sort',
                 ],
                 'required': [],
                 'nullable': [
@@ -1442,18 +1451,22 @@ class PreheatApi(object):
                         (int,),
                     'q':
                         (str,),
+                    'sort':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'X-Request-Id',
                     'page': 'page',
                     'page_size': 'page_size',
                     'q': 'q',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'x_request_id': 'header',
                     'page': 'query',
                     'page_size': 'query',
                     'q': 'query',
+                    'sort': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1490,6 +1503,7 @@ class PreheatApi(object):
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
                 q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1556,6 +1570,7 @@ class PreheatApi(object):
                     'page',
                     'page_size',
                     'q',
+                    'sort',
                 ],
                 'required': [
                     'project_name',
@@ -1593,6 +1608,8 @@ class PreheatApi(object):
                         (int,),
                     'q':
                         (str,),
+                    'sort':
+                        (str,),
                 },
                 'attribute_map': {
                     'project_name': 'project_name',
@@ -1600,6 +1617,7 @@ class PreheatApi(object):
                     'page': 'page',
                     'page_size': 'page_size',
                     'q': 'q',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'project_name': 'path',
@@ -1607,6 +1625,7 @@ class PreheatApi(object):
                     'page': 'query',
                     'page_size': 'query',
                     'q': 'query',
+                    'sort': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1895,6 +1914,7 @@ class PreheatApi(object):
                 page (int): The page number. [optional] if omitted the server will use the default value of 1
                 page_size (int): The size of per page. [optional] if omitted the server will use the default value of 10
                 q (str): Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max]. [optional]
+                sort (str): Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\". [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1967,6 +1987,7 @@ class PreheatApi(object):
                     'page',
                     'page_size',
                     'q',
+                    'sort',
                 ],
                 'required': [
                     'project_name',
@@ -2010,6 +2031,8 @@ class PreheatApi(object):
                         (int,),
                     'q':
                         (str,),
+                    'sort':
+                        (str,),
                 },
                 'attribute_map': {
                     'project_name': 'project_name',
@@ -2019,6 +2042,7 @@ class PreheatApi(object):
                     'page': 'page',
                     'page_size': 'page_size',
                     'q': 'q',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'project_name': 'path',
@@ -2028,6 +2052,7 @@ class PreheatApi(object):
                     'page': 'query',
                     'page_size': 'query',
                     'q': 'query',
+                    'sort': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -2046,7 +2071,7 @@ class PreheatApi(object):
             self,
             project_name,
             preheat_policy_name,
-            policy,
+            preheat_policy,
             **kwargs
         ):
             """Manual preheat  # noqa: E501
@@ -2055,13 +2080,13 @@ class PreheatApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.manual_preheat(project_name, preheat_policy_name, policy, async_req=True)
+            >>> thread = api.manual_preheat(project_name, preheat_policy_name, preheat_policy, async_req=True)
             >>> result = thread.get()
 
             Args:
                 project_name (str): The name of the project
                 preheat_policy_name (str): Preheat Policy Name
-                policy (PreheatPolicy): The policy schema info
+                preheat_policy (PreheatPolicy): The policy schema info
 
             Keyword Args:
                 x_request_id (str): An unique ID for the request. [optional]
@@ -2113,8 +2138,8 @@ class PreheatApi(object):
                 project_name
             kwargs['preheat_policy_name'] = \
                 preheat_policy_name
-            kwargs['policy'] = \
-                policy
+            kwargs['preheat_policy'] = \
+                preheat_policy
             return self.call_with_http_info(**kwargs)
 
         self.manual_preheat = _Endpoint(
@@ -2132,13 +2157,13 @@ class PreheatApi(object):
                 'all': [
                     'project_name',
                     'preheat_policy_name',
-                    'policy',
+                    'preheat_policy',
                     'x_request_id',
                 ],
                 'required': [
                     'project_name',
                     'preheat_policy_name',
-                    'policy',
+                    'preheat_policy',
                 ],
                 'nullable': [
                 ],
@@ -2162,7 +2187,7 @@ class PreheatApi(object):
                         (str,),
                     'preheat_policy_name':
                         (str,),
-                    'policy':
+                    'preheat_policy':
                         (PreheatPolicy,),
                     'x_request_id':
                         (str,),
@@ -2175,7 +2200,7 @@ class PreheatApi(object):
                 'location_map': {
                     'project_name': 'path',
                     'preheat_policy_name': 'path',
-                    'policy': 'body',
+                    'preheat_policy': 'body',
                     'x_request_id': 'header',
                 },
                 'collection_format_map': {
@@ -2630,7 +2655,7 @@ class PreheatApi(object):
             self,
             project_name,
             preheat_policy_name,
-            policy,
+            preheat_policy,
             **kwargs
         ):
             """Update preheat policy  # noqa: E501
@@ -2639,13 +2664,13 @@ class PreheatApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.update_policy(project_name, preheat_policy_name, policy, async_req=True)
+            >>> thread = api.update_policy(project_name, preheat_policy_name, preheat_policy, async_req=True)
             >>> result = thread.get()
 
             Args:
                 project_name (str): The name of the project
                 preheat_policy_name (str): Preheat Policy Name
-                policy (PreheatPolicy): The policy schema info
+                preheat_policy (PreheatPolicy): The policy schema info
 
             Keyword Args:
                 x_request_id (str): An unique ID for the request. [optional]
@@ -2697,8 +2722,8 @@ class PreheatApi(object):
                 project_name
             kwargs['preheat_policy_name'] = \
                 preheat_policy_name
-            kwargs['policy'] = \
-                policy
+            kwargs['preheat_policy'] = \
+                preheat_policy
             return self.call_with_http_info(**kwargs)
 
         self.update_policy = _Endpoint(
@@ -2716,13 +2741,13 @@ class PreheatApi(object):
                 'all': [
                     'project_name',
                     'preheat_policy_name',
-                    'policy',
+                    'preheat_policy',
                     'x_request_id',
                 ],
                 'required': [
                     'project_name',
                     'preheat_policy_name',
-                    'policy',
+                    'preheat_policy',
                 ],
                 'nullable': [
                 ],
@@ -2746,7 +2771,7 @@ class PreheatApi(object):
                         (str,),
                     'preheat_policy_name':
                         (str,),
-                    'policy':
+                    'preheat_policy':
                         (PreheatPolicy,),
                     'x_request_id':
                         (str,),
@@ -2759,7 +2784,7 @@ class PreheatApi(object):
                 'location_map': {
                     'project_name': 'path',
                     'preheat_policy_name': 'path',
-                    'policy': 'body',
+                    'preheat_policy': 'body',
                     'x_request_id': 'header',
                 },
                 'collection_format_map': {

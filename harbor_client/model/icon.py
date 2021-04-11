@@ -72,8 +72,8 @@ class Icon(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'content': (str,),  # noqa: E501
             'content_type': (str,),  # noqa: E501
+            'content': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -82,8 +82,8 @@ class Icon(ModelNormal):
 
 
     attribute_map = {
-        'content': 'content',  # noqa: E501
         'content_type': 'content-type',  # noqa: E501
+        'content': 'content',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -132,8 +132,8 @@ class Icon(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            content (str): The base64 encoded content of the icon. [optional]  # noqa: E501
             content_type (str): The content type of the icon. [optional]  # noqa: E501
+            content (str): The base64 encoded content of the icon. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

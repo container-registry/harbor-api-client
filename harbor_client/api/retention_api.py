@@ -22,8 +22,8 @@ from harbor_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from harbor_client.model.errors import Errors
-from harbor_client.model.inline_object import InlineObject
 from harbor_client.model.inline_object1 import InlineObject1
+from harbor_client.model.inline_object2 import InlineObject2
 from harbor_client.model.retention_execution import RetentionExecution
 from harbor_client.model.retention_execution_task import RetentionExecutionTask
 from harbor_client.model.retention_metadata import RetentionMetadata
@@ -44,7 +44,7 @@ class RetentionApi(object):
 
         def __create_retention(
             self,
-            policy,
+            retention_policy,
             **kwargs
         ):
             """Create Retention Policy  # noqa: E501
@@ -53,11 +53,11 @@ class RetentionApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.create_retention(policy, async_req=True)
+            >>> thread = api.create_retention(retention_policy, async_req=True)
             >>> result = thread.get()
 
             Args:
-                policy (RetentionPolicy): Create Retention Policy successfully.
+                retention_policy (RetentionPolicy): Create Retention Policy successfully.
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -104,8 +104,8 @@ class RetentionApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['policy'] = \
-                policy
+            kwargs['retention_policy'] = \
+                retention_policy
             return self.call_with_http_info(**kwargs)
 
         self.create_retention = _Endpoint(
@@ -121,10 +121,10 @@ class RetentionApi(object):
             },
             params_map={
                 'all': [
-                    'policy',
+                    'retention_policy',
                 ],
                 'required': [
-                    'policy',
+                    'retention_policy',
                 ],
                 'nullable': [
                 ],
@@ -139,13 +139,13 @@ class RetentionApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'policy':
+                    'retention_policy':
                         (RetentionPolicy,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'policy': 'body',
+                    'retention_policy': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -519,7 +519,8 @@ class RetentionApi(object):
             },
             headers_map={
                 'accept': [
-                    'text/plain'
+                    'text/plain',
+                    'application/json'
                 ],
                 'content_type': [],
             },
@@ -803,7 +804,7 @@ class RetentionApi(object):
             self,
             id,
             eid,
-            body,
+            inline_object2,
             **kwargs
         ):
             """Stop a Retention execution  # noqa: E501
@@ -812,13 +813,13 @@ class RetentionApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.operate_retention_execution(id, eid, body, async_req=True)
+            >>> thread = api.operate_retention_execution(id, eid, inline_object2, async_req=True)
             >>> result = thread.get()
 
             Args:
                 id (int): Retention ID.
                 eid (int): Retention execution ID.
-                body (InlineObject):
+                inline_object2 (InlineObject2):
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -869,8 +870,8 @@ class RetentionApi(object):
                 id
             kwargs['eid'] = \
                 eid
-            kwargs['body'] = \
-                body
+            kwargs['inline_object2'] = \
+                inline_object2
             return self.call_with_http_info(**kwargs)
 
         self.operate_retention_execution = _Endpoint(
@@ -888,12 +889,12 @@ class RetentionApi(object):
                 'all': [
                     'id',
                     'eid',
-                    'body',
+                    'inline_object2',
                 ],
                 'required': [
                     'id',
                     'eid',
-                    'body',
+                    'inline_object2',
                 ],
                 'nullable': [
                 ],
@@ -912,8 +913,8 @@ class RetentionApi(object):
                         (int,),
                     'eid':
                         (int,),
-                    'body':
-                        (InlineObject,),
+                    'inline_object2':
+                        (InlineObject2,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -922,7 +923,7 @@ class RetentionApi(object):
                 'location_map': {
                     'id': 'path',
                     'eid': 'path',
-                    'body': 'body',
+                    'inline_object2': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -942,7 +943,7 @@ class RetentionApi(object):
         def __trigger_retention_execution(
             self,
             id,
-            body,
+            inline_object1,
             **kwargs
         ):
             """Trigger a Retention Execution  # noqa: E501
@@ -951,12 +952,12 @@ class RetentionApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.trigger_retention_execution(id, body, async_req=True)
+            >>> thread = api.trigger_retention_execution(id, inline_object1, async_req=True)
             >>> result = thread.get()
 
             Args:
                 id (int): Retention ID.
-                body (InlineObject1):
+                inline_object1 (InlineObject1):
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -1005,8 +1006,8 @@ class RetentionApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
                 id
-            kwargs['body'] = \
-                body
+            kwargs['inline_object1'] = \
+                inline_object1
             return self.call_with_http_info(**kwargs)
 
         self.trigger_retention_execution = _Endpoint(
@@ -1023,11 +1024,11 @@ class RetentionApi(object):
             params_map={
                 'all': [
                     'id',
-                    'body',
+                    'inline_object1',
                 ],
                 'required': [
                     'id',
-                    'body',
+                    'inline_object1',
                 ],
                 'nullable': [
                 ],
@@ -1044,7 +1045,7 @@ class RetentionApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
-                    'body':
+                    'inline_object1':
                         (InlineObject1,),
                 },
                 'attribute_map': {
@@ -1052,14 +1053,14 @@ class RetentionApi(object):
                 },
                 'location_map': {
                     'id': 'path',
-                    'body': 'body',
+                    'inline_object1': 'body',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
                 'accept': [
-                    'text/plain'
+                    'application/json'
                 ],
                 'content_type': [
                     'application/json'
@@ -1072,7 +1073,7 @@ class RetentionApi(object):
         def __update_retention(
             self,
             id,
-            policy,
+            retention_policy,
             **kwargs
         ):
             """Update Retention Policy  # noqa: E501
@@ -1081,12 +1082,12 @@ class RetentionApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.update_retention(id, policy, async_req=True)
+            >>> thread = api.update_retention(id, retention_policy, async_req=True)
             >>> result = thread.get()
 
             Args:
                 id (int): Retention ID.
-                policy (RetentionPolicy):
+                retention_policy (RetentionPolicy):
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -1135,8 +1136,8 @@ class RetentionApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
                 id
-            kwargs['policy'] = \
-                policy
+            kwargs['retention_policy'] = \
+                retention_policy
             return self.call_with_http_info(**kwargs)
 
         self.update_retention = _Endpoint(
@@ -1153,11 +1154,11 @@ class RetentionApi(object):
             params_map={
                 'all': [
                     'id',
-                    'policy',
+                    'retention_policy',
                 ],
                 'required': [
                     'id',
-                    'policy',
+                    'retention_policy',
                 ],
                 'nullable': [
                 ],
@@ -1174,7 +1175,7 @@ class RetentionApi(object):
                 'openapi_types': {
                     'id':
                         (int,),
-                    'policy':
+                    'retention_policy':
                         (RetentionPolicy,),
                 },
                 'attribute_map': {
@@ -1182,7 +1183,7 @@ class RetentionApi(object):
                 },
                 'location_map': {
                     'id': 'path',
-                    'policy': 'body',
+                    'retention_policy': 'body',
                 },
                 'collection_format_map': {
                 }

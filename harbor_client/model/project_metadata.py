@@ -72,13 +72,13 @@ class ProjectMetadata(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'enable_content_trust': (str, none_type,),  # noqa: E501
             'public': (str,),  # noqa: E501
-            'auto_scan': (str, none_type,),  # noqa: E501
-            'severity': (str, none_type,),  # noqa: E501
-            'retention_id': (str, none_type,),  # noqa: E501
-            'reuse_sys_cve_allowlist': (str, none_type,),  # noqa: E501
+            'enable_content_trust': (str, none_type,),  # noqa: E501
             'prevent_vul': (str, none_type,),  # noqa: E501
+            'severity': (str, none_type,),  # noqa: E501
+            'auto_scan': (str, none_type,),  # noqa: E501
+            'reuse_sys_cve_allowlist': (str, none_type,),  # noqa: E501
+            'retention_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -87,13 +87,13 @@ class ProjectMetadata(ModelNormal):
 
 
     attribute_map = {
-        'enable_content_trust': 'enable_content_trust',  # noqa: E501
         'public': 'public',  # noqa: E501
-        'auto_scan': 'auto_scan',  # noqa: E501
-        'severity': 'severity',  # noqa: E501
-        'retention_id': 'retention_id',  # noqa: E501
-        'reuse_sys_cve_allowlist': 'reuse_sys_cve_allowlist',  # noqa: E501
+        'enable_content_trust': 'enable_content_trust',  # noqa: E501
         'prevent_vul': 'prevent_vul',  # noqa: E501
+        'severity': 'severity',  # noqa: E501
+        'auto_scan': 'auto_scan',  # noqa: E501
+        'reuse_sys_cve_allowlist': 'reuse_sys_cve_allowlist',  # noqa: E501
+        'retention_id': 'retention_id',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -142,13 +142,13 @@ class ProjectMetadata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            enable_content_trust (str, none_type): Whether content trust is enabled or not. If it is enabled, user can't pull unsigned images from this project. The valid values are \"true\", \"false\".. [optional]  # noqa: E501
             public (str): The public status of the project. The valid values are \"true\", \"false\".. [optional]  # noqa: E501
-            auto_scan (str, none_type): Whether scan images automatically when pushing. The valid values are \"true\", \"false\".. [optional]  # noqa: E501
-            severity (str, none_type): If the vulnerability is high than severity defined here, the images can't be pulled. The valid values are \"none\", \"low\", \"medium\", \"high\", \"critical\".. [optional]  # noqa: E501
-            retention_id (str, none_type): The ID of the tag retention policy for the project. [optional]  # noqa: E501
-            reuse_sys_cve_allowlist (str, none_type): Whether this project reuse the system level CVE allowlist as the allowlist of its own.  The valid values are \"true\", \"false\". If it is set to \"true\" the actual allowlist associate with this project, if any, will be ignored.. [optional]  # noqa: E501
+            enable_content_trust (str, none_type): Whether content trust is enabled or not. If it is enabled, user can't pull unsigned images from this project. The valid values are \"true\", \"false\".. [optional]  # noqa: E501
             prevent_vul (str, none_type): Whether prevent the vulnerable images from running. The valid values are \"true\", \"false\".. [optional]  # noqa: E501
+            severity (str, none_type): If the vulnerability is high than severity defined here, the images can't be pulled. The valid values are \"none\", \"low\", \"medium\", \"high\", \"critical\".. [optional]  # noqa: E501
+            auto_scan (str, none_type): Whether scan images automatically when pushing. The valid values are \"true\", \"false\".. [optional]  # noqa: E501
+            reuse_sys_cve_allowlist (str, none_type): Whether this project reuse the system level CVE allowlist as the allowlist of its own.  The valid values are \"true\", \"false\". If it is set to \"true\" the actual allowlist associate with this project, if any, will be ignored.. [optional]  # noqa: E501
+            retention_id (str, none_type): The ID of the tag retention policy for the project. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

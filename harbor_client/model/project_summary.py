@@ -79,15 +79,15 @@ class ProjectSummary(ModelNormal):
         """
         lazy_import()
         return {
-            'maintainer_count': (int,),  # noqa: E501
-            'project_admin_count': (int,),  # noqa: E501
-            'developer_count': (int,),  # noqa: E501
             'repo_count': (int,),  # noqa: E501
-            'quota': (ProjectSummaryQuota,),  # noqa: E501
+            'chart_count': (int,),  # noqa: E501
+            'project_admin_count': (int,),  # noqa: E501
+            'maintainer_count': (int,),  # noqa: E501
+            'developer_count': (int,),  # noqa: E501
             'guest_count': (int,),  # noqa: E501
             'limited_guest_count': (int,),  # noqa: E501
+            'quota': (ProjectSummaryQuota,),  # noqa: E501
             'registry': (Registry,),  # noqa: E501
-            'chart_count': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -96,15 +96,15 @@ class ProjectSummary(ModelNormal):
 
 
     attribute_map = {
-        'maintainer_count': 'maintainer_count',  # noqa: E501
-        'project_admin_count': 'project_admin_count',  # noqa: E501
-        'developer_count': 'developer_count',  # noqa: E501
         'repo_count': 'repo_count',  # noqa: E501
-        'quota': 'quota',  # noqa: E501
+        'chart_count': 'chart_count',  # noqa: E501
+        'project_admin_count': 'project_admin_count',  # noqa: E501
+        'maintainer_count': 'maintainer_count',  # noqa: E501
+        'developer_count': 'developer_count',  # noqa: E501
         'guest_count': 'guest_count',  # noqa: E501
         'limited_guest_count': 'limited_guest_count',  # noqa: E501
+        'quota': 'quota',  # noqa: E501
         'registry': 'registry',  # noqa: E501
-        'chart_count': 'chart_count',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -153,15 +153,15 @@ class ProjectSummary(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            maintainer_count (int): The total number of maintainer members.. [optional]  # noqa: E501
-            project_admin_count (int): The total number of project admin members.. [optional]  # noqa: E501
-            developer_count (int): The total number of developer members.. [optional]  # noqa: E501
             repo_count (int): The number of the repositories under this project.. [optional]  # noqa: E501
-            quota (ProjectSummaryQuota): [optional]  # noqa: E501
+            chart_count (int): The total number of charts under this project.. [optional]  # noqa: E501
+            project_admin_count (int): The total number of project admin members.. [optional]  # noqa: E501
+            maintainer_count (int): The total number of maintainer members.. [optional]  # noqa: E501
+            developer_count (int): The total number of developer members.. [optional]  # noqa: E501
             guest_count (int): The total number of guest members.. [optional]  # noqa: E501
             limited_guest_count (int): The total number of limited guest members.. [optional]  # noqa: E501
+            quota (ProjectSummaryQuota): [optional]  # noqa: E501
             registry (Registry): [optional]  # noqa: E501
-            chart_count (int): The total number of charts under this project.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

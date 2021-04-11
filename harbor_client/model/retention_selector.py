@@ -72,9 +72,9 @@ class RetentionSelector(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'kind': (str,),  # noqa: E501
             'decoration': (str,),  # noqa: E501
             'pattern': (str,),  # noqa: E501
-            'kind': (str,),  # noqa: E501
             'extras': (str,),  # noqa: E501
         }
 
@@ -84,9 +84,9 @@ class RetentionSelector(ModelNormal):
 
 
     attribute_map = {
+        'kind': 'kind',  # noqa: E501
         'decoration': 'decoration',  # noqa: E501
         'pattern': 'pattern',  # noqa: E501
-        'kind': 'kind',  # noqa: E501
         'extras': 'extras',  # noqa: E501
     }
 
@@ -136,9 +136,9 @@ class RetentionSelector(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            kind (str): [optional]  # noqa: E501
             decoration (str): [optional]  # noqa: E501
             pattern (str): [optional]  # noqa: E501
-            kind (str): [optional]  # noqa: E501
             extras (str): [optional]  # noqa: E501
         """
 

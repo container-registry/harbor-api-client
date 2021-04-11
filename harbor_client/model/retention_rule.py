@@ -77,14 +77,14 @@ class RetentionRule(ModelNormal):
         """
         lazy_import()
         return {
-            'priority': (int,),  # noqa: E501
-            'scope_selectors': ({str: ([RetentionSelector],)},),  # noqa: E501
-            'disabled': (bool,),  # noqa: E501
-            'params': ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},),  # noqa: E501
-            'template': (str,),  # noqa: E501
-            'action': (str,),  # noqa: E501
-            'tag_selectors': ([RetentionSelector],),  # noqa: E501
             'id': (int,),  # noqa: E501
+            'priority': (int,),  # noqa: E501
+            'disabled': (bool,),  # noqa: E501
+            'action': (str,),  # noqa: E501
+            'template': (str,),  # noqa: E501
+            'params': ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)},),  # noqa: E501
+            'tag_selectors': ([RetentionSelector],),  # noqa: E501
+            'scope_selectors': ({str: ([RetentionSelector],)},),  # noqa: E501
         }
 
     @cached_property
@@ -93,14 +93,14 @@ class RetentionRule(ModelNormal):
 
 
     attribute_map = {
-        'priority': 'priority',  # noqa: E501
-        'scope_selectors': 'scope_selectors',  # noqa: E501
-        'disabled': 'disabled',  # noqa: E501
-        'params': 'params',  # noqa: E501
-        'template': 'template',  # noqa: E501
-        'action': 'action',  # noqa: E501
-        'tag_selectors': 'tag_selectors',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'priority': 'priority',  # noqa: E501
+        'disabled': 'disabled',  # noqa: E501
+        'action': 'action',  # noqa: E501
+        'template': 'template',  # noqa: E501
+        'params': 'params',  # noqa: E501
+        'tag_selectors': 'tag_selectors',  # noqa: E501
+        'scope_selectors': 'scope_selectors',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -149,14 +149,14 @@ class RetentionRule(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            priority (int): [optional]  # noqa: E501
-            scope_selectors ({str: ([RetentionSelector],)}): [optional]  # noqa: E501
-            disabled (bool): [optional]  # noqa: E501
-            params ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): [optional]  # noqa: E501
-            template (str): [optional]  # noqa: E501
-            action (str): [optional]  # noqa: E501
-            tag_selectors ([RetentionSelector]): [optional]  # noqa: E501
             id (int): [optional]  # noqa: E501
+            priority (int): [optional]  # noqa: E501
+            disabled (bool): [optional]  # noqa: E501
+            action (str): [optional]  # noqa: E501
+            template (str): [optional]  # noqa: E501
+            params ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): [optional]  # noqa: E501
+            tag_selectors ([RetentionSelector]): [optional]  # noqa: E501
+            scope_selectors ({str: ([RetentionSelector],)}): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

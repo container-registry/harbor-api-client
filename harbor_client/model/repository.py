@@ -72,14 +72,14 @@ class Repository(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'update_time': (datetime,),  # noqa: E501
+            'id': (int,),  # noqa: E501
+            'project_id': (int,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'artifact_count': (int,),  # noqa: E501
             'pull_count': (int,),  # noqa: E501
             'creation_time': (datetime,),  # noqa: E501
-            'artifact_count': (int,),  # noqa: E501
-            'project_id': (int,),  # noqa: E501
-            'id': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
+            'update_time': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -88,14 +88,14 @@ class Repository(ModelNormal):
 
 
     attribute_map = {
-        'update_time': 'update_time',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'project_id': 'project_id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'artifact_count': 'artifact_count',  # noqa: E501
         'pull_count': 'pull_count',  # noqa: E501
         'creation_time': 'creation_time',  # noqa: E501
-        'artifact_count': 'artifact_count',  # noqa: E501
-        'project_id': 'project_id',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
+        'update_time': 'update_time',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -144,14 +144,14 @@ class Repository(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            update_time (datetime): The update time of the repository. [optional]  # noqa: E501
+            id (int): The ID of the repository. [optional]  # noqa: E501
+            project_id (int): The ID of the project that the repository belongs to. [optional]  # noqa: E501
+            name (str): The name of the repository. [optional]  # noqa: E501
             description (str): The description of the repository. [optional]  # noqa: E501
+            artifact_count (int): The count of the artifacts inside the repository. [optional]  # noqa: E501
             pull_count (int): The count that the artifact inside the repository pulled. [optional]  # noqa: E501
             creation_time (datetime): The creation time of the repository. [optional]  # noqa: E501
-            artifact_count (int): The count of the artifacts inside the repository. [optional]  # noqa: E501
-            project_id (int): The ID of the project that the repository belongs to. [optional]  # noqa: E501
-            id (int): The ID of the repository. [optional]  # noqa: E501
-            name (str): The name of the repository. [optional]  # noqa: E501
+            update_time (datetime): The update time of the repository. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -72,18 +72,18 @@ class Instance(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str,),  # noqa: E501
-            'endpoint': (str,),  # noqa: E501
-            'vendor': (str,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'default': (bool,),  # noqa: E501
-            'insecure': (bool,),  # noqa: E501
-            'enabled': (bool,),  # noqa: E501
-            'auth_mode': (str,),  # noqa: E501
-            'setup_timestamp': (int,),  # noqa: E501
-            'auth_info': ({str: (str,)},),  # noqa: E501
             'id': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'vendor': (str,),  # noqa: E501
+            'endpoint': (str,),  # noqa: E501
+            'auth_mode': (str,),  # noqa: E501
+            'auth_info': ({str: (str,)},),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'enabled': (bool,),  # noqa: E501
+            'default': (bool,),  # noqa: E501
+            'insecure': (bool,),  # noqa: E501
+            'setup_timestamp': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -92,18 +92,18 @@ class Instance(ModelNormal):
 
 
     attribute_map = {
-        'status': 'status',  # noqa: E501
-        'endpoint': 'endpoint',  # noqa: E501
-        'vendor': 'vendor',  # noqa: E501
-        'description': 'description',  # noqa: E501
-        'default': 'default',  # noqa: E501
-        'insecure': 'insecure',  # noqa: E501
-        'enabled': 'enabled',  # noqa: E501
-        'auth_mode': 'auth_mode',  # noqa: E501
-        'setup_timestamp': 'setup_timestamp',  # noqa: E501
-        'auth_info': 'auth_info',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'vendor': 'vendor',  # noqa: E501
+        'endpoint': 'endpoint',  # noqa: E501
+        'auth_mode': 'auth_mode',  # noqa: E501
+        'auth_info': 'auth_info',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'enabled': 'enabled',  # noqa: E501
+        'default': 'default',  # noqa: E501
+        'insecure': 'insecure',  # noqa: E501
+        'setup_timestamp': 'setup_timestamp',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -152,18 +152,18 @@ class Instance(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): The health status. [optional]  # noqa: E501
-            endpoint (str): The service endpoint of this instance. [optional]  # noqa: E501
-            vendor (str): Based on which driver, identified by ID. [optional]  # noqa: E501
-            description (str): Description of instance. [optional]  # noqa: E501
-            default (bool): Whether the instance is default or not. [optional]  # noqa: E501
-            insecure (bool): Whether the instance endpoint is insecure or not. [optional]  # noqa: E501
-            enabled (bool): Whether the instance is activated or not. [optional]  # noqa: E501
-            auth_mode (str): The authentication way supported. [optional]  # noqa: E501
-            setup_timestamp (int): The timestamp of instance setting up. [optional]  # noqa: E501
-            auth_info ({str: (str,)}): The auth credential data if exists. [optional]  # noqa: E501
             id (int): Unique ID. [optional]  # noqa: E501
             name (str): Instance name. [optional]  # noqa: E501
+            description (str): Description of instance. [optional]  # noqa: E501
+            vendor (str): Based on which driver, identified by ID. [optional]  # noqa: E501
+            endpoint (str): The service endpoint of this instance. [optional]  # noqa: E501
+            auth_mode (str): The authentication way supported. [optional]  # noqa: E501
+            auth_info ({str: (str,)}): The auth credential data if exists. [optional]  # noqa: E501
+            status (str): The health status. [optional]  # noqa: E501
+            enabled (bool): Whether the instance is activated or not. [optional]  # noqa: E501
+            default (bool): Whether the instance is default or not. [optional]  # noqa: E501
+            insecure (bool): Whether the instance endpoint is insecure or not. [optional]  # noqa: E501
+            setup_timestamp (int): The timestamp of instance setting up. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

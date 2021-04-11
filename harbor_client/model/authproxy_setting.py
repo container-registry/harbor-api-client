@@ -72,11 +72,11 @@ class AuthproxySetting(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'server_certificate': (str,),  # noqa: E501
-            'tokenreivew_endpoint': (str,),  # noqa: E501
             'endpoint': (str,),  # noqa: E501
-            'verify_cert': (bool,),  # noqa: E501
+            'tokenreivew_endpoint': (str,),  # noqa: E501
             'skip_search': (bool,),  # noqa: E501
+            'verify_cert': (bool,),  # noqa: E501
+            'server_certificate': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -85,11 +85,11 @@ class AuthproxySetting(ModelNormal):
 
 
     attribute_map = {
-        'server_certificate': 'server_certificate',  # noqa: E501
-        'tokenreivew_endpoint': 'tokenreivew_endpoint',  # noqa: E501
         'endpoint': 'endpoint',  # noqa: E501
-        'verify_cert': 'verify_cert',  # noqa: E501
+        'tokenreivew_endpoint': 'tokenreivew_endpoint',  # noqa: E501
         'skip_search': 'skip_search',  # noqa: E501
+        'verify_cert': 'verify_cert',  # noqa: E501
+        'server_certificate': 'server_certificate',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -138,11 +138,11 @@ class AuthproxySetting(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            server_certificate (str): The certificate to be pinned when connecting auth proxy.. [optional]  # noqa: E501
-            tokenreivew_endpoint (str): The fully qualified URI of token review endpoint of authproxy, such as 'https://192.168.1.2:8443/tokenreview'. [optional]  # noqa: E501
             endpoint (str): The fully qualified URI of login endpoint of authproxy, such as 'https://192.168.1.2:8443/login'. [optional]  # noqa: E501
-            verify_cert (bool): The flag to determine whether Harbor should verify the certificate when connecting to the auth proxy.. [optional]  # noqa: E501
+            tokenreivew_endpoint (str): The fully qualified URI of token review endpoint of authproxy, such as 'https://192.168.1.2:8443/tokenreview'. [optional]  # noqa: E501
             skip_search (bool): The flag to determine whether Harbor can skip search the user/group when adding him as a member.. [optional]  # noqa: E501
+            verify_cert (bool): The flag to determine whether Harbor should verify the certificate when connecting to the auth proxy.. [optional]  # noqa: E501
+            server_certificate (str): The certificate to be pinned when connecting auth proxy.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

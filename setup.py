@@ -27,16 +27,16 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="Harbor Python Client API",
-    author="container-registry.com",
-    author_email="team@container-registry.com",
-    url="https://container-registry.com",
-    keywords=["Harbor", "Container Registry", "Harbor API"],
+    description="Harbor API",
+    author="OpenAPI Generator community",
+    author_email="team@openapitools.org",
+    url="",
+    keywords=["OpenAPI", "OpenAPI-Generator", "Harbor API"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description="""\
-    Python API for the Open Source Project Harbor Container Registry. 
+    These APIs provide services for manipulating Harbor project.  # noqa: E501
     """
 )

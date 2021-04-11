@@ -72,10 +72,10 @@ class ProviderUnderProject(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'default': (bool,),  # noqa: E501
-            'enabled': (bool,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'provider': (str,),  # noqa: E501
+            'enabled': (bool,),  # noqa: E501
+            'default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -84,10 +84,10 @@ class ProviderUnderProject(ModelNormal):
 
 
     attribute_map = {
-        'default': 'default',  # noqa: E501
-        'enabled': 'enabled',  # noqa: E501
         'id': 'id',  # noqa: E501
         'provider': 'provider',  # noqa: E501
+        'enabled': 'enabled',  # noqa: E501
+        'default': 'default',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -136,10 +136,10 @@ class ProviderUnderProject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            default (bool): [optional]  # noqa: E501
-            enabled (bool): [optional]  # noqa: E501
             id (int): [optional]  # noqa: E501
             provider (str): [optional]  # noqa: E501
+            enabled (bool): [optional]  # noqa: E501
+            default (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

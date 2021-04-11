@@ -81,11 +81,11 @@ class RetentionPolicy(ModelNormal):
         """
         lazy_import()
         return {
-            'rules': ([RetentionRule],),  # noqa: E501
-            'scope': (RetentionPolicyScope,),  # noqa: E501
-            'trigger': (RetentionRuleTrigger,),  # noqa: E501
             'id': (int,),  # noqa: E501
             'algorithm': (str,),  # noqa: E501
+            'rules': ([RetentionRule],),  # noqa: E501
+            'trigger': (RetentionRuleTrigger,),  # noqa: E501
+            'scope': (RetentionPolicyScope,),  # noqa: E501
         }
 
     @cached_property
@@ -94,11 +94,11 @@ class RetentionPolicy(ModelNormal):
 
 
     attribute_map = {
-        'rules': 'rules',  # noqa: E501
-        'scope': 'scope',  # noqa: E501
-        'trigger': 'trigger',  # noqa: E501
         'id': 'id',  # noqa: E501
         'algorithm': 'algorithm',  # noqa: E501
+        'rules': 'rules',  # noqa: E501
+        'trigger': 'trigger',  # noqa: E501
+        'scope': 'scope',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -147,11 +147,11 @@ class RetentionPolicy(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rules ([RetentionRule]): [optional]  # noqa: E501
-            scope (RetentionPolicyScope): [optional]  # noqa: E501
-            trigger (RetentionRuleTrigger): [optional]  # noqa: E501
             id (int): [optional]  # noqa: E501
             algorithm (str): [optional]  # noqa: E501
+            rules ([RetentionRule]): [optional]  # noqa: E501
+            trigger (RetentionRuleTrigger): [optional]  # noqa: E501
+            scope (RetentionPolicyScope): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
