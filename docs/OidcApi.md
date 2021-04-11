@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **ping_oidc**
-> ping_oidc(inline_object)
+> ping_oidc(inline_object1)
 
 Test the OIDC endpoint.
 
@@ -21,8 +21,8 @@ Test the OIDC endpoint, the setting of the endpoint is provided in the request. 
 import time
 import harbor_client
 from harbor_client.api import oidc_api
+from harbor_client.model.inline_object1 import InlineObject1
 from harbor_client.model.errors import Errors
-from harbor_client.model.inline_object import InlineObject
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,15 +45,15 @@ configuration = harbor_client.Configuration(
 with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = oidc_api.OidcApi(api_client)
-    inline_object = InlineObject(
+    inline_object1 = InlineObject1(
         url="url_example",
         verify_cert=True,
-    ) # InlineObject | 
+    ) # InlineObject1 | 
 
     # example passing only required values which don't have defaults set
     try:
         # Test the OIDC endpoint.
-        api_instance.ping_oidc(inline_object)
+        api_instance.ping_oidc(inline_object1)
     except harbor_client.ApiException as e:
         print("Exception when calling OidcApi->ping_oidc: %s\n" % e)
 ```
@@ -63,7 +63,7 @@ with harbor_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**InlineObject**](InlineObject.md)|  |
+ **inline_object1** | [**InlineObject1**](InlineObject1.md)|  |
 
 ### Return type
 

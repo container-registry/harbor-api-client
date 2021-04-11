@@ -761,11 +761,11 @@ class Endpoint(object):
         """ This method is invoked when endpoints are called
         Example:
 
-        api_instance = LdapApi()
-        api_instance.import_ldap_user  # this is an instance of the class Endpoint
-        api_instance.import_ldap_user()  # this invokes api_instance.import_ldap_user.__call__()
+        api_instance = ChartRepositoryApi()
+        api_instance.chartrepo_repo_charts_name_version_labels_get  # this is an instance of the class Endpoint
+        api_instance.chartrepo_repo_charts_name_version_labels_get()  # this invokes api_instance.chartrepo_repo_charts_name_version_labels_get.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.import_ldap_user.callable or self.callable in this class
+        api_instance.chartrepo_repo_charts_name_version_labels_get.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

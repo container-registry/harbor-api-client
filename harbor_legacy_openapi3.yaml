@@ -6,7 +6,7 @@ info:
 security:
   - basicAuth: []
 paths:
-  /health:
+  '/health':
     get:
       summary: Health check API
       description: |
@@ -388,7 +388,7 @@ paths:
           description: User in session does not have permission to the project.
         '500':
           description: Unexpected internal errors.
-  /statistics:
+  '/statistics':
     get:
       summary: Get projects number and repositories number relevant to the user
       description: >
@@ -414,7 +414,7 @@ paths:
           description: User need to log in first.
         '500':
           description: Unexpected internal errors.
-  /users:
+  '/users':
     get:
       summary: Get registered users of Harbor.
       description: >
@@ -512,7 +512,7 @@ paths:
           $ref: '#/components/responses/UnsupportedMediaType'
         '500':
           description: Unexpected internal errors.
-  /users/current:
+  '/users/current':
     get:
       summary: Get current user info.
       description: |
@@ -531,7 +531,7 @@ paths:
                 $ref: '#/components/schemas/User'
         '401':
           description: User need to log in first.
-  /users/current/permissions:
+  '/users/current/permissions':
     get:
       summary: Get current user permissions.
       description: |
@@ -573,7 +573,7 @@ paths:
           description: User need to log in first.
         '500':
           description: Internal errors.
-  /users/search:
+  '/users/search':
     get:
       summary: Search users by username
       description: |
@@ -850,7 +850,7 @@ paths:
             onboarded via OIDC AuthN.
         '500':
           description: Unexpected internal errors.
-  /labels:
+  '/labels':
     get:
       summary: List labels according to the query strings.
       description: |
@@ -1043,7 +1043,7 @@ paths:
           description: The resource does not exist.
         '500':
           description: Unexpected internal errors.
-  /usergroups:
+  '/usergroups':
     get:
       summary: Get all user groups information
       description: Get all user groups information
@@ -1180,7 +1180,7 @@ paths:
           description: Only admin has this authority.
         '500':
           description: Unexpected internal errors.
-  /configurations:
+  '/configurations':
     get:
       summary: Get system configurations.
       description: >
@@ -1229,7 +1229,7 @@ paths:
           description: User does not have permission of admin role.
         '500':
           description: Unexpected internal errors.
-  /email/ping:
+  '/email/ping':
     post:
       summary: Test connection and authentication with email server.
       description: |
@@ -1389,7 +1389,7 @@ paths:
           $ref: '#/components/schemas/NotFoundChartAPIError'
         '500':
           $ref: '#/components/schemas/InternalChartAPIError'
-  /system/CVEAllowlist:
+  '/system/CVEAllowlist':
     get:
       summary: Get the system level allowlist of CVE.
       description: >-

@@ -561,11 +561,96 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **operate_retention_execution**
-> operate_retention_execution(id, eid, inline_object2)
+> operate_retention_execution(id, eid, inline_object3)
 
 Stop a Retention execution
 
 Stop a Retention execution, only support \"stop\" action now.
+
+### Example
+
+* Basic Authentication (basic):
+```python
+import time
+import harbor_client
+from harbor_client.api import retention_api
+from harbor_client.model.inline_object3 import InlineObject3
+from harbor_client.model.errors import Errors
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost/api/v2.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = harbor_client.Configuration(
+    host = "http://localhost/api/v2.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basic
+configuration = harbor_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with harbor_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = retention_api.RetentionApi(api_client)
+    id = 1 # int | Retention ID.
+    eid = 1 # int | Retention execution ID.
+    inline_object3 = InlineObject3(
+        action="action_example",
+    ) # InlineObject3 | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Stop a Retention execution
+        api_instance.operate_retention_execution(id, eid, inline_object3)
+    except harbor_client.ApiException as e:
+        print("Exception when calling RetentionApi->operate_retention_execution: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Retention ID. |
+ **eid** | **int**| Retention execution ID. |
+ **inline_object3** | [**InlineObject3**](InlineObject3.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Stop a Retention job successfully. |  -  |
+**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **trigger_retention_execution**
+> trigger_retention_execution(id, inline_object2)
+
+Trigger a Retention Execution
+
+Trigger a Retention Execution, if dry_run is True, nothing would be deleted actually.
 
 ### Example
 
@@ -599,99 +684,14 @@ with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = retention_api.RetentionApi(api_client)
     id = 1 # int | Retention ID.
-    eid = 1 # int | Retention execution ID.
     inline_object2 = InlineObject2(
-        action="action_example",
+        dry_run=True,
     ) # InlineObject2 | 
 
     # example passing only required values which don't have defaults set
     try:
-        # Stop a Retention execution
-        api_instance.operate_retention_execution(id, eid, inline_object2)
-    except harbor_client.ApiException as e:
-        print("Exception when calling RetentionApi->operate_retention_execution: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Retention ID. |
- **eid** | **int**| Retention execution ID. |
- **inline_object2** | [**InlineObject2**](InlineObject2.md)|  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic](../README.md#basic)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Stop a Retention job successfully. |  -  |
-**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **trigger_retention_execution**
-> trigger_retention_execution(id, inline_object1)
-
-Trigger a Retention Execution
-
-Trigger a Retention Execution, if dry_run is True, nothing would be deleted actually.
-
-### Example
-
-* Basic Authentication (basic):
-```python
-import time
-import harbor_client
-from harbor_client.api import retention_api
-from harbor_client.model.inline_object1 import InlineObject1
-from harbor_client.model.errors import Errors
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = retention_api.RetentionApi(api_client)
-    id = 1 # int | Retention ID.
-    inline_object1 = InlineObject1(
-        dry_run=True,
-    ) # InlineObject1 | 
-
-    # example passing only required values which don't have defaults set
-    try:
         # Trigger a Retention Execution
-        api_instance.trigger_retention_execution(id, inline_object1)
+        api_instance.trigger_retention_execution(id, inline_object2)
     except harbor_client.ApiException as e:
         print("Exception when calling RetentionApi->trigger_retention_execution: %s\n" % e)
 ```
@@ -702,7 +702,7 @@ with harbor_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Retention ID. |
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  |
+ **inline_object2** | [**InlineObject2**](InlineObject2.md)|  |
 
 ### Return type
 

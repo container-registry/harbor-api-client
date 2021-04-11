@@ -72,7 +72,7 @@ class InlineObject2(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'action': (str,),  # noqa: E501
+            'dry_run': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -81,7 +81,7 @@ class InlineObject2(ModelNormal):
 
 
     attribute_map = {
-        'action': 'action',  # noqa: E501
+        'dry_run': 'dry_run',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -130,7 +130,7 @@ class InlineObject2(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            action (str): [optional]  # noqa: E501
+            dry_run (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -49,14 +49,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import harbor_client
 from pprint import pprint
-from harbor_client.api import ldap_api
-from harbor_client.model.errors import Errors
-from harbor_client.model.ldap_conf import LdapConf
-from harbor_client.model.ldap_failed_import_user import LdapFailedImportUser
-from harbor_client.model.ldap_import_users import LdapImportUsers
-from harbor_client.model.ldap_ping_result import LdapPingResult
-from harbor_client.model.ldap_user import LdapUser
-from harbor_client.model.user_group import UserGroup
+from harbor_client.api import chart_repository_api
+from harbor_client.model.label import Label
 # Defining the host is optional and defaults to http://localhost/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = harbor_client.Configuration(
@@ -78,18 +72,16 @@ configuration = harbor_client.Configuration(
 # Enter a context with an instance of the API client
 with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = ldap_api.LdapApi(api_client)
-    ldap_import_users = LdapImportUsers(
-        ldap_uid_list=[
-            "ldap_uid_list_example",
-        ],
-    ) # LdapImportUsers | The uid listed for importing. This list will check users validity of ldap service based on configuration from the system.
+    api_instance = chart_repository_api.ChartRepositoryApi(api_client)
+    repo = "repo_example" # str | The project name
+name = "name_example" # str | The chart name
+version = "version_example" # str | The chart version
 
     try:
-        # Import selected available ldap users.
-        api_instance.import_ldap_user(ldap_import_users)
+        # Return the attahced labels of chart.
+        api_instance.chartrepo_repo_charts_name_version_labels_get(repo, name, version)
     except harbor_client.ApiException as e:
-        print("Exception when calling LdapApi->import_ldap_user: %s\n" % e)
+        print("Exception when calling ChartRepositoryApi->chartrepo_repo_charts_name_version_labels_get: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -98,10 +90,55 @@ All URIs are relative to *http://localhost/api/v2.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ChartRepositoryApi* | [**chartrepo_repo_charts_name_version_labels_get**](docs/ChartRepositoryApi.md#chartrepo_repo_charts_name_version_labels_get) | **GET** /chartrepo/{repo}/charts/{name}/{version}/labels | Return the attahced labels of chart.
+*ChartRepositoryApi* | [**chartrepo_repo_charts_name_version_labels_id_delete**](docs/ChartRepositoryApi.md#chartrepo_repo_charts_name_version_labels_id_delete) | **DELETE** /chartrepo/{repo}/charts/{name}/{version}/labels/{id} | Remove label from chart.
+*ChartRepositoryApi* | [**chartrepo_repo_charts_name_version_labels_post**](docs/ChartRepositoryApi.md#chartrepo_repo_charts_name_version_labels_post) | **POST** /chartrepo/{repo}/charts/{name}/{version}/labels | Mark label to chart.
+*LabelApi* | [**chartrepo_repo_charts_name_version_labels_get**](docs/LabelApi.md#chartrepo_repo_charts_name_version_labels_get) | **GET** /chartrepo/{repo}/charts/{name}/{version}/labels | Return the attahced labels of chart.
+*LabelApi* | [**chartrepo_repo_charts_name_version_labels_id_delete**](docs/LabelApi.md#chartrepo_repo_charts_name_version_labels_id_delete) | **DELETE** /chartrepo/{repo}/charts/{name}/{version}/labels/{id} | Remove label from chart.
+*LabelApi* | [**chartrepo_repo_charts_name_version_labels_post**](docs/LabelApi.md#chartrepo_repo_charts_name_version_labels_post) | **POST** /chartrepo/{repo}/charts/{name}/{version}/labels | Mark label to chart.
 *LdapApi* | [**import_ldap_user**](docs/LdapApi.md#import_ldap_user) | **POST** /ldap/users/import | Import selected available ldap users.
 *LdapApi* | [**ping_ldap**](docs/LdapApi.md#ping_ldap) | **POST** /ldap/ping | Ping available ldap service.
 *LdapApi* | [**search_ldap_group**](docs/LdapApi.md#search_ldap_group) | **GET** /ldap/groups/search | Search available ldap groups.
 *LdapApi* | [**search_ldap_user**](docs/LdapApi.md#search_ldap_user) | **GET** /ldap/users/search | Search available ldap users.
+*ProductsApi* | [**chartrepo_repo_charts_name_version_labels_get**](docs/ProductsApi.md#chartrepo_repo_charts_name_version_labels_get) | **GET** /chartrepo/{repo}/charts/{name}/{version}/labels | Return the attahced labels of chart.
+*ProductsApi* | [**chartrepo_repo_charts_name_version_labels_id_delete**](docs/ProductsApi.md#chartrepo_repo_charts_name_version_labels_id_delete) | **DELETE** /chartrepo/{repo}/charts/{name}/{version}/labels/{id} | Remove label from chart.
+*ProductsApi* | [**chartrepo_repo_charts_name_version_labels_post**](docs/ProductsApi.md#chartrepo_repo_charts_name_version_labels_post) | **POST** /chartrepo/{repo}/charts/{name}/{version}/labels | Mark label to chart.
+*ProductsApi* | [**configurations_get**](docs/ProductsApi.md#configurations_get) | **GET** /configurations | Get system configurations.
+*ProductsApi* | [**configurations_put**](docs/ProductsApi.md#configurations_put) | **PUT** /configurations | Modify system configurations.
+*ProductsApi* | [**email_ping_post**](docs/ProductsApi.md#email_ping_post) | **POST** /email/ping | Test connection and authentication with email server.
+*ProductsApi* | [**health_get**](docs/ProductsApi.md#health_get) | **GET** /health | Health check API
+*ProductsApi* | [**labels_get**](docs/ProductsApi.md#labels_get) | **GET** /labels | List labels according to the query strings.
+*ProductsApi* | [**labels_id_delete**](docs/ProductsApi.md#labels_id_delete) | **DELETE** /labels/{id} | Delete the label specified by ID.
+*ProductsApi* | [**labels_id_get**](docs/ProductsApi.md#labels_id_get) | **GET** /labels/{id} | Get the label specified by ID.
+*ProductsApi* | [**labels_id_put**](docs/ProductsApi.md#labels_id_put) | **PUT** /labels/{id} | Update the label properties.
+*ProductsApi* | [**labels_post**](docs/ProductsApi.md#labels_post) | **POST** /labels | Post creates a label
+*ProductsApi* | [**projects_project_id_members_get**](docs/ProductsApi.md#projects_project_id_members_get) | **GET** /projects/{project_id}/members | Get all project member information
+*ProductsApi* | [**projects_project_id_members_mid_delete**](docs/ProductsApi.md#projects_project_id_members_mid_delete) | **DELETE** /projects/{project_id}/members/{mid} | Delete project member
+*ProductsApi* | [**projects_project_id_members_mid_get**](docs/ProductsApi.md#projects_project_id_members_mid_get) | **GET** /projects/{project_id}/members/{mid} | Get the project member information
+*ProductsApi* | [**projects_project_id_members_mid_put**](docs/ProductsApi.md#projects_project_id_members_mid_put) | **PUT** /projects/{project_id}/members/{mid} | Update project member
+*ProductsApi* | [**projects_project_id_members_post**](docs/ProductsApi.md#projects_project_id_members_post) | **POST** /projects/{project_id}/members | Create project member
+*ProductsApi* | [**projects_project_id_metadatas_get**](docs/ProductsApi.md#projects_project_id_metadatas_get) | **GET** /projects/{project_id}/metadatas | Get project metadata.
+*ProductsApi* | [**projects_project_id_metadatas_meta_name_delete**](docs/ProductsApi.md#projects_project_id_metadatas_meta_name_delete) | **DELETE** /projects/{project_id}/metadatas/{meta_name} | Delete metadata of a project
+*ProductsApi* | [**projects_project_id_metadatas_meta_name_get**](docs/ProductsApi.md#projects_project_id_metadatas_meta_name_get) | **GET** /projects/{project_id}/metadatas/{meta_name} | Get project metadata
+*ProductsApi* | [**projects_project_id_metadatas_meta_name_put**](docs/ProductsApi.md#projects_project_id_metadatas_meta_name_put) | **PUT** /projects/{project_id}/metadatas/{meta_name} | Update metadata of a project.
+*ProductsApi* | [**projects_project_id_metadatas_post**](docs/ProductsApi.md#projects_project_id_metadatas_post) | **POST** /projects/{project_id}/metadatas | Add metadata for the project.
+*ProductsApi* | [**statistics_get**](docs/ProductsApi.md#statistics_get) | **GET** /statistics | Get projects number and repositories number relevant to the user
+*ProductsApi* | [**usergroups_get**](docs/ProductsApi.md#usergroups_get) | **GET** /usergroups | Get all user groups information
+*ProductsApi* | [**usergroups_group_id_delete**](docs/ProductsApi.md#usergroups_group_id_delete) | **DELETE** /usergroups/{group_id} | Delete user group
+*ProductsApi* | [**usergroups_group_id_get**](docs/ProductsApi.md#usergroups_group_id_get) | **GET** /usergroups/{group_id} | Get user group information
+*ProductsApi* | [**usergroups_group_id_put**](docs/ProductsApi.md#usergroups_group_id_put) | **PUT** /usergroups/{group_id} | Update group information
+*ProductsApi* | [**usergroups_post**](docs/ProductsApi.md#usergroups_post) | **POST** /usergroups | Create user group
+*ProductsApi* | [**users_current_get**](docs/ProductsApi.md#users_current_get) | **GET** /users/current | Get current user info.
+*ProductsApi* | [**users_current_permissions_get**](docs/ProductsApi.md#users_current_permissions_get) | **GET** /users/current/permissions | Get current user permissions.
+*ProductsApi* | [**users_get**](docs/ProductsApi.md#users_get) | **GET** /users | Get registered users of Harbor.
+*ProductsApi* | [**users_post**](docs/ProductsApi.md#users_post) | **POST** /users | Creates a new user account.
+*ProductsApi* | [**users_search_get**](docs/ProductsApi.md#users_search_get) | **GET** /users/search | Search users by username
+*ProductsApi* | [**users_user_id_cli_secret_put**](docs/ProductsApi.md#users_user_id_cli_secret_put) | **PUT** /users/{user_id}/cli_secret | Set CLI secret for a user.
+*ProductsApi* | [**users_user_id_delete**](docs/ProductsApi.md#users_user_id_delete) | **DELETE** /users/{user_id} | Mark a registered user as be removed.
+*ProductsApi* | [**users_user_id_get**](docs/ProductsApi.md#users_user_id_get) | **GET** /users/{user_id} | Get a user&#39;s profile.
+*ProductsApi* | [**users_user_id_password_put**](docs/ProductsApi.md#users_user_id_password_put) | **PUT** /users/{user_id}/password | Change the password on a user that already exists.
+*ProductsApi* | [**users_user_id_put**](docs/ProductsApi.md#users_user_id_put) | **PUT** /users/{user_id} | Update a registered user to change his profile.
+*ProductsApi* | [**users_user_id_sysadmin_put**](docs/ProductsApi.md#users_user_id_sysadmin_put) | **PUT** /users/{user_id}/sysadmin | Update a registered user to change to be an administrator of Harbor.
 *RetentionApi* | [**create_retention**](docs/RetentionApi.md#create_retention) | **POST** /retentions | Create Retention Policy
 *RetentionApi* | [**get_rentenition_metadata**](docs/RetentionApi.md#get_rentenition_metadata) | **GET** /retentions/metadatas | Get Retention Metadatas
 *RetentionApi* | [**get_retention**](docs/RetentionApi.md#get_retention) | **GET** /retentions/{id} | Get Retention Policy
@@ -245,16 +282,28 @@ Class | Method | HTTP request | Description
  - [Artifact](docs/Artifact.md)
  - [AuditLog](docs/AuditLog.md)
  - [AuthproxySetting](docs/AuthproxySetting.md)
+ - [BadRequestFormatedError](docs/BadRequestFormatedError.md)
+ - [BoolConfigItem](docs/BoolConfigItem.md)
  - [CVEAllowlist](docs/CVEAllowlist.md)
  - [CVEAllowlistItem](docs/CVEAllowlistItem.md)
+ - [ChartAPIError](docs/ChartAPIError.md)
  - [ChartMetadata](docs/ChartMetadata.md)
  - [ChartVersion](docs/ChartVersion.md)
  - [ChartVersionAllOf](docs/ChartVersionAllOf.md)
+ - [ComponentHealthStatus](docs/ComponentHealthStatus.md)
+ - [ComponentOverviewEntry](docs/ComponentOverviewEntry.md)
+ - [Configurations](docs/Configurations.md)
+ - [ConfigurationsResponse](docs/ConfigurationsResponse.md)
+ - [ConfigurationsScanAllPolicy](docs/ConfigurationsScanAllPolicy.md)
+ - [ConfigurationsScanAllPolicyParameter](docs/ConfigurationsScanAllPolicyParameter.md)
+ - [ConflictFormatedError](docs/ConflictFormatedError.md)
+ - [EmailServerSetting](docs/EmailServerSetting.md)
  - [Error](docs/Error.md)
  - [Errors](docs/Errors.md)
  - [Execution](docs/Execution.md)
  - [ExtraAttrs](docs/ExtraAttrs.md)
  - [FilterStyle](docs/FilterStyle.md)
+ - [ForbiddenChartAPIError](docs/ForbiddenChartAPIError.md)
  - [GCHistory](docs/GCHistory.md)
  - [GeneralInfo](docs/GeneralInfo.md)
  - [Icon](docs/Icon.md)
@@ -263,21 +312,35 @@ Class | Method | HTTP request | Description
  - [InlineObject](docs/InlineObject.md)
  - [InlineObject1](docs/InlineObject1.md)
  - [InlineObject2](docs/InlineObject2.md)
+ - [InlineObject3](docs/InlineObject3.md)
  - [Instance](docs/Instance.md)
+ - [InsufficientStorageChartAPIError](docs/InsufficientStorageChartAPIError.md)
+ - [IntegerConfigItem](docs/IntegerConfigItem.md)
+ - [InternalChartAPIError](docs/InternalChartAPIError.md)
  - [IsDefault](docs/IsDefault.md)
  - [Label](docs/Label.md)
+ - [Labels](docs/Labels.md)
  - [LdapConf](docs/LdapConf.md)
  - [LdapFailedImportUser](docs/LdapFailedImportUser.md)
+ - [LdapFailedImportUsers](docs/LdapFailedImportUsers.md)
  - [LdapImportUsers](docs/LdapImportUsers.md)
  - [LdapPingResult](docs/LdapPingResult.md)
  - [LdapUser](docs/LdapUser.md)
+ - [LdapUsers](docs/LdapUsers.md)
  - [Metadata](docs/Metadata.md)
  - [Metrics](docs/Metrics.md)
+ - [Namespace](docs/Namespace.md)
  - [NativeReportSummary](docs/NativeReportSummary.md)
+ - [NotFoundChartAPIError](docs/NotFoundChartAPIError.md)
+ - [OverallHealthStatus](docs/OverallHealthStatus.md)
+ - [Password](docs/Password.md)
+ - [Permission](docs/Permission.md)
  - [Platform](docs/Platform.md)
  - [PreheatPolicy](docs/PreheatPolicy.md)
  - [Project](docs/Project.md)
  - [ProjectDeletable](docs/ProjectDeletable.md)
+ - [ProjectMember](docs/ProjectMember.md)
+ - [ProjectMemberEntity](docs/ProjectMemberEntity.md)
  - [ProjectMetadata](docs/ProjectMetadata.md)
  - [ProjectReq](docs/ProjectReq.md)
  - [ProjectScanner](docs/ProjectScanner.md)
@@ -286,6 +349,7 @@ Class | Method | HTTP request | Description
  - [ProviderUnderProject](docs/ProviderUnderProject.md)
  - [Quota](docs/Quota.md)
  - [QuotaRefObject](docs/QuotaRefObject.md)
+ - [QuotaSwitcher](docs/QuotaSwitcher.md)
  - [QuotaUpdateReq](docs/QuotaUpdateReq.md)
  - [Reference](docs/Reference.md)
  - [Registry](docs/Registry.md)
@@ -322,6 +386,9 @@ Class | Method | HTTP request | Description
  - [RobotCreated](docs/RobotCreated.md)
  - [RobotPermission](docs/RobotPermission.md)
  - [RobotSec](docs/RobotSec.md)
+ - [Role](docs/Role.md)
+ - [RoleParam](docs/RoleParam.md)
+ - [RoleRequest](docs/RoleRequest.md)
  - [ScanOverview](docs/ScanOverview.md)
  - [Scanner](docs/Scanner.md)
  - [ScannerAdapterMetadata](docs/ScannerAdapterMetadata.md)
@@ -335,13 +402,21 @@ Class | Method | HTTP request | Description
  - [SearchRepository](docs/SearchRepository.md)
  - [SearchResult](docs/SearchResult.md)
  - [StartReplicationExecution](docs/StartReplicationExecution.md)
+ - [StatisticMap](docs/StatisticMap.md)
  - [Stats](docs/Stats.md)
  - [Storage](docs/Storage.md)
+ - [StringConfigItem](docs/StringConfigItem.md)
  - [SupportedWebhookEventTypes](docs/SupportedWebhookEventTypes.md)
+ - [SysAdminFlag](docs/SysAdminFlag.md)
  - [SystemInfo](docs/SystemInfo.md)
  - [Tag](docs/Tag.md)
  - [Task](docs/Task.md)
+ - [UnauthorizedChartAPIError](docs/UnauthorizedChartAPIError.md)
+ - [User](docs/User.md)
+ - [UserEntity](docs/UserEntity.md)
  - [UserGroup](docs/UserGroup.md)
+ - [UserProfile](docs/UserProfile.md)
+ - [UserSearch](docs/UserSearch.md)
  - [VulnerabilitySummary](docs/VulnerabilitySummary.md)
  - [WebhookJob](docs/WebhookJob.md)
  - [WebhookLastTrigger](docs/WebhookLastTrigger.md)

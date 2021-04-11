@@ -22,7 +22,7 @@ from harbor_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from harbor_client.model.errors import Errors
-from harbor_client.model.inline_object import InlineObject
+from harbor_client.model.inline_object1 import InlineObject1
 
 
 class OidcApi(object):
@@ -39,7 +39,7 @@ class OidcApi(object):
 
         def __ping_oidc(
             self,
-            inline_object,
+            inline_object1,
             **kwargs
         ):
             """Test the OIDC endpoint.  # noqa: E501
@@ -48,11 +48,11 @@ class OidcApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.ping_oidc(inline_object, async_req=True)
+            >>> thread = api.ping_oidc(inline_object1, async_req=True)
             >>> result = thread.get()
 
             Args:
-                inline_object (InlineObject):
+                inline_object1 (InlineObject1):
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -99,8 +99,8 @@ class OidcApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['inline_object'] = \
-                inline_object
+            kwargs['inline_object1'] = \
+                inline_object1
             return self.call_with_http_info(**kwargs)
 
         self.ping_oidc = _Endpoint(
@@ -116,10 +116,10 @@ class OidcApi(object):
             },
             params_map={
                 'all': [
-                    'inline_object',
+                    'inline_object1',
                 ],
                 'required': [
-                    'inline_object',
+                    'inline_object1',
                 ],
                 'nullable': [
                 ],
@@ -134,13 +134,13 @@ class OidcApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'inline_object':
-                        (InlineObject,),
+                    'inline_object1':
+                        (InlineObject1,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'inline_object': 'body',
+                    'inline_object1': 'body',
                 },
                 'collection_format_map': {
                 }
