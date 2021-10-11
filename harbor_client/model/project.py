@@ -25,6 +25,9 @@ from harbor_client.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+from ..model_utils import OpenApiModel
+from harbor_client.exceptions import ApiAttributeError
+
 
 def lazy_import():
     from harbor_client.model.cve_allowlist import CVEAllowlist
@@ -63,7 +66,14 @@ class Project(ModelNormal):
     validations = {
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        lazy_import()
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -89,7 +99,7 @@ class Project(ModelNormal):
             'owner_name': (str,),  # noqa: E501
             'togglable': (bool,),  # noqa: E501
             'current_user_role_id': (int,),  # noqa: E501
-            'current_user_role_ids': ([int],),  # noqa: E501
+            'current_user_role_ids': ([int], none_type,),  # noqa: E501
             'repo_count': (int,),  # noqa: E501
             'chart_count': (int,),  # noqa: E501
             'metadata': (ProjectMetadata,),  # noqa: E501
@@ -119,7 +129,98 @@ class Project(ModelNormal):
         'cve_allowlist': 'cve_allowlist',  # noqa: E501
     }
 
+    read_only_vars = {
+    }
+
     _composed_schemas = {}
+
+    @classmethod
+    @convert_js_args_to_python_args
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+        """Project - a model defined in OpenAPI
+
+        Keyword Args:
+            _check_type (bool): if True, values for parameters in openapi_types
+                                will be type checked and a TypeError will be
+                                raised if the wrong type is input.
+                                Defaults to True
+            _path_to_item (tuple/list): This is a list of keys or values to
+                                drill down to the model in received_data
+                                when deserializing a response
+            _spec_property_naming (bool): True if the variable names in the input data
+                                are serialized names, as specified in the OpenAPI document.
+                                False if the variable names in the input data
+                                are pythonic names, e.g. snake case (default)
+            _configuration (Configuration): the instance to use when
+                                deserializing a file_type parameter.
+                                If passed, type conversion is attempted
+                                If omitted no type conversion is done.
+            _visited_composed_classes (tuple): This stores a tuple of
+                                classes that we have traveled through so that
+                                if we see that class again we will not use its
+                                discriminator again.
+                                When traveling through a discriminator, the
+                                composed schema that is
+                                is traveled through is added to this set.
+                                For example if Animal has a discriminator
+                                petType and we pass in "Dog", and the class Dog
+                                allOf includes Animal, we move through Animal
+                                once using the discriminator, and pick Dog.
+                                Then in Dog, we will make an instance of the
+                                Animal class but this time we won't travel
+                                through its discriminator because we passed in
+                                _visited_composed_classes = (Animal,)
+            project_id (int): Project ID. [optional]  # noqa: E501
+            owner_id (int): The owner ID of the project always means the creator of the project.. [optional]  # noqa: E501
+            name (str): The name of the project.. [optional]  # noqa: E501
+            registry_id (int): The ID of referenced registry when the project is a proxy cache project.. [optional]  # noqa: E501
+            creation_time (datetime): The creation time of the project.. [optional]  # noqa: E501
+            update_time (datetime): The update time of the project.. [optional]  # noqa: E501
+            deleted (bool): A deletion mark of the project.. [optional]  # noqa: E501
+            owner_name (str): The owner name of the project.. [optional]  # noqa: E501
+            togglable (bool): Correspond to the UI about whether the project's publicity is updatable (for UI). [optional]  # noqa: E501
+            current_user_role_id (int): The role ID with highest permission of the current user who triggered the API (for UI).  This attribute is deprecated and will be removed in future versions.. [optional]  # noqa: E501
+            current_user_role_ids ([int], none_type): The list of role ID of the current user who triggered the API (for UI). [optional]  # noqa: E501
+            repo_count (int): The number of the repositories under this project.. [optional]  # noqa: E501
+            chart_count (int): The total number of charts under this project.. [optional]  # noqa: E501
+            metadata (ProjectMetadata): [optional]  # noqa: E501
+            cve_allowlist (CVEAllowlist): [optional]  # noqa: E501
+        """
+
+        _check_type = kwargs.pop('_check_type', True)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _path_to_item = kwargs.pop('_path_to_item', ())
+        _configuration = kwargs.pop('_configuration', None)
+        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+
+        self = super(OpenApiModel, cls).__new__(cls)
+
+        if args:
+            raise ApiTypeError(
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                    args,
+                    self.__class__.__name__,
+                ),
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
+
+        self._data_store = {}
+        self._check_type = _check_type
+        self._spec_property_naming = _spec_property_naming
+        self._path_to_item = _path_to_item
+        self._configuration = _configuration
+        self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
+
+        for var_name, var_value in kwargs.items():
+            if var_name not in self.attribute_map and \
+                        self._configuration is not None and \
+                        self._configuration.discard_unknown_keys and \
+                        self.additional_properties_type is None:
+                # discard variable.
+                continue
+            setattr(self, var_name, var_value)
+        return self
 
     required_properties = set([
         '_data_store',
@@ -175,7 +276,7 @@ class Project(ModelNormal):
             owner_name (str): The owner name of the project.. [optional]  # noqa: E501
             togglable (bool): Correspond to the UI about whether the project's publicity is updatable (for UI). [optional]  # noqa: E501
             current_user_role_id (int): The role ID with highest permission of the current user who triggered the API (for UI).  This attribute is deprecated and will be removed in future versions.. [optional]  # noqa: E501
-            current_user_role_ids ([int]): The list of role ID of the current user who triggered the API (for UI). [optional]  # noqa: E501
+            current_user_role_ids ([int], none_type): The list of role ID of the current user who triggered the API (for UI). [optional]  # noqa: E501
             repo_count (int): The number of the repositories under this project.. [optional]  # noqa: E501
             chart_count (int): The total number of charts under this project.. [optional]  # noqa: E501
             metadata (ProjectMetadata): [optional]  # noqa: E501
@@ -213,3 +314,6 @@ class Project(ModelNormal):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
+            if var_name in self.read_only_vars:
+                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
+                                     f"class with read only attributes.")

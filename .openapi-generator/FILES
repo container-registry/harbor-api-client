@@ -362,7 +362,6 @@ harbor_client/model/webhook_policy.py
 harbor_client/model/webhook_target_object.py
 harbor_client/model_utils.py
 harbor_client/models/__init__.py
-harbor_client/models/__init__.py
 harbor_client/rest.py
 requirements.txt
 setup.cfg

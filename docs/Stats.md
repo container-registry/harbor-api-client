@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **metrics** | **{str: (int,)}** | The metrics data for the each status | [optional] 
 **ongoing** | **bool** | A flag indicating job status of scan all. | [optional] 
 **trigger** | **str** | The trigger of the scan all job. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

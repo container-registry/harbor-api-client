@@ -7535,6 +7535,8 @@ components:
             be removed in future versions.
         current_user_role_ids:
           type: array
+          nullable: true
+          x-omitempty: true
           items:
             type: integer
             format: int32

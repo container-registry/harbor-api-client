@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **repository_name** | **str** | The name of the repository | [optional] 
 **pull_count** | **int** | The count how many times the repository is pulled | [optional] 
 **artifact_count** | **int** | The count of artifacts in the repository | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **default** | **bool** | Whether the instance is default or not | [optional] 
 **insecure** | **bool** | Whether the instance endpoint is insecure or not | [optional] 
 **setup_timestamp** | **int** | The timestamp of instance setting up | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

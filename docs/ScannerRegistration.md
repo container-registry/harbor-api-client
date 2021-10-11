@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **vendor** | **str** | Optional property to describe the vendor of the scanner registration | [optional] 
 **version** | **str** | Optional property to describe the version of the scanner registration | [optional] 
 **health** | **str** | Indicate the healthy of the registration | [optional]  if omitted the server will use the default value of ""
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

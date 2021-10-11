@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **disable** | **bool** | The disable status of the robot | [optional] 
 **duration** | **int** | The duration of the robot in days | [optional] 
 **permissions** | [**[RobotPermission]**](RobotPermission.md) |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

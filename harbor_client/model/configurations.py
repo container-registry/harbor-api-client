@@ -25,6 +25,9 @@ from harbor_client.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+from ..model_utils import OpenApiModel
+from harbor_client.exceptions import ApiAttributeError
+
 
 def lazy_import():
     from harbor_client.model.configurations_scan_all_policy import ConfigurationsScanAllPolicy
@@ -61,7 +64,14 @@ class Configurations(ModelNormal):
     validations = {
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        lazy_import()
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -157,7 +167,118 @@ class Configurations(ModelNormal):
         'scan_all_policy': 'scan_all_policy',  # noqa: E501
     }
 
+    read_only_vars = {
+    }
+
     _composed_schemas = {}
+
+    @classmethod
+    @convert_js_args_to_python_args
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+        """Configurations - a model defined in OpenAPI
+
+        Keyword Args:
+            _check_type (bool): if True, values for parameters in openapi_types
+                                will be type checked and a TypeError will be
+                                raised if the wrong type is input.
+                                Defaults to True
+            _path_to_item (tuple/list): This is a list of keys or values to
+                                drill down to the model in received_data
+                                when deserializing a response
+            _spec_property_naming (bool): True if the variable names in the input data
+                                are serialized names, as specified in the OpenAPI document.
+                                False if the variable names in the input data
+                                are pythonic names, e.g. snake case (default)
+            _configuration (Configuration): the instance to use when
+                                deserializing a file_type parameter.
+                                If passed, type conversion is attempted
+                                If omitted no type conversion is done.
+            _visited_composed_classes (tuple): This stores a tuple of
+                                classes that we have traveled through so that
+                                if we see that class again we will not use its
+                                discriminator again.
+                                When traveling through a discriminator, the
+                                composed schema that is
+                                is traveled through is added to this set.
+                                For example if Animal has a discriminator
+                                petType and we pass in "Dog", and the class Dog
+                                allOf includes Animal, we move through Animal
+                                once using the discriminator, and pick Dog.
+                                Then in Dog, we will make an instance of the
+                                Animal class but this time we won't travel
+                                through its discriminator because we passed in
+                                _visited_composed_classes = (Animal,)
+            auth_mode (str): The auth mode of current system, such as \"db_auth\", \"ldap_auth\". [optional]  # noqa: E501
+            count_per_project (str): The default count quota for the new created projects.. [optional]  # noqa: E501
+            email_from (str): The sender name for Email notification.. [optional]  # noqa: E501
+            email_host (str): The hostname of SMTP server that sends Email notification.. [optional]  # noqa: E501
+            email_port (int): The port of SMTP server.. [optional]  # noqa: E501
+            email_identity (str): By default it's empty so the email_username is picked.. [optional]  # noqa: E501
+            email_username (str): The username for authenticate against SMTP server.. [optional]  # noqa: E501
+            email_ssl (bool): When it's set to true the system will access Email server via TLS by default.  If it's set to false, it still will handle \"STARTTLS\" from server side.. [optional]  # noqa: E501
+            email_insecure (bool): Whether or not the certificate will be verified when Harbor tries to access the email server.. [optional]  # noqa: E501
+            ldap_url (str): The URL of LDAP server.. [optional]  # noqa: E501
+            ldap_base_dn (str): The Base DN for LDAP binding.. [optional]  # noqa: E501
+            ldap_filter (str): The filter for LDAP binding.. [optional]  # noqa: E501
+            ldap_scope (int): 0-LDAP_SCOPE_BASE, 1-LDAP_SCOPE_ONELEVEL, 2-LDAP_SCOPE_SUBTREE. [optional]  # noqa: E501
+            ldap_uid (str): The attribute which is used as identity for the LDAP binding, such as \"CN\" or \"SAMAccountname\". [optional]  # noqa: E501
+            ldap_search_dn (str): The DN of the user to do the search.. [optional]  # noqa: E501
+            ldap_timeout (int): timeout in seconds for connection to LDAP server.. [optional]  # noqa: E501
+            ldap_group_attribute_name (str): The attribute which is used as identity of the LDAP group, default is cn.. [optional]  # noqa: E501
+            ldap_group_base_dn (str): The base DN to search LDAP group.. [optional]  # noqa: E501
+            ldap_group_search_filter (str): The filter to search the ldap group.. [optional]  # noqa: E501
+            ldap_group_search_scope (int): The scope to search ldap. '0-LDAP_SCOPE_BASE, 1-LDAP_SCOPE_ONELEVEL, 2-LDAP_SCOPE_SUBTREE'. [optional]  # noqa: E501
+            ldap_group_admin_dn (str): Specify the ldap group which have the same privilege with Harbor admin.. [optional]  # noqa: E501
+            oidc_client_id (str): The client id of the OIDC.. [optional]  # noqa: E501
+            oidc_client_secret (str): The client secret of the OIDC.. [optional]  # noqa: E501
+            oidc_endpoint (str): The URL of an OIDC-complaint server, must start with 'https://'.. [optional]  # noqa: E501
+            oidc_name (str): The name of the OIDC provider.. [optional]  # noqa: E501
+            oidc_scope (str): The scope sent to OIDC server during authentication, should be separated by comma. It has to contain “openid”, and “offline_access”. If you are using google, please remove “offline_access” from this field.. [optional]  # noqa: E501
+            oidc_verify_cert (bool): Whether verify your OIDC server certificate, disable it if your OIDC server is hosted via self-hosted certificate.. [optional]  # noqa: E501
+            project_creation_restriction (str): This attribute restricts what users have the permission to create project.  It can be \"everyone\" or \"adminonly\".. [optional]  # noqa: E501
+            quota_per_project_enable (bool): This attribute indicates whether quota per project enabled in harbor. [optional]  # noqa: E501
+            read_only (bool): 'docker push' is prohibited by Harbor if you set it to true.   . [optional]  # noqa: E501
+            self_registration (bool): Whether the Harbor instance supports self-registration.  If it's set to false, admin need to add user to the instance.. [optional]  # noqa: E501
+            storage_per_project (str): The default storage quota for the new created projects.. [optional]  # noqa: E501
+            token_expiration (int): The expiration time of the token for internal Registry, in minutes.. [optional]  # noqa: E501
+            verify_remote_cert (bool): Whether or not the certificate will be verified when Harbor tries to access a remote Harbor instance for replication.. [optional]  # noqa: E501
+            scan_all_policy (ConfigurationsScanAllPolicy): [optional]  # noqa: E501
+        """
+
+        _check_type = kwargs.pop('_check_type', True)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _path_to_item = kwargs.pop('_path_to_item', ())
+        _configuration = kwargs.pop('_configuration', None)
+        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+
+        self = super(OpenApiModel, cls).__new__(cls)
+
+        if args:
+            raise ApiTypeError(
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                    args,
+                    self.__class__.__name__,
+                ),
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
+
+        self._data_store = {}
+        self._check_type = _check_type
+        self._spec_property_naming = _spec_property_naming
+        self._path_to_item = _path_to_item
+        self._configuration = _configuration
+        self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
+
+        for var_name, var_value in kwargs.items():
+            if var_name not in self.attribute_map and \
+                        self._configuration is not None and \
+                        self._configuration.discard_unknown_keys and \
+                        self.additional_properties_type is None:
+                # discard variable.
+                continue
+            setattr(self, var_name, var_value)
+        return self
 
     required_properties = set([
         '_data_store',
@@ -271,3 +392,6 @@ class Configurations(ModelNormal):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
+            if var_name in self.read_only_vars:
+                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
+                                     f"class with read only attributes.")

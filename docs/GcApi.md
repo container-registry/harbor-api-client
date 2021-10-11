@@ -51,10 +51,6 @@ with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gc_api.GcApi(api_client)
     schedule = Schedule(
-        id=1,
-        status="status_example",
-        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
         schedule=ScheduleObj(
             type="Hourly",
             cron="cron_example",
@@ -469,10 +465,6 @@ with harbor_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gc_api.GcApi(api_client)
     schedule = Schedule(
-        id=1,
-        status="status_example",
-        creation_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        update_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
         schedule=ScheduleObj(
             type="Hourly",
             cron="cron_example",

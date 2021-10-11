@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **read_only** | **bool, none_type** | The flag to indicate whether Harbor is in readonly mode. | [optional] 
 **notification_enable** | **bool, none_type** | The flag to indicate whether notification mechanism is enabled on Harbor instance. | [optional] 
 **authproxy_settings** | [**AuthproxySetting**](AuthproxySetting.md) |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
