@@ -38,9 +38,9 @@ class AuditlogApi(object):
         self.api_client = api_client
 
         def __list_audit_logs(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get recent logs of the projects which the user is a member of  # noqa: E501
 
             This endpoint let user see the recent operation logs of the projects which he is member of   # noqa: E501
@@ -91,9 +91,7 @@ class AuditlogApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )

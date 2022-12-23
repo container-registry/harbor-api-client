@@ -43,10 +43,10 @@ class RetentionApi(object):
         self.api_client = api_client
 
         def __create_retention(
-            self,
-            retention_policy,
-            **kwargs
-        ):
+                self,
+                retention_policy,
+                **kwargs
+            ):
             """Create Retention Policy  # noqa: E501
 
             Create Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when no retention policy binded to project yet.  # noqa: E501
@@ -94,9 +94,7 @@ class RetentionApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -105,7 +103,7 @@ class RetentionApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['retention_policy'] = \
-                retention_policy
+                    retention_policy
             return self.call_with_http_info(**kwargs)
 
         self.create_retention = _Endpoint(
@@ -163,9 +161,9 @@ class RetentionApi(object):
         )
 
         def __get_rentenition_metadata(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get Retention Metadatas  # noqa: E501
 
             Get Retention Metadatas.  # noqa: E501
@@ -211,9 +209,7 @@ class RetentionApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -270,10 +266,10 @@ class RetentionApi(object):
         )
 
         def __get_retention(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Get Retention Policy  # noqa: E501
 
             Get Retention Policy.  # noqa: E501
@@ -321,9 +317,7 @@ class RetentionApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -332,7 +326,7 @@ class RetentionApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.get_retention = _Endpoint(
@@ -389,12 +383,12 @@ class RetentionApi(object):
         )
 
         def __get_retention_task_log(
-            self,
-            id,
-            eid,
-            tid,
-            **kwargs
-        ):
+                self,
+                id,
+                eid,
+                tid,
+                **kwargs
+            ):
             """Get Retention job task log  # noqa: E501
 
             Get Retention job task log, tags ratain or deletion detail will be shown in a table.  # noqa: E501
@@ -444,9 +438,7 @@ class RetentionApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -455,11 +447,11 @@ class RetentionApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             kwargs['eid'] = \
-                eid
+                    eid
             kwargs['tid'] = \
-                tid
+                    tid
             return self.call_with_http_info(**kwargs)
 
         self.get_retention_task_log = _Endpoint(
@@ -529,10 +521,10 @@ class RetentionApi(object):
         )
 
         def __list_retention_executions(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Get Retention executions  # noqa: E501
 
             Get Retention executions, execution status may be delayed before job service schedule it up.  # noqa: E501
@@ -582,9 +574,7 @@ class RetentionApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -593,7 +583,7 @@ class RetentionApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.list_retention_executions = _Endpoint(
@@ -660,11 +650,11 @@ class RetentionApi(object):
         )
 
         def __list_retention_tasks(
-            self,
-            id,
-            eid,
-            **kwargs
-        ):
+                self,
+                id,
+                eid,
+                **kwargs
+            ):
             """Get Retention tasks  # noqa: E501
 
             Get Retention tasks, each repository as a task.  # noqa: E501
@@ -715,9 +705,7 @@ class RetentionApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -726,9 +714,9 @@ class RetentionApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             kwargs['eid'] = \
-                eid
+                    eid
             return self.call_with_http_info(**kwargs)
 
         self.list_retention_tasks = _Endpoint(
@@ -801,12 +789,12 @@ class RetentionApi(object):
         )
 
         def __operate_retention_execution(
-            self,
-            id,
-            eid,
-            inline_object3,
-            **kwargs
-        ):
+                self,
+                id,
+                eid,
+                inline_object3,
+                **kwargs
+            ):
             """Stop a Retention execution  # noqa: E501
 
             Stop a Retention execution, only support \"stop\" action now.  # noqa: E501
@@ -856,9 +844,7 @@ class RetentionApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -867,11 +853,11 @@ class RetentionApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             kwargs['eid'] = \
-                eid
+                    eid
             kwargs['inline_object3'] = \
-                inline_object3
+                    inline_object3
             return self.call_with_http_info(**kwargs)
 
         self.operate_retention_execution = _Endpoint(
@@ -941,11 +927,11 @@ class RetentionApi(object):
         )
 
         def __trigger_retention_execution(
-            self,
-            id,
-            inline_object2,
-            **kwargs
-        ):
+                self,
+                id,
+                inline_object2,
+                **kwargs
+            ):
             """Trigger a Retention Execution  # noqa: E501
 
             Trigger a Retention Execution, if dry_run is True, nothing would be deleted actually.  # noqa: E501
@@ -994,9 +980,7 @@ class RetentionApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1005,9 +989,9 @@ class RetentionApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             kwargs['inline_object2'] = \
-                inline_object2
+                    inline_object2
             return self.call_with_http_info(**kwargs)
 
         self.trigger_retention_execution = _Endpoint(
@@ -1071,11 +1055,11 @@ class RetentionApi(object):
         )
 
         def __update_retention(
-            self,
-            id,
-            retention_policy,
-            **kwargs
-        ):
+                self,
+                id,
+                retention_policy,
+                **kwargs
+            ):
             """Update Retention Policy  # noqa: E501
 
             Update Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when retention policy has already binded to project.  # noqa: E501
@@ -1124,9 +1108,7 @@ class RetentionApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1135,9 +1117,9 @@ class RetentionApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             kwargs['retention_policy'] = \
-                retention_policy
+                    retention_policy
             return self.call_with_http_info(**kwargs)
 
         self.update_retention = _Endpoint(

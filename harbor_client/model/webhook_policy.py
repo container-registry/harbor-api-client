@@ -124,7 +124,7 @@ class WebhookPolicy(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):    # noqa: E501
         """WebhookPolicy - a model defined in OpenAPI
 
         Keyword Args:
@@ -180,10 +180,7 @@ class WebhookPolicy(ModelNormal):
 
         if args:
             raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
+                f"Invalid positional arguments={args} passed to {self.__class__.__name__}. Remove those invalid positional arguments.",
                 path_to_item=_path_to_item,
                 valid_classes=(self.__class__,),
             )
@@ -197,9 +194,9 @@ class WebhookPolicy(ModelNormal):
 
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
-                        self._configuration is not None and \
-                        self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+                            self._configuration is not None and \
+                            self._configuration.discard_unknown_keys and \
+                            self.additional_properties_type is None:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
@@ -215,7 +212,7 @@ class WebhookPolicy(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):    # noqa: E501
         """WebhookPolicy - a model defined in OpenAPI
 
         Keyword Args:
@@ -269,10 +266,7 @@ class WebhookPolicy(ModelNormal):
 
         if args:
             raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
+                f"Invalid positional arguments={args} passed to {self.__class__.__name__}. Remove those invalid positional arguments.",
                 path_to_item=_path_to_item,
                 valid_classes=(self.__class__,),
             )
@@ -286,9 +280,9 @@ class WebhookPolicy(ModelNormal):
 
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
-                        self._configuration is not None and \
-                        self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+                            self._configuration is not None and \
+                            self._configuration.discard_unknown_keys and \
+                            self.additional_properties_type is None:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)

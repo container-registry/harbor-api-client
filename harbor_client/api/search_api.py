@@ -38,10 +38,10 @@ class SearchApi(object):
         self.api_client = api_client
 
         def __search(
-            self,
-            q,
-            **kwargs
-        ):
+                self,
+                q,
+                **kwargs
+            ):
             """Search for projects, repositories and helm charts  # noqa: E501
 
             The Search endpoint returns information about the projects, repositories and helm charts offered at public status or related to the current logged in user. The response includes the project, repository list and charts in a proper display order.  # noqa: E501
@@ -89,9 +89,7 @@ class SearchApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -100,7 +98,7 @@ class SearchApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['q'] = \
-                q
+                    q
             return self.call_with_http_info(**kwargs)
 
         self.search = _Endpoint(

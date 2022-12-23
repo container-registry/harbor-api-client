@@ -43,10 +43,10 @@ class LdapApi(object):
         self.api_client = api_client
 
         def __import_ldap_user(
-            self,
-            ldap_import_users,
-            **kwargs
-        ):
+                self,
+                ldap_import_users,
+                **kwargs
+            ):
             """Import selected available ldap users.  # noqa: E501
 
             This endpoint adds the selected available ldap users to harbor based on related configuration parameters from the system. System will try to guess the user email address and realname, add to harbor user information. If have errors when import user, will return the list of importing failed uid and the failed reason.   # noqa: E501
@@ -94,9 +94,7 @@ class LdapApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -105,7 +103,7 @@ class LdapApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['ldap_import_users'] = \
-                ldap_import_users
+                    ldap_import_users
             return self.call_with_http_info(**kwargs)
 
         self.import_ldap_user = _Endpoint(
@@ -163,9 +161,9 @@ class LdapApi(object):
         )
 
         def __ping_ldap(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Ping available ldap service.  # noqa: E501
 
             This endpoint ping the available ldap service for test related configuration parameters.   # noqa: E501
@@ -212,9 +210,7 @@ class LdapApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -277,9 +273,9 @@ class LdapApi(object):
         )
 
         def __search_ldap_group(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Search available ldap groups.  # noqa: E501
 
             This endpoint searches the available ldap groups based on related configuration parameters. support to search by groupname or groupdn.   # noqa: E501
@@ -327,9 +323,7 @@ class LdapApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -396,9 +390,9 @@ class LdapApi(object):
         )
 
         def __search_ldap_user(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Search available ldap users.  # noqa: E501
 
             This endpoint searches the available ldap users based on related configuration parameters. Support searched by input ladp configuration, load configuration from the system and specific filter.   # noqa: E501
@@ -445,9 +439,7 @@ class LdapApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )

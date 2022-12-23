@@ -40,11 +40,11 @@ class Robotv1Api(object):
         self.api_client = api_client
 
         def __create_robot_v1(
-            self,
-            project_name_or_id,
-            robot_create_v1,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                robot_create_v1,
+                **kwargs
+            ):
             """Create a robot account  # noqa: E501
 
             Create a robot account  # noqa: E501
@@ -95,9 +95,7 @@ class Robotv1Api(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -106,9 +104,9 @@ class Robotv1Api(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['robot_create_v1'] = \
-                robot_create_v1
+                    robot_create_v1
             return self.call_with_http_info(**kwargs)
 
         self.create_robot_v1 = _Endpoint(
@@ -187,11 +185,11 @@ class Robotv1Api(object):
         )
 
         def __delete_robot_v1(
-            self,
-            project_name_or_id,
-            robot_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                robot_id,
+                **kwargs
+            ):
             """Delete a robot account  # noqa: E501
 
             This endpoint deletes specific robot account information by robot ID.  # noqa: E501
@@ -242,9 +240,7 @@ class Robotv1Api(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -253,9 +249,9 @@ class Robotv1Api(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['robot_id'] = \
-                robot_id
+                    robot_id
             return self.call_with_http_info(**kwargs)
 
         self.delete_robot_v1 = _Endpoint(
@@ -333,11 +329,11 @@ class Robotv1Api(object):
         )
 
         def __get_robot_by_idv1(
-            self,
-            project_name_or_id,
-            robot_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                robot_id,
+                **kwargs
+            ):
             """Get a robot account  # noqa: E501
 
             This endpoint returns specific robot account information by robot ID.  # noqa: E501
@@ -388,9 +384,7 @@ class Robotv1Api(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -399,9 +393,9 @@ class Robotv1Api(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['robot_id'] = \
-                robot_id
+                    robot_id
             return self.call_with_http_info(**kwargs)
 
         self.get_robot_by_idv1 = _Endpoint(
@@ -479,10 +473,10 @@ class Robotv1Api(object):
         )
 
         def __list_robot_v1(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """Get all robot accounts of specified project  # noqa: E501
 
             Get all robot accounts of specified project  # noqa: E501
@@ -536,9 +530,7 @@ class Robotv1Api(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -547,7 +539,7 @@ class Robotv1Api(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.list_robot_v1 = _Endpoint(
@@ -644,12 +636,12 @@ class Robotv1Api(object):
         )
 
         def __update_robot_v1(
-            self,
-            project_name_or_id,
-            robot_id,
-            robot,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                robot_id,
+                robot,
+                **kwargs
+            ):
             """Update status of robot account.  # noqa: E501
 
             Used to disable/enable a specified robot account.  # noqa: E501
@@ -701,9 +693,7 @@ class Robotv1Api(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -712,11 +702,11 @@ class Robotv1Api(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['robot_id'] = \
-                robot_id
+                    robot_id
             kwargs['robot'] = \
-                robot
+                    robot
             return self.call_with_http_info(**kwargs)
 
         self.update_robot_v1 = _Endpoint(

@@ -37,12 +37,12 @@ class ChartRepositoryApi(object):
         self.api_client = api_client
 
         def __list_attahced_labels_of_chart(
-            self,
-            repo,
-            name,
-            version,
-            **kwargs
-        ):
+                self,
+                repo,
+                name,
+                version,
+                **kwargs
+            ):
             """Return the attahced labels of chart.  # noqa: E501
 
             Return the attahced labels of the specified chart version.  # noqa: E501
@@ -92,9 +92,7 @@ class ChartRepositoryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -103,11 +101,11 @@ class ChartRepositoryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['repo'] = \
-                repo
+                    repo
             kwargs['name'] = \
-                name
+                    name
             kwargs['version'] = \
-                version
+                    version
             return self.call_with_http_info(**kwargs)
 
         self.list_attahced_labels_of_chart = _Endpoint(
@@ -174,13 +172,13 @@ class ChartRepositoryApi(object):
         )
 
         def __mark_label_to_chart(
-            self,
-            repo,
-            name,
-            version,
-            label,
-            **kwargs
-        ):
+                self,
+                repo,
+                name,
+                version,
+                label,
+                **kwargs
+            ):
             """Mark label to chart.  # noqa: E501
 
             Mark label to the specified chart version.  # noqa: E501
@@ -231,9 +229,7 @@ class ChartRepositoryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -242,13 +238,13 @@ class ChartRepositoryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['repo'] = \
-                repo
+                    repo
             kwargs['name'] = \
-                name
+                    name
             kwargs['version'] = \
-                version
+                    version
             kwargs['label'] = \
-                label
+                    label
             return self.call_with_http_info(**kwargs)
 
         self.mark_label_to_chart = _Endpoint(
@@ -322,13 +318,13 @@ class ChartRepositoryApi(object):
         )
 
         def __remove_label_from_chart(
-            self,
-            repo,
-            name,
-            version,
-            id,
-            **kwargs
-        ):
+                self,
+                repo,
+                name,
+                version,
+                id,
+                **kwargs
+            ):
             """Remove label from chart.  # noqa: E501
 
             Remove label from the specified chart version.  # noqa: E501
@@ -379,9 +375,7 @@ class ChartRepositoryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -390,13 +384,13 @@ class ChartRepositoryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['repo'] = \
-                repo
+                    repo
             kwargs['name'] = \
-                name
+                    name
             kwargs['version'] = \
-                version
+                    version
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.remove_label_from_chart = _Endpoint(

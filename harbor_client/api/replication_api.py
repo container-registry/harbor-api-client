@@ -41,10 +41,10 @@ class ReplicationApi(object):
         self.api_client = api_client
 
         def __create_replication_policy(
-            self,
-            replication_policy,
-            **kwargs
-        ):
+                self,
+                replication_policy,
+                **kwargs
+            ):
             """Create a replication policy  # noqa: E501
 
             Create a replication policy  # noqa: E501
@@ -92,9 +92,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -103,7 +101,7 @@ class ReplicationApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['replication_policy'] = \
-                replication_policy
+                    replication_policy
             return self.call_with_http_info(**kwargs)
 
         self.create_replication_policy = _Endpoint(
@@ -161,10 +159,10 @@ class ReplicationApi(object):
         )
 
         def __delete_replication_policy(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Delete the specific replication policy  # noqa: E501
 
             Delete the specific replication policy  # noqa: E501
@@ -212,9 +210,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -223,7 +219,7 @@ class ReplicationApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.delete_replication_policy = _Endpoint(
@@ -280,10 +276,10 @@ class ReplicationApi(object):
         )
 
         def __get_replication_execution(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Get the specific replication execution  # noqa: E501
 
             Get the replication execution specified by ID  # noqa: E501
@@ -331,9 +327,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -342,7 +336,7 @@ class ReplicationApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.get_replication_execution = _Endpoint(
@@ -399,11 +393,11 @@ class ReplicationApi(object):
         )
 
         def __get_replication_log(
-            self,
-            id,
-            task_id,
-            **kwargs
-        ):
+                self,
+                id,
+                task_id,
+                **kwargs
+            ):
             """Get the log of the specific replication task  # noqa: E501
 
             Get the log of the specific replication task  # noqa: E501
@@ -452,9 +446,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -463,9 +455,9 @@ class ReplicationApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             kwargs['task_id'] = \
-                task_id
+                    task_id
             return self.call_with_http_info(**kwargs)
 
         self.get_replication_log = _Endpoint(
@@ -529,10 +521,10 @@ class ReplicationApi(object):
         )
 
         def __get_replication_policy(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Get the specific replication policy  # noqa: E501
 
             Get the specific replication policy  # noqa: E501
@@ -580,9 +572,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -591,7 +581,7 @@ class ReplicationApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.get_replication_policy = _Endpoint(
@@ -648,9 +638,9 @@ class ReplicationApi(object):
         )
 
         def __list_replication_executions(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """List replication executions  # noqa: E501
 
             List replication executions  # noqa: E501
@@ -702,9 +692,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -796,9 +784,9 @@ class ReplicationApi(object):
         )
 
         def __list_replication_policies(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """List replication policies  # noqa: E501
 
             List replication policies  # noqa: E501
@@ -849,9 +837,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -938,10 +924,10 @@ class ReplicationApi(object):
         )
 
         def __list_replication_tasks(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """List replication tasks for a specific execution  # noqa: E501
 
             List replication tasks for a specific execution  # noqa: E501
@@ -994,9 +980,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1005,7 +989,7 @@ class ReplicationApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.list_replication_tasks = _Endpoint(
@@ -1092,10 +1076,10 @@ class ReplicationApi(object):
         )
 
         def __start_replication(
-            self,
-            start_replication_execution,
-            **kwargs
-        ):
+                self,
+                start_replication_execution,
+                **kwargs
+            ):
             """Start one replication execution  # noqa: E501
 
             Start one replication execution according to the policy  # noqa: E501
@@ -1143,9 +1127,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1154,7 +1136,7 @@ class ReplicationApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['start_replication_execution'] = \
-                start_replication_execution
+                    start_replication_execution
             return self.call_with_http_info(**kwargs)
 
         self.start_replication = _Endpoint(
@@ -1212,10 +1194,10 @@ class ReplicationApi(object):
         )
 
         def __stop_replication(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Stop the specific replication execution  # noqa: E501
 
             Stop the replication execution specified by ID  # noqa: E501
@@ -1263,9 +1245,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1274,7 +1254,7 @@ class ReplicationApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.stop_replication = _Endpoint(
@@ -1331,11 +1311,11 @@ class ReplicationApi(object):
         )
 
         def __update_replication_policy(
-            self,
-            id,
-            replication_policy,
-            **kwargs
-        ):
+                self,
+                id,
+                replication_policy,
+                **kwargs
+            ):
             """Update the replication policy  # noqa: E501
 
             Update the replication policy  # noqa: E501
@@ -1384,9 +1364,7 @@ class ReplicationApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1395,9 +1373,9 @@ class ReplicationApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             kwargs['replication_policy'] = \
-                replication_policy
+                    replication_policy
             return self.call_with_http_info(**kwargs)
 
         self.update_replication_policy = _Endpoint(

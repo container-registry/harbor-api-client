@@ -39,9 +39,9 @@ class SysteminfoApi(object):
         self.api_client = api_client
 
         def __systeminfo(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get general system info  # noqa: E501
 
             This API is for retrieving general system info, this can be called by anonymous request.  Some attributes will be omitted in the response when this API is called by anonymous request.   # noqa: E501
@@ -87,9 +87,7 @@ class SysteminfoApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -146,9 +144,9 @@ class SysteminfoApi(object):
         )
 
         def __systeminfo_cert(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get default root certificate.  # noqa: E501
 
             This endpoint is for downloading a default root certificate.   # noqa: E501
@@ -194,9 +192,7 @@ class SysteminfoApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -254,9 +250,9 @@ class SysteminfoApi(object):
         )
 
         def __systeminfo_volumes(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get system volume info (total/free size).  # noqa: E501
 
             This endpoint is for retrieving system volume info that only provides for admin user.  Note that the response only reflects the storage status of local disk.   # noqa: E501
@@ -302,9 +298,7 @@ class SysteminfoApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )

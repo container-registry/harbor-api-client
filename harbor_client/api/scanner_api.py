@@ -42,10 +42,10 @@ class ScannerApi(object):
         self.api_client = api_client
 
         def __create_scanner(
-            self,
-            scanner_registration_req,
-            **kwargs
-        ):
+                self,
+                scanner_registration_req,
+                **kwargs
+            ):
             """Create a scanner registration  # noqa: E501
 
             Creats a new scanner registration with the given data.   # noqa: E501
@@ -94,9 +94,7 @@ class ScannerApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -105,7 +103,7 @@ class ScannerApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['scanner_registration_req'] = \
-                scanner_registration_req
+                    scanner_registration_req
             return self.call_with_http_info(**kwargs)
 
         self.create_scanner = _Endpoint(
@@ -173,10 +171,10 @@ class ScannerApi(object):
         )
 
         def __delete_scanner(
-            self,
-            registration_id,
-            **kwargs
-        ):
+                self,
+                registration_id,
+                **kwargs
+            ):
             """Delete a scanner registration  # noqa: E501
 
             Deletes the specified scanner registration.   # noqa: E501
@@ -225,9 +223,7 @@ class ScannerApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -236,7 +232,7 @@ class ScannerApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['registration_id'] = \
-                registration_id
+                    registration_id
             return self.call_with_http_info(**kwargs)
 
         self.delete_scanner = _Endpoint(
@@ -303,10 +299,10 @@ class ScannerApi(object):
         )
 
         def __get_scanner(
-            self,
-            registration_id,
-            **kwargs
-        ):
+                self,
+                registration_id,
+                **kwargs
+            ):
             """Get a scanner registration details  # noqa: E501
 
             Retruns the details of the specified scanner registration.   # noqa: E501
@@ -355,9 +351,7 @@ class ScannerApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -366,7 +360,7 @@ class ScannerApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['registration_id'] = \
-                registration_id
+                    registration_id
             return self.call_with_http_info(**kwargs)
 
         self.get_scanner = _Endpoint(
@@ -433,10 +427,10 @@ class ScannerApi(object):
         )
 
         def __get_scanner_metadata(
-            self,
-            registration_id,
-            **kwargs
-        ):
+                self,
+                registration_id,
+                **kwargs
+            ):
             """Get the metadata of the specified scanner registration  # noqa: E501
 
             Get the metadata of the specified scanner registration, including the capabilities and customized properties.   # noqa: E501
@@ -485,9 +479,7 @@ class ScannerApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -496,7 +488,7 @@ class ScannerApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['registration_id'] = \
-                registration_id
+                    registration_id
             return self.call_with_http_info(**kwargs)
 
         self.get_scanner_metadata = _Endpoint(
@@ -563,9 +555,9 @@ class ScannerApi(object):
         )
 
         def __list_scanners(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """List scanner registrations  # noqa: E501
 
             Returns a list of currently configured scanner registrations.   # noqa: E501
@@ -616,9 +608,7 @@ class ScannerApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -710,10 +700,10 @@ class ScannerApi(object):
         )
 
         def __ping_scanner(
-            self,
-            scanner_registration_settings,
-            **kwargs
-        ):
+                self,
+                scanner_registration_settings,
+                **kwargs
+            ):
             """Tests scanner registration settings  # noqa: E501
 
             Pings scanner adapter to test endpoint URL and authorization settings.   # noqa: E501
@@ -762,9 +752,7 @@ class ScannerApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -773,7 +761,7 @@ class ScannerApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['scanner_registration_settings'] = \
-                scanner_registration_settings
+                    scanner_registration_settings
             return self.call_with_http_info(**kwargs)
 
         self.ping_scanner = _Endpoint(
@@ -841,11 +829,11 @@ class ScannerApi(object):
         )
 
         def __set_scanner_as_default(
-            self,
-            registration_id,
-            is_default,
-            **kwargs
-        ):
+                self,
+                registration_id,
+                is_default,
+                **kwargs
+            ):
             """Set system default scanner registration  # noqa: E501
 
             Set the specified scanner registration as the system default one.   # noqa: E501
@@ -894,9 +882,7 @@ class ScannerApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -905,9 +891,9 @@ class ScannerApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['registration_id'] = \
-                registration_id
+                    registration_id
             kwargs['is_default'] = \
-                is_default
+                    is_default
             return self.call_with_http_info(**kwargs)
 
         self.set_scanner_as_default = _Endpoint(
@@ -971,11 +957,11 @@ class ScannerApi(object):
         )
 
         def __update_scanner(
-            self,
-            registration_id,
-            scanner_registration_req,
-            **kwargs
-        ):
+                self,
+                registration_id,
+                scanner_registration_req,
+                **kwargs
+            ):
             """Update a scanner registration  # noqa: E501
 
             Updates the specified scanner registration.   # noqa: E501
@@ -1025,9 +1011,7 @@ class ScannerApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1036,9 +1020,9 @@ class ScannerApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['registration_id'] = \
-                registration_id
+                    registration_id
             kwargs['scanner_registration_req'] = \
-                scanner_registration_req
+                    scanner_registration_req
             return self.call_with_http_info(**kwargs)
 
         self.update_scanner = _Endpoint(

@@ -38,10 +38,10 @@ class IconApi(object):
         self.api_client = api_client
 
         def __get_icon(
-            self,
-            digest,
-            **kwargs
-        ):
+                self,
+                digest,
+                **kwargs
+            ):
             """Get artifact icon  # noqa: E501
 
             Get the artifact icon with the specified digest. As the original icon image is resized and encoded before returning, the parameter \"digest\" in the path doesn't match the hash of the returned content  # noqa: E501
@@ -90,9 +90,7 @@ class IconApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -101,7 +99,7 @@ class IconApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['digest'] = \
-                digest
+                    digest
             return self.call_with_http_info(**kwargs)
 
         self.get_icon = _Endpoint(

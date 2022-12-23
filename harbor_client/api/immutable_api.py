@@ -38,11 +38,11 @@ class ImmutableApi(object):
         self.api_client = api_client
 
         def __create_immu_rule(
-            self,
-            project_name_or_id,
-            immutable_rule,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                immutable_rule,
+                **kwargs
+            ):
             """Add an immutable tag rule to current project  # noqa: E501
 
             This endpoint add an immutable tag rule to the project   # noqa: E501
@@ -93,9 +93,7 @@ class ImmutableApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -104,9 +102,9 @@ class ImmutableApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['immutable_rule'] = \
-                immutable_rule
+                    immutable_rule
             return self.call_with_http_info(**kwargs)
 
         self.create_immu_rule = _Endpoint(
@@ -185,11 +183,11 @@ class ImmutableApi(object):
         )
 
         def __delete_immu_rule(
-            self,
-            project_name_or_id,
-            immutable_rule_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                immutable_rule_id,
+                **kwargs
+            ):
             """Delete the immutable tag rule.  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
@@ -239,9 +237,7 @@ class ImmutableApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -250,9 +246,9 @@ class ImmutableApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['immutable_rule_id'] = \
-                immutable_rule_id
+                    immutable_rule_id
             return self.call_with_http_info(**kwargs)
 
         self.delete_immu_rule = _Endpoint(
@@ -330,10 +326,10 @@ class ImmutableApi(object):
         )
 
         def __list_immu_rules(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """List all immutable tag rules of current project  # noqa: E501
 
             This endpoint returns the immutable tag rules of a project   # noqa: E501
@@ -387,9 +383,7 @@ class ImmutableApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -398,7 +392,7 @@ class ImmutableApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.list_immu_rules = _Endpoint(
@@ -495,12 +489,12 @@ class ImmutableApi(object):
         )
 
         def __update_immu_rule(
-            self,
-            project_name_or_id,
-            immutable_rule_id,
-            immutable_rule,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                immutable_rule_id,
+                immutable_rule,
+                **kwargs
+            ):
             """Update the immutable tag rule or enable or disable the rule  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
@@ -551,9 +545,7 @@ class ImmutableApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -562,11 +554,11 @@ class ImmutableApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['immutable_rule_id'] = \
-                immutable_rule_id
+                    immutable_rule_id
             kwargs['immutable_rule'] = \
-                immutable_rule
+                    immutable_rule
             return self.call_with_http_info(**kwargs)
 
         self.update_immu_rule = _Endpoint(

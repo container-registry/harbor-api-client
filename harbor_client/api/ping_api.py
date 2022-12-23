@@ -36,9 +36,9 @@ class PingApi(object):
         self.api_client = api_client
 
         def __ping(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Ping Harbor to check if it's alive.  # noqa: E501
 
             This API simply replies a pong to indicate the process to handle API is up, disregarding the health status of dependent components.  # noqa: E501
@@ -84,9 +84,7 @@ class PingApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )

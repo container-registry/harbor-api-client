@@ -39,10 +39,10 @@ class ScanAllApi(object):
         self.api_client = api_client
 
         def __create_scan_all_schedule(
-            self,
-            schedule,
-            **kwargs
-        ):
+                self,
+                schedule,
+                **kwargs
+            ):
             """Create a schedule or a manual trigger for the scan all job.  # noqa: E501
 
             This endpoint is for creating a schedule or a manual trigger for the scan all job, which scans all of images in Harbor.  # noqa: E501
@@ -90,9 +90,7 @@ class ScanAllApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -101,7 +99,7 @@ class ScanAllApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['schedule'] = \
-                schedule
+                    schedule
             return self.call_with_http_info(**kwargs)
 
         self.create_scan_all_schedule = _Endpoint(
@@ -159,9 +157,9 @@ class ScanAllApi(object):
         )
 
         def __get_latest_scan_all_metrics(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get the metrics of the latest scan all process  # noqa: E501
 
             Get the metrics of the latest scan all process  # noqa: E501
@@ -207,9 +205,7 @@ class ScanAllApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -266,9 +262,9 @@ class ScanAllApi(object):
         )
 
         def __get_latest_scheduled_scan_all_metrics(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get the metrics of the latest scheduled scan all process  # noqa: E501
 
             Get the metrics of the latest scheduled scan all process  # noqa: E501
@@ -314,9 +310,7 @@ class ScanAllApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -373,9 +367,9 @@ class ScanAllApi(object):
         )
 
         def __get_scan_all_schedule(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get scan all's schedule.  # noqa: E501
 
             This endpoint is for getting a schedule for the scan all job, which scans all of images in Harbor.  # noqa: E501
@@ -421,9 +415,7 @@ class ScanAllApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -480,10 +472,10 @@ class ScanAllApi(object):
         )
 
         def __update_scan_all_schedule(
-            self,
-            schedule,
-            **kwargs
-        ):
+                self,
+                schedule,
+                **kwargs
+            ):
             """Update scan all's schedule.  # noqa: E501
 
             This endpoint is for updating the schedule of scan all job, which scans all of images in Harbor.  # noqa: E501
@@ -531,9 +523,7 @@ class ScanAllApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -542,7 +532,7 @@ class ScanAllApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['schedule'] = \
-                schedule
+                    schedule
             return self.call_with_http_info(**kwargs)
 
         self.update_scan_all_schedule = _Endpoint(

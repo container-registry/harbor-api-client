@@ -42,10 +42,10 @@ class RegistryApi(object):
         self.api_client = api_client
 
         def __create_registry(
-            self,
-            registry,
-            **kwargs
-        ):
+                self,
+                registry,
+                **kwargs
+            ):
             """Create a registry  # noqa: E501
 
             Create a registry  # noqa: E501
@@ -94,9 +94,7 @@ class RegistryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -105,7 +103,7 @@ class RegistryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['registry'] = \
-                registry
+                    registry
             return self.call_with_http_info(**kwargs)
 
         self.create_registry = _Endpoint(
@@ -173,10 +171,10 @@ class RegistryApi(object):
         )
 
         def __delete_registry(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Delete the specific registry  # noqa: E501
 
             Delete the specific registry  # noqa: E501
@@ -225,9 +223,7 @@ class RegistryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -236,7 +232,7 @@ class RegistryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.delete_registry = _Endpoint(
@@ -303,10 +299,10 @@ class RegistryApi(object):
         )
 
         def __get_registry(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Get the specific registry  # noqa: E501
 
             Get the specific registry  # noqa: E501
@@ -355,9 +351,7 @@ class RegistryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -366,7 +360,7 @@ class RegistryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.get_registry = _Endpoint(
@@ -433,10 +427,10 @@ class RegistryApi(object):
         )
 
         def __get_registry_info(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Get the registry info  # noqa: E501
 
             Get the registry info  # noqa: E501
@@ -485,9 +479,7 @@ class RegistryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -496,7 +488,7 @@ class RegistryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.get_registry_info = _Endpoint(
@@ -563,9 +555,9 @@ class RegistryApi(object):
         )
 
         def __list_registries(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """List the registries  # noqa: E501
 
             List the registries  # noqa: E501
@@ -617,9 +609,7 @@ class RegistryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -716,9 +706,9 @@ class RegistryApi(object):
         )
 
         def __list_registry_provider_infos(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """List all registered registry provider information  # noqa: E501
 
             List all registered registry provider information  # noqa: E501
@@ -765,9 +755,7 @@ class RegistryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -834,9 +822,9 @@ class RegistryApi(object):
         )
 
         def __list_registry_provider_types(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """List registry adapters  # noqa: E501
 
             List registry adapters  # noqa: E501
@@ -883,9 +871,7 @@ class RegistryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -952,10 +938,10 @@ class RegistryApi(object):
         )
 
         def __ping_registry(
-            self,
-            registry_ping,
-            **kwargs
-        ):
+                self,
+                registry_ping,
+                **kwargs
+            ):
             """Check status of a registry  # noqa: E501
 
             Check status of a registry  # noqa: E501
@@ -1004,9 +990,7 @@ class RegistryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1015,7 +999,7 @@ class RegistryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['registry_ping'] = \
-                registry_ping
+                    registry_ping
             return self.call_with_http_info(**kwargs)
 
         self.ping_registry = _Endpoint(
@@ -1083,11 +1067,11 @@ class RegistryApi(object):
         )
 
         def __update_registry(
-            self,
-            id,
-            registry_update,
-            **kwargs
-        ):
+                self,
+                id,
+                registry_update,
+                **kwargs
+            ):
             """Update the registry  # noqa: E501
 
             Update the registry  # noqa: E501
@@ -1137,9 +1121,7 @@ class RegistryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1148,9 +1130,9 @@ class RegistryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             kwargs['registry_update'] = \
-                registry_update
+                    registry_update
             return self.call_with_http_info(**kwargs)
 
         self.update_registry = _Endpoint(

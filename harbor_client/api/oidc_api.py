@@ -38,10 +38,10 @@ class OidcApi(object):
         self.api_client = api_client
 
         def __ping_oidc(
-            self,
-            inline_object1,
-            **kwargs
-        ):
+                self,
+                inline_object1,
+                **kwargs
+            ):
             """Test the OIDC endpoint.  # noqa: E501
 
             Test the OIDC endpoint, the setting of the endpoint is provided in the request.  This API can only be called by system admin.   # noqa: E501
@@ -89,9 +89,7 @@ class OidcApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -100,7 +98,7 @@ class OidcApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['inline_object1'] = \
-                inline_object1
+                    inline_object1
             return self.call_with_http_info(**kwargs)
 
         self.ping_oidc = _Endpoint(

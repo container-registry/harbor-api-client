@@ -40,13 +40,13 @@ class ArtifactApi(object):
         self.api_client = api_client
 
         def __add_label(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            label,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                label,
+                **kwargs
+            ):
             """Add label to artifact  # noqa: E501
 
             Add label to the specified artiact.  # noqa: E501
@@ -98,9 +98,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -109,13 +107,13 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             kwargs['label'] = \
-                label
+                    label
             return self.call_with_http_info(**kwargs)
 
         self.add_label = _Endpoint(
@@ -201,12 +199,12 @@ class ArtifactApi(object):
         )
 
         def __copy_artifact(
-            self,
-            project_name,
-            repository_name,
-            _from,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                _from,
+                **kwargs
+            ):
             """Copy artifact  # noqa: E501
 
             Copy the artifact specified in the \"from\" parameter to the repository.  # noqa: E501
@@ -257,9 +255,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -268,11 +264,11 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['_from'] = \
-                _from
+                    _from
             return self.call_with_http_info(**kwargs)
 
         self.copy_artifact = _Endpoint(
@@ -351,13 +347,13 @@ class ArtifactApi(object):
         )
 
         def __create_tag(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            tag,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                tag,
+                **kwargs
+            ):
             """Create tag  # noqa: E501
 
             Create a tag for the specified artifact  # noqa: E501
@@ -409,9 +405,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -420,13 +414,13 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             kwargs['tag'] = \
-                tag
+                    tag
             return self.call_with_http_info(**kwargs)
 
         self.create_tag = _Endpoint(
@@ -512,12 +506,12 @@ class ArtifactApi(object):
         )
 
         def __delete_artifact(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                **kwargs
+            ):
             """Delete the specific artifact  # noqa: E501
 
             Delete the artifact specified by the reference under the project and repository. The reference can be digest or tag  # noqa: E501
@@ -568,9 +562,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -579,11 +571,11 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             return self.call_with_http_info(**kwargs)
 
         self.delete_artifact = _Endpoint(
@@ -662,13 +654,13 @@ class ArtifactApi(object):
         )
 
         def __delete_tag(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            tag_name,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                tag_name,
+                **kwargs
+            ):
             """Delete tag  # noqa: E501
 
             Delete the tag of the specified artifact  # noqa: E501
@@ -720,9 +712,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -731,13 +721,13 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             kwargs['tag_name'] = \
-                tag_name
+                    tag_name
             return self.call_with_http_info(**kwargs)
 
         self.delete_tag = _Endpoint(
@@ -822,13 +812,13 @@ class ArtifactApi(object):
         )
 
         def __get_addition(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            addition,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                addition,
+                **kwargs
+            ):
             """Get the addition of the specific artifact  # noqa: E501
 
             Get the addition of the artifact specified by the reference under the project and repository.  # noqa: E501
@@ -880,9 +870,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -891,13 +879,13 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             kwargs['addition'] = \
-                addition
+                    addition
             return self.call_with_http_info(**kwargs)
 
         self.get_addition = _Endpoint(
@@ -990,12 +978,12 @@ class ArtifactApi(object):
         )
 
         def __get_artifact(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                **kwargs
+            ):
             """Get the specific artifact  # noqa: E501
 
             Get the artifact specified by the reference under the project and repository. The reference can be digest or tag.  # noqa: E501
@@ -1054,9 +1042,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1065,11 +1051,11 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             return self.call_with_http_info(**kwargs)
 
         self.get_artifact = _Endpoint(
@@ -1193,12 +1179,12 @@ class ArtifactApi(object):
         )
 
         def __get_vulnerabilities_addition(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                **kwargs
+            ):
             """Get the vulnerabilities addition of the specific artifact  # noqa: E501
 
             Get the vulnerabilities addition of the artifact specified by the reference under the project and repository.  # noqa: E501
@@ -1250,9 +1236,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1261,11 +1245,11 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             return self.call_with_http_info(**kwargs)
 
         self.get_vulnerabilities_addition = _Endpoint(
@@ -1349,11 +1333,11 @@ class ArtifactApi(object):
         )
 
         def __list_artifacts(
-            self,
-            project_name,
-            repository_name,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                **kwargs
+            ):
             """List artifacts  # noqa: E501
 
             List artifacts under the specific project and repository. Except the basic properties, the other supported queries in \"q\" includes \"tags=*\" to list only tagged artifacts, \"tags=nil\" to list only untagged artifacts, \"tags=~v\" to list artifacts whose tag fuzzy matches \"v\", \"tags=v\" to list artifact whose tag exactly matches \"v\", \"labels=(id1, id2)\" to list artifacts that both labels with id1 and id2 are added to  # noqa: E501
@@ -1413,9 +1397,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1424,9 +1406,9 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             return self.call_with_http_info(**kwargs)
 
         self.list_artifacts = _Endpoint(
@@ -1554,12 +1536,12 @@ class ArtifactApi(object):
         )
 
         def __list_tags(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                **kwargs
+            ):
             """List tags  # noqa: E501
 
             List tags of the specific artifact  # noqa: E501
@@ -1616,9 +1598,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1627,11 +1607,11 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             return self.call_with_http_info(**kwargs)
 
         self.list_tags = _Endpoint(
@@ -1745,13 +1725,13 @@ class ArtifactApi(object):
         )
 
         def __remove_label(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            label_id,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                label_id,
+                **kwargs
+            ):
             """Remove label from artifact  # noqa: E501
 
             Remove the label from the specified artiact.  # noqa: E501
@@ -1803,9 +1783,7 @@ class ArtifactApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1814,13 +1792,13 @@ class ArtifactApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             kwargs['label_id'] = \
-                label_id
+                    label_id
             return self.call_with_http_info(**kwargs)
 
         self.remove_label = _Endpoint(

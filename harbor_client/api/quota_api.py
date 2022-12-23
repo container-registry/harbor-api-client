@@ -39,10 +39,10 @@ class QuotaApi(object):
         self.api_client = api_client
 
         def __get_quota(
-            self,
-            id,
-            **kwargs
-        ):
+                self,
+                id,
+                **kwargs
+            ):
             """Get the specified quota  # noqa: E501
 
             Get the specified quota  # noqa: E501
@@ -91,9 +91,7 @@ class QuotaApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -102,7 +100,7 @@ class QuotaApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             return self.call_with_http_info(**kwargs)
 
         self.get_quota = _Endpoint(
@@ -169,9 +167,9 @@ class QuotaApi(object):
         )
 
         def __list_quotas(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """List quotas  # noqa: E501
 
             List quotas  # noqa: E501
@@ -223,9 +221,7 @@ class QuotaApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -322,11 +318,11 @@ class QuotaApi(object):
         )
 
         def __update_quota(
-            self,
-            id,
-            quota_update_req,
-            **kwargs
-        ):
+                self,
+                id,
+                quota_update_req,
+                **kwargs
+            ):
             """Update the specified quota  # noqa: E501
 
             Update hard limits of the specified quota  # noqa: E501
@@ -376,9 +372,7 @@ class QuotaApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -387,9 +381,9 @@ class QuotaApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['id'] = \
-                id
+                    id
             kwargs['quota_update_req'] = \
-                quota_update_req
+                    quota_update_req
             return self.call_with_http_info(**kwargs)
 
         self.update_quota = _Endpoint(

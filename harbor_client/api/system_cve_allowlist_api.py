@@ -38,9 +38,9 @@ class SystemCVEAllowlistApi(object):
         self.api_client = api_client
 
         def __get_system_cve_allowlist(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get the system level allowlist of CVE.  # noqa: E501
 
             Get the system level allowlist of CVE.  This API can be called by all authenticated users.  # noqa: E501
@@ -86,9 +86,7 @@ class SystemCVEAllowlistApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -145,9 +143,9 @@ class SystemCVEAllowlistApi(object):
         )
 
         def __put_system_cve_allowlist(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Update the system level allowlist of CVE.  # noqa: E501
 
             This API overwrites the system level allowlist of CVE with the list in request body.  Only system Admin has permission to call this API.  # noqa: E501
@@ -194,9 +192,7 @@ class SystemCVEAllowlistApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )

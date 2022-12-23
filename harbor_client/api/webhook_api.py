@@ -40,11 +40,11 @@ class WebhookApi(object):
         self.api_client = api_client
 
         def __create_webhook_policy_of_project(
-            self,
-            project_name_or_id,
-            webhook_policy,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                webhook_policy,
+                **kwargs
+            ):
             """Create project webhook policy.  # noqa: E501
 
             This endpoint create a webhook policy if the project does not have one.   # noqa: E501
@@ -95,9 +95,7 @@ class WebhookApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -106,9 +104,9 @@ class WebhookApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['webhook_policy'] = \
-                webhook_policy
+                    webhook_policy
             return self.call_with_http_info(**kwargs)
 
         self.create_webhook_policy_of_project = _Endpoint(
@@ -187,11 +185,11 @@ class WebhookApi(object):
         )
 
         def __delete_webhook_policy_of_project(
-            self,
-            project_name_or_id,
-            webhook_policy_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                webhook_policy_id,
+                **kwargs
+            ):
             """Delete webhook policy of a project  # noqa: E501
 
             This endpoint is aimed to delete webhookpolicy of a project.   # noqa: E501
@@ -242,9 +240,7 @@ class WebhookApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -253,9 +249,9 @@ class WebhookApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['webhook_policy_id'] = \
-                webhook_policy_id
+                    webhook_policy_id
             return self.call_with_http_info(**kwargs)
 
         self.delete_webhook_policy_of_project = _Endpoint(
@@ -333,10 +329,10 @@ class WebhookApi(object):
         )
 
         def __get_supported_event_types(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """Get supported event types and notify types.  # noqa: E501
 
             Get supportted event types and notify types.  # noqa: E501
@@ -386,9 +382,7 @@ class WebhookApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -397,7 +391,7 @@ class WebhookApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.get_supported_event_types = _Endpoint(
@@ -469,11 +463,11 @@ class WebhookApi(object):
         )
 
         def __get_webhook_policy_of_project(
-            self,
-            project_name_or_id,
-            webhook_policy_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                webhook_policy_id,
+                **kwargs
+            ):
             """Get project webhook policy  # noqa: E501
 
             This endpoint returns specified webhook policy of a project.   # noqa: E501
@@ -524,9 +518,7 @@ class WebhookApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -535,9 +527,9 @@ class WebhookApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['webhook_policy_id'] = \
-                webhook_policy_id
+                    webhook_policy_id
             return self.call_with_http_info(**kwargs)
 
         self.get_webhook_policy_of_project = _Endpoint(
@@ -615,10 +607,10 @@ class WebhookApi(object):
         )
 
         def __last_trigger(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """Get project webhook policy last trigger info  # noqa: E501
 
             This endpoint returns last trigger information of project webhook policy.   # noqa: E501
@@ -668,9 +660,7 @@ class WebhookApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -679,7 +669,7 @@ class WebhookApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.last_trigger = _Endpoint(
@@ -751,10 +741,10 @@ class WebhookApi(object):
         )
 
         def __list_webhook_policies_of_project(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """List project webhook policies.  # noqa: E501
 
             This endpoint returns webhook policies of a project.   # noqa: E501
@@ -808,9 +798,7 @@ class WebhookApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -819,7 +807,7 @@ class WebhookApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.list_webhook_policies_of_project = _Endpoint(
@@ -916,12 +904,12 @@ class WebhookApi(object):
         )
 
         def __update_webhook_policy_of_project(
-            self,
-            project_name_or_id,
-            webhook_policy_id,
-            webhook_policy,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                webhook_policy_id,
+                webhook_policy,
+                **kwargs
+            ):
             """Update webhook policy of a project.  # noqa: E501
 
             This endpoint is aimed to update the webhook policy of a project.   # noqa: E501
@@ -973,9 +961,7 @@ class WebhookApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -984,11 +970,11 @@ class WebhookApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['webhook_policy_id'] = \
-                webhook_policy_id
+                    webhook_policy_id
             kwargs['webhook_policy'] = \
-                webhook_policy
+                    webhook_policy
             return self.call_with_http_info(**kwargs)
 
         self.update_webhook_policy_of_project = _Endpoint(

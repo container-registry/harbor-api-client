@@ -38,11 +38,11 @@ class WebhookjobApi(object):
         self.api_client = api_client
 
         def __list_webhook_jobs(
-            self,
-            project_name_or_id,
-            policy_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                policy_id,
+                **kwargs
+            ):
             """List project webhook jobs  # noqa: E501
 
             This endpoint returns webhook jobs of a project.   # noqa: E501
@@ -98,9 +98,7 @@ class WebhookjobApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -109,9 +107,9 @@ class WebhookjobApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['policy_id'] = \
-                policy_id
+                    policy_id
             return self.call_with_http_info(**kwargs)
 
         self.list_webhook_jobs = _Endpoint(

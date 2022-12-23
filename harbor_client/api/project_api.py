@@ -44,10 +44,10 @@ class ProjectApi(object):
         self.api_client = api_client
 
         def __create_project(
-            self,
-            project_req,
-            **kwargs
-        ):
+                self,
+                project_req,
+                **kwargs
+            ):
             """Create a new project.  # noqa: E501
 
             This endpoint is for user to create a new project.  # noqa: E501
@@ -97,9 +97,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -108,7 +106,7 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_req'] = \
-                project_req
+                    project_req
             return self.call_with_http_info(**kwargs)
 
         self.create_project = _Endpoint(
@@ -181,10 +179,10 @@ class ProjectApi(object):
         )
 
         def __delete_project(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """Delete project by projectID  # noqa: E501
 
             This endpoint is aimed to delete project by project ID.  # noqa: E501
@@ -234,9 +232,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -245,7 +241,7 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.delete_project = _Endpoint(
@@ -317,10 +313,10 @@ class ProjectApi(object):
         )
 
         def __get_logs(
-            self,
-            project_name,
-            **kwargs
-        ):
+                self,
+                project_name,
+                **kwargs
+            ):
             """Get recent logs of the projects  # noqa: E501
 
             Get recent logs of the projects  # noqa: E501
@@ -373,9 +369,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -384,7 +378,7 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             return self.call_with_http_info(**kwargs)
 
         self.get_logs = _Endpoint(
@@ -476,10 +470,10 @@ class ProjectApi(object):
         )
 
         def __get_project(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """Return specific project detail information  # noqa: E501
 
             This endpoint returns specific project information by project ID.  # noqa: E501
@@ -529,9 +523,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -540,7 +532,7 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.get_project = _Endpoint(
@@ -612,10 +604,10 @@ class ProjectApi(object):
         )
 
         def __get_project_deletable(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """Get the deletable status of the project  # noqa: E501
 
             Get the deletable status of the project  # noqa: E501
@@ -665,9 +657,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -676,7 +666,7 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.get_project_deletable = _Endpoint(
@@ -748,10 +738,10 @@ class ProjectApi(object):
         )
 
         def __get_project_summary(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """Get summary of the project.  # noqa: E501
 
             Get summary of the project.  # noqa: E501
@@ -801,9 +791,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -812,7 +800,7 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.get_project_summary = _Endpoint(
@@ -884,10 +872,10 @@ class ProjectApi(object):
         )
 
         def __get_scanner_of_project(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """Get project level scanner  # noqa: E501
 
             Get the scanner registration of the specified project. If no scanner registration is configured for the specified project, the system default scanner registration will be returned.  # noqa: E501
@@ -937,9 +925,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -948,7 +934,7 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.get_scanner_of_project = _Endpoint(
@@ -1020,10 +1006,10 @@ class ProjectApi(object):
         )
 
         def __head_project(
-            self,
-            project_name,
-            **kwargs
-        ):
+                self,
+                project_name,
+                **kwargs
+            ):
             """Check if the project name user provided already exists.  # noqa: E501
 
             This endpoint is used to check if the project name provided already exist.  # noqa: E501
@@ -1072,9 +1058,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1083,7 +1067,7 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             return self.call_with_http_info(**kwargs)
 
         self.head_project = _Endpoint(
@@ -1150,9 +1134,9 @@ class ProjectApi(object):
         )
 
         def __list_projects(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """List projects  # noqa: E501
 
             This endpoint returns projects created by Harbor.  # noqa: E501
@@ -1207,9 +1191,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1321,10 +1303,10 @@ class ProjectApi(object):
         )
 
         def __list_scanner_candidates_of_project(
-            self,
-            project_name_or_id,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                **kwargs
+            ):
             """Get scanner registration candidates for configurating project level scanner  # noqa: E501
 
             Retrieve the system configured scanner registrations as candidates of setting project level scanner.  # noqa: E501
@@ -1378,9 +1360,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1389,7 +1369,7 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             return self.call_with_http_info(**kwargs)
 
         self.list_scanner_candidates_of_project = _Endpoint(
@@ -1486,11 +1466,11 @@ class ProjectApi(object):
         )
 
         def __set_scanner_of_project(
-            self,
-            project_name_or_id,
-            project_scanner,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                project_scanner,
+                **kwargs
+            ):
             """Configure scanner for the specified project  # noqa: E501
 
             Set one of the system configured scanner registration as the indepndent scanner of the specified project.  # noqa: E501
@@ -1541,9 +1521,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1552,9 +1530,9 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['project_scanner'] = \
-                project_scanner
+                    project_scanner
             return self.call_with_http_info(**kwargs)
 
         self.set_scanner_of_project = _Endpoint(
@@ -1633,11 +1611,11 @@ class ProjectApi(object):
         )
 
         def __update_project(
-            self,
-            project_name_or_id,
-            project_req,
-            **kwargs
-        ):
+                self,
+                project_name_or_id,
+                project_req,
+                **kwargs
+            ):
             """Update properties for a selected project.  # noqa: E501
 
             This endpoint is aimed to update the properties of a project.  # noqa: E501
@@ -1688,9 +1666,7 @@ class ProjectApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -1699,9 +1675,9 @@ class ProjectApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name_or_id'] = \
-                project_name_or_id
+                    project_name_or_id
             kwargs['project_req'] = \
-                project_req
+                    project_req
             return self.call_with_http_info(**kwargs)
 
         self.update_project = _Endpoint(

@@ -38,11 +38,11 @@ class RepositoryApi(object):
         self.api_client = api_client
 
         def __delete_repository(
-            self,
-            project_name,
-            repository_name,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                **kwargs
+            ):
             """Delete repository  # noqa: E501
 
             Delete the repository specified by name  # noqa: E501
@@ -92,9 +92,7 @@ class RepositoryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -103,9 +101,9 @@ class RepositoryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             return self.call_with_http_info(**kwargs)
 
         self.delete_repository = _Endpoint(
@@ -178,11 +176,11 @@ class RepositoryApi(object):
         )
 
         def __get_repository(
-            self,
-            project_name,
-            repository_name,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                **kwargs
+            ):
             """Get repository  # noqa: E501
 
             Get the repository specified by name  # noqa: E501
@@ -232,9 +230,7 @@ class RepositoryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -243,9 +239,9 @@ class RepositoryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             return self.call_with_http_info(**kwargs)
 
         self.get_repository = _Endpoint(
@@ -318,10 +314,10 @@ class RepositoryApi(object):
         )
 
         def __list_repositories(
-            self,
-            project_name,
-            **kwargs
-        ):
+                self,
+                project_name,
+                **kwargs
+            ):
             """List repositories  # noqa: E501
 
             List repositories of the specified project  # noqa: E501
@@ -374,9 +370,7 @@ class RepositoryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -385,7 +379,7 @@ class RepositoryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             return self.call_with_http_info(**kwargs)
 
         self.list_repositories = _Endpoint(
@@ -477,12 +471,12 @@ class RepositoryApi(object):
         )
 
         def __update_repository(
-            self,
-            project_name,
-            repository_name,
-            repository,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                repository,
+                **kwargs
+            ):
             """Update repository  # noqa: E501
 
             Update the repository specified by name  # noqa: E501
@@ -533,9 +527,7 @@ class RepositoryApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -544,11 +536,11 @@ class RepositoryApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['repository'] = \
-                repository
+                    repository
             return self.call_with_http_info(**kwargs)
 
         self.update_repository = _Endpoint(

@@ -37,13 +37,13 @@ class ScanApi(object):
         self.api_client = api_client
 
         def __get_report_log(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            report_id,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                report_id,
+                **kwargs
+            ):
             """Get the log of the scan report  # noqa: E501
 
             Get the log of the scan report  # noqa: E501
@@ -95,9 +95,7 @@ class ScanApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -106,13 +104,13 @@ class ScanApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             kwargs['report_id'] = \
-                report_id
+                    report_id
             return self.call_with_http_info(**kwargs)
 
         self.get_report_log = _Endpoint(
@@ -198,12 +196,12 @@ class ScanApi(object):
         )
 
         def __scan_artifact(
-            self,
-            project_name,
-            repository_name,
-            reference,
-            **kwargs
-        ):
+                self,
+                project_name,
+                repository_name,
+                reference,
+                **kwargs
+            ):
             """Scan the artifact  # noqa: E501
 
             Scan the specified artifact  # noqa: E501
@@ -254,9 +252,7 @@ class ScanApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -265,11 +261,11 @@ class ScanApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['project_name'] = \
-                project_name
+                    project_name
             kwargs['repository_name'] = \
-                repository_name
+                    repository_name
             kwargs['reference'] = \
-                reference
+                    reference
             return self.call_with_http_info(**kwargs)
 
         self.scan_artifact = _Endpoint(

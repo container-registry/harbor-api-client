@@ -39,10 +39,10 @@ class GcApi(object):
         self.api_client = api_client
 
         def __create_gc_schedule(
-            self,
-            schedule,
-            **kwargs
-        ):
+                self,
+                schedule,
+                **kwargs
+            ):
             """Create a gc schedule.  # noqa: E501
 
             This endpoint is for update gc schedule.   # noqa: E501
@@ -90,9 +90,7 @@ class GcApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -101,7 +99,7 @@ class GcApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['schedule'] = \
-                schedule
+                    schedule
             return self.call_with_http_info(**kwargs)
 
         self.create_gc_schedule = _Endpoint(
@@ -159,10 +157,10 @@ class GcApi(object):
         )
 
         def __get_gc(
-            self,
-            gc_id,
-            **kwargs
-        ):
+                self,
+                gc_id,
+                **kwargs
+            ):
             """Get gc status.  # noqa: E501
 
             This endpoint let user get gc status filtered by specific ID.  # noqa: E501
@@ -210,9 +208,7 @@ class GcApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -221,7 +217,7 @@ class GcApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['gc_id'] = \
-                gc_id
+                    gc_id
             return self.call_with_http_info(**kwargs)
 
         self.get_gc = _Endpoint(
@@ -278,9 +274,9 @@ class GcApi(object):
         )
 
         def __get_gc_history(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get gc results.  # noqa: E501
 
             This endpoint let user get gc execution history.  # noqa: E501
@@ -330,9 +326,7 @@ class GcApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -414,10 +408,10 @@ class GcApi(object):
         )
 
         def __get_gc_log(
-            self,
-            gc_id,
-            **kwargs
-        ):
+                self,
+                gc_id,
+                **kwargs
+            ):
             """Get gc job log.  # noqa: E501
 
             This endpoint let user get gc job logs filtered by specific ID.  # noqa: E501
@@ -465,9 +459,7 @@ class GcApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -476,7 +468,7 @@ class GcApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['gc_id'] = \
-                gc_id
+                    gc_id
             return self.call_with_http_info(**kwargs)
 
         self.get_gc_log = _Endpoint(
@@ -534,9 +526,9 @@ class GcApi(object):
         )
 
         def __get_gc_schedule(
-            self,
-            **kwargs
-        ):
+                self,
+                **kwargs
+            ):
             """Get gc's schedule.  # noqa: E501
 
             This endpoint is for get schedule of gc job.  # noqa: E501
@@ -582,9 +574,7 @@ class GcApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -641,10 +631,10 @@ class GcApi(object):
         )
 
         def __update_gc_schedule(
-            self,
-            schedule,
-            **kwargs
-        ):
+                self,
+                schedule,
+                **kwargs
+            ):
             """Update gc's schedule.  # noqa: E501
 
             This endpoint is for update gc schedule.   # noqa: E501
@@ -692,9 +682,7 @@ class GcApi(object):
             kwargs['_preload_content'] = kwargs.get(
                 '_preload_content', True
             )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
+            kwargs['_request_timeout'] = kwargs.get('_request_timeout')
             kwargs['_check_input_type'] = kwargs.get(
                 '_check_input_type', True
             )
@@ -703,7 +691,7 @@ class GcApi(object):
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['schedule'] = \
-                schedule
+                    schedule
             return self.call_with_http_info(**kwargs)
 
         self.update_gc_schedule = _Endpoint(
