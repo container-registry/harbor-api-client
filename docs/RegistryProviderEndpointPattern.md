@@ -1,13 +1,10 @@
 # RegistryProviderEndpointPattern
 
-The registry endpoint pattern
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **endpoint_type** | **str** | The endpoint type | [optional] 
-**endpoints** | [**[RegistryEndpoint]**](RegistryEndpoint.md) | The endpoint list | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**endpoints** | [**list[RegistryEndpoint]**](RegistryEndpoint.md) | The endpoint list | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

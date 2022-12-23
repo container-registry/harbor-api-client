@@ -1,6 +1,5 @@
 # ImmutableRule
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -9,10 +8,9 @@ Name | Type | Description | Notes
 **disabled** | **bool** |  | [optional] 
 **action** | **str** |  | [optional] 
 **template** | **str** |  | [optional] 
-**params** | **{str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}** |  | [optional] 
-**tag_selectors** | [**[ImmutableSelector]**](ImmutableSelector.md) |  | [optional] 
-**scope_selectors** | **{str: ([ImmutableSelector],)}** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**params** | **dict(str, object)** |  | [optional] 
+**tag_selectors** | [**list[ImmutableSelector]**](ImmutableSelector.md) |  | [optional] 
+**scope_selectors** | **dict(str, list[ImmutableSelector])** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

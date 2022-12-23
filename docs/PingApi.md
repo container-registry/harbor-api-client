@@ -4,58 +4,46 @@ All URIs are relative to *http://localhost/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ping**](PingApi.md#ping) | **GET** /ping | Ping Harbor to check if it&#39;s alive.
+[**get_ping**](PingApi.md#get_ping) | **GET** /ping | Ping Harbor to check if it&#39;s alive.
 
 
-# **ping**
-> str ping()
+# **get_ping**
+> str get_ping(x_request_id=x_request_id)
 
 Ping Harbor to check if it's alive.
 
 This API simply replies a pong to indicate the process to handle API is up, disregarding the health status of dependent components.
 
 ### Example
-
-* Basic Authentication (basic):
 ```python
+from __future__ import print_function
 import time
 import harbor_client
-from harbor_client.api import ping_api
+from harbor_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = ping_api.PingApi(api_client)
+# create an instance of the API class
+api_instance = harbor_client.PingApi(harbor_client.ApiClient(configuration))
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
 
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Ping Harbor to check if it's alive.
-        api_response = api_instance.ping()
-        pprint(api_response)
-    except harbor_client.ApiException as e:
-        print("Exception when calling PingApi->ping: %s\n" % e)
+try:
+    # Ping Harbor to check if it's alive.
+    api_response = api_instance.get_ping(x_request_id=x_request_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PingApi->get_ping: %s\n" % e)
 ```
 
-
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
 
 ### Return type
 
@@ -67,14 +55,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: text/plain
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The API server is alive |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

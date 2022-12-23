@@ -9,71 +9,48 @@ Method | HTTP request | Description
 [**get_gc_history**](GcApi.md#get_gc_history) | **GET** /system/gc | Get gc results.
 [**get_gc_log**](GcApi.md#get_gc_log) | **GET** /system/gc/{gc_id}/log | Get gc job log.
 [**get_gc_schedule**](GcApi.md#get_gc_schedule) | **GET** /system/gc/schedule | Get gc&#39;s schedule.
+[**stop_gc**](GcApi.md#stop_gc) | **PUT** /system/gc/{gc_id} | Stop the specific GC execution
 [**update_gc_schedule**](GcApi.md#update_gc_schedule) | **PUT** /system/gc/schedule | Update gc&#39;s schedule.
 
 
 # **create_gc_schedule**
-> create_gc_schedule(schedule)
+> create_gc_schedule(schedule, x_request_id=x_request_id)
 
 Create a gc schedule.
 
 This endpoint is for update gc schedule. 
 
 ### Example
-
-* Basic Authentication (basic):
 ```python
+from __future__ import print_function
 import time
 import harbor_client
-from harbor_client.api import gc_api
-from harbor_client.model.schedule import Schedule
-from harbor_client.model.errors import Errors
+from harbor_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gc_api.GcApi(api_client)
-    schedule = Schedule(
-        schedule=ScheduleObj(
-            type="Hourly",
-            cron="cron_example",
-        ),
-        parameters={
-            "key": {},
-        },
-    ) # Schedule | Updates of gc's schedule.
+# create an instance of the API class
+api_instance = harbor_client.GcApi(harbor_client.ApiClient(configuration))
+schedule = harbor_client.Schedule() # Schedule | Updates of gc's schedule.
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a gc schedule.
-        api_instance.create_gc_schedule(schedule)
-    except harbor_client.ApiException as e:
-        print("Exception when calling GcApi->create_gc_schedule: %s\n" % e)
+try:
+    # Create a gc schedule.
+    api_instance.create_gc_schedule(schedule, x_request_id=x_request_id)
+except ApiException as e:
+    print("Exception when calling GcApi->create_gc_schedule: %s\n" % e)
 ```
-
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **schedule** | [**Schedule**](Schedule.md)| Updates of gc&#39;s schedule. |
+ **schedule** | [**Schedule**](Schedule.md)| Updates of gc&#39;s schedule. | 
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
 
 ### Return type
 
@@ -88,74 +65,47 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Created |  * X-Request-Id - The ID of the corresponding request for the response <br>  * Location - The URL of the created resource <br>  |
-**400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**409** | Conflict |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gc**
-> GCHistory get_gc(gc_id)
+> GCHistory get_gc(gc_id, x_request_id=x_request_id)
 
 Get gc status.
 
 This endpoint let user get gc status filtered by specific ID.
 
 ### Example
-
-* Basic Authentication (basic):
 ```python
+from __future__ import print_function
 import time
 import harbor_client
-from harbor_client.api import gc_api
-from harbor_client.model.gc_history import GCHistory
-from harbor_client.model.errors import Errors
+from harbor_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gc_api.GcApi(api_client)
-    gc_id = 1 # int | The ID of the gc log
+# create an instance of the API class
+api_instance = harbor_client.GcApi(harbor_client.ApiClient(configuration))
+gc_id = 789 # int | The ID of the gc log
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get gc status.
-        api_response = api_instance.get_gc(gc_id)
-        pprint(api_response)
-    except harbor_client.ApiException as e:
-        print("Exception when calling GcApi->get_gc: %s\n" % e)
+try:
+    # Get gc status.
+    api_response = api_instance.get_gc(gc_id, x_request_id=x_request_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling GcApi->get_gc: %s\n" % e)
 ```
-
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **gc_id** | **int**| The ID of the gc log |
+ **gc_id** | **int**| The ID of the gc log | 
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
 
 ### Return type
 
@@ -167,87 +117,60 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Get gc results successfully. |  -  |
-**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gc_history**
-> [GCHistory] get_gc_history()
+> list[GCHistory] get_gc_history(x_request_id=x_request_id, q=q, sort=sort, page=page, page_size=page_size)
 
 Get gc results.
 
 This endpoint let user get gc execution history.
 
 ### Example
-
-* Basic Authentication (basic):
 ```python
+from __future__ import print_function
 import time
 import harbor_client
-from harbor_client.api import gc_api
-from harbor_client.model.gc_history import GCHistory
-from harbor_client.model.errors import Errors
+from harbor_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gc_api.GcApi(api_client)
-    q = "q_example" # str | Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max] (optional)
-    sort = "sort_example" # str | Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\" (optional)
-    page = 1 # int | The page number (optional) if omitted the server will use the default value of 1
-    page_size = 10 # int | The size of per page (optional) if omitted the server will use the default value of 10
+# create an instance of the API class
+api_instance = harbor_client.GcApi(harbor_client.ApiClient(configuration))
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
+q = 'q_example' # str | Query string to query resources. Supported query patterns are \"exact match(k=v)\", \"fuzzy match(k=~v)\", \"range(k=[min~max])\", \"list with union releationship(k={v1 v2 v3})\" and \"list with intersetion relationship(k=(v1 v2 v3))\". The value of range and list can be string(enclosed by \" or '), integer or time(in format \"2020-04-09 02:36:00\"). All of these query patterns should be put in the query string \"q=xxx\" and splitted by \",\". e.g. q=k1=v1,k2=~v2,k3=[min~max] (optional)
+sort = 'sort_example' # str | Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \"sort=field1,-field2\" (optional)
+page = 1 # int | The page number (optional) (default to 1)
+page_size = 10 # int | The size of per page (optional) (default to 10)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get gc results.
-        api_response = api_instance.get_gc_history(q=q, sort=sort, page=page, page_size=page_size)
-        pprint(api_response)
-    except harbor_client.ApiException as e:
-        print("Exception when calling GcApi->get_gc_history: %s\n" % e)
+try:
+    # Get gc results.
+    api_response = api_instance.get_gc_history(x_request_id=x_request_id, q=q, sort=sort, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling GcApi->get_gc_history: %s\n" % e)
 ```
-
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **str**| Query string to query resources. Supported query patterns are \&quot;exact match(k&#x3D;v)\&quot;, \&quot;fuzzy match(k&#x3D;~v)\&quot;, \&quot;range(k&#x3D;[min~max])\&quot;, \&quot;list with union releationship(k&#x3D;{v1 v2 v3})\&quot; and \&quot;list with intersetion relationship(k&#x3D;(v1 v2 v3))\&quot;. The value of range and list can be string(enclosed by \&quot; or &#39;), integer or time(in format \&quot;2020-04-09 02:36:00\&quot;). All of these query patterns should be put in the query string \&quot;q&#x3D;xxx\&quot; and splitted by \&quot;,\&quot;. e.g. q&#x3D;k1&#x3D;v1,k2&#x3D;~v2,k3&#x3D;[min~max] | [optional]
- **sort** | **str**| Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \&quot;sort&#x3D;field1,-field2\&quot; | [optional]
- **page** | **int**| The page number | [optional] if omitted the server will use the default value of 1
- **page_size** | **int**| The size of per page | [optional] if omitted the server will use the default value of 10
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
+ **q** | **str**| Query string to query resources. Supported query patterns are \&quot;exact match(k&#x3D;v)\&quot;, \&quot;fuzzy match(k&#x3D;~v)\&quot;, \&quot;range(k&#x3D;[min~max])\&quot;, \&quot;list with union releationship(k&#x3D;{v1 v2 v3})\&quot; and \&quot;list with intersetion relationship(k&#x3D;(v1 v2 v3))\&quot;. The value of range and list can be string(enclosed by \&quot; or &#39;), integer or time(in format \&quot;2020-04-09 02:36:00\&quot;). All of these query patterns should be put in the query string \&quot;q&#x3D;xxx\&quot; and splitted by \&quot;,\&quot;. e.g. q&#x3D;k1&#x3D;v1,k2&#x3D;~v2,k3&#x3D;[min~max] | [optional] 
+ **sort** | **str**| Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with \&quot;sort&#x3D;field1,-field2\&quot; | [optional] 
+ **page** | **int**| The page number | [optional] [default to 1]
+ **page_size** | **int**| The size of per page | [optional] [default to 10]
 
 ### Return type
 
-[**[GCHistory]**](GCHistory.md)
+[**list[GCHistory]**](GCHistory.md)
 
 ### Authorization
 
@@ -255,74 +178,50 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Get gc results successfully. |  * X-Total-Count - The total count of available items <br>  * Link - Link to previous page and next page <br>  |
-**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gc_log**
-> str get_gc_log(gc_id)
+> str get_gc_log(gc_id, x_request_id=x_request_id)
 
 Get gc job log.
 
 This endpoint let user get gc job logs filtered by specific ID.
 
 ### Example
-
-* Basic Authentication (basic):
 ```python
+from __future__ import print_function
 import time
 import harbor_client
-from harbor_client.api import gc_api
-from harbor_client.model.errors import Errors
+from harbor_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gc_api.GcApi(api_client)
-    gc_id = 1 # int | The ID of the gc log
+# create an instance of the API class
+api_instance = harbor_client.GcApi(harbor_client.ApiClient(configuration))
+gc_id = 789 # int | The ID of the gc log
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get gc job log.
-        api_response = api_instance.get_gc_log(gc_id)
-        pprint(api_response)
-    except harbor_client.ApiException as e:
-        print("Exception when calling GcApi->get_gc_log: %s\n" % e)
+try:
+    # Get gc job log.
+    api_response = api_instance.get_gc_log(gc_id, x_request_id=x_request_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling GcApi->get_gc_log: %s\n" % e)
 ```
-
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **gc_id** | **int**| The ID of the gc log |
+ **gc_id** | **int**| The ID of the gc log | 
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
 
 ### Return type
 
@@ -334,73 +233,48 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Get successfully. |  -  |
-**400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+ - **Content-Type**: application/json
+ - **Accept**: text/plain
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gc_schedule**
-> GCHistory get_gc_schedule()
+> GCHistory get_gc_schedule(x_request_id=x_request_id)
 
 Get gc's schedule.
 
 This endpoint is for get schedule of gc job.
 
 ### Example
-
-* Basic Authentication (basic):
 ```python
+from __future__ import print_function
 import time
 import harbor_client
-from harbor_client.api import gc_api
-from harbor_client.model.gc_history import GCHistory
-from harbor_client.model.errors import Errors
+from harbor_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gc_api.GcApi(api_client)
+# create an instance of the API class
+api_instance = harbor_client.GcApi(harbor_client.ApiClient(configuration))
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
 
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get gc's schedule.
-        api_response = api_instance.get_gc_schedule()
-        pprint(api_response)
-    except harbor_client.ApiException as e:
-        print("Exception when calling GcApi->get_gc_schedule: %s\n" % e)
+try:
+    # Get gc's schedule.
+    api_response = api_instance.get_gc_schedule(x_request_id=x_request_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling GcApi->get_gc_schedule: %s\n" % e)
 ```
 
-
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
 
 ### Return type
 
@@ -412,82 +286,49 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Get gc&#39;s schedule. |  -  |
-**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_gc_schedule**
-> update_gc_schedule(schedule)
+# **stop_gc**
+> stop_gc(gc_id, x_request_id=x_request_id)
 
-Update gc's schedule.
+Stop the specific GC execution
 
-This endpoint is for update gc schedule. 
+Stop the GC execution specified by ID
 
 ### Example
-
-* Basic Authentication (basic):
 ```python
+from __future__ import print_function
 import time
 import harbor_client
-from harbor_client.api import gc_api
-from harbor_client.model.schedule import Schedule
-from harbor_client.model.errors import Errors
+from harbor_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = gc_api.GcApi(api_client)
-    schedule = Schedule(
-        schedule=ScheduleObj(
-            type="Hourly",
-            cron="cron_example",
-        ),
-        parameters={
-            "key": {},
-        },
-    ) # Schedule | Updates of gc's schedule.
+# create an instance of the API class
+api_instance = harbor_client.GcApi(harbor_client.ApiClient(configuration))
+gc_id = 789 # int | The ID of the gc log
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update gc's schedule.
-        api_instance.update_gc_schedule(schedule)
-    except harbor_client.ApiException as e:
-        print("Exception when calling GcApi->update_gc_schedule: %s\n" % e)
+try:
+    # Stop the specific GC execution
+    api_instance.stop_gc(gc_id, x_request_id=x_request_id)
+except ApiException as e:
+    print("Exception when calling GcApi->stop_gc: %s\n" % e)
 ```
-
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **schedule** | [**Schedule**](Schedule.md)| Updates of gc&#39;s schedule. |
+ **gc_id** | **int**| The ID of the gc log | 
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
 
 ### Return type
 
@@ -502,15 +343,59 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Updated gc&#39;s schedule successfully. |  -  |
-**400** | Bad request |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
+# **update_gc_schedule**
+> update_gc_schedule(schedule, x_request_id=x_request_id)
+
+Update gc's schedule.
+
+This endpoint is for update gc schedule. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import harbor_client
+from harbor_client.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basic
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = harbor_client.GcApi(harbor_client.ApiClient(configuration))
+schedule = harbor_client.Schedule() # Schedule | Updates of gc's schedule.
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
+
+try:
+    # Update gc's schedule.
+    api_instance.update_gc_schedule(schedule, x_request_id=x_request_id)
+except ApiException as e:
+    print("Exception when calling GcApi->update_gc_schedule: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **schedule** | [**Schedule**](Schedule.md)| Updates of gc&#39;s schedule. | 
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

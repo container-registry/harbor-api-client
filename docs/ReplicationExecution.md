@@ -1,7 +1,5 @@
 # ReplicationExecution
 
-The replication execution
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -17,7 +15,6 @@ Name | Type | Description | Notes
 **succeed** | **int** | The count of succeed executions | [optional] 
 **in_progress** | **int** | The count of in_progress executions | [optional] 
 **stopped** | **int** | The count of stopped executions | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
