@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from api.scan_all_api import ScanAllApi  # noqa: E501
+from harbor_client.api.scan_all_api import ScanAllApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 

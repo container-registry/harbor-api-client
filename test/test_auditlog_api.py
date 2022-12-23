@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from api.auditlog_api import AuditlogApi  # noqa: E501
+from harbor_client.api.auditlog_api import AuditlogApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 

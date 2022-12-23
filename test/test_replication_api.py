@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from api.replication_api import ReplicationApi  # noqa: E501
+from harbor_client.api.replication_api import ReplicationApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 

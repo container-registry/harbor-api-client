@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from api.robotv1_api import Robotv1Api  # noqa: E501
+from harbor_client.api.robotv1_api import Robotv1Api  # noqa: E501
 from harbor_client.rest import ApiException
 
 
