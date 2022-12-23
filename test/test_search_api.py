@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.search_api import SearchApi  # noqa: E501
+from api.search_api import SearchApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestSearchApi(unittest.TestCase):
     """SearchApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.search_api.SearchApi()  # noqa: E501
+        self.api = api.search_api.SearchApi()  # noqa: E501
 
     def tearDown(self):
         pass

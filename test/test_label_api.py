@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.label_api import LabelApi  # noqa: E501
+from api.label_api import LabelApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestLabelApi(unittest.TestCase):
     """LabelApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.label_api.LabelApi()  # noqa: E501
+        self.api = api.label_api.LabelApi()  # noqa: E501
 
     def tearDown(self):
         pass

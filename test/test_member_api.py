@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.member_api import MemberApi  # noqa: E501
+from api.member_api import MemberApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestMemberApi(unittest.TestCase):
     """MemberApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.member_api.MemberApi()  # noqa: E501
+        self.api = api.member_api.MemberApi()  # noqa: E501
 
     def tearDown(self):
         pass

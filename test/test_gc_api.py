@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.gc_api import GcApi  # noqa: E501
+from api.gc_api import GcApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestGcApi(unittest.TestCase):
     """GcApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.gc_api.GcApi()  # noqa: E501
+        self.api = api.gc_api.GcApi()  # noqa: E501
 
     def tearDown(self):
         pass

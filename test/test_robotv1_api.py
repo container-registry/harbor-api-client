@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.robotv1_api import Robotv1Api  # noqa: E501
+from api.robotv1_api import Robotv1Api  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestRobotv1Api(unittest.TestCase):
     """Robotv1Api unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.robotv1_api.Robotv1Api()  # noqa: E501
+        self.api = api.robotv1_api.Robotv1Api()  # noqa: E501
 
     def tearDown(self):
         pass

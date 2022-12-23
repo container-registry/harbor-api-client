@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.scanner_api import ScannerApi  # noqa: E501
+from api.scanner_api import ScannerApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestScannerApi(unittest.TestCase):
     """ScannerApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.scanner_api.ScannerApi()  # noqa: E501
+        self.api = api.scanner_api.ScannerApi()  # noqa: E501
 
     def tearDown(self):
         pass

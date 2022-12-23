@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.registry_api import RegistryApi  # noqa: E501
+from api.registry_api import RegistryApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestRegistryApi(unittest.TestCase):
     """RegistryApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.registry_api.RegistryApi()  # noqa: E501
+        self.api = api.registry_api.RegistryApi()  # noqa: E501
 
     def tearDown(self):
         pass

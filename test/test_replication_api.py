@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.replication_api import ReplicationApi  # noqa: E501
+from api.replication_api import ReplicationApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestReplicationApi(unittest.TestCase):
     """ReplicationApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.replication_api.ReplicationApi()  # noqa: E501
+        self.api = api.replication_api.ReplicationApi()  # noqa: E501
 
     def tearDown(self):
         pass

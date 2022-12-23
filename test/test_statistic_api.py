@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.statistic_api import StatisticApi  # noqa: E501
+from api.statistic_api import StatisticApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestStatisticApi(unittest.TestCase):
     """StatisticApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.statistic_api.StatisticApi()  # noqa: E501
+        self.api = api.statistic_api.StatisticApi()  # noqa: E501
 
     def tearDown(self):
         pass

@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.auditlog_api import AuditlogApi  # noqa: E501
+from api.auditlog_api import AuditlogApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestAuditlogApi(unittest.TestCase):
     """AuditlogApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.auditlog_api.AuditlogApi()  # noqa: E501
+        self.api = api.auditlog_api.AuditlogApi()  # noqa: E501
 
     def tearDown(self):
         pass

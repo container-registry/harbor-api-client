@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.icon_api import IconApi  # noqa: E501
+from api.icon_api import IconApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestIconApi(unittest.TestCase):
     """IconApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.icon_api.IconApi()  # noqa: E501
+        self.api = api.icon_api.IconApi()  # noqa: E501
 
     def tearDown(self):
         pass

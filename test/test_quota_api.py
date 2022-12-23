@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.quota_api import QuotaApi  # noqa: E501
+from api.quota_api import QuotaApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestQuotaApi(unittest.TestCase):
     """QuotaApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.quota_api.QuotaApi()  # noqa: E501
+        self.api = api.quota_api.QuotaApi()  # noqa: E501
 
     def tearDown(self):
         pass

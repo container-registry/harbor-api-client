@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.project_api import ProjectApi  # noqa: E501
+from api.project_api import ProjectApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestProjectApi(unittest.TestCase):
     """ProjectApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.project_api.ProjectApi()  # noqa: E501
+        self.api = api.project_api.ProjectApi()  # noqa: E501
 
     def tearDown(self):
         pass

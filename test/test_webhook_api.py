@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.webhook_api import WebhookApi  # noqa: E501
+from api.webhook_api import WebhookApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestWebhookApi(unittest.TestCase):
     """WebhookApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.webhook_api.WebhookApi()  # noqa: E501
+        self.api = api.webhook_api.WebhookApi()  # noqa: E501
 
     def tearDown(self):
         pass

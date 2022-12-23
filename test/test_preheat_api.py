@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.preheat_api import PreheatApi  # noqa: E501
+from api.preheat_api import PreheatApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestPreheatApi(unittest.TestCase):
     """PreheatApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.preheat_api.PreheatApi()  # noqa: E501
+        self.api = api.preheat_api.PreheatApi()  # noqa: E501
 
     def tearDown(self):
         pass

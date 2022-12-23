@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.systeminfo_api import SysteminfoApi  # noqa: E501
+from api.systeminfo_api import SysteminfoApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestSysteminfoApi(unittest.TestCase):
     """SysteminfoApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.systeminfo_api.SysteminfoApi()  # noqa: E501
+        self.api = api.systeminfo_api.SysteminfoApi()  # noqa: E501
 
     def tearDown(self):
         pass

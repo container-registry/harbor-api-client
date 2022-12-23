@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.oidc_api import OidcApi  # noqa: E501
+from api.oidc_api import OidcApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestOidcApi(unittest.TestCase):
     """OidcApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.oidc_api.OidcApi()  # noqa: E501
+        self.api = api.oidc_api.OidcApi()  # noqa: E501
 
     def tearDown(self):
         pass

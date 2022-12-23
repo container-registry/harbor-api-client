@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.purge_api import PurgeApi  # noqa: E501
+from api.purge_api import PurgeApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestPurgeApi(unittest.TestCase):
     """PurgeApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.purge_api.PurgeApi()  # noqa: E501
+        self.api = api.purge_api.PurgeApi()  # noqa: E501
 
     def tearDown(self):
         pass

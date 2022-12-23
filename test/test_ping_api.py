@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.ping_api import PingApi  # noqa: E501
+from api.ping_api import PingApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestPingApi(unittest.TestCase):
     """PingApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.ping_api.PingApi()  # noqa: E501
+        self.api = api.ping_api.PingApi()  # noqa: E501
 
     def tearDown(self):
         pass

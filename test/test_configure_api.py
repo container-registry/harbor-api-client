@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.configure_api import ConfigureApi  # noqa: E501
+from api.configure_api import ConfigureApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestConfigureApi(unittest.TestCase):
     """ConfigureApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.configure_api.ConfigureApi()  # noqa: E501
+        self.api = api.configure_api.ConfigureApi()  # noqa: E501
 
     def tearDown(self):
         pass

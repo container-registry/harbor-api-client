@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.ldap_api import LdapApi  # noqa: E501
+from api.ldap_api import LdapApi  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestLdapApi(unittest.TestCase):
     """LdapApi unit test stubs"""
 
     def setUp(self):
-        self.api = harbor_client.ldap_api.LdapApi()  # noqa: E501
+        self.api = api.ldap_api.LdapApi()  # noqa: E501
 
     def tearDown(self):
         pass
