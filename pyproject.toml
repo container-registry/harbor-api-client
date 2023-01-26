@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "harbor-api-client"
-version = "2.7.3"
+version = "2.7.4"
 description = "Client for the Harbor API"
 authors = ["Vadim Bauer <vb@container-registry.com>", "Alexandre Krispin <development.s004k@simplelogin.com>"]
 keywords = ["Swagger", "Harbor API"]
 packages = [{include = "harbor_client", from = "src"}]
 license = "Apache-2.0"
-repository = "https://github.com/container-registry/harbor-python-client-api"
+repository = "https://github.com/container-registry/harbor-api-client"
 homepage = "https://container-registry.com"
 readme = "README.md"
 
