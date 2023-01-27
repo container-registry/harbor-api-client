@@ -2,10 +2,7 @@
 name = "harbor-api-client"
 version = "2.7.4"
 description = "Client for the Harbor API"
-authors = [
-  { name="Vadim Bauer", email="vb@container-registry.com" },
-  { name="Alexandre Krispin", email="development.s004k@simplelogin.com" }
-]
+authors = ["Vadim Bauer <vb@container-registry.com>", "Alexandre Krispin <development.s004k@simplelogin.com>"]
 keywords = ["Swagger", "Harbor API"]
 packages = [{include = "harbor_client", from = "src"}]
 license = "Apache-2.0"
@@ -13,12 +10,12 @@ repository = "https://github.com/container-registry/harbor-api-client"
 homepage = "https://container-registry.com"
 documentation = "https://container-registry.com/docs/"
 readme = "README.md"
-requires-python = ">=3.4"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/container-registry/harbor-api-client/issues"
 
 [tool.poetry.dependencies]
+python = ">=3.4"
 certifi = "^2022.12.7"
 six = "^1.10"
 python_dateutil = "^2.8.1"
