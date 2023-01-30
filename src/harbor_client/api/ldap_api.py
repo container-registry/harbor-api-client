@@ -33,7 +33,7 @@ class LdapApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def import_ldap_user(self, uid_list, **kwargs):  # noqa: E501
+    def import_ldap_user(self, uid_list, **kwargs):    # noqa: E501
         """Import selected available ldap users.  # noqa: E501
 
         This endpoint adds the selected available ldap users to harbor based on related configuration parameters from the system. System will try to guess the user email address and realname, add to harbor user information. If have errors when import user, will return the list of importing failed uid and the failed reason.   # noqa: E501
@@ -50,13 +50,9 @@ class LdapApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.import_ldap_user_with_http_info(uid_list, **kwargs)  # noqa: E501
-        else:
-            (data) = self.import_ldap_user_with_http_info(uid_list, **kwargs)  # noqa: E501
-            return data
+        return self.import_ldap_user_with_http_info(uid_list, **kwargs)  # noqa: E501
 
-    def import_ldap_user_with_http_info(self, uid_list, **kwargs):  # noqa: E501
+    def import_ldap_user_with_http_info(self, uid_list, **kwargs):    # noqa: E501
         """Import selected available ldap users.  # noqa: E501
 
         This endpoint adds the selected available ldap users to harbor based on related configuration parameters from the system. System will try to guess the user email address and realname, add to harbor user information. If have errors when import user, will return the list of importing failed uid and the failed reason.   # noqa: E501
@@ -73,18 +69,19 @@ class LdapApi(object):
                  returns the request thread.
         """
 
-        all_params = ['uid_list', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'uid_list',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method import_ldap_user" % key
+                    f"Got an unexpected keyword argument '{key}' to method import_ldap_user"
                 )
             params[key] = val
         del params['kwargs']
@@ -109,9 +106,7 @@ class LdapApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'uid_list' in params:
-            body_params = params['uid_list']
+        body_params = params.get('uid_list')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -139,7 +134,7 @@ class LdapApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def ping_ldap(self, **kwargs):  # noqa: E501
+    def ping_ldap(self, **kwargs):    # noqa: E501
         """Ping available ldap service.  # noqa: E501
 
         This endpoint ping the available ldap service for test related configuration parameters.   # noqa: E501
@@ -156,13 +151,9 @@ class LdapApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.ping_ldap_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.ping_ldap_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.ping_ldap_with_http_info(**kwargs)  # noqa: E501
 
-    def ping_ldap_with_http_info(self, **kwargs):  # noqa: E501
+    def ping_ldap_with_http_info(self, **kwargs):    # noqa: E501
         """Ping available ldap service.  # noqa: E501
 
         This endpoint ping the available ldap service for test related configuration parameters.   # noqa: E501
@@ -179,18 +170,19 @@ class LdapApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'ldapconf']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'x_request_id',
+            'ldapconf',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ping_ldap" % key
+                    f"Got an unexpected keyword argument '{key}' to method ping_ldap"
                 )
             params[key] = val
         del params['kwargs']
@@ -211,9 +203,7 @@ class LdapApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'ldapconf' in params:
-            body_params = params['ldapconf']
+        body_params = params.get('ldapconf')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -241,7 +231,7 @@ class LdapApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def search_ldap_group(self, **kwargs):  # noqa: E501
+    def search_ldap_group(self, **kwargs):    # noqa: E501
         """Search available ldap groups.  # noqa: E501
 
         This endpoint searches the available ldap groups based on related configuration parameters. support to search by groupname or groupdn.   # noqa: E501
@@ -259,13 +249,9 @@ class LdapApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.search_ldap_group_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.search_ldap_group_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.search_ldap_group_with_http_info(**kwargs)  # noqa: E501
 
-    def search_ldap_group_with_http_info(self, **kwargs):  # noqa: E501
+    def search_ldap_group_with_http_info(self, **kwargs):    # noqa: E501
         """Search available ldap groups.  # noqa: E501
 
         This endpoint searches the available ldap groups based on related configuration parameters. support to search by groupname or groupdn.   # noqa: E501
@@ -283,18 +269,20 @@ class LdapApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'groupname', 'groupdn']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'groupname',
+            'groupdn',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method search_ldap_group" % key
+                    f"Got an unexpected keyword argument '{key}' to method search_ldap_group"
                 )
             params[key] = val
         del params['kwargs']
@@ -347,7 +335,7 @@ class LdapApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def search_ldap_user(self, **kwargs):  # noqa: E501
+    def search_ldap_user(self, **kwargs):    # noqa: E501
         """Search available ldap users.  # noqa: E501
 
         This endpoint searches the available ldap users based on related configuration parameters. Support searched by input ladp configuration, load configuration from the system and specific filter.   # noqa: E501
@@ -364,13 +352,9 @@ class LdapApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.search_ldap_user_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.search_ldap_user_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.search_ldap_user_with_http_info(**kwargs)  # noqa: E501
 
-    def search_ldap_user_with_http_info(self, **kwargs):  # noqa: E501
+    def search_ldap_user_with_http_info(self, **kwargs):    # noqa: E501
         """Search available ldap users.  # noqa: E501
 
         This endpoint searches the available ldap users based on related configuration parameters. Support searched by input ladp configuration, load configuration from the system and specific filter.   # noqa: E501
@@ -387,18 +371,19 @@ class LdapApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'username']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'username',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method search_ldap_user" % key
+                    f"Got an unexpected keyword argument '{key}' to method search_ldap_user"
                 )
             params[key] = val
         del params['kwargs']

@@ -33,7 +33,7 @@ class GcApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_gc_schedule(self, schedule, **kwargs):  # noqa: E501
+    def create_gc_schedule(self, schedule, **kwargs):    # noqa: E501
         """Create a gc schedule.  # noqa: E501
 
         This endpoint is for update gc schedule.   # noqa: E501
@@ -50,13 +50,9 @@ class GcApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_gc_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_gc_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
-            return data
+        return self.create_gc_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
 
-    def create_gc_schedule_with_http_info(self, schedule, **kwargs):  # noqa: E501
+    def create_gc_schedule_with_http_info(self, schedule, **kwargs):    # noqa: E501
         """Create a gc schedule.  # noqa: E501
 
         This endpoint is for update gc schedule.   # noqa: E501
@@ -73,18 +69,19 @@ class GcApi(object):
                  returns the request thread.
         """
 
-        all_params = ['schedule', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'schedule',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_gc_schedule" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_gc_schedule"
                 )
             params[key] = val
         del params['kwargs']
@@ -109,9 +106,7 @@ class GcApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'schedule' in params:
-            body_params = params['schedule']
+        body_params = params.get('schedule')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -139,7 +134,7 @@ class GcApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_gc(self, gc_id, **kwargs):  # noqa: E501
+    def get_gc(self, gc_id, **kwargs):    # noqa: E501
         """Get gc status.  # noqa: E501
 
         This endpoint let user get gc status filtered by specific ID.  # noqa: E501
@@ -156,13 +151,9 @@ class GcApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_gc_with_http_info(gc_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_gc_with_http_info(gc_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_gc_with_http_info(gc_id, **kwargs)  # noqa: E501
 
-    def get_gc_with_http_info(self, gc_id, **kwargs):  # noqa: E501
+    def get_gc_with_http_info(self, gc_id, **kwargs):    # noqa: E501
         """Get gc status.  # noqa: E501
 
         This endpoint let user get gc status filtered by specific ID.  # noqa: E501
@@ -179,19 +170,18 @@ class GcApi(object):
                  returns the request thread.
         """
 
-        all_params = ['gc_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'gc_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_gc" % key
-                )
+                raise TypeError(f"Got an unexpected keyword argument '{key}' to method get_gc")
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'gc_id' is set
@@ -245,7 +235,7 @@ class GcApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_gc_history(self, **kwargs):  # noqa: E501
+    def get_gc_history(self, **kwargs):    # noqa: E501
         """Get gc results.  # noqa: E501
 
         This endpoint let user get gc execution history.  # noqa: E501
@@ -265,13 +255,9 @@ class GcApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_gc_history_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_gc_history_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_gc_history_with_http_info(**kwargs)  # noqa: E501
 
-    def get_gc_history_with_http_info(self, **kwargs):  # noqa: E501
+    def get_gc_history_with_http_info(self, **kwargs):    # noqa: E501
         """Get gc results.  # noqa: E501
 
         This endpoint let user get gc execution history.  # noqa: E501
@@ -291,18 +277,22 @@ class GcApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'q',
+            'sort',
+            'page',
+            'page_size',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_gc_history" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_gc_history"
                 )
             params[key] = val
         del params['kwargs']
@@ -361,7 +351,7 @@ class GcApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_gc_log(self, gc_id, **kwargs):  # noqa: E501
+    def get_gc_log(self, gc_id, **kwargs):    # noqa: E501
         """Get gc job log.  # noqa: E501
 
         This endpoint let user get gc job logs filtered by specific ID.  # noqa: E501
@@ -378,13 +368,9 @@ class GcApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_gc_log_with_http_info(gc_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_gc_log_with_http_info(gc_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_gc_log_with_http_info(gc_id, **kwargs)  # noqa: E501
 
-    def get_gc_log_with_http_info(self, gc_id, **kwargs):  # noqa: E501
+    def get_gc_log_with_http_info(self, gc_id, **kwargs):    # noqa: E501
         """Get gc job log.  # noqa: E501
 
         This endpoint let user get gc job logs filtered by specific ID.  # noqa: E501
@@ -401,18 +387,19 @@ class GcApi(object):
                  returns the request thread.
         """
 
-        all_params = ['gc_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'gc_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_gc_log" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_gc_log"
                 )
             params[key] = val
         del params['kwargs']
@@ -467,7 +454,7 @@ class GcApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_gc_schedule(self, **kwargs):  # noqa: E501
+    def get_gc_schedule(self, **kwargs):    # noqa: E501
         """Get gc's schedule.  # noqa: E501
 
         This endpoint is for get schedule of gc job.  # noqa: E501
@@ -483,13 +470,9 @@ class GcApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_gc_schedule_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_gc_schedule_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_gc_schedule_with_http_info(**kwargs)  # noqa: E501
 
-    def get_gc_schedule_with_http_info(self, **kwargs):  # noqa: E501
+    def get_gc_schedule_with_http_info(self, **kwargs):    # noqa: E501
         """Get gc's schedule.  # noqa: E501
 
         This endpoint is for get schedule of gc job.  # noqa: E501
@@ -505,18 +488,18 @@ class GcApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_gc_schedule" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_gc_schedule"
                 )
             params[key] = val
         del params['kwargs']
@@ -565,7 +548,7 @@ class GcApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def stop_gc(self, gc_id, **kwargs):  # noqa: E501
+    def stop_gc(self, gc_id, **kwargs):    # noqa: E501
         """Stop the specific GC execution  # noqa: E501
 
         Stop the GC execution specified by ID  # noqa: E501
@@ -582,13 +565,9 @@ class GcApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.stop_gc_with_http_info(gc_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.stop_gc_with_http_info(gc_id, **kwargs)  # noqa: E501
-            return data
+        return self.stop_gc_with_http_info(gc_id, **kwargs)  # noqa: E501
 
-    def stop_gc_with_http_info(self, gc_id, **kwargs):  # noqa: E501
+    def stop_gc_with_http_info(self, gc_id, **kwargs):    # noqa: E501
         """Stop the specific GC execution  # noqa: E501
 
         Stop the GC execution specified by ID  # noqa: E501
@@ -605,18 +584,19 @@ class GcApi(object):
                  returns the request thread.
         """
 
-        all_params = ['gc_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'gc_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method stop_gc" % key
+                    f"Got an unexpected keyword argument '{key}' to method stop_gc"
                 )
             params[key] = val
         del params['kwargs']
@@ -671,7 +651,7 @@ class GcApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_gc_schedule(self, schedule, **kwargs):  # noqa: E501
+    def update_gc_schedule(self, schedule, **kwargs):    # noqa: E501
         """Update gc's schedule.  # noqa: E501
 
         This endpoint is for update gc schedule.   # noqa: E501
@@ -688,13 +668,9 @@ class GcApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_gc_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_gc_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
-            return data
+        return self.update_gc_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
 
-    def update_gc_schedule_with_http_info(self, schedule, **kwargs):  # noqa: E501
+    def update_gc_schedule_with_http_info(self, schedule, **kwargs):    # noqa: E501
         """Update gc's schedule.  # noqa: E501
 
         This endpoint is for update gc schedule.   # noqa: E501
@@ -711,18 +687,19 @@ class GcApi(object):
                  returns the request thread.
         """
 
-        all_params = ['schedule', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'schedule',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_gc_schedule" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_gc_schedule"
                 )
             params[key] = val
         del params['kwargs']
@@ -747,9 +724,7 @@ class GcApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'schedule' in params:
-            body_params = params['schedule']
+        body_params = params.get('schedule')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

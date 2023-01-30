@@ -33,7 +33,7 @@ class PreheatApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_instance(self, instance, **kwargs):  # noqa: E501
+    def create_instance(self, instance, **kwargs):    # noqa: E501
         """Create p2p provider instances  # noqa: E501
 
         Create p2p provider instances  # noqa: E501
@@ -50,13 +50,9 @@ class PreheatApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_instance_with_http_info(instance, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_instance_with_http_info(instance, **kwargs)  # noqa: E501
-            return data
+        return self.create_instance_with_http_info(instance, **kwargs)  # noqa: E501
 
-    def create_instance_with_http_info(self, instance, **kwargs):  # noqa: E501
+    def create_instance_with_http_info(self, instance, **kwargs):    # noqa: E501
         """Create p2p provider instances  # noqa: E501
 
         Create p2p provider instances  # noqa: E501
@@ -73,18 +69,19 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instance', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'instance',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_instance" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_instance"
                 )
             params[key] = val
         del params['kwargs']
@@ -109,9 +106,7 @@ class PreheatApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'instance' in params:
-            body_params = params['instance']
+        body_params = params.get('instance')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -139,7 +134,7 @@ class PreheatApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_policy(self, project_name, policy, **kwargs):  # noqa: E501
+    def create_policy(self, project_name, policy, **kwargs):    # noqa: E501
         """Create a preheat policy under a project  # noqa: E501
 
         Create a preheat policy under a project  # noqa: E501
@@ -157,13 +152,9 @@ class PreheatApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_policy_with_http_info(project_name, policy, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_policy_with_http_info(project_name, policy, **kwargs)  # noqa: E501
-            return data
+        return self.create_policy_with_http_info(project_name, policy, **kwargs)  # noqa: E501
 
-    def create_policy_with_http_info(self, project_name, policy, **kwargs):  # noqa: E501
+    def create_policy_with_http_info(self, project_name, policy, **kwargs):    # noqa: E501
         """Create a preheat policy under a project  # noqa: E501
 
         Create a preheat policy under a project  # noqa: E501
@@ -181,18 +172,20 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'policy', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name',
+            'policy',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_policy" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_policy"
                 )
             params[key] = val
         del params['kwargs']
@@ -223,9 +216,7 @@ class PreheatApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'policy' in params:
-            body_params = params['policy']
+        body_params = params.get('policy')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -253,7 +244,7 @@ class PreheatApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_instance(self, preheat_instance_name, **kwargs):  # noqa: E501
+    def delete_instance(self, preheat_instance_name, **kwargs):    # noqa: E501
         """Delete the specified P2P provider instance  # noqa: E501
 
         Delete the specified P2P provider instance  # noqa: E501
@@ -270,13 +261,9 @@ class PreheatApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
-            return data
+        return self.delete_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
 
-    def delete_instance_with_http_info(self, preheat_instance_name, **kwargs):  # noqa: E501
+    def delete_instance_with_http_info(self, preheat_instance_name, **kwargs):    # noqa: E501
         """Delete the specified P2P provider instance  # noqa: E501
 
         Delete the specified P2P provider instance  # noqa: E501
@@ -293,18 +280,19 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['preheat_instance_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'preheat_instance_name',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_instance" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_instance"
                 )
             params[key] = val
         del params['kwargs']
@@ -359,7 +347,7 @@ class PreheatApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_policy(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
+    def delete_policy(self, project_name, preheat_policy_name, **kwargs):    # noqa: E501
         """Delete a preheat policy  # noqa: E501
 
         Delete a preheat policy  # noqa: E501
@@ -377,13 +365,9 @@ class PreheatApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
-            return data
+        return self.delete_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
 
-    def delete_policy_with_http_info(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
+    def delete_policy_with_http_info(self, project_name, preheat_policy_name, **kwargs):    # noqa: E501
         """Delete a preheat policy  # noqa: E501
 
         Delete a preheat policy  # noqa: E501
@@ -401,18 +385,20 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'preheat_policy_name',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_policy" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_policy"
                 )
             params[key] = val
         del params['kwargs']
@@ -473,7 +459,7 @@ class PreheatApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_execution(self, project_name, preheat_policy_name, execution_id, **kwargs):  # noqa: E501
+    def get_execution(self, project_name, preheat_policy_name, execution_id, **kwargs):    # noqa: E501
         """Get a execution detail by id  # noqa: E501
 
         Get a execution detail by id  # noqa: E501
@@ -492,13 +478,9 @@ class PreheatApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_execution_with_http_info(project_name, preheat_policy_name, execution_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_execution_with_http_info(project_name, preheat_policy_name, execution_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_execution_with_http_info(project_name, preheat_policy_name, execution_id, **kwargs)  # noqa: E501
 
-    def get_execution_with_http_info(self, project_name, preheat_policy_name, execution_id, **kwargs):  # noqa: E501
+    def get_execution_with_http_info(self, project_name, preheat_policy_name, execution_id, **kwargs):    # noqa: E501
         """Get a execution detail by id  # noqa: E501
 
         Get a execution detail by id  # noqa: E501
@@ -517,18 +499,21 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'execution_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'preheat_policy_name',
+            'execution_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_execution" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_execution"
                 )
             params[key] = val
         del params['kwargs']
@@ -595,7 +580,7 @@ class PreheatApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_instance(self, preheat_instance_name, **kwargs):  # noqa: E501
+    def get_instance(self, preheat_instance_name, **kwargs):    # noqa: E501
         """Get a P2P provider instance  # noqa: E501
 
         Get a P2P provider instance  # noqa: E501
@@ -612,13 +597,9 @@ class PreheatApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
-            return data
+        return self.get_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
 
-    def get_instance_with_http_info(self, preheat_instance_name, **kwargs):  # noqa: E501
+    def get_instance_with_http_info(self, preheat_instance_name, **kwargs):    # noqa: E501
         """Get a P2P provider instance  # noqa: E501
 
         Get a P2P provider instance  # noqa: E501
@@ -635,18 +616,19 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['preheat_instance_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'preheat_instance_name',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_instance" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_instance"
                 )
             params[key] = val
         del params['kwargs']
@@ -701,7 +683,7 @@ class PreheatApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_policy(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
+    def get_policy(self, project_name, preheat_policy_name, **kwargs):    # noqa: E501
         """Get a preheat policy  # noqa: E501
 
         Get a preheat policy  # noqa: E501
@@ -719,13 +701,9 @@ class PreheatApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
-            return data
+        return self.get_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
 
-    def get_policy_with_http_info(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
+    def get_policy_with_http_info(self, project_name, preheat_policy_name, **kwargs):    # noqa: E501
         """Get a preheat policy  # noqa: E501
 
         Get a preheat policy  # noqa: E501
@@ -743,18 +721,20 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'preheat_policy_name',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_policy" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_policy"
                 )
             params[key] = val
         del params['kwargs']
@@ -815,7 +795,7 @@ class PreheatApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_preheat_log(self, project_name, preheat_policy_name, execution_id, task_id, **kwargs):  # noqa: E501
+    def get_preheat_log(self, project_name, preheat_policy_name, execution_id, task_id, **kwargs):    # noqa: E501
         """Get the log text stream of the specified task for the given execution  # noqa: E501
 
         Get the log text stream of the specified task for the given execution  # noqa: E501
@@ -835,13 +815,9 @@ class PreheatApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_preheat_log_with_http_info(project_name, preheat_policy_name, execution_id, task_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_preheat_log_with_http_info(project_name, preheat_policy_name, execution_id, task_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_preheat_log_with_http_info(project_name, preheat_policy_name, execution_id, task_id, **kwargs)  # noqa: E501
 
-    def get_preheat_log_with_http_info(self, project_name, preheat_policy_name, execution_id, task_id, **kwargs):  # noqa: E501
+    def get_preheat_log_with_http_info(self, project_name, preheat_policy_name, execution_id, task_id, **kwargs):    # noqa: E501
         """Get the log text stream of the specified task for the given execution  # noqa: E501
 
         Get the log text stream of the specified task for the given execution  # noqa: E501
@@ -861,18 +837,22 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'execution_id', 'task_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'preheat_policy_name',
+            'execution_id',
+            'task_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_preheat_log" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_preheat_log"
                 )
             params[key] = val
         del params['kwargs']
@@ -945,7 +925,7 @@ class PreheatApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_executions(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
+    def list_executions(self, project_name, preheat_policy_name, **kwargs):    # noqa: E501
         """List executions for the given policy  # noqa: E501
 
         List executions for the given policy  # noqa: E501
@@ -967,11 +947,7 @@ class PreheatApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_executions_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_executions_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
-            return data
+        return self.list_executions_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
 
     def list_executions_with_http_info(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
         """List executions for the given policy  # noqa: E501

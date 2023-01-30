@@ -33,7 +33,7 @@ class RegistryApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_registry(self, registry, **kwargs):  # noqa: E501
+    def create_registry(self, registry, **kwargs):    # noqa: E501
         """Create a registry  # noqa: E501
 
         Create a registry  # noqa: E501
@@ -50,13 +50,9 @@ class RegistryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_registry_with_http_info(registry, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_registry_with_http_info(registry, **kwargs)  # noqa: E501
-            return data
+        return self.create_registry_with_http_info(registry, **kwargs)  # noqa: E501
 
-    def create_registry_with_http_info(self, registry, **kwargs):  # noqa: E501
+    def create_registry_with_http_info(self, registry, **kwargs):    # noqa: E501
         """Create a registry  # noqa: E501
 
         Create a registry  # noqa: E501
@@ -73,18 +69,19 @@ class RegistryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['registry', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'registry',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_registry" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_registry"
                 )
             params[key] = val
         del params['kwargs']
@@ -109,9 +106,7 @@ class RegistryApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'registry' in params:
-            body_params = params['registry']
+        body_params = params.get('registry')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -139,7 +134,7 @@ class RegistryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_registry(self, id, **kwargs):  # noqa: E501
+    def delete_registry(self, id, **kwargs):    # noqa: E501
         """Delete the specific registry  # noqa: E501
 
         Delete the specific registry  # noqa: E501
@@ -156,13 +151,9 @@ class RegistryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_registry_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_registry_with_http_info(id, **kwargs)  # noqa: E501
-            return data
+        return self.delete_registry_with_http_info(id, **kwargs)  # noqa: E501
 
-    def delete_registry_with_http_info(self, id, **kwargs):  # noqa: E501
+    def delete_registry_with_http_info(self, id, **kwargs):    # noqa: E501
         """Delete the specific registry  # noqa: E501
 
         Delete the specific registry  # noqa: E501
@@ -179,18 +170,19 @@ class RegistryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_registry" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_registry"
                 )
             params[key] = val
         del params['kwargs']
@@ -245,7 +237,7 @@ class RegistryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_registry(self, id, **kwargs):  # noqa: E501
+    def get_registry(self, id, **kwargs):    # noqa: E501
         """Get the specific registry  # noqa: E501
 
         Get the specific registry  # noqa: E501
@@ -262,13 +254,9 @@ class RegistryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_registry_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_registry_with_http_info(id, **kwargs)  # noqa: E501
-            return data
+        return self.get_registry_with_http_info(id, **kwargs)  # noqa: E501
 
-    def get_registry_with_http_info(self, id, **kwargs):  # noqa: E501
+    def get_registry_with_http_info(self, id, **kwargs):    # noqa: E501
         """Get the specific registry  # noqa: E501
 
         Get the specific registry  # noqa: E501
@@ -285,18 +273,19 @@ class RegistryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_registry" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_registry"
                 )
             params[key] = val
         del params['kwargs']
@@ -351,7 +340,7 @@ class RegistryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_registry_info(self, id, **kwargs):  # noqa: E501
+    def get_registry_info(self, id, **kwargs):    # noqa: E501
         """Get the registry info  # noqa: E501
 
         Get the registry info  # noqa: E501
@@ -368,13 +357,9 @@ class RegistryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_registry_info_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_registry_info_with_http_info(id, **kwargs)  # noqa: E501
-            return data
+        return self.get_registry_info_with_http_info(id, **kwargs)  # noqa: E501
 
-    def get_registry_info_with_http_info(self, id, **kwargs):  # noqa: E501
+    def get_registry_info_with_http_info(self, id, **kwargs):    # noqa: E501
         """Get the registry info  # noqa: E501
 
         Get the registry info  # noqa: E501
@@ -391,18 +376,19 @@ class RegistryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_registry_info" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_registry_info"
                 )
             params[key] = val
         del params['kwargs']
@@ -457,7 +443,7 @@ class RegistryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_registries(self, **kwargs):  # noqa: E501
+    def list_registries(self, **kwargs):    # noqa: E501
         """List the registries  # noqa: E501
 
         List the registries  # noqa: E501
@@ -478,13 +464,9 @@ class RegistryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_registries_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.list_registries_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.list_registries_with_http_info(**kwargs)  # noqa: E501
 
-    def list_registries_with_http_info(self, **kwargs):  # noqa: E501
+    def list_registries_with_http_info(self, **kwargs):    # noqa: E501
         """List the registries  # noqa: E501
 
         List the registries  # noqa: E501
@@ -505,18 +487,23 @@ class RegistryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'q', 'sort', 'page', 'page_size', 'name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'q',
+            'sort',
+            'page',
+            'page_size',
+            'name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_registries" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_registries"
                 )
             params[key] = val
         del params['kwargs']
@@ -577,7 +564,7 @@ class RegistryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_registry_provider_infos(self, **kwargs):  # noqa: E501
+    def list_registry_provider_infos(self, **kwargs):    # noqa: E501
         """List all registered registry provider information  # noqa: E501
 
         List all registered registry provider information  # noqa: E501
@@ -593,13 +580,9 @@ class RegistryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_registry_provider_infos_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.list_registry_provider_infos_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.list_registry_provider_infos_with_http_info(**kwargs)  # noqa: E501
 
-    def list_registry_provider_infos_with_http_info(self, **kwargs):  # noqa: E501
+    def list_registry_provider_infos_with_http_info(self, **kwargs):    # noqa: E501
         """List all registered registry provider information  # noqa: E501
 
         List all registered registry provider information  # noqa: E501
@@ -615,18 +598,18 @@ class RegistryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_registry_provider_infos" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_registry_provider_infos"
                 )
             params[key] = val
         del params['kwargs']
@@ -675,7 +658,7 @@ class RegistryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_registry_provider_types(self, **kwargs):  # noqa: E501
+    def list_registry_provider_types(self, **kwargs):    # noqa: E501
         """List registry adapters  # noqa: E501
 
         List registry adapters  # noqa: E501
@@ -691,13 +674,9 @@ class RegistryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_registry_provider_types_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.list_registry_provider_types_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.list_registry_provider_types_with_http_info(**kwargs)  # noqa: E501
 
-    def list_registry_provider_types_with_http_info(self, **kwargs):  # noqa: E501
+    def list_registry_provider_types_with_http_info(self, **kwargs):    # noqa: E501
         """List registry adapters  # noqa: E501
 
         List registry adapters  # noqa: E501
@@ -713,18 +692,18 @@ class RegistryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_registry_provider_types" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_registry_provider_types"
                 )
             params[key] = val
         del params['kwargs']
@@ -773,7 +752,7 @@ class RegistryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def ping_registry(self, registry, **kwargs):  # noqa: E501
+    def ping_registry(self, registry, **kwargs):    # noqa: E501
         """Check status of a registry  # noqa: E501
 
         Check status of a registry  # noqa: E501
@@ -790,13 +769,9 @@ class RegistryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.ping_registry_with_http_info(registry, **kwargs)  # noqa: E501
-        else:
-            (data) = self.ping_registry_with_http_info(registry, **kwargs)  # noqa: E501
-            return data
+        return self.ping_registry_with_http_info(registry, **kwargs)  # noqa: E501
 
-    def ping_registry_with_http_info(self, registry, **kwargs):  # noqa: E501
+    def ping_registry_with_http_info(self, registry, **kwargs):    # noqa: E501
         """Check status of a registry  # noqa: E501
 
         Check status of a registry  # noqa: E501
@@ -813,18 +788,19 @@ class RegistryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['registry', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'registry',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ping_registry" % key
+                    f"Got an unexpected keyword argument '{key}' to method ping_registry"
                 )
             params[key] = val
         del params['kwargs']
@@ -849,9 +825,7 @@ class RegistryApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'registry' in params:
-            body_params = params['registry']
+        body_params = params.get('registry')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -879,7 +853,7 @@ class RegistryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_registry(self, id, registry, **kwargs):  # noqa: E501
+    def update_registry(self, id, registry, **kwargs):    # noqa: E501
         """Update the registry  # noqa: E501
 
         Update the registry  # noqa: E501
@@ -897,13 +871,9 @@ class RegistryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_registry_with_http_info(id, registry, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_registry_with_http_info(id, registry, **kwargs)  # noqa: E501
-            return data
+        return self.update_registry_with_http_info(id, registry, **kwargs)  # noqa: E501
 
-    def update_registry_with_http_info(self, id, registry, **kwargs):  # noqa: E501
+    def update_registry_with_http_info(self, id, registry, **kwargs):    # noqa: E501
         """Update the registry  # noqa: E501
 
         Update the registry  # noqa: E501
@@ -921,18 +891,20 @@ class RegistryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'registry', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'id',
+            'registry',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_registry" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_registry"
                 )
             params[key] = val
         del params['kwargs']
@@ -963,9 +935,7 @@ class RegistryApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'registry' in params:
-            body_params = params['registry']
+        body_params = params.get('registry')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

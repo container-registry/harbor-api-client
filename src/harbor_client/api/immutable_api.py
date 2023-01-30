@@ -33,7 +33,7 @@ class ImmutableApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_immu_rule(self, project_name_or_id, immutable_rule, **kwargs):  # noqa: E501
+    def create_immu_rule(self, project_name_or_id, immutable_rule, **kwargs):    # noqa: E501
         """Add an immutable tag rule to current project  # noqa: E501
 
         This endpoint add an immutable tag rule to the project   # noqa: E501
@@ -52,13 +52,9 @@ class ImmutableApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_immu_rule_with_http_info(project_name_or_id, immutable_rule, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_immu_rule_with_http_info(project_name_or_id, immutable_rule, **kwargs)  # noqa: E501
-            return data
+        return self.create_immu_rule_with_http_info(project_name_or_id, immutable_rule, **kwargs)  # noqa: E501
 
-    def create_immu_rule_with_http_info(self, project_name_or_id, immutable_rule, **kwargs):  # noqa: E501
+    def create_immu_rule_with_http_info(self, project_name_or_id, immutable_rule, **kwargs):    # noqa: E501
         """Add an immutable tag rule to current project  # noqa: E501
 
         This endpoint add an immutable tag rule to the project   # noqa: E501
@@ -77,18 +73,21 @@ class ImmutableApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'immutable_rule', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name_or_id',
+            'immutable_rule',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_immu_rule" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_immu_rule"
                 )
             params[key] = val
         del params['kwargs']
@@ -121,9 +120,7 @@ class ImmutableApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'immutable_rule' in params:
-            body_params = params['immutable_rule']
+        body_params = params.get('immutable_rule')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -151,7 +148,7 @@ class ImmutableApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_immu_rule(self, project_name_or_id, immutable_rule_id, **kwargs):  # noqa: E501
+    def delete_immu_rule(self, project_name_or_id, immutable_rule_id, **kwargs):    # noqa: E501
         """Delete the immutable tag rule.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -169,13 +166,9 @@ class ImmutableApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, **kwargs)  # noqa: E501
-            return data
+        return self.delete_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, **kwargs)  # noqa: E501
 
-    def delete_immu_rule_with_http_info(self, project_name_or_id, immutable_rule_id, **kwargs):  # noqa: E501
+    def delete_immu_rule_with_http_info(self, project_name_or_id, immutable_rule_id, **kwargs):    # noqa: E501
         """Delete the immutable tag rule.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -193,18 +186,21 @@ class ImmutableApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'immutable_rule_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'immutable_rule_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_immu_rule" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_immu_rule"
                 )
             params[key] = val
         del params['kwargs']
@@ -267,7 +263,7 @@ class ImmutableApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_immu_rules(self, project_name_or_id, **kwargs):  # noqa: E501
+    def list_immu_rules(self, project_name_or_id, **kwargs):    # noqa: E501
         """List all immutable tag rules of current project  # noqa: E501
 
         This endpoint returns the immutable tag rules of a project   # noqa: E501
@@ -289,13 +285,9 @@ class ImmutableApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_immu_rules_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_immu_rules_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.list_immu_rules_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def list_immu_rules_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def list_immu_rules_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """List all immutable tag rules of current project  # noqa: E501
 
         This endpoint returns the immutable tag rules of a project   # noqa: E501
@@ -317,18 +309,24 @@ class ImmutableApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name', 'page', 'page_size', 'q', 'sort']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'page',
+            'page_size',
+            'q',
+            'sort',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_immu_rules" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_immu_rules"
                 )
             params[key] = val
         del params['kwargs']
@@ -395,7 +393,7 @@ class ImmutableApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_immu_rule(self, project_name_or_id, immutable_rule_id, immutable_rule, **kwargs):  # noqa: E501
+    def update_immu_rule(self, project_name_or_id, immutable_rule_id, immutable_rule, **kwargs):    # noqa: E501
         """Update the immutable tag rule or enable or disable the rule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -414,13 +412,9 @@ class ImmutableApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, immutable_rule, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, immutable_rule, **kwargs)  # noqa: E501
-            return data
+        return self.update_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, immutable_rule, **kwargs)  # noqa: E501
 
-    def update_immu_rule_with_http_info(self, project_name_or_id, immutable_rule_id, immutable_rule, **kwargs):  # noqa: E501
+    def update_immu_rule_with_http_info(self, project_name_or_id, immutable_rule_id, immutable_rule, **kwargs):    # noqa: E501
         """Update the immutable tag rule or enable or disable the rule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -439,18 +433,22 @@ class ImmutableApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'immutable_rule_id', 'immutable_rule', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name_or_id',
+            'immutable_rule_id',
+            'immutable_rule',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_immu_rule" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_immu_rule"
                 )
             params[key] = val
         del params['kwargs']
@@ -489,9 +487,7 @@ class ImmutableApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'immutable_rule' in params:
-            body_params = params['immutable_rule']
+        body_params = params.get('immutable_rule')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

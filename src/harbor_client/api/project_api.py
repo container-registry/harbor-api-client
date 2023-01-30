@@ -33,7 +33,7 @@ class ProjectApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_project(self, project, **kwargs):  # noqa: E501
+    def create_project(self, project, **kwargs):    # noqa: E501
         """Create a new project.  # noqa: E501
 
         This endpoint is for user to create a new project.  # noqa: E501
@@ -51,13 +51,9 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_project_with_http_info(project, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_project_with_http_info(project, **kwargs)  # noqa: E501
-            return data
+        return self.create_project_with_http_info(project, **kwargs)  # noqa: E501
 
-    def create_project_with_http_info(self, project, **kwargs):  # noqa: E501
+    def create_project_with_http_info(self, project, **kwargs):    # noqa: E501
         """Create a new project.  # noqa: E501
 
         This endpoint is for user to create a new project.  # noqa: E501
@@ -75,18 +71,20 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project', 'x_request_id', 'x_resource_name_in_location']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project',
+            'x_request_id',
+            'x_resource_name_in_location',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_project" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_project"
                 )
             params[key] = val
         del params['kwargs']
@@ -113,9 +111,7 @@ class ProjectApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'project' in params:
-            body_params = params['project']
+        body_params = params.get('project')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -143,7 +139,7 @@ class ProjectApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_project(self, project_name_or_id, **kwargs):  # noqa: E501
+    def delete_project(self, project_name_or_id, **kwargs):    # noqa: E501
         """Delete project by projectID  # noqa: E501
 
         This endpoint is aimed to delete project by project ID.  # noqa: E501
@@ -161,13 +157,9 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.delete_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def delete_project_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def delete_project_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """Delete project by projectID  # noqa: E501
 
         This endpoint is aimed to delete project by project ID.  # noqa: E501
@@ -185,18 +177,20 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_project" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_project"
                 )
             params[key] = val
         del params['kwargs']
@@ -253,7 +247,7 @@ class ProjectApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_logs(self, project_name, **kwargs):  # noqa: E501
+    def get_logs(self, project_name, **kwargs):    # noqa: E501
         """Get recent logs of the projects  # noqa: E501
 
         Get recent logs of the projects  # noqa: E501
@@ -274,13 +268,9 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_logs_with_http_info(project_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_logs_with_http_info(project_name, **kwargs)  # noqa: E501
-            return data
+        return self.get_logs_with_http_info(project_name, **kwargs)  # noqa: E501
 
-    def get_logs_with_http_info(self, project_name, **kwargs):  # noqa: E501
+    def get_logs_with_http_info(self, project_name, **kwargs):    # noqa: E501
         """Get recent logs of the projects  # noqa: E501
 
         Get recent logs of the projects  # noqa: E501
@@ -301,18 +291,23 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'x_request_id', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'x_request_id',
+            'q',
+            'sort',
+            'page',
+            'page_size',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_logs" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_logs"
                 )
             params[key] = val
         del params['kwargs']
@@ -377,7 +372,7 @@ class ProjectApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_project(self, project_name_or_id, **kwargs):  # noqa: E501
+    def get_project(self, project_name_or_id, **kwargs):    # noqa: E501
         """Return specific project detail information  # noqa: E501
 
         This endpoint returns specific project information by project ID.  # noqa: E501
@@ -395,13 +390,9 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def get_project_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def get_project_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """Return specific project detail information  # noqa: E501
 
         This endpoint returns specific project information by project ID.  # noqa: E501
@@ -419,18 +410,20 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_project" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_project"
                 )
             params[key] = val
         del params['kwargs']
@@ -487,7 +480,7 @@ class ProjectApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_project_deletable(self, project_name_or_id, **kwargs):  # noqa: E501
+    def get_project_deletable(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get the deletable status of the project  # noqa: E501
 
         Get the deletable status of the project  # noqa: E501
@@ -505,13 +498,9 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_project_deletable_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_project_deletable_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_project_deletable_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def get_project_deletable_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def get_project_deletable_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get the deletable status of the project  # noqa: E501
 
         Get the deletable status of the project  # noqa: E501
@@ -529,18 +518,20 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_project_deletable" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_project_deletable"
                 )
             params[key] = val
         del params['kwargs']
@@ -597,7 +588,7 @@ class ProjectApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_project_summary(self, project_name_or_id, **kwargs):  # noqa: E501
+    def get_project_summary(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get summary of the project.  # noqa: E501
 
         Get summary of the project.  # noqa: E501
@@ -615,13 +606,9 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_project_summary_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_project_summary_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_project_summary_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def get_project_summary_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def get_project_summary_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get summary of the project.  # noqa: E501
 
         Get summary of the project.  # noqa: E501
@@ -639,18 +626,20 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_project_summary" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_project_summary"
                 )
             params[key] = val
         del params['kwargs']
@@ -707,7 +696,7 @@ class ProjectApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_scanner_of_project(self, project_name_or_id, **kwargs):  # noqa: E501
+    def get_scanner_of_project(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get project level scanner  # noqa: E501
 
         Get the scanner registration of the specified project. If no scanner registration is configured for the specified project, the system default scanner registration will be returned.  # noqa: E501
@@ -725,13 +714,9 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_scanner_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_scanner_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_scanner_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def get_scanner_of_project_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def get_scanner_of_project_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get project level scanner  # noqa: E501
 
         Get the scanner registration of the specified project. If no scanner registration is configured for the specified project, the system default scanner registration will be returned.  # noqa: E501
@@ -749,18 +734,20 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_scanner_of_project" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_scanner_of_project"
                 )
             params[key] = val
         del params['kwargs']
@@ -817,7 +804,7 @@ class ProjectApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def head_project(self, project_name, **kwargs):  # noqa: E501
+    def head_project(self, project_name, **kwargs):    # noqa: E501
         """Check if the project name user provided already exists.  # noqa: E501
 
         This endpoint is used to check if the project name provided already exist.  # noqa: E501
@@ -834,13 +821,9 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.head_project_with_http_info(project_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.head_project_with_http_info(project_name, **kwargs)  # noqa: E501
-            return data
+        return self.head_project_with_http_info(project_name, **kwargs)  # noqa: E501
 
-    def head_project_with_http_info(self, project_name, **kwargs):  # noqa: E501
+    def head_project_with_http_info(self, project_name, **kwargs):    # noqa: E501
         """Check if the project name user provided already exists.  # noqa: E501
 
         This endpoint is used to check if the project name provided already exist.  # noqa: E501
@@ -857,18 +840,19 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method head_project" % key
+                    f"Got an unexpected keyword argument '{key}' to method head_project"
                 )
             params[key] = val
         del params['kwargs']
@@ -923,7 +907,7 @@ class ProjectApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_projects(self, **kwargs):  # noqa: E501
+    def list_projects(self, **kwargs):    # noqa: E501
         """List projects  # noqa: E501
 
         This endpoint returns projects created by Harbor.  # noqa: E501
@@ -947,13 +931,9 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_projects_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.list_projects_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.list_projects_with_http_info(**kwargs)  # noqa: E501
 
-    def list_projects_with_http_info(self, **kwargs):  # noqa: E501
+    def list_projects_with_http_info(self, **kwargs):    # noqa: E501
         """List projects  # noqa: E501
 
         This endpoint returns projects created by Harbor.  # noqa: E501
@@ -977,18 +957,26 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'q', 'page', 'page_size', 'sort', 'name', 'public', 'owner', 'with_detail']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'q',
+            'page',
+            'page_size',
+            'sort',
+            'name',
+            'public',
+            'owner',
+            'with_detail',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_projects" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_projects"
                 )
             params[key] = val
         del params['kwargs']
@@ -1055,7 +1043,7 @@ class ProjectApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_scanner_candidates_of_project(self, project_name_or_id, **kwargs):  # noqa: E501
+    def list_scanner_candidates_of_project(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get scanner registration candidates for configurating project level scanner  # noqa: E501
 
         Retrieve the system configured scanner registrations as candidates of setting project level scanner.  # noqa: E501
@@ -1077,11 +1065,7 @@ class ProjectApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_scanner_candidates_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_scanner_candidates_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.list_scanner_candidates_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
     def list_scanner_candidates_of_project_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
         """Get scanner registration candidates for configurating project level scanner  # noqa: E501

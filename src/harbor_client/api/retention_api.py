@@ -33,7 +33,7 @@ class RetentionApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_retention(self, policy, **kwargs):  # noqa: E501
+    def create_retention(self, policy, **kwargs):    # noqa: E501
         """Create Retention Policy  # noqa: E501
 
         Create Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when no retention policy binded to project yet.  # noqa: E501
@@ -50,13 +50,9 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_retention_with_http_info(policy, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_retention_with_http_info(policy, **kwargs)  # noqa: E501
-            return data
+        return self.create_retention_with_http_info(policy, **kwargs)  # noqa: E501
 
-    def create_retention_with_http_info(self, policy, **kwargs):  # noqa: E501
+    def create_retention_with_http_info(self, policy, **kwargs):    # noqa: E501
         """Create Retention Policy  # noqa: E501
 
         Create Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when no retention policy binded to project yet.  # noqa: E501
@@ -73,18 +69,19 @@ class RetentionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['policy', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'policy',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_retention" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_retention"
                 )
             params[key] = val
         del params['kwargs']
@@ -109,9 +106,7 @@ class RetentionApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'policy' in params:
-            body_params = params['policy']
+        body_params = params.get('policy')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -139,7 +134,7 @@ class RetentionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_retention(self, id, **kwargs):  # noqa: E501
+    def delete_retention(self, id, **kwargs):    # noqa: E501
         """Delete Retention Policy  # noqa: E501
 
         Delete Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when retention policy has already binded to project.  # noqa: E501
@@ -156,13 +151,9 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_retention_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_retention_with_http_info(id, **kwargs)  # noqa: E501
-            return data
+        return self.delete_retention_with_http_info(id, **kwargs)  # noqa: E501
 
-    def delete_retention_with_http_info(self, id, **kwargs):  # noqa: E501
+    def delete_retention_with_http_info(self, id, **kwargs):    # noqa: E501
         """Delete Retention Policy  # noqa: E501
 
         Delete Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when retention policy has already binded to project.  # noqa: E501
@@ -179,18 +170,19 @@ class RetentionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_retention" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_retention"
                 )
             params[key] = val
         del params['kwargs']
@@ -245,7 +237,7 @@ class RetentionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_rentenition_metadata(self, **kwargs):  # noqa: E501
+    def get_rentenition_metadata(self, **kwargs):    # noqa: E501
         """Get Retention Metadatas  # noqa: E501
 
         Get Retention Metadatas.  # noqa: E501
@@ -261,13 +253,9 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_rentenition_metadata_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_rentenition_metadata_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_rentenition_metadata_with_http_info(**kwargs)  # noqa: E501
 
-    def get_rentenition_metadata_with_http_info(self, **kwargs):  # noqa: E501
+    def get_rentenition_metadata_with_http_info(self, **kwargs):    # noqa: E501
         """Get Retention Metadatas  # noqa: E501
 
         Get Retention Metadatas.  # noqa: E501
@@ -283,18 +271,18 @@ class RetentionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_rentenition_metadata" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_rentenition_metadata"
                 )
             params[key] = val
         del params['kwargs']
@@ -343,7 +331,7 @@ class RetentionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_retention(self, id, **kwargs):  # noqa: E501
+    def get_retention(self, id, **kwargs):    # noqa: E501
         """Get Retention Policy  # noqa: E501
 
         Get Retention Policy.  # noqa: E501
@@ -360,13 +348,9 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_retention_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_retention_with_http_info(id, **kwargs)  # noqa: E501
-            return data
+        return self.get_retention_with_http_info(id, **kwargs)  # noqa: E501
 
-    def get_retention_with_http_info(self, id, **kwargs):  # noqa: E501
+    def get_retention_with_http_info(self, id, **kwargs):    # noqa: E501
         """Get Retention Policy  # noqa: E501
 
         Get Retention Policy.  # noqa: E501
@@ -383,18 +367,19 @@ class RetentionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_retention" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_retention"
                 )
             params[key] = val
         del params['kwargs']
@@ -449,7 +434,7 @@ class RetentionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_retention_task_log(self, id, eid, tid, **kwargs):  # noqa: E501
+    def get_retention_task_log(self, id, eid, tid, **kwargs):    # noqa: E501
         """Get Retention job task log  # noqa: E501
 
         Get Retention job task log, tags ratain or deletion detail will be shown in a table.  # noqa: E501
@@ -468,13 +453,9 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_retention_task_log_with_http_info(id, eid, tid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_retention_task_log_with_http_info(id, eid, tid, **kwargs)  # noqa: E501
-            return data
+        return self.get_retention_task_log_with_http_info(id, eid, tid, **kwargs)  # noqa: E501
 
-    def get_retention_task_log_with_http_info(self, id, eid, tid, **kwargs):  # noqa: E501
+    def get_retention_task_log_with_http_info(self, id, eid, tid, **kwargs):    # noqa: E501
         """Get Retention job task log  # noqa: E501
 
         Get Retention job task log, tags ratain or deletion detail will be shown in a table.  # noqa: E501
@@ -493,18 +474,21 @@ class RetentionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'eid', 'tid', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'id',
+            'eid',
+            'tid',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_retention_task_log" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_retention_task_log"
                 )
             params[key] = val
         del params['kwargs']
@@ -571,7 +555,7 @@ class RetentionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_retention_executions(self, id, **kwargs):  # noqa: E501
+    def list_retention_executions(self, id, **kwargs):    # noqa: E501
         """Get Retention executions  # noqa: E501
 
         Get Retention executions, execution status may be delayed before job service schedule it up.  # noqa: E501
@@ -590,13 +574,9 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_retention_executions_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_retention_executions_with_http_info(id, **kwargs)  # noqa: E501
-            return data
+        return self.list_retention_executions_with_http_info(id, **kwargs)  # noqa: E501
 
-    def list_retention_executions_with_http_info(self, id, **kwargs):  # noqa: E501
+    def list_retention_executions_with_http_info(self, id, **kwargs):    # noqa: E501
         """Get Retention executions  # noqa: E501
 
         Get Retention executions, execution status may be delayed before job service schedule it up.  # noqa: E501
@@ -615,18 +595,21 @@ class RetentionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'x_request_id', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'id',
+            'x_request_id',
+            'page',
+            'page_size',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_retention_executions" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_retention_executions"
                 )
             params[key] = val
         del params['kwargs']
@@ -685,7 +668,7 @@ class RetentionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_retention_tasks(self, id, eid, **kwargs):  # noqa: E501
+    def list_retention_tasks(self, id, eid, **kwargs):    # noqa: E501
         """Get Retention tasks  # noqa: E501
 
         Get Retention tasks, each repository as a task.  # noqa: E501
@@ -705,13 +688,9 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_retention_tasks_with_http_info(id, eid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_retention_tasks_with_http_info(id, eid, **kwargs)  # noqa: E501
-            return data
+        return self.list_retention_tasks_with_http_info(id, eid, **kwargs)  # noqa: E501
 
-    def list_retention_tasks_with_http_info(self, id, eid, **kwargs):  # noqa: E501
+    def list_retention_tasks_with_http_info(self, id, eid, **kwargs):    # noqa: E501
         """Get Retention tasks  # noqa: E501
 
         Get Retention tasks, each repository as a task.  # noqa: E501
@@ -731,18 +710,22 @@ class RetentionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'eid', 'x_request_id', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'id',
+            'eid',
+            'x_request_id',
+            'page',
+            'page_size',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_retention_tasks" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_retention_tasks"
                 )
             params[key] = val
         del params['kwargs']
@@ -807,7 +790,7 @@ class RetentionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def operate_retention_execution(self, id, eid, body, **kwargs):  # noqa: E501
+    def operate_retention_execution(self, id, eid, body, **kwargs):    # noqa: E501
         """Stop a Retention execution  # noqa: E501
 
         Stop a Retention execution, only support \"stop\" action now.  # noqa: E501
@@ -826,13 +809,9 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.operate_retention_execution_with_http_info(id, eid, body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.operate_retention_execution_with_http_info(id, eid, body, **kwargs)  # noqa: E501
-            return data
+        return self.operate_retention_execution_with_http_info(id, eid, body, **kwargs)  # noqa: E501
 
-    def operate_retention_execution_with_http_info(self, id, eid, body, **kwargs):  # noqa: E501
+    def operate_retention_execution_with_http_info(self, id, eid, body, **kwargs):    # noqa: E501
         """Stop a Retention execution  # noqa: E501
 
         Stop a Retention execution, only support \"stop\" action now.  # noqa: E501
@@ -851,18 +830,21 @@ class RetentionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'eid', 'body', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'id',
+            'eid',
+            'body',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method operate_retention_execution" % key
+                    f"Got an unexpected keyword argument '{key}' to method operate_retention_execution"
                 )
             params[key] = val
         del params['kwargs']
@@ -899,9 +881,7 @@ class RetentionApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        body_params = params.get('body')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -929,7 +909,7 @@ class RetentionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def trigger_retention_execution(self, id, body, **kwargs):  # noqa: E501
+    def trigger_retention_execution(self, id, body, **kwargs):    # noqa: E501
         """Trigger a Retention Execution  # noqa: E501
 
         Trigger a Retention Execution, if dry_run is True, nothing would be deleted actually.  # noqa: E501
@@ -947,13 +927,9 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.trigger_retention_execution_with_http_info(id, body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.trigger_retention_execution_with_http_info(id, body, **kwargs)  # noqa: E501
-            return data
+        return self.trigger_retention_execution_with_http_info(id, body, **kwargs)  # noqa: E501
 
-    def trigger_retention_execution_with_http_info(self, id, body, **kwargs):  # noqa: E501
+    def trigger_retention_execution_with_http_info(self, id, body, **kwargs):    # noqa: E501
         """Trigger a Retention Execution  # noqa: E501
 
         Trigger a Retention Execution, if dry_run is True, nothing would be deleted actually.  # noqa: E501
@@ -971,18 +947,20 @@ class RetentionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'body', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'id',
+            'body',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method trigger_retention_execution" % key
+                    f"Got an unexpected keyword argument '{key}' to method trigger_retention_execution"
                 )
             params[key] = val
         del params['kwargs']
@@ -1013,9 +991,7 @@ class RetentionApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        body_params = params.get('body')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['text/plain'])  # noqa: E501
@@ -1043,7 +1019,7 @@ class RetentionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_retention(self, id, policy, **kwargs):  # noqa: E501
+    def update_retention(self, id, policy, **kwargs):    # noqa: E501
         """Update Retention Policy  # noqa: E501
 
         Update Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when retention policy has already binded to project.  # noqa: E501
@@ -1061,11 +1037,7 @@ class RetentionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_retention_with_http_info(id, policy, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_retention_with_http_info(id, policy, **kwargs)  # noqa: E501
-            return data
+        return self.update_retention_with_http_info(id, policy, **kwargs)  # noqa: E501
 
     def update_retention_with_http_info(self, id, policy, **kwargs):  # noqa: E501
         """Update Retention Policy  # noqa: E501

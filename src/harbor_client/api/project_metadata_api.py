@@ -33,7 +33,7 @@ class ProjectMetadataApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_project_metadatas(self, project_name_or_id, **kwargs):  # noqa: E501
+    def add_project_metadatas(self, project_name_or_id, **kwargs):    # noqa: E501
         """Add metadata for the specific project  # noqa: E501
 
         Add metadata for the specific project  # noqa: E501
@@ -52,13 +52,9 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.add_project_metadatas_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.add_project_metadatas_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.add_project_metadatas_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def add_project_metadatas_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def add_project_metadatas_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """Add metadata for the specific project  # noqa: E501
 
         Add metadata for the specific project  # noqa: E501
@@ -77,18 +73,21 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name', 'metadata']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'metadata',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method add_project_metadatas" % key
+                    f"Got an unexpected keyword argument '{key}' to method add_project_metadatas"
                 )
             params[key] = val
         del params['kwargs']
@@ -117,9 +116,7 @@ class ProjectMetadataApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'metadata' in params:
-            body_params = params['metadata']
+        body_params = params.get('metadata')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -147,7 +144,7 @@ class ProjectMetadataApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_project_metadata(self, project_name_or_id, meta_name, **kwargs):  # noqa: E501
+    def delete_project_metadata(self, project_name_or_id, meta_name, **kwargs):    # noqa: E501
         """Delete the specific metadata for the specific project  # noqa: E501
 
         Delete the specific metadata for the specific project  # noqa: E501
@@ -166,13 +163,9 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_project_metadata_with_http_info(project_name_or_id, meta_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_project_metadata_with_http_info(project_name_or_id, meta_name, **kwargs)  # noqa: E501
-            return data
+        return self.delete_project_metadata_with_http_info(project_name_or_id, meta_name, **kwargs)  # noqa: E501
 
-    def delete_project_metadata_with_http_info(self, project_name_or_id, meta_name, **kwargs):  # noqa: E501
+    def delete_project_metadata_with_http_info(self, project_name_or_id, meta_name, **kwargs):    # noqa: E501
         """Delete the specific metadata for the specific project  # noqa: E501
 
         Delete the specific metadata for the specific project  # noqa: E501
@@ -191,18 +184,21 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'meta_name', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'meta_name',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_project_metadata" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_project_metadata"
                 )
             params[key] = val
         del params['kwargs']
@@ -265,7 +261,7 @@ class ProjectMetadataApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_project_metadata(self, project_name_or_id, meta_name, **kwargs):  # noqa: E501
+    def get_project_metadata(self, project_name_or_id, meta_name, **kwargs):    # noqa: E501
         """Get the specific metadata of the specific project  # noqa: E501
 
         Get the specific metadata of the specific project  # noqa: E501
@@ -284,13 +280,9 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_project_metadata_with_http_info(project_name_or_id, meta_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_project_metadata_with_http_info(project_name_or_id, meta_name, **kwargs)  # noqa: E501
-            return data
+        return self.get_project_metadata_with_http_info(project_name_or_id, meta_name, **kwargs)  # noqa: E501
 
-    def get_project_metadata_with_http_info(self, project_name_or_id, meta_name, **kwargs):  # noqa: E501
+    def get_project_metadata_with_http_info(self, project_name_or_id, meta_name, **kwargs):    # noqa: E501
         """Get the specific metadata of the specific project  # noqa: E501
 
         Get the specific metadata of the specific project  # noqa: E501
@@ -309,18 +301,21 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'meta_name', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'meta_name',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_project_metadata" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_project_metadata"
                 )
             params[key] = val
         del params['kwargs']
@@ -383,7 +378,7 @@ class ProjectMetadataApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_project_metadatas(self, project_name_or_id, **kwargs):  # noqa: E501
+    def list_project_metadatas(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get the metadata of the specific project  # noqa: E501
 
         Get the metadata of the specific project  # noqa: E501
@@ -401,13 +396,9 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_project_metadatas_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_project_metadatas_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.list_project_metadatas_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def list_project_metadatas_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def list_project_metadatas_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get the metadata of the specific project  # noqa: E501
 
         Get the metadata of the specific project  # noqa: E501
@@ -425,18 +416,20 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_project_metadatas" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_project_metadatas"
                 )
             params[key] = val
         del params['kwargs']
@@ -493,7 +486,7 @@ class ProjectMetadataApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_project_metadata(self, project_name_or_id, meta_name, **kwargs):  # noqa: E501
+    def update_project_metadata(self, project_name_or_id, meta_name, **kwargs):    # noqa: E501
         """Update the specific metadata for the specific project  # noqa: E501
 
         Update the specific metadata for the specific project  # noqa: E501
@@ -513,13 +506,9 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_project_metadata_with_http_info(project_name_or_id, meta_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_project_metadata_with_http_info(project_name_or_id, meta_name, **kwargs)  # noqa: E501
-            return data
+        return self.update_project_metadata_with_http_info(project_name_or_id, meta_name, **kwargs)  # noqa: E501
 
-    def update_project_metadata_with_http_info(self, project_name_or_id, meta_name, **kwargs):  # noqa: E501
+    def update_project_metadata_with_http_info(self, project_name_or_id, meta_name, **kwargs):    # noqa: E501
         """Update the specific metadata for the specific project  # noqa: E501
 
         Update the specific metadata for the specific project  # noqa: E501
@@ -539,18 +528,22 @@ class ProjectMetadataApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'meta_name', 'x_request_id', 'x_is_resource_name', 'metadata']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name_or_id',
+            'meta_name',
+            'x_request_id',
+            'x_is_resource_name',
+            'metadata',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_project_metadata" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_project_metadata"
                 )
             params[key] = val
         del params['kwargs']
@@ -585,9 +578,7 @@ class ProjectMetadataApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'metadata' in params:
-            body_params = params['metadata']
+        body_params = params.get('metadata')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

@@ -33,7 +33,7 @@ class OidcApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def ping_oidc(self, endpoint, **kwargs):  # noqa: E501
+    def ping_oidc(self, endpoint, **kwargs):    # noqa: E501
         """Test the OIDC endpoint.  # noqa: E501
 
         Test the OIDC endpoint, the setting of the endpoint is provided in the request.  This API can only be called by system admin.   # noqa: E501
@@ -50,13 +50,9 @@ class OidcApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.ping_oidc_with_http_info(endpoint, **kwargs)  # noqa: E501
-        else:
-            (data) = self.ping_oidc_with_http_info(endpoint, **kwargs)  # noqa: E501
-            return data
+        return self.ping_oidc_with_http_info(endpoint, **kwargs)  # noqa: E501
 
-    def ping_oidc_with_http_info(self, endpoint, **kwargs):  # noqa: E501
+    def ping_oidc_with_http_info(self, endpoint, **kwargs):    # noqa: E501
         """Test the OIDC endpoint.  # noqa: E501
 
         Test the OIDC endpoint, the setting of the endpoint is provided in the request.  This API can only be called by system admin.   # noqa: E501
@@ -73,18 +69,19 @@ class OidcApi(object):
                  returns the request thread.
         """
 
-        all_params = ['endpoint', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'endpoint',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ping_oidc" % key
+                    f"Got an unexpected keyword argument '{key}' to method ping_oidc"
                 )
             params[key] = val
         del params['kwargs']
@@ -109,9 +106,7 @@ class OidcApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'endpoint' in params:
-            body_params = params['endpoint']
+        body_params = params.get('endpoint')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

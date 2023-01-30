@@ -33,7 +33,7 @@ class RobotApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_robot(self, robot, **kwargs):  # noqa: E501
+    def create_robot(self, robot, **kwargs):    # noqa: E501
         """Create a robot account  # noqa: E501
 
         Create a robot account  # noqa: E501
@@ -50,13 +50,9 @@ class RobotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_robot_with_http_info(robot, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_robot_with_http_info(robot, **kwargs)  # noqa: E501
-            return data
+        return self.create_robot_with_http_info(robot, **kwargs)  # noqa: E501
 
-    def create_robot_with_http_info(self, robot, **kwargs):  # noqa: E501
+    def create_robot_with_http_info(self, robot, **kwargs):    # noqa: E501
         """Create a robot account  # noqa: E501
 
         Create a robot account  # noqa: E501
@@ -73,18 +69,19 @@ class RobotApi(object):
                  returns the request thread.
         """
 
-        all_params = ['robot', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'robot',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_robot" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_robot"
                 )
             params[key] = val
         del params['kwargs']
@@ -109,9 +106,7 @@ class RobotApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'robot' in params:
-            body_params = params['robot']
+        body_params = params.get('robot')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -139,7 +134,7 @@ class RobotApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_robot(self, robot_id, **kwargs):  # noqa: E501
+    def delete_robot(self, robot_id, **kwargs):    # noqa: E501
         """Delete a robot account  # noqa: E501
 
         This endpoint deletes specific robot account information by robot ID.  # noqa: E501
@@ -156,13 +151,9 @@ class RobotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_robot_with_http_info(robot_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_robot_with_http_info(robot_id, **kwargs)  # noqa: E501
-            return data
+        return self.delete_robot_with_http_info(robot_id, **kwargs)  # noqa: E501
 
-    def delete_robot_with_http_info(self, robot_id, **kwargs):  # noqa: E501
+    def delete_robot_with_http_info(self, robot_id, **kwargs):    # noqa: E501
         """Delete a robot account  # noqa: E501
 
         This endpoint deletes specific robot account information by robot ID.  # noqa: E501
@@ -179,18 +170,19 @@ class RobotApi(object):
                  returns the request thread.
         """
 
-        all_params = ['robot_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'robot_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_robot" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_robot"
                 )
             params[key] = val
         del params['kwargs']
@@ -245,7 +237,7 @@ class RobotApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_robot_by_id(self, robot_id, **kwargs):  # noqa: E501
+    def get_robot_by_id(self, robot_id, **kwargs):    # noqa: E501
         """Get a robot account  # noqa: E501
 
         This endpoint returns specific robot account information by robot ID.  # noqa: E501
@@ -262,13 +254,9 @@ class RobotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_robot_by_id_with_http_info(robot_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_robot_by_id_with_http_info(robot_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_robot_by_id_with_http_info(robot_id, **kwargs)  # noqa: E501
 
-    def get_robot_by_id_with_http_info(self, robot_id, **kwargs):  # noqa: E501
+    def get_robot_by_id_with_http_info(self, robot_id, **kwargs):    # noqa: E501
         """Get a robot account  # noqa: E501
 
         This endpoint returns specific robot account information by robot ID.  # noqa: E501
@@ -285,18 +273,19 @@ class RobotApi(object):
                  returns the request thread.
         """
 
-        all_params = ['robot_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'robot_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_robot_by_id" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_robot_by_id"
                 )
             params[key] = val
         del params['kwargs']
@@ -351,7 +340,7 @@ class RobotApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_robot(self, **kwargs):  # noqa: E501
+    def list_robot(self, **kwargs):    # noqa: E501
         """Get robot account  # noqa: E501
 
         List the robot accounts with the specified level and project.  # noqa: E501
@@ -371,13 +360,9 @@ class RobotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_robot_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.list_robot_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.list_robot_with_http_info(**kwargs)  # noqa: E501
 
-    def list_robot_with_http_info(self, **kwargs):  # noqa: E501
+    def list_robot_with_http_info(self, **kwargs):    # noqa: E501
         """Get robot account  # noqa: E501
 
         List the robot accounts with the specified level and project.  # noqa: E501
@@ -397,18 +382,22 @@ class RobotApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'q',
+            'sort',
+            'page',
+            'page_size',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_robot" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_robot"
                 )
             params[key] = val
         del params['kwargs']
@@ -467,7 +456,7 @@ class RobotApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def refresh_sec(self, robot_id, robot_sec, **kwargs):  # noqa: E501
+    def refresh_sec(self, robot_id, robot_sec, **kwargs):    # noqa: E501
         """Refresh the robot secret  # noqa: E501
 
         Refresh the robot secret  # noqa: E501
@@ -485,13 +474,9 @@ class RobotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.refresh_sec_with_http_info(robot_id, robot_sec, **kwargs)  # noqa: E501
-        else:
-            (data) = self.refresh_sec_with_http_info(robot_id, robot_sec, **kwargs)  # noqa: E501
-            return data
+        return self.refresh_sec_with_http_info(robot_id, robot_sec, **kwargs)  # noqa: E501
 
-    def refresh_sec_with_http_info(self, robot_id, robot_sec, **kwargs):  # noqa: E501
+    def refresh_sec_with_http_info(self, robot_id, robot_sec, **kwargs):    # noqa: E501
         """Refresh the robot secret  # noqa: E501
 
         Refresh the robot secret  # noqa: E501
@@ -509,18 +494,20 @@ class RobotApi(object):
                  returns the request thread.
         """
 
-        all_params = ['robot_id', 'robot_sec', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'robot_id',
+            'robot_sec',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method refresh_sec" % key
+                    f"Got an unexpected keyword argument '{key}' to method refresh_sec"
                 )
             params[key] = val
         del params['kwargs']
@@ -551,9 +538,7 @@ class RobotApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'robot_sec' in params:
-            body_params = params['robot_sec']
+        body_params = params.get('robot_sec')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -581,7 +566,7 @@ class RobotApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_robot(self, robot_id, robot, **kwargs):  # noqa: E501
+    def update_robot(self, robot_id, robot, **kwargs):    # noqa: E501
         """Update a robot account  # noqa: E501
 
         This endpoint updates specific robot account information by robot ID.  # noqa: E501
@@ -599,13 +584,9 @@ class RobotApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_robot_with_http_info(robot_id, robot, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_robot_with_http_info(robot_id, robot, **kwargs)  # noqa: E501
-            return data
+        return self.update_robot_with_http_info(robot_id, robot, **kwargs)  # noqa: E501
 
-    def update_robot_with_http_info(self, robot_id, robot, **kwargs):  # noqa: E501
+    def update_robot_with_http_info(self, robot_id, robot, **kwargs):    # noqa: E501
         """Update a robot account  # noqa: E501
 
         This endpoint updates specific robot account information by robot ID.  # noqa: E501
@@ -623,18 +604,20 @@ class RobotApi(object):
                  returns the request thread.
         """
 
-        all_params = ['robot_id', 'robot', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'robot_id',
+            'robot',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_robot" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_robot"
                 )
             params[key] = val
         del params['kwargs']
@@ -665,9 +648,7 @@ class RobotApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'robot' in params:
-            body_params = params['robot']
+        body_params = params.get('robot')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

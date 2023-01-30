@@ -33,7 +33,7 @@ class PingApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_ping(self, **kwargs):  # noqa: E501
+    def get_ping(self, **kwargs):    # noqa: E501
         """Ping Harbor to check if it's alive.  # noqa: E501
 
         This API simply replies a pong to indicate the process to handle API is up, disregarding the health status of dependent components.  # noqa: E501
@@ -49,13 +49,9 @@ class PingApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_ping_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_ping_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_ping_with_http_info(**kwargs)  # noqa: E501
 
-    def get_ping_with_http_info(self, **kwargs):  # noqa: E501
+    def get_ping_with_http_info(self, **kwargs):    # noqa: E501
         """Ping Harbor to check if it's alive.  # noqa: E501
 
         This API simply replies a pong to indicate the process to handle API is up, disregarding the health status of dependent components.  # noqa: E501
@@ -71,18 +67,18 @@ class PingApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_ping" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_ping"
                 )
             params[key] = val
         del params['kwargs']

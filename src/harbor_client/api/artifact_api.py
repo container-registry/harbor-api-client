@@ -33,7 +33,7 @@ class ArtifactApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_label(self, project_name, repository_name, reference, label, **kwargs):  # noqa: E501
+    def add_label(self, project_name, repository_name, reference, label, **kwargs):    # noqa: E501
         """Add label to artifact  # noqa: E501
 
         Add label to the specified artiact.  # noqa: E501
@@ -53,13 +53,9 @@ class ArtifactApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.add_label_with_http_info(project_name, repository_name, reference, label, **kwargs)  # noqa: E501
-        else:
-            (data) = self.add_label_with_http_info(project_name, repository_name, reference, label, **kwargs)  # noqa: E501
-            return data
+        return self.add_label_with_http_info(project_name, repository_name, reference, label, **kwargs)  # noqa: E501
 
-    def add_label_with_http_info(self, project_name, repository_name, reference, label, **kwargs):  # noqa: E501
+    def add_label_with_http_info(self, project_name, repository_name, reference, label, **kwargs):    # noqa: E501
         """Add label to artifact  # noqa: E501
 
         Add label to the specified artiact.  # noqa: E501
@@ -79,18 +75,22 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'label', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name',
+            'repository_name',
+            'reference',
+            'label',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method add_label" % key
+                    f"Got an unexpected keyword argument '{key}' to method add_label"
                 )
             params[key] = val
         del params['kwargs']
@@ -133,9 +133,7 @@ class ArtifactApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'label' in params:
-            body_params = params['label']
+        body_params = params.get('label')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -163,7 +161,7 @@ class ArtifactApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def copy_artifact(self, project_name, repository_name, _from, **kwargs):  # noqa: E501
+    def copy_artifact(self, project_name, repository_name, _from, **kwargs):    # noqa: E501
         """Copy artifact  # noqa: E501
 
         Copy the artifact specified in the \"from\" parameter to the repository.  # noqa: E501
@@ -182,13 +180,9 @@ class ArtifactApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.copy_artifact_with_http_info(project_name, repository_name, _from, **kwargs)  # noqa: E501
-        else:
-            (data) = self.copy_artifact_with_http_info(project_name, repository_name, _from, **kwargs)  # noqa: E501
-            return data
+        return self.copy_artifact_with_http_info(project_name, repository_name, _from, **kwargs)  # noqa: E501
 
-    def copy_artifact_with_http_info(self, project_name, repository_name, _from, **kwargs):  # noqa: E501
+    def copy_artifact_with_http_info(self, project_name, repository_name, _from, **kwargs):    # noqa: E501
         """Copy artifact  # noqa: E501
 
         Copy the artifact specified in the \"from\" parameter to the repository.  # noqa: E501
@@ -207,18 +201,21 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', '_from', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'repository_name',
+            '_from',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method copy_artifact" % key
+                    f"Got an unexpected keyword argument '{key}' to method copy_artifact"
                 )
             params[key] = val
         del params['kwargs']
@@ -285,7 +282,7 @@ class ArtifactApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_tag(self, project_name, repository_name, reference, tag, **kwargs):  # noqa: E501
+    def create_tag(self, project_name, repository_name, reference, tag, **kwargs):    # noqa: E501
         """Create tag  # noqa: E501
 
         Create a tag for the specified artifact  # noqa: E501
@@ -305,13 +302,9 @@ class ArtifactApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_tag_with_http_info(project_name, repository_name, reference, tag, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_tag_with_http_info(project_name, repository_name, reference, tag, **kwargs)  # noqa: E501
-            return data
+        return self.create_tag_with_http_info(project_name, repository_name, reference, tag, **kwargs)  # noqa: E501
 
-    def create_tag_with_http_info(self, project_name, repository_name, reference, tag, **kwargs):  # noqa: E501
+    def create_tag_with_http_info(self, project_name, repository_name, reference, tag, **kwargs):    # noqa: E501
         """Create tag  # noqa: E501
 
         Create a tag for the specified artifact  # noqa: E501
@@ -331,18 +324,22 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'tag', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name',
+            'repository_name',
+            'reference',
+            'tag',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_tag" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_tag"
                 )
             params[key] = val
         del params['kwargs']
@@ -385,9 +382,7 @@ class ArtifactApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'tag' in params:
-            body_params = params['tag']
+        body_params = params.get('tag')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -415,7 +410,7 @@ class ArtifactApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_artifact(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def delete_artifact(self, project_name, repository_name, reference, **kwargs):    # noqa: E501
         """Delete the specific artifact  # noqa: E501
 
         Delete the artifact specified by the reference under the project and repository. The reference can be digest or tag  # noqa: E501
@@ -434,13 +429,9 @@ class ArtifactApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
-            return data
+        return self.delete_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
 
-    def delete_artifact_with_http_info(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def delete_artifact_with_http_info(self, project_name, repository_name, reference, **kwargs):    # noqa: E501
         """Delete the specific artifact  # noqa: E501
 
         Delete the artifact specified by the reference under the project and repository. The reference can be digest or tag  # noqa: E501
@@ -459,18 +450,21 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'repository_name',
+            'reference',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_artifact" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_artifact"
                 )
             params[key] = val
         del params['kwargs']
@@ -537,7 +531,7 @@ class ArtifactApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_tag(self, project_name, repository_name, reference, tag_name, **kwargs):  # noqa: E501
+    def delete_tag(self, project_name, repository_name, reference, tag_name, **kwargs):    # noqa: E501
         """Delete tag  # noqa: E501
 
         Delete the tag of the specified artifact  # noqa: E501
@@ -557,13 +551,9 @@ class ArtifactApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_tag_with_http_info(project_name, repository_name, reference, tag_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_tag_with_http_info(project_name, repository_name, reference, tag_name, **kwargs)  # noqa: E501
-            return data
+        return self.delete_tag_with_http_info(project_name, repository_name, reference, tag_name, **kwargs)  # noqa: E501
 
-    def delete_tag_with_http_info(self, project_name, repository_name, reference, tag_name, **kwargs):  # noqa: E501
+    def delete_tag_with_http_info(self, project_name, repository_name, reference, tag_name, **kwargs):    # noqa: E501
         """Delete tag  # noqa: E501
 
         Delete the tag of the specified artifact  # noqa: E501
@@ -583,18 +573,22 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'tag_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'repository_name',
+            'reference',
+            'tag_name',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_tag" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_tag"
                 )
             params[key] = val
         del params['kwargs']
@@ -667,7 +661,7 @@ class ArtifactApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_addition(self, project_name, repository_name, reference, addition, **kwargs):  # noqa: E501
+    def get_addition(self, project_name, repository_name, reference, addition, **kwargs):    # noqa: E501
         """Get the addition of the specific artifact  # noqa: E501
 
         Get the addition of the artifact specified by the reference under the project and repository.  # noqa: E501
@@ -687,13 +681,9 @@ class ArtifactApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_addition_with_http_info(project_name, repository_name, reference, addition, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_addition_with_http_info(project_name, repository_name, reference, addition, **kwargs)  # noqa: E501
-            return data
+        return self.get_addition_with_http_info(project_name, repository_name, reference, addition, **kwargs)  # noqa: E501
 
-    def get_addition_with_http_info(self, project_name, repository_name, reference, addition, **kwargs):  # noqa: E501
+    def get_addition_with_http_info(self, project_name, repository_name, reference, addition, **kwargs):    # noqa: E501
         """Get the addition of the specific artifact  # noqa: E501
 
         Get the addition of the artifact specified by the reference under the project and repository.  # noqa: E501
@@ -713,18 +703,22 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'addition', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'repository_name',
+            'reference',
+            'addition',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_addition" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_addition"
                 )
             params[key] = val
         del params['kwargs']
@@ -797,7 +791,7 @@ class ArtifactApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_artifact(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def get_artifact(self, project_name, repository_name, reference, **kwargs):    # noqa: E501
         """Get the specific artifact  # noqa: E501
 
         Get the artifact specified by the reference under the project and repository. The reference can be digest or tag.  # noqa: E501
@@ -825,13 +819,9 @@ class ArtifactApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
-            return data
+        return self.get_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
 
-    def get_artifact_with_http_info(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def get_artifact_with_http_info(self, project_name, repository_name, reference, **kwargs):    # noqa: E501
         """Get the specific artifact  # noqa: E501
 
         Get the artifact specified by the reference under the project and repository. The reference can be digest or tag.  # noqa: E501
@@ -859,18 +849,30 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'x_request_id', 'page', 'page_size', 'x_accept_vulnerabilities', 'with_tag', 'with_label', 'with_scan_overview', 'with_accessory', 'with_signature', 'with_immutable_status']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'repository_name',
+            'reference',
+            'x_request_id',
+            'page',
+            'page_size',
+            'x_accept_vulnerabilities',
+            'with_tag',
+            'with_label',
+            'with_scan_overview',
+            'with_accessory',
+            'with_signature',
+            'with_immutable_status',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_artifact" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_artifact"
                 )
             params[key] = val
         del params['kwargs']
@@ -957,7 +959,7 @@ class ArtifactApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_vulnerabilities_addition(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def get_vulnerabilities_addition(self, project_name, repository_name, reference, **kwargs):    # noqa: E501
         """Get the vulnerabilities addition of the specific artifact  # noqa: E501
 
         Get the vulnerabilities addition of the artifact specified by the reference under the project and repository.  # noqa: E501
@@ -977,11 +979,7 @@ class ArtifactApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_vulnerabilities_addition_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_vulnerabilities_addition_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
-            return data
+        return self.get_vulnerabilities_addition_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
 
     def get_vulnerabilities_addition_with_http_info(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
         """Get the vulnerabilities addition of the specific artifact  # noqa: E501

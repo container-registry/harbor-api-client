@@ -33,7 +33,7 @@ class ConfigureApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_configurations(self, **kwargs):  # noqa: E501
+    def get_configurations(self, **kwargs):    # noqa: E501
         """Get system configurations.  # noqa: E501
 
         This endpoint is for retrieving system configurations that only provides for admin user.   # noqa: E501
@@ -49,13 +49,9 @@ class ConfigureApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_configurations_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_configurations_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_configurations_with_http_info(**kwargs)  # noqa: E501
 
-    def get_configurations_with_http_info(self, **kwargs):  # noqa: E501
+    def get_configurations_with_http_info(self, **kwargs):    # noqa: E501
         """Get system configurations.  # noqa: E501
 
         This endpoint is for retrieving system configurations that only provides for admin user.   # noqa: E501
@@ -71,18 +67,18 @@ class ConfigureApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_configurations" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_configurations"
                 )
             params[key] = val
         del params['kwargs']
@@ -131,7 +127,7 @@ class ConfigureApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_internalconfig(self, **kwargs):  # noqa: E501
+    def get_internalconfig(self, **kwargs):    # noqa: E501
         """Get internal configurations.  # noqa: E501
 
         This endpoint is for retrieving system configurations that only provides for internal api call.   # noqa: E501
@@ -147,13 +143,9 @@ class ConfigureApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_internalconfig_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_internalconfig_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_internalconfig_with_http_info(**kwargs)  # noqa: E501
 
-    def get_internalconfig_with_http_info(self, **kwargs):  # noqa: E501
+    def get_internalconfig_with_http_info(self, **kwargs):    # noqa: E501
         """Get internal configurations.  # noqa: E501
 
         This endpoint is for retrieving system configurations that only provides for internal api call.   # noqa: E501
@@ -169,18 +161,18 @@ class ConfigureApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_internalconfig" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_internalconfig"
                 )
             params[key] = val
         del params['kwargs']
@@ -229,7 +221,7 @@ class ConfigureApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_configurations(self, configurations, **kwargs):  # noqa: E501
+    def update_configurations(self, configurations, **kwargs):    # noqa: E501
         """Modify system configurations.  # noqa: E501
 
         This endpoint is for modifying system configurations that only provides for admin user.   # noqa: E501
@@ -246,13 +238,9 @@ class ConfigureApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_configurations_with_http_info(configurations, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_configurations_with_http_info(configurations, **kwargs)  # noqa: E501
-            return data
+        return self.update_configurations_with_http_info(configurations, **kwargs)  # noqa: E501
 
-    def update_configurations_with_http_info(self, configurations, **kwargs):  # noqa: E501
+    def update_configurations_with_http_info(self, configurations, **kwargs):    # noqa: E501
         """Modify system configurations.  # noqa: E501
 
         This endpoint is for modifying system configurations that only provides for admin user.   # noqa: E501
@@ -269,18 +257,19 @@ class ConfigureApi(object):
                  returns the request thread.
         """
 
-        all_params = ['configurations', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'configurations',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_configurations" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_configurations"
                 )
             params[key] = val
         del params['kwargs']
@@ -305,9 +294,7 @@ class ConfigureApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'configurations' in params:
-            body_params = params['configurations']
+        body_params = params.get('configurations')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

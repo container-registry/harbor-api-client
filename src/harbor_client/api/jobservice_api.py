@@ -33,7 +33,7 @@ class JobserviceApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def action_pending_jobs(self, job_type, action_request, **kwargs):  # noqa: E501
+    def action_pending_jobs(self, job_type, action_request, **kwargs):    # noqa: E501
         """stop and clean, pause, resume pending jobs in the queue  # noqa: E501
 
         stop and clean, pause, resume pending jobs in the queue  # noqa: E501
@@ -51,13 +51,9 @@ class JobserviceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.action_pending_jobs_with_http_info(job_type, action_request, **kwargs)  # noqa: E501
-        else:
-            (data) = self.action_pending_jobs_with_http_info(job_type, action_request, **kwargs)  # noqa: E501
-            return data
+        return self.action_pending_jobs_with_http_info(job_type, action_request, **kwargs)  # noqa: E501
 
-    def action_pending_jobs_with_http_info(self, job_type, action_request, **kwargs):  # noqa: E501
+    def action_pending_jobs_with_http_info(self, job_type, action_request, **kwargs):    # noqa: E501
         """stop and clean, pause, resume pending jobs in the queue  # noqa: E501
 
         stop and clean, pause, resume pending jobs in the queue  # noqa: E501
@@ -75,18 +71,20 @@ class JobserviceApi(object):
                  returns the request thread.
         """
 
-        all_params = ['job_type', 'action_request', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'job_type',
+            'action_request',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method action_pending_jobs" % key
+                    f"Got an unexpected keyword argument '{key}' to method action_pending_jobs"
                 )
             params[key] = val
         del params['kwargs']
@@ -117,9 +115,7 @@ class JobserviceApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'action_request' in params:
-            body_params = params['action_request']
+        body_params = params.get('action_request')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -147,7 +143,7 @@ class JobserviceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_worker_pools(self, **kwargs):  # noqa: E501
+    def get_worker_pools(self, **kwargs):    # noqa: E501
         """Get worker pools  # noqa: E501
 
         Get worker pools  # noqa: E501
@@ -163,13 +159,9 @@ class JobserviceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_worker_pools_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_worker_pools_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_worker_pools_with_http_info(**kwargs)  # noqa: E501
 
-    def get_worker_pools_with_http_info(self, **kwargs):  # noqa: E501
+    def get_worker_pools_with_http_info(self, **kwargs):    # noqa: E501
         """Get worker pools  # noqa: E501
 
         Get worker pools  # noqa: E501
@@ -185,18 +177,18 @@ class JobserviceApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_worker_pools" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_worker_pools"
                 )
             params[key] = val
         del params['kwargs']
@@ -245,7 +237,7 @@ class JobserviceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_workers(self, pool_id, **kwargs):  # noqa: E501
+    def get_workers(self, pool_id, **kwargs):    # noqa: E501
         """Get workers  # noqa: E501
 
         Get workers in current pool  # noqa: E501
@@ -262,13 +254,9 @@ class JobserviceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_workers_with_http_info(pool_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_workers_with_http_info(pool_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_workers_with_http_info(pool_id, **kwargs)  # noqa: E501
 
-    def get_workers_with_http_info(self, pool_id, **kwargs):  # noqa: E501
+    def get_workers_with_http_info(self, pool_id, **kwargs):    # noqa: E501
         """Get workers  # noqa: E501
 
         Get workers in current pool  # noqa: E501
@@ -285,18 +273,19 @@ class JobserviceApi(object):
                  returns the request thread.
         """
 
-        all_params = ['pool_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'pool_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_workers" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_workers"
                 )
             params[key] = val
         del params['kwargs']
@@ -351,7 +340,7 @@ class JobserviceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_job_queues(self, **kwargs):  # noqa: E501
+    def list_job_queues(self, **kwargs):    # noqa: E501
         """list job queues  # noqa: E501
 
         list job queue  # noqa: E501
@@ -367,13 +356,9 @@ class JobserviceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_job_queues_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.list_job_queues_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.list_job_queues_with_http_info(**kwargs)  # noqa: E501
 
-    def list_job_queues_with_http_info(self, **kwargs):  # noqa: E501
+    def list_job_queues_with_http_info(self, **kwargs):    # noqa: E501
         """list job queues  # noqa: E501
 
         list job queue  # noqa: E501
@@ -389,18 +374,18 @@ class JobserviceApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_job_queues" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_job_queues"
                 )
             params[key] = val
         del params['kwargs']
@@ -449,7 +434,7 @@ class JobserviceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def stop_running_job(self, job_id, **kwargs):  # noqa: E501
+    def stop_running_job(self, job_id, **kwargs):    # noqa: E501
         """Stop running job  # noqa: E501
 
         Stop running job  # noqa: E501
@@ -466,13 +451,9 @@ class JobserviceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.stop_running_job_with_http_info(job_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.stop_running_job_with_http_info(job_id, **kwargs)  # noqa: E501
-            return data
+        return self.stop_running_job_with_http_info(job_id, **kwargs)  # noqa: E501
 
-    def stop_running_job_with_http_info(self, job_id, **kwargs):  # noqa: E501
+    def stop_running_job_with_http_info(self, job_id, **kwargs):    # noqa: E501
         """Stop running job  # noqa: E501
 
         Stop running job  # noqa: E501
@@ -489,18 +470,19 @@ class JobserviceApi(object):
                  returns the request thread.
         """
 
-        all_params = ['job_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'job_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method stop_running_job" % key
+                    f"Got an unexpected keyword argument '{key}' to method stop_running_job"
                 )
             params[key] = val
         del params['kwargs']

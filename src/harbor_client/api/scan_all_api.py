@@ -33,7 +33,7 @@ class ScanAllApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_scan_all_schedule(self, schedule, **kwargs):  # noqa: E501
+    def create_scan_all_schedule(self, schedule, **kwargs):    # noqa: E501
         """Create a schedule or a manual trigger for the scan all job.  # noqa: E501
 
         This endpoint is for creating a schedule or a manual trigger for the scan all job, which scans all of images in Harbor.  # noqa: E501
@@ -50,13 +50,9 @@ class ScanAllApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_scan_all_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_scan_all_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
-            return data
+        return self.create_scan_all_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
 
-    def create_scan_all_schedule_with_http_info(self, schedule, **kwargs):  # noqa: E501
+    def create_scan_all_schedule_with_http_info(self, schedule, **kwargs):    # noqa: E501
         """Create a schedule or a manual trigger for the scan all job.  # noqa: E501
 
         This endpoint is for creating a schedule or a manual trigger for the scan all job, which scans all of images in Harbor.  # noqa: E501
@@ -73,18 +69,19 @@ class ScanAllApi(object):
                  returns the request thread.
         """
 
-        all_params = ['schedule', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'schedule',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_scan_all_schedule" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_scan_all_schedule"
                 )
             params[key] = val
         del params['kwargs']
@@ -109,9 +106,7 @@ class ScanAllApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'schedule' in params:
-            body_params = params['schedule']
+        body_params = params.get('schedule')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -139,7 +134,7 @@ class ScanAllApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_latest_scan_all_metrics(self, **kwargs):  # noqa: E501
+    def get_latest_scan_all_metrics(self, **kwargs):    # noqa: E501
         """Get the metrics of the latest scan all process  # noqa: E501
 
         Get the metrics of the latest scan all process  # noqa: E501
@@ -155,13 +150,9 @@ class ScanAllApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_latest_scan_all_metrics_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_latest_scan_all_metrics_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_latest_scan_all_metrics_with_http_info(**kwargs)  # noqa: E501
 
-    def get_latest_scan_all_metrics_with_http_info(self, **kwargs):  # noqa: E501
+    def get_latest_scan_all_metrics_with_http_info(self, **kwargs):    # noqa: E501
         """Get the metrics of the latest scan all process  # noqa: E501
 
         Get the metrics of the latest scan all process  # noqa: E501
@@ -177,18 +168,18 @@ class ScanAllApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_latest_scan_all_metrics" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_latest_scan_all_metrics"
                 )
             params[key] = val
         del params['kwargs']
@@ -237,7 +228,7 @@ class ScanAllApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_latest_scheduled_scan_all_metrics(self, **kwargs):  # noqa: E501
+    def get_latest_scheduled_scan_all_metrics(self, **kwargs):    # noqa: E501
         """Get the metrics of the latest scheduled scan all process  # noqa: E501
 
         Get the metrics of the latest scheduled scan all process  # noqa: E501
@@ -253,13 +244,9 @@ class ScanAllApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_latest_scheduled_scan_all_metrics_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_latest_scheduled_scan_all_metrics_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_latest_scheduled_scan_all_metrics_with_http_info(**kwargs)  # noqa: E501
 
-    def get_latest_scheduled_scan_all_metrics_with_http_info(self, **kwargs):  # noqa: E501
+    def get_latest_scheduled_scan_all_metrics_with_http_info(self, **kwargs):    # noqa: E501
         """Get the metrics of the latest scheduled scan all process  # noqa: E501
 
         Get the metrics of the latest scheduled scan all process  # noqa: E501
@@ -275,18 +262,18 @@ class ScanAllApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_latest_scheduled_scan_all_metrics" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_latest_scheduled_scan_all_metrics"
                 )
             params[key] = val
         del params['kwargs']
@@ -335,7 +322,7 @@ class ScanAllApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_scan_all_schedule(self, **kwargs):  # noqa: E501
+    def get_scan_all_schedule(self, **kwargs):    # noqa: E501
         """Get scan all's schedule.  # noqa: E501
 
         This endpoint is for getting a schedule for the scan all job, which scans all of images in Harbor.  # noqa: E501
@@ -351,13 +338,9 @@ class ScanAllApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_scan_all_schedule_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_scan_all_schedule_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.get_scan_all_schedule_with_http_info(**kwargs)  # noqa: E501
 
-    def get_scan_all_schedule_with_http_info(self, **kwargs):  # noqa: E501
+    def get_scan_all_schedule_with_http_info(self, **kwargs):    # noqa: E501
         """Get scan all's schedule.  # noqa: E501
 
         This endpoint is for getting a schedule for the scan all job, which scans all of images in Harbor.  # noqa: E501
@@ -373,18 +356,18 @@ class ScanAllApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_scan_all_schedule" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_scan_all_schedule"
                 )
             params[key] = val
         del params['kwargs']
@@ -433,7 +416,7 @@ class ScanAllApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def stop_scan_all(self, **kwargs):  # noqa: E501
+    def stop_scan_all(self, **kwargs):    # noqa: E501
         """Stop scanAll job execution  # noqa: E501
 
         Stop scanAll job execution  # noqa: E501
@@ -449,13 +432,9 @@ class ScanAllApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.stop_scan_all_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.stop_scan_all_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.stop_scan_all_with_http_info(**kwargs)  # noqa: E501
 
-    def stop_scan_all_with_http_info(self, **kwargs):  # noqa: E501
+    def stop_scan_all_with_http_info(self, **kwargs):    # noqa: E501
         """Stop scanAll job execution  # noqa: E501
 
         Stop scanAll job execution  # noqa: E501
@@ -471,18 +450,18 @@ class ScanAllApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method stop_scan_all" % key
+                    f"Got an unexpected keyword argument '{key}' to method stop_scan_all"
                 )
             params[key] = val
         del params['kwargs']
@@ -531,7 +510,7 @@ class ScanAllApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_scan_all_schedule(self, schedule, **kwargs):  # noqa: E501
+    def update_scan_all_schedule(self, schedule, **kwargs):    # noqa: E501
         """Update scan all's schedule.  # noqa: E501
 
         This endpoint is for updating the schedule of scan all job, which scans all of images in Harbor.  # noqa: E501
@@ -548,13 +527,9 @@ class ScanAllApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_scan_all_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_scan_all_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
-            return data
+        return self.update_scan_all_schedule_with_http_info(schedule, **kwargs)  # noqa: E501
 
-    def update_scan_all_schedule_with_http_info(self, schedule, **kwargs):  # noqa: E501
+    def update_scan_all_schedule_with_http_info(self, schedule, **kwargs):    # noqa: E501
         """Update scan all's schedule.  # noqa: E501
 
         This endpoint is for updating the schedule of scan all job, which scans all of images in Harbor.  # noqa: E501
@@ -571,18 +546,19 @@ class ScanAllApi(object):
                  returns the request thread.
         """
 
-        all_params = ['schedule', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'schedule',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_scan_all_schedule" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_scan_all_schedule"
                 )
             params[key] = val
         del params['kwargs']
@@ -607,9 +583,7 @@ class ScanAllApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'schedule' in params:
-            body_params = params['schedule']
+        body_params = params.get('schedule')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

@@ -33,7 +33,7 @@ class LabelApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_label(self, label, **kwargs):  # noqa: E501
+    def create_label(self, label, **kwargs):    # noqa: E501
         """Post creates a label  # noqa: E501
 
         This endpoint let user creates a label.   # noqa: E501
@@ -50,13 +50,9 @@ class LabelApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_label_with_http_info(label, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_label_with_http_info(label, **kwargs)  # noqa: E501
-            return data
+        return self.create_label_with_http_info(label, **kwargs)  # noqa: E501
 
-    def create_label_with_http_info(self, label, **kwargs):  # noqa: E501
+    def create_label_with_http_info(self, label, **kwargs):    # noqa: E501
         """Post creates a label  # noqa: E501
 
         This endpoint let user creates a label.   # noqa: E501
@@ -73,18 +69,19 @@ class LabelApi(object):
                  returns the request thread.
         """
 
-        all_params = ['label', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'label',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_label" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_label"
                 )
             params[key] = val
         del params['kwargs']
@@ -109,9 +106,7 @@ class LabelApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'label' in params:
-            body_params = params['label']
+        body_params = params.get('label')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -139,7 +134,7 @@ class LabelApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_label(self, label_id, **kwargs):  # noqa: E501
+    def delete_label(self, label_id, **kwargs):    # noqa: E501
         """Delete the label specified by ID.  # noqa: E501
 
         Delete the label specified by ID.   # noqa: E501
@@ -156,13 +151,9 @@ class LabelApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_label_with_http_info(label_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_label_with_http_info(label_id, **kwargs)  # noqa: E501
-            return data
+        return self.delete_label_with_http_info(label_id, **kwargs)  # noqa: E501
 
-    def delete_label_with_http_info(self, label_id, **kwargs):  # noqa: E501
+    def delete_label_with_http_info(self, label_id, **kwargs):    # noqa: E501
         """Delete the label specified by ID.  # noqa: E501
 
         Delete the label specified by ID.   # noqa: E501
@@ -179,18 +170,19 @@ class LabelApi(object):
                  returns the request thread.
         """
 
-        all_params = ['label_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'label_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_label" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_label"
                 )
             params[key] = val
         del params['kwargs']
@@ -245,7 +237,7 @@ class LabelApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_label_by_id(self, label_id, **kwargs):  # noqa: E501
+    def get_label_by_id(self, label_id, **kwargs):    # noqa: E501
         """Get the label specified by ID.  # noqa: E501
 
         This endpoint let user get the label by specific ID.   # noqa: E501
@@ -262,13 +254,9 @@ class LabelApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_label_by_id_with_http_info(label_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_label_by_id_with_http_info(label_id, **kwargs)  # noqa: E501
-            return data
+        return self.get_label_by_id_with_http_info(label_id, **kwargs)  # noqa: E501
 
-    def get_label_by_id_with_http_info(self, label_id, **kwargs):  # noqa: E501
+    def get_label_by_id_with_http_info(self, label_id, **kwargs):    # noqa: E501
         """Get the label specified by ID.  # noqa: E501
 
         This endpoint let user get the label by specific ID.   # noqa: E501
@@ -285,18 +273,19 @@ class LabelApi(object):
                  returns the request thread.
         """
 
-        all_params = ['label_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'label_id',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_label_by_id" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_label_by_id"
                 )
             params[key] = val
         del params['kwargs']
@@ -351,7 +340,7 @@ class LabelApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_labels(self, **kwargs):  # noqa: E501
+    def list_labels(self, **kwargs):    # noqa: E501
         """List labels according to the query strings.  # noqa: E501
 
         This endpoint let user list labels by name, scope and project_id   # noqa: E501
@@ -374,13 +363,9 @@ class LabelApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_labels_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.list_labels_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.list_labels_with_http_info(**kwargs)  # noqa: E501
 
-    def list_labels_with_http_info(self, **kwargs):  # noqa: E501
+    def list_labels_with_http_info(self, **kwargs):    # noqa: E501
         """List labels according to the query strings.  # noqa: E501
 
         This endpoint let user list labels by name, scope and project_id   # noqa: E501
@@ -403,18 +388,25 @@ class LabelApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'q', 'sort', 'page', 'page_size', 'name', 'scope', 'project_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'q',
+            'sort',
+            'page',
+            'page_size',
+            'name',
+            'scope',
+            'project_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_labels" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_labels"
                 )
             params[key] = val
         del params['kwargs']
@@ -479,7 +471,7 @@ class LabelApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_label(self, label_id, label, **kwargs):  # noqa: E501
+    def update_label(self, label_id, label, **kwargs):    # noqa: E501
         """Update the label properties.  # noqa: E501
 
         This endpoint let user update label properties.   # noqa: E501
@@ -497,13 +489,9 @@ class LabelApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_label_with_http_info(label_id, label, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_label_with_http_info(label_id, label, **kwargs)  # noqa: E501
-            return data
+        return self.update_label_with_http_info(label_id, label, **kwargs)  # noqa: E501
 
-    def update_label_with_http_info(self, label_id, label, **kwargs):  # noqa: E501
+    def update_label_with_http_info(self, label_id, label, **kwargs):    # noqa: E501
         """Update the label properties.  # noqa: E501
 
         This endpoint let user update label properties.   # noqa: E501
@@ -521,18 +509,20 @@ class LabelApi(object):
                  returns the request thread.
         """
 
-        all_params = ['label_id', 'label', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'label_id',
+            'label',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_label" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_label"
                 )
             params[key] = val
         del params['kwargs']
@@ -563,9 +553,7 @@ class LabelApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'label' in params:
-            body_params = params['label']
+        body_params = params.get('label')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

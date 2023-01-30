@@ -33,7 +33,7 @@ class IconApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_icon(self, digest, **kwargs):  # noqa: E501
+    def get_icon(self, digest, **kwargs):    # noqa: E501
         """Get artifact icon  # noqa: E501
 
         Get the artifact icon with the specified digest. As the original icon image is resized and encoded before returning, the parameter \"digest\" in the path doesn't match the hash of the returned content  # noqa: E501
@@ -50,13 +50,9 @@ class IconApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_icon_with_http_info(digest, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_icon_with_http_info(digest, **kwargs)  # noqa: E501
-            return data
+        return self.get_icon_with_http_info(digest, **kwargs)  # noqa: E501
 
-    def get_icon_with_http_info(self, digest, **kwargs):  # noqa: E501
+    def get_icon_with_http_info(self, digest, **kwargs):    # noqa: E501
         """Get artifact icon  # noqa: E501
 
         Get the artifact icon with the specified digest. As the original icon image is resized and encoded before returning, the parameter \"digest\" in the path doesn't match the hash of the returned content  # noqa: E501
@@ -73,18 +69,19 @@ class IconApi(object):
                  returns the request thread.
         """
 
-        all_params = ['digest', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'digest',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_icon" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_icon"
                 )
             params[key] = val
         del params['kwargs']

@@ -33,7 +33,7 @@ class RepositoryApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def delete_repository(self, project_name, repository_name, **kwargs):  # noqa: E501
+    def delete_repository(self, project_name, repository_name, **kwargs):    # noqa: E501
         """Delete repository  # noqa: E501
 
         Delete the repository specified by name  # noqa: E501
@@ -51,13 +51,9 @@ class RepositoryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_repository_with_http_info(project_name, repository_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_repository_with_http_info(project_name, repository_name, **kwargs)  # noqa: E501
-            return data
+        return self.delete_repository_with_http_info(project_name, repository_name, **kwargs)  # noqa: E501
 
-    def delete_repository_with_http_info(self, project_name, repository_name, **kwargs):  # noqa: E501
+    def delete_repository_with_http_info(self, project_name, repository_name, **kwargs):    # noqa: E501
         """Delete repository  # noqa: E501
 
         Delete the repository specified by name  # noqa: E501
@@ -75,18 +71,20 @@ class RepositoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'repository_name',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_repository" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_repository"
                 )
             params[key] = val
         del params['kwargs']
@@ -147,7 +145,7 @@ class RepositoryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_repository(self, project_name, repository_name, **kwargs):  # noqa: E501
+    def get_repository(self, project_name, repository_name, **kwargs):    # noqa: E501
         """Get repository  # noqa: E501
 
         Get the repository specified by name  # noqa: E501
@@ -165,13 +163,9 @@ class RepositoryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_repository_with_http_info(project_name, repository_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_repository_with_http_info(project_name, repository_name, **kwargs)  # noqa: E501
-            return data
+        return self.get_repository_with_http_info(project_name, repository_name, **kwargs)  # noqa: E501
 
-    def get_repository_with_http_info(self, project_name, repository_name, **kwargs):  # noqa: E501
+    def get_repository_with_http_info(self, project_name, repository_name, **kwargs):    # noqa: E501
         """Get repository  # noqa: E501
 
         Get the repository specified by name  # noqa: E501
@@ -189,18 +183,20 @@ class RepositoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'repository_name',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_repository" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_repository"
                 )
             params[key] = val
         del params['kwargs']
@@ -261,7 +257,7 @@ class RepositoryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_all_repositories(self, **kwargs):  # noqa: E501
+    def list_all_repositories(self, **kwargs):    # noqa: E501
         """List all authorized repositories  # noqa: E501
 
         List all authorized repositories  # noqa: E501
@@ -281,13 +277,9 @@ class RepositoryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_all_repositories_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.list_all_repositories_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.list_all_repositories_with_http_info(**kwargs)  # noqa: E501
 
-    def list_all_repositories_with_http_info(self, **kwargs):  # noqa: E501
+    def list_all_repositories_with_http_info(self, **kwargs):    # noqa: E501
         """List all authorized repositories  # noqa: E501
 
         List all authorized repositories  # noqa: E501
@@ -307,18 +299,22 @@ class RepositoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'q',
+            'sort',
+            'page',
+            'page_size',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_all_repositories" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_all_repositories"
                 )
             params[key] = val
         del params['kwargs']
@@ -377,7 +373,7 @@ class RepositoryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_repositories(self, project_name, **kwargs):  # noqa: E501
+    def list_repositories(self, project_name, **kwargs):    # noqa: E501
         """List repositories  # noqa: E501
 
         List repositories of the specified project  # noqa: E501
@@ -398,13 +394,9 @@ class RepositoryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_repositories_with_http_info(project_name, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_repositories_with_http_info(project_name, **kwargs)  # noqa: E501
-            return data
+        return self.list_repositories_with_http_info(project_name, **kwargs)  # noqa: E501
 
-    def list_repositories_with_http_info(self, project_name, **kwargs):  # noqa: E501
+    def list_repositories_with_http_info(self, project_name, **kwargs):    # noqa: E501
         """List repositories  # noqa: E501
 
         List repositories of the specified project  # noqa: E501
@@ -425,18 +417,23 @@ class RepositoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'x_request_id', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name',
+            'x_request_id',
+            'q',
+            'sort',
+            'page',
+            'page_size',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_repositories" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_repositories"
                 )
             params[key] = val
         del params['kwargs']
@@ -501,7 +498,7 @@ class RepositoryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_repository(self, project_name, repository_name, repository, **kwargs):  # noqa: E501
+    def update_repository(self, project_name, repository_name, repository, **kwargs):    # noqa: E501
         """Update repository  # noqa: E501
 
         Update the repository specified by name  # noqa: E501
@@ -520,13 +517,9 @@ class RepositoryApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_repository_with_http_info(project_name, repository_name, repository, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_repository_with_http_info(project_name, repository_name, repository, **kwargs)  # noqa: E501
-            return data
+        return self.update_repository_with_http_info(project_name, repository_name, repository, **kwargs)  # noqa: E501
 
-    def update_repository_with_http_info(self, project_name, repository_name, repository, **kwargs):  # noqa: E501
+    def update_repository_with_http_info(self, project_name, repository_name, repository, **kwargs):    # noqa: E501
         """Update repository  # noqa: E501
 
         Update the repository specified by name  # noqa: E501
@@ -545,18 +538,21 @@ class RepositoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'repository', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name',
+            'repository_name',
+            'repository',
+            'x_request_id',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_repository" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_repository"
                 )
             params[key] = val
         del params['kwargs']
@@ -593,9 +589,7 @@ class RepositoryApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'repository' in params:
-            body_params = params['repository']
+        body_params = params.get('repository')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

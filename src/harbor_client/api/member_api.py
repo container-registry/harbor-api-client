@@ -33,7 +33,7 @@ class MemberApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_project_member(self, project_name_or_id, **kwargs):  # noqa: E501
+    def create_project_member(self, project_name_or_id, **kwargs):    # noqa: E501
         """Create project member  # noqa: E501
 
         Create project member relationship, the member can be one of the user_member and group_member,  The user_member need to specify user_id or username. If the user already exist in harbor DB, specify the user_id,  If does not exist in harbor DB, it will SearchAndOnBoard the user. The group_member need to specify id or ldap_group_dn. If the group already exist in harbor DB. specify the user group's id,  If does not exist, it will SearchAndOnBoard the group.   # noqa: E501
@@ -52,13 +52,9 @@ class MemberApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_project_member_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_project_member_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.create_project_member_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def create_project_member_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def create_project_member_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """Create project member  # noqa: E501
 
         Create project member relationship, the member can be one of the user_member and group_member,  The user_member need to specify user_id or username. If the user already exist in harbor DB, specify the user_id,  If does not exist in harbor DB, it will SearchAndOnBoard the user. The group_member need to specify id or ldap_group_dn. If the group already exist in harbor DB. specify the user group's id,  If does not exist, it will SearchAndOnBoard the group.   # noqa: E501
@@ -77,18 +73,21 @@ class MemberApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name', 'project_member']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'project_member',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_project_member" % key
+                    f"Got an unexpected keyword argument '{key}' to method create_project_member"
                 )
             params[key] = val
         del params['kwargs']
@@ -117,9 +116,7 @@ class MemberApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'project_member' in params:
-            body_params = params['project_member']
+        body_params = params.get('project_member')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -147,7 +144,7 @@ class MemberApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_project_member(self, project_name_or_id, mid, **kwargs):  # noqa: E501
+    def delete_project_member(self, project_name_or_id, mid, **kwargs):    # noqa: E501
         """Delete project member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -165,13 +162,9 @@ class MemberApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_project_member_with_http_info(project_name_or_id, mid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_project_member_with_http_info(project_name_or_id, mid, **kwargs)  # noqa: E501
-            return data
+        return self.delete_project_member_with_http_info(project_name_or_id, mid, **kwargs)  # noqa: E501
 
-    def delete_project_member_with_http_info(self, project_name_or_id, mid, **kwargs):  # noqa: E501
+    def delete_project_member_with_http_info(self, project_name_or_id, mid, **kwargs):    # noqa: E501
         """Delete project member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -189,18 +182,21 @@ class MemberApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'mid', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'mid',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_project_member" % key
+                    f"Got an unexpected keyword argument '{key}' to method delete_project_member"
                 )
             params[key] = val
         del params['kwargs']
@@ -263,7 +259,7 @@ class MemberApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_project_member(self, project_name_or_id, mid, **kwargs):  # noqa: E501
+    def get_project_member(self, project_name_or_id, mid, **kwargs):    # noqa: E501
         """Get the project member information  # noqa: E501
 
         Get the project member information  # noqa: E501
@@ -282,13 +278,9 @@ class MemberApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_project_member_with_http_info(project_name_or_id, mid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_project_member_with_http_info(project_name_or_id, mid, **kwargs)  # noqa: E501
-            return data
+        return self.get_project_member_with_http_info(project_name_or_id, mid, **kwargs)  # noqa: E501
 
-    def get_project_member_with_http_info(self, project_name_or_id, mid, **kwargs):  # noqa: E501
+    def get_project_member_with_http_info(self, project_name_or_id, mid, **kwargs):    # noqa: E501
         """Get the project member information  # noqa: E501
 
         Get the project member information  # noqa: E501
@@ -307,18 +299,21 @@ class MemberApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'mid', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'mid',
+            'x_request_id',
+            'x_is_resource_name',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_project_member" % key
+                    f"Got an unexpected keyword argument '{key}' to method get_project_member"
                 )
             params[key] = val
         del params['kwargs']
@@ -381,7 +376,7 @@ class MemberApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_project_members(self, project_name_or_id, **kwargs):  # noqa: E501
+    def list_project_members(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get all project member information  # noqa: E501
 
         Get all project member information  # noqa: E501
@@ -402,13 +397,9 @@ class MemberApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_project_members_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_project_members_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
-            return data
+        return self.list_project_members_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
 
-    def list_project_members_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def list_project_members_with_http_info(self, project_name_or_id, **kwargs):    # noqa: E501
         """Get all project member information  # noqa: E501
 
         Get all project member information  # noqa: E501
@@ -429,18 +420,23 @@ class MemberApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name', 'page', 'page_size', 'entityname']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'project_name_or_id',
+            'x_request_id',
+            'x_is_resource_name',
+            'page',
+            'page_size',
+            'entityname',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_project_members" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_project_members"
                 )
             params[key] = val
         del params['kwargs']
@@ -505,7 +501,7 @@ class MemberApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_project_member(self, project_name_or_id, mid, **kwargs):  # noqa: E501
+    def update_project_member(self, project_name_or_id, mid, **kwargs):    # noqa: E501
         """Update project member  # noqa: E501
 
         Update project member relationship  # noqa: E501
@@ -525,13 +521,9 @@ class MemberApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_project_member_with_http_info(project_name_or_id, mid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_project_member_with_http_info(project_name_or_id, mid, **kwargs)  # noqa: E501
-            return data
+        return self.update_project_member_with_http_info(project_name_or_id, mid, **kwargs)  # noqa: E501
 
-    def update_project_member_with_http_info(self, project_name_or_id, mid, **kwargs):  # noqa: E501
+    def update_project_member_with_http_info(self, project_name_or_id, mid, **kwargs):    # noqa: E501
         """Update project member  # noqa: E501
 
         Update project member relationship  # noqa: E501
@@ -551,18 +543,22 @@ class MemberApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'mid', 'x_request_id', 'x_is_resource_name', 'role']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
+        all_params = [
+            'project_name_or_id',
+            'mid',
+            'x_request_id',
+            'x_is_resource_name',
+            'role',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_project_member" % key
+                    f"Got an unexpected keyword argument '{key}' to method update_project_member"
                 )
             params[key] = val
         del params['kwargs']
@@ -597,9 +593,7 @@ class MemberApi(object):
         form_params = []
         local_var_files = {}
 
-        body_params = None
-        if 'role' in params:
-            body_params = params['role']
+        body_params = params.get('role')
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

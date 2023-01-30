@@ -33,7 +33,7 @@ class AuditlogApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def list_audit_logs(self, **kwargs):  # noqa: E501
+    def list_audit_logs(self, **kwargs):    # noqa: E501
         """Get recent logs of the projects which the user is a member of  # noqa: E501
 
         This endpoint let user see the recent operation logs of the projects which he is member of   # noqa: E501
@@ -53,13 +53,9 @@ class AuditlogApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_audit_logs_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.list_audit_logs_with_http_info(**kwargs)  # noqa: E501
-            return data
+        return self.list_audit_logs_with_http_info(**kwargs)  # noqa: E501
 
-    def list_audit_logs_with_http_info(self, **kwargs):  # noqa: E501
+    def list_audit_logs_with_http_info(self, **kwargs):    # noqa: E501
         """Get recent logs of the projects which the user is a member of  # noqa: E501
 
         This endpoint let user see the recent operation logs of the projects which he is member of   # noqa: E501
@@ -79,18 +75,22 @@ class AuditlogApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
         params = locals()
+        all_params = [
+            'x_request_id',
+            'q',
+            'sort',
+            'page',
+            'page_size',
+            'async_req',
+            '_return_http_data_only',
+            '_preload_content',
+            '_request_timeout',
+        ]
         for key, val in six.iteritems(params['kwargs']):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_audit_logs" % key
+                    f"Got an unexpected keyword argument '{key}' to method list_audit_logs"
                 )
             params[key] = val
         del params['kwargs']
