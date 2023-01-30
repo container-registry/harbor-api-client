@@ -1,7 +1,5 @@
 # LdapConf
 
-The ldap configure properties
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -14,7 +12,6 @@ Name | Type | Description | Notes
 **ldap_scope** | **int** | The serach scope of ldap service. | [optional] 
 **ldap_connection_timeout** | **int** | The connect timeout of ldap service(second). | [optional] 
 **ldap_verify_cert** | **bool** | Verify Ldap server certificate. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

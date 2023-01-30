@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "harbor-api-client"
+version = "2.7.4"
+description = "Client for the Harbor API"
+authors = ["Vadim Bauer <vb@container-registry.com>", "Alexandre Krispin <development.s004k@simplelogin.com>"]
+keywords = ["Swagger", "Harbor API"]
+packages = [{include = "harbor_client", from = "src"}]
+license = "Apache-2.0"
+repository = "https://github.com/container-registry/harbor-api-client"
+homepage = "https://container-registry.com"
+documentation = "https://container-registry.com/docs/"
+readme = "README.md"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/container-registry/harbor-api-client/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.4"
+certifi = "^2022.12.7"
+six = "^1.10"
+python_dateutil = "^2.8.1"
+setuptools = "^21.0.0"
+urllib3 = "^1.15.1"
+
+[tool.poetry.group.dev.dependencies]
+coverage = "^4.0.3"
+nose = "^1.3.7"
+pluggy = "^0.3.1"
+py = "^1.4.31"
+randomize = "^0.13"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+

@@ -1,6 +1,5 @@
 # Artifact
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -17,12 +16,12 @@ Name | Type | Description | Notes
 **pull_time** | **datetime** | The latest pull time of the artifact | [optional] 
 **extra_attrs** | [**ExtraAttrs**](ExtraAttrs.md) |  | [optional] 
 **annotations** | [**Annotations**](Annotations.md) |  | [optional] 
-**references** | [**[Reference]**](Reference.md) |  | [optional] 
-**tags** | [**[Tag]**](Tag.md) |  | [optional] 
+**references** | [**list[Reference]**](Reference.md) |  | [optional] 
+**tags** | [**list[Tag]**](Tag.md) |  | [optional] 
 **addition_links** | [**AdditionLinks**](AdditionLinks.md) |  | [optional] 
-**labels** | [**[Label]**](Label.md) |  | [optional] 
-**scan_overview** | [**ScanOverview**](ScanOverview.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**labels** | [**list[Label]**](Label.md) |  | [optional] 
+**scan_overview** | [**ScanOverview**](ScanOverview.md) | The overview of the scan result. | [optional] 
+**accessories** | [**list[Accessory]**](Accessory.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

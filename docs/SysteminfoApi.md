@@ -4,62 +4,101 @@ All URIs are relative to *http://localhost/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**systeminfo**](SysteminfoApi.md#systeminfo) | **GET** /systeminfo | Get general system info
-[**systeminfo_cert**](SysteminfoApi.md#systeminfo_cert) | **GET** /systeminfo/getcert | Get default root certificate.
-[**systeminfo_volumes**](SysteminfoApi.md#systeminfo_volumes) | **GET** /systeminfo/volumes | Get system volume info (total/free size).
+[**get_cert**](SysteminfoApi.md#get_cert) | **GET** /systeminfo/getcert | Get default root certificate.
+[**get_system_info**](SysteminfoApi.md#get_system_info) | **GET** /systeminfo | Get general system info
+[**get_volumes**](SysteminfoApi.md#get_volumes) | **GET** /systeminfo/volumes | Get system volume info (total/free size).
 
 
-# **systeminfo**
-> GeneralInfo systeminfo()
+# **get_cert**
+> file get_cert(x_request_id=x_request_id)
+
+Get default root certificate.
+
+This endpoint is for downloading a default root certificate. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import harbor_client
+from harbor_client.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basic
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = harbor_client.SysteminfoApi(harbor_client.ApiClient(configuration))
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
+
+try:
+    # Get default root certificate.
+    api_response = api_instance.get_cert(x_request_id=x_request_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SysteminfoApi->get_cert: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
+
+### Return type
+
+[**file**](file.md)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_system_info**
+> GeneralInfo get_system_info(x_request_id=x_request_id)
 
 Get general system info
 
 This API is for retrieving general system info, this can be called by anonymous request.  Some attributes will be omitted in the response when this API is called by anonymous request. 
 
 ### Example
-
-* Basic Authentication (basic):
 ```python
+from __future__ import print_function
 import time
 import harbor_client
-from harbor_client.api import systeminfo_api
-from harbor_client.model.errors import Errors
-from harbor_client.model.general_info import GeneralInfo
+from harbor_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = systeminfo_api.SysteminfoApi(api_client)
+# create an instance of the API class
+api_instance = harbor_client.SysteminfoApi(harbor_client.ApiClient(configuration))
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
 
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get general system info
-        api_response = api_instance.systeminfo()
-        pprint(api_response)
-    except harbor_client.ApiException as e:
-        print("Exception when calling SysteminfoApi->systeminfo: %s\n" % e)
+try:
+    # Get general system info
+    api_response = api_instance.get_system_info(x_request_id=x_request_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SysteminfoApi->get_system_info: %s\n" % e)
 ```
 
-
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
 
 ### Return type
 
@@ -71,143 +110,48 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Get general info successfully. |  -  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **systeminfo_cert**
-> file_type systeminfo_cert()
-
-Get default root certificate.
-
-This endpoint is for downloading a default root certificate. 
-
-### Example
-
-* Basic Authentication (basic):
-```python
-import time
-import harbor_client
-from harbor_client.api import systeminfo_api
-from harbor_client.model.errors import Errors
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = systeminfo_api.SysteminfoApi(api_client)
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get default root certificate.
-        api_response = api_instance.systeminfo_cert()
-        pprint(api_response)
-    except harbor_client.ApiException as e:
-        print("Exception when calling SysteminfoApi->systeminfo_cert: %s\n" % e)
-```
-
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-**file_type**
-
-### Authorization
-
-[basic](../README.md#basic)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/octet-stream, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Get default root certificate successfully. |  * Content-Disposition - To set the filename of the downloaded file. <br>  |
-**404** | Not found the default root certificate. |  -  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **systeminfo_volumes**
-> SystemInfo systeminfo_volumes()
+# **get_volumes**
+> SystemInfo get_volumes(x_request_id=x_request_id)
 
 Get system volume info (total/free size).
 
 This endpoint is for retrieving system volume info that only provides for admin user.  Note that the response only reflects the storage status of local disk. 
 
 ### Example
-
-* Basic Authentication (basic):
 ```python
+from __future__ import print_function
 import time
 import harbor_client
-from harbor_client.api import systeminfo_api
-from harbor_client.model.system_info import SystemInfo
-from harbor_client.model.errors import Errors
+from harbor_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost/api/v2.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = harbor_client.Configuration(
-    host = "http://localhost/api/v2.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 
 # Configure HTTP basic authorization: basic
-configuration = harbor_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
+configuration = harbor_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
-# Enter a context with an instance of the API client
-with harbor_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = systeminfo_api.SysteminfoApi(api_client)
+# create an instance of the API class
+api_instance = harbor_client.SysteminfoApi(harbor_client.ApiClient(configuration))
+x_request_id = 'x_request_id_example' # str | An unique ID for the request (optional)
 
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get system volume info (total/free size).
-        api_response = api_instance.systeminfo_volumes()
-        pprint(api_response)
-    except harbor_client.ApiException as e:
-        print("Exception when calling SysteminfoApi->systeminfo_volumes: %s\n" % e)
+try:
+    # Get system volume info (total/free size).
+    api_response = api_instance.get_volumes(x_request_id=x_request_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SysteminfoApi->get_volumes: %s\n" % e)
 ```
 
-
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| An unique ID for the request | [optional] 
 
 ### Return type
 
@@ -219,18 +163,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Get system volumes successfully. |  -  |
-**401** | Unauthorized |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**403** | Forbidden |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**404** | Not found |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
-**500** | Internal server error |  * X-Request-Id - The ID of the corresponding request for the response <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

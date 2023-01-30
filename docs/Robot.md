@@ -1,6 +1,5 @@
 # Robot
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -13,10 +12,9 @@ Name | Type | Description | Notes
 **editable** | **bool** | The editable status of the robot | [optional] 
 **disable** | **bool** | The disable status of the robot | [optional] 
 **expires_at** | **int** | The expiration data of the robot | [optional] 
-**permissions** | [**[RobotPermission]**](RobotPermission.md) |  | [optional] 
+**permissions** | [**list[RobotPermission]**](RobotPermission.md) |  | [optional] 
 **creation_time** | **datetime** | The creation time of the robot. | [optional] 
 **update_time** | **datetime** | The update time of the robot. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

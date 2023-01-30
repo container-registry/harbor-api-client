@@ -1,14 +1,11 @@
 # RetentionMetadata
 
-the tag retention metadata
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**templates** | [**[RetentionRuleMetadata]**](RetentionRuleMetadata.md) | templates | [optional] 
-**scope_selectors** | [**[RetentionSelectorMetadata]**](RetentionSelectorMetadata.md) | supported scope selectors | [optional] 
-**tag_selectors** | [**[RetentionSelectorMetadata]**](RetentionSelectorMetadata.md) | supported tag selectors | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**templates** | [**list[RetentionRuleMetadata]**](RetentionRuleMetadata.md) | templates | [optional] 
+**scope_selectors** | [**list[RetentionSelectorMetadata]**](RetentionSelectorMetadata.md) | supported scope selectors | [optional] 
+**tag_selectors** | [**list[RetentionSelectorMetadata]**](RetentionSelectorMetadata.md) | supported tag selectors | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

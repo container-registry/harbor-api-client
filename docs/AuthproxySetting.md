@@ -1,6 +1,5 @@
 # AuthproxySetting
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -9,7 +8,6 @@ Name | Type | Description | Notes
 **skip_search** | **bool** | The flag to determine whether Harbor can skip search the user/group when adding him as a member. | [optional] 
 **verify_cert** | **bool** | The flag to determine whether Harbor should verify the certificate when connecting to the auth proxy. | [optional] 
 **server_certificate** | **str** | The certificate to be pinned when connecting auth proxy. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
