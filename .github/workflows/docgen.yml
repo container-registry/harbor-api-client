@@ -42,7 +42,8 @@ jobs:
         --input-spec swagger.yaml \
         --lang python \
         --output harbor_client
-
+        
+        touch harbor_client/api/_index.md
         echo """
         ---
         title: "API"
@@ -54,8 +55,19 @@ jobs:
         ---
         """ > harbor_client/api/_index.md
 
-
-
+        touch harbor_client/model/_index.md
+        echo """
+        ---
+        title: "Models"
+        description: 'Documentation for Harbor models'
+        date: $(date +"%Y-%m-%d")
+        draft: false
+        layout: "single"
+        weight: 1
+        ---
+        """ > harbor_client/model/_index.md
+        
+        cat harbor_client/model/_index.md
 
 
 
