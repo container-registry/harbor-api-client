@@ -19,6 +19,8 @@ jobs:
         ls -l
         cd swagger-codegen
         git checkout 5d4f6db5aeb2c47856aa75dfb2bf579891a3a44b
+        wget https://raw.githubusercontent.com/container-registry/harbor-api-client/master/0001-Customize-templates.patch
+        git am 0001-Customize-templates.patch
         echo "Compile converter..."
         mvn --version
         mvn --batch-mode package
