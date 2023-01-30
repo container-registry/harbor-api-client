@@ -74,24 +74,36 @@ jobs:
         """ > harbor_client/model/_index.md
         
         cat harbor_client/model/_index.md
-#     - name: commit-tarball
+        ls -l ../
+    # - name: commit-tarball
+    - name: Compress doc step
+      uses: a7ul/tar-action@v1.1.0
+      id: compress
+      with:
+        command: c
+        cwd: ./harbor_client
+        files: |
+          ./harbor_client
+        outPath: ../archives/harbor-api-client-documentation.tar.gz
     - name: Create Release
       id: create_release
       uses: actions/create-release@latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{ github.ref_name }}
+        release_name: Release ${{ github.ref_name }}
         body: |
           Changes in this Release
           - First Change
           - Second Change
         draft: false
         prerelease: false
-    - uses: ncipollo/release-action@v1
-      with:
-        artifacts: "harbor-api-client-doc.tar.gz,harbor_client/"
+    - name: Upload archive on release
+      run: gh release upload ${{ github.ref_name }} ../archives/harbor-api-client-documentation.tar.gz
+#     - uses: ncipollo/release-action@v1
+#       with:
+#         artifacts: "harbor-api-client-doc.tar.gz,harbor_client/"
 
 
 
