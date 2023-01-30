@@ -1,0 +1,26 @@
+# This is a basic workflow that is manually triggered
+
+name: Generate branch on Gitlab
+
+on:
+  workflow_dispatch:
+    inputs:
+      gitlab_key:
+        description: 'Gitlab flow trigger'
+        default: null
+        required: true
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  gitlab:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - name: Create merge request on Gitlab
+      run: |
+        echo "Create merge request on Gitlab"
+        echo ${{ github.event.inputs.gitlab_key }}

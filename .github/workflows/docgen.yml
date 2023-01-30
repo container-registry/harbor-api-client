@@ -1,0 +1,62 @@
+name: Generate documentation
+
+jobs:
+  docgen:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: docgen
+      run: |
+        echo "Download last version of spec file"
+        echo "Clone swagger-codegen repository..."
+        git clone https://github.com/swagger-api/swagger-codegen
+        cp swagger.yaml ./swagger-codegen/
+        wget https://raw.githubusercontent.com/container-registry/harbor-api-client/master/swagger.yaml
+
+        git am 0001-Customize-templates.patch
+        echo "Compile converter..."
+        mvn clean package
+
+        echo "Generate documentation..."
+        java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate \
+          --additional-properties projectName=harbor_client \
+          --additional-properties packageVersion=2.7.0 \
+          --additional-properties gitUserId=container-registry \
+          --additional-properties gitRepoId=harbor-python-client-api \
+          --git-user-id container-registry \
+          --git-repo-id harbor-api-client \
+          --additional-properties packageName=harbor_client \
+          --additional-properties isOauth=true \
+          --api-package api \
+          --input-spec swagger.yaml \
+          --lang python \
+          --output harbor_client
+
+        echo """
+          ---
+          title: "API"
+          description: 'Documentation for Harbor API'
+          date: 2022-27-12
+          draft: false
+          layout: "single"
+          weight: 1
+          ---
+        """ > harbor_client/api/_index.md
+
+       echo """
+          ---
+          title: "Models"
+          description: 'Documentation for Harbor models'
+          date: 2022-27-12
+          draft: false
+          layout: "single"
+          weight: 1
+          ---
+        """ > harbor_client/model/_index.md
+
+
+
+
+
+
+
