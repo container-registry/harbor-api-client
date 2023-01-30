@@ -1,0 +1,221 @@
+From 6e1c1787bc5cbf99ba75ca13d65a430508d923df Mon Sep 17 00:00:00 2001
+From: Alexandre Krispin <development.s004k@simplelogin.com>
+Date: Thu, 26 Jan 2023 15:44:12 +0900
+Subject: [PATCH] Customize templates
+
+---
+ .../io/swagger/codegen/CodegenConstants.java  |  3 ++
+ .../languages/PythonClientCodegen.java        | 37 +++++++++++++++++--
+ .../src/main/resources/python/README.mustache | 17 +++++++--
+ .../main/resources/python/api_doc.mustache    | 20 +++++++---
+ .../main/resources/python/model_doc.mustache  | 11 ++++--
+ 5 files changed, 72 insertions(+), 16 deletions(-)
+
+diff --git a/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java b/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java
+index d04e606ff..bf1714280 100644
+--- a/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java
++++ b/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java
+@@ -172,6 +172,9 @@ public class CodegenConstants {
+     public static final String OPTIONAL_EMIT_DEFAULT_VALUES = "optionalEmitDefaultValues";
+     public static final String OPTIONAL_EMIT_DEFAULT_VALUES_DESC = "Set DataMember's EmitDefaultValue.";
+ 
++    public static final String API_DOC_PATH = "apiDocPath";
++    public static final String MODEL_DOC_PATH = "modelDocPath";
++
+     public static final String GIT_USER_ID = "gitUserId";
+     public static final String GIT_USER_ID_DESC = "Git user ID, e.g. swagger-api.";
+ 
+diff --git a/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/PythonClientCodegen.java b/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/PythonClientCodegen.java
+index 9ef2e69e0..c5079eac1 100755
+--- a/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/PythonClientCodegen.java
++++ b/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/PythonClientCodegen.java
+@@ -1,5 +1,9 @@
+ package io.swagger.codegen.languages;
+ 
++import com.google.common.collect.ImmutableMap;
++import com.samskivert.mustache.Mustache;
++import io.swagger.codegen.*;
++import io.swagger.codegen.mustache.*;
+ import io.swagger.codegen.CliOption;
+ import io.swagger.codegen.CodegenConfig;
+ import io.swagger.codegen.CodegenConstants;
+@@ -36,8 +40,8 @@ public class PythonClientCodegen extends DefaultCodegen implements CodegenConfig
+     protected String packageVersion;
+     protected String projectName; // for setup.py, e.g. petstore-api
+     protected String packageUrl;
+-    protected String apiDocPath = "docs/";
+-    protected String modelDocPath = "docs/";
++    protected String apiDocPath = "api/";
++    protected String modelDocPath = "model/";
+     protected String caseType;
+ 
+     protected Map<Character, String> regexModifiers;
+@@ -195,13 +199,15 @@ public class PythonClientCodegen extends DefaultCodegen implements CodegenConfig
+         additionalProperties.put(CodegenConstants.PACKAGE_VERSION, packageVersion);
+ 
+         // make api and model doc path available in mustache template
+-        additionalProperties.put("apiDocPath", apiDocPath);
+-        additionalProperties.put("modelDocPath", modelDocPath);
++        additionalProperties.put(CodegenConstants.API_DOC_PATH, apiDocPath);
++        additionalProperties.put(CodegenConstants.MODEL_DOC_PATH, modelDocPath);
+ 
+         if (additionalProperties.containsKey(PACKAGE_URL)) {
+             setPackageUrl((String) additionalProperties.get(PACKAGE_URL));
+         }
+ 
++        addMustacheLambdas(additionalProperties);
++
+         this.setCaseType();
+ 
+         final String packageFolder = packageName.replace('.', File.separatorChar);
+@@ -716,4 +722,27 @@ public class PythonClientCodegen extends DefaultCodegen implements CodegenConfig
+         return input.replace("'''", "'_'_'");
+     }
+ 
++    private void addMustacheLambdas(Map<String, Object> objs) {
++
++        Map<String, Mustache.Lambda> lambdas = new ImmutableMap.Builder<String, Mustache.Lambda>()
++                .put("lowercase", new LowercaseLambda().generator(this))
++                .put("uppercase", new UppercaseLambda())
++                .put("titlecase", new TitlecaseLambda())
++                .put("camelcase", new CamelCaseLambda().generator(this))
++                .put("camelcase_param", new CamelCaseLambda().generator(this).escapeAsParamName(true))
++                .put("indented", new IndentedLambda())
++                .put("indented_8", new IndentedLambda(8, " "))
++                .put("indented_12", new IndentedLambda(12, " "))
++                .put("indented_16", new IndentedLambda(16, " "))
++                .build();
++
++        if (objs.containsKey("lambda")) {
++            LOGGER.warn("An property named 'lambda' already exists. Mustache lambdas renamed from 'lambda' to '_lambda'. " +
++                    "You'll likely need to use a custom template, " +
++                    "see https://github.com/swagger-api/swagger-codegen#modifying-the-client-library-format. ");
++            objs.put("_lambda", lambdas);
++        } else {
++            objs.put("lambda", lambdas);
++        }
++    }
+ }
+diff --git a/modules/swagger-codegen/src/main/resources/python/README.mustache b/modules/swagger-codegen/src/main/resources/python/README.mustache
+index 0cc707c1f..883513c0f 100644
+--- a/modules/swagger-codegen/src/main/resources/python/README.mustache
++++ b/modules/swagger-codegen/src/main/resources/python/README.mustache
+@@ -1,4 +1,15 @@
+-# {{{projectName}}}
++---
++title: "Harbor SDK"
++date: 2022-27-12
++draft: false
++layout: "single"
++weight: 3
++docSummary: "Documentation to use the Harbor API with Python."
++docIcon: "/docs/harbor-api.svg"
++---
++
++
++# Harbor SDK
+ {{#appDescription}}
+ {{{appDescription}}}
+ {{/appDescription}}
+@@ -93,12 +104,12 @@ All URIs are relative to *{{basePath}}*
+ 
+ Class | Method | HTTP request | Description
+ ------------ | ------------- | ------------- | -------------
+-{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{summary}}{{/summary}}
++{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}{{#lambda.lowercase}}{{classname}}{{/lambda.lowercase}}#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{summary}}{{/summary}}
+ {{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
+ 
+ ## Documentation For Models
+ 
+-{{#models}}{{#model}} - [{{{classname}}}]({{modelDocPath}}{{{classname}}}.md)
++{{#models}}{{#model}} - [{{{classname}}}]({{modelDocPath}}{{#lambda.lowercase}}{{{classname}}}{{/lambda.lowercase}})
+ {{/model}}{{/models}}
+ 
+ ## Documentation For Authorization
+diff --git a/modules/swagger-codegen/src/main/resources/python/api_doc.mustache b/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
+index 32c26d929..1813d007f 100644
+--- a/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
++++ b/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
+@@ -1,3 +1,9 @@
++---
++title: {{classname}}
++description: {{description}}
++date: {{timestamp}}
++draft: false
++---
+ # {{packageName}}.{{classname}}{{#description}}
+ {{description}}{{/description}}
+ 
+@@ -5,13 +11,15 @@ All URIs are relative to *{{basePath}}*
+ 
+ Method | HTTP request | Description
+ ------------- | ------------- | -------------
+-{{#operations}}{{#operation}}[**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{summary}}{{/summary}}
++{{#operations}}{{#operation}}[**{{operationId}}**](#{{operationId}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{summary}}{{/summary}}
+ {{/operation}}{{/operations}}
+ 
+ {{#operations}}
+ {{#operation}}
+ # **{{{operationId}}}**
+-> {{#returnType}}{{{returnType}}} {{/returnType}}{{{operationId}}}({{#allParams}}{{#required}}{{{paramName}}}{{/required}}{{^required}}{{{paramName}}}={{{paramName}}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
++```
++{{#returnType}}{{{returnType}}} {{/returnType}}{{{operationId}}}({{#allParams}}{{#required}}{{{paramName}}}{{/required}}{{^required}}{{{paramName}}}={{{paramName}}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
++```
+ 
+ {{{summary}}}{{#notes}}
+ 
+@@ -63,23 +71,23 @@ except ApiException as e:
+ {{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
+ Name | Type | Description  | Notes
+ ------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}
+-{{#allParams}} **{{paramName}}** | {{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}{{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{baseType}}.md){{/isPrimitiveType}}{{/isFile}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
++{{#allParams}} **{{paramName}}** | {{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}{{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**](../../{{modelDocPath}}/{{#lambda.lowercase}}{{baseType}}{{/lambda.lowercase}}){{/isPrimitiveType}}{{/isFile}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
+ {{/allParams}}
+ 
+ ### Return type
+ 
+-{{#returnType}}{{#returnTypeIsPrimitive}}**{{{returnType}}}**{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}[**{{{returnType}}}**]({{returnBaseType}}.md){{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}void (empty response body){{/returnType}}
++{{#returnType}}{{#returnTypeIsPrimitive}}**{{{returnType}}}**{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}**[{{{returnType}}}](../../{{modelDocPath}}/{{#lambda.lowercase}}{{returnBaseType}}{{/lambda.lowercase}})**{{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}void (empty response body){{/returnType}}
+ 
+ ### Authorization
+ 
+-{{^authMethods}}No authorization required{{/authMethods}}{{#authMethods}}[{{{name}}}](../README.md#{{{name}}}){{^-last}}, {{/-last}}{{/authMethods}}
++{{^authMethods}}No authorization required{{/authMethods}}{{#authMethods}}[{{{name}}}](../../#{{{name}}}){{^-last}}, {{/-last}}{{/authMethods}}
+ 
+ ### HTTP request headers
+ 
+  - **Content-Type**: {{#consumes}}{{{mediaType}}}{{#hasMore}}, {{/hasMore}}{{/consumes}}{{^consumes}}Not defined{{/consumes}}
+  - **Accept**: {{#produces}}{{{mediaType}}}{{#hasMore}}, {{/hasMore}}{{/produces}}{{^produces}}Not defined{{/produces}}
+ 
+-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
++[[Back to top]](#)
+ 
+ {{/operation}}
+ {{/operations}}
+diff --git a/modules/swagger-codegen/src/main/resources/python/model_doc.mustache b/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
+index 569550df3..175377ae9 100644
+--- a/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
++++ b/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
+@@ -1,11 +1,16 @@
++---
++title: {{classname}}
++description: {{description}}
++date: {{timestamp}}
++draft: false
++---
++
+ {{#models}}{{#model}}# {{classname}}
+ 
+ ## Properties
+ Name | Type | Description | Notes
+ ------------ | ------------- | ------------- | -------------
+-{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{datatype}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{datatype}}**]({{complexType}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
++{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{datatype}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{datatype}}**](../{{#lambda.lowercase}}{{complexType}}{{/lambda.lowercase}}){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
+ {{/vars}}
+ 
+-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+-
+ {{/model}}{{/models}}
+-- 
+2.39.1
+
