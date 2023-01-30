@@ -9,11 +9,11 @@ jobs:
     steps:
     - name: docgen
       run: |
+        ls -l
         git clone https://github.com/swagger-api/swagger-codegen
-        cp swagger.yaml ./swagger-codegen/
         wget https://raw.githubusercontent.com/container-registry/harbor-api-client/master/swagger.yaml
-
-        git am 0001-Customize-templates.patch
+        ls -l
+        cd swagger-codegen
         echo "Compile converter..."
         mvn clean package
 
