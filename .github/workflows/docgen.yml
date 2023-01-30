@@ -75,16 +75,13 @@ jobs:
         
         cat harbor_client/model/_index.md
         ls -l ../
-    # - name: commit-tarball
-    - name: Compress doc step
-      uses: a7ul/tar-action@v1.1.0
-      id: compress
-      with:
-        command: c
-        cwd: ./harbor_client
-        files: |
-          ./harbor_client
-        outPath: ../archives/harbor-api-client-documentation.tar.gz
+        ls -l harbor_client
+        pwd
+        tar -czvf harbor-api-documentation.tar.gz
+        cp -f harbor-api-documentation.tar.gz ../archives/harbor-api-documentation.tar.gz
+        pwd
+        ls -l
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@latest
