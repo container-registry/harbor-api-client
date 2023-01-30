@@ -68,6 +68,9 @@ jobs:
         """ > harbor_client/model/_index.md
         
         cat harbor_client/model/_index.md
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "harbor-api-client-doc.tar.gz,harbor_client/"
 
 
 
