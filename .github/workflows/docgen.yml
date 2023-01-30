@@ -77,27 +77,33 @@ jobs:
         ls -l ../
         ls -l harbor_client
         pwd
-        tar -czvf harbor-api-documentation.tar.gz
+        tar -czvf harbor-api-documentation.tar.gz harbor_client
         cp -f harbor-api-documentation.tar.gz ../archives/harbor-api-documentation.tar.gz
         pwd
         ls -l
-
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@latest
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v9
       with:
-        tag_name: ${{ github.ref_name }}
-        release_name: Release ${{ github.ref_name }}
-        body: |
-          Changes in this Release
-          - First Change
-          - Second Change
-        draft: false
-        prerelease: false
-    - name: Upload archive on release
-      run: gh release upload ${{ github.ref_name }} ../archives/harbor-api-client-documentation.tar.gz
+        author_name: Alexandre Krispin
+        author_email: development.s004k@simplelogin.com
+        message: 'Update documentation'
+        add: '../archive'
+#     - name: Create Release
+#       id: create_release
+#       uses: actions/create-release@latest
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+#       with:
+#         tag_name: ${{ github.ref_name }}
+#         release_name: Release ${{ github.ref_name }}
+#         body: |
+#           Changes in this Release
+#           - First Change
+#           - Second Change
+#         draft: false
+#         prerelease: false
+#     - name: Upload archive on release
+#       run: gh release upload ${{ github.ref_name }} ../archives/harbor-api-client-documentation.tar.gz
 #     - uses: ncipollo/release-action@v1
 #       with:
 #         artifacts: "harbor-api-client-doc.tar.gz,harbor_client/"
