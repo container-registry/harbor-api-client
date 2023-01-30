@@ -23,8 +23,10 @@ jobs:
         mvn --version
         mvn --batch-mode package
         
-        echo "Fetch swagger.yaml file
+        echo "Fetch swagger.yaml file"
         wget https://raw.githubusercontent.com/container-registry/harbor-api-client/master/swagger.yaml
+        
+        ls -l
 
         echo "Generate documentation..."
         java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate \
