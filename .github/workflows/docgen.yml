@@ -1,5 +1,7 @@
 name: Generate documentation
 
+on:
+  workflow_dispatch
 jobs:
   docgen:
     runs-on: ubuntu-latest
@@ -41,16 +43,6 @@ jobs:
         ---
         """ > harbor_client/api/_index.md
 
-       echo """
-        ---
-        title: "Models"
-        description: 'Documentation for Harbor models'
-        date: 2022-27-12
-        draft: false
-        layout: "single"
-        weight: 1
-        ---
-        """ > harbor_client/model/_index.md
 
 
 
