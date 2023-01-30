@@ -16,13 +16,15 @@ jobs:
       run: |
         ls -l
         git clone https://github.com/swagger-api/swagger-codegen
-        wget https://raw.githubusercontent.com/container-registry/harbor-api-client/master/swagger.yaml
         ls -l
         cd swagger-codegen
         git checkout 5d4f6db5aeb2c47856aa75dfb2bf579891a3a44b
         echo "Compile converter..."
         mvn --version
         mvn --batch-mode package
+        
+        echo "Fetch swagger.yaml file
+        wget https://raw.githubusercontent.com/container-registry/harbor-api-client/master/swagger.yaml
 
         echo "Generate documentation..."
         java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate \
@@ -43,7 +45,7 @@ jobs:
         ---
         title: "API"
         description: 'Documentation for Harbor API'
-        date: 2022-27-12
+        date:  $(date +"%Y-%m-%d")
         draft: false
         layout: "single"
         weight: 1
