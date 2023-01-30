@@ -14,6 +14,7 @@ jobs:
         wget https://raw.githubusercontent.com/container-registry/harbor-api-client/master/swagger.yaml
         ls -l
         cd swagger-codegen
+        git checkout 5d4f6db5aeb2c47856aa75dfb2bf579891a3a44b
         echo "Compile converter..."
         mvn clean package
 
