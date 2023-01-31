@@ -87,8 +87,6 @@ jobs:
 #         add: 'archives'
     - name: Create merge request on Gitlab
       run: |
-        echo ">>>> Create merge request on Gitlab"
-        echo "$SSH_PRIVATE_KEY"
         pwd
         ls -l
         mkdir ~/.ssh/
@@ -106,8 +104,8 @@ jobs:
         git config --global user.name "Github pipeline"
         git config --global user.email "sandbox@container-registry.com"
         ssh -T git@gitlab.com
+
         git clone git@gitlab.com:8gears/container-registry/container-registry.com
-        
         cd container-registry.com
         git checkout -b update-harbor-documentation-$(date +"%Y-%m-%d")
         git status
@@ -119,7 +117,7 @@ jobs:
         git add ./content/docs/harbor-api-client
         git commit -m "Update Harbor documentation"
         git remote -v
-        git push ssh_origin update-harbor-documentation-$(date +"%Y-%m-%d") -o merge_request.create
+        git push origin update-harbor-documentation-$(date +"%Y-%m-%d") -o merge_request.create
       shell: bash
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
