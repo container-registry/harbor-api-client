@@ -86,7 +86,7 @@ jobs:
 #         add: 'archives'
     - name: Create merge request on Gitlab
       env:
-        CONTAINER_REGISTRY_REPO_PUSH: ${{ secret.CONTAINER_REGISTRY_REPO_PUSH }}
+        CONTAINER_REGISTRY_REPO_PUSH: ${{secrets.CONTAINER_REGISTRY_REPO_PUSH}}
       run: |
         echo ">>>> Create merge request on Gitlab"
         pwd
