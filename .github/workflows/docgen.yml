@@ -101,7 +101,7 @@ jobs:
         cat ~/.ssh/config
         git config --global user.name "Github pipeline"
         git config --global user.email "sandbox@container-registry.com"
-        ssh -T git@$CI_SERVER_HOST
+        ssh -T git@gitlab.com
         git clone git@gitlab.com:8gears/container-registry/container-registry.com
         ls -l
         cd container-registry.com
