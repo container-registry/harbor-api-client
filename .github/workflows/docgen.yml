@@ -107,9 +107,19 @@ jobs:
         git config --global user.email "sandbox@container-registry.com"
         ssh -T git@gitlab.com
         git clone git@gitlab.com:8gears/container-registry/container-registry.com
-        ls -l
+        
         cd container-registry.com
         git checkout -b update-harbor-documentation-$(date +"%Y-%m-%d")
+        git status
+        ls -l
+        cp -r ../swagger-codegen/harbor_client/api/* ./container-registry.com/content/docs/harbor-api-client/api/
+        cp -r ../swagger-codegen/harbor_client/model/* ./container-registry.com/content/docs/harbor-api-client/model/
+        cp -r ../swagger-codegen/harbor_client/README.md ./container-registry.com/content/docs/harbor-api-client/_index.md
+
+        git add ./content/docs/harbor-api-client
+        git commit -m "Update Harbor documentation"
+        git remote -v
+        git push ssh_origin update-harbor-documentation-$(date +"%Y-%m-%d") -o merge_request.create
       shell: bash
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
