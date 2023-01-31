@@ -1,4 +1,4 @@
-From 6e1c1787bc5cbf99ba75ca13d65a430508d923df Mon Sep 17 00:00:00 2001
+From 50204d67fd96f7fd506c7c1b15ee38fbc5d3dc32 Mon Sep 17 00:00:00 2001
 From: Alexandre Krispin <development.s004k@simplelogin.com>
 Date: Thu, 26 Jan 2023 15:44:12 +0900
 Subject: [PATCH] Customize templates
@@ -7,9 +7,9 @@ Subject: [PATCH] Customize templates
  .../io/swagger/codegen/CodegenConstants.java  |  3 ++
  .../languages/PythonClientCodegen.java        | 37 +++++++++++++++++--
  .../src/main/resources/python/README.mustache | 17 +++++++--
- .../main/resources/python/api_doc.mustache    | 20 +++++++---
- .../main/resources/python/model_doc.mustache  | 11 ++++--
- 5 files changed, 72 insertions(+), 16 deletions(-)
+ .../main/resources/python/api_doc.mustache    | 24 +++++++++---
+ .../main/resources/python/model_doc.mustache  | 13 +++++--
+ 5 files changed, 78 insertions(+), 16 deletions(-)
 
 diff --git a/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java b/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java
 index d04e606ff..bf1714280 100644
@@ -97,13 +97,13 @@ index 9ef2e69e0..c5079eac1 100755
 +    }
  }
 diff --git a/modules/swagger-codegen/src/main/resources/python/README.mustache b/modules/swagger-codegen/src/main/resources/python/README.mustache
-index 0cc707c1f..883513c0f 100644
+index 0cc707c1f..94f5a833c 100644
 --- a/modules/swagger-codegen/src/main/resources/python/README.mustache
 +++ b/modules/swagger-codegen/src/main/resources/python/README.mustache
 @@ -1,4 +1,15 @@
 -# {{{projectName}}}
 +---
-+title: "Harbor SDK"
++title: "Python API Client"
 +date: 2022-27-12
 +draft: false
 +layout: "single"
@@ -113,7 +113,7 @@ index 0cc707c1f..883513c0f 100644
 +---
 +
 +
-+# Harbor SDK
++# Harbor API Client
  {{#appDescription}}
  {{{appDescription}}}
  {{/appDescription}}
@@ -133,20 +133,21 @@ index 0cc707c1f..883513c0f 100644
  
  ## Documentation For Authorization
 diff --git a/modules/swagger-codegen/src/main/resources/python/api_doc.mustache b/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
-index 32c26d929..1813d007f 100644
+index 32c26d929..f3173a7df 100644
 --- a/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
 +++ b/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
-@@ -1,3 +1,9 @@
+@@ -1,3 +1,10 @@
 +---
 +title: {{classname}}
 +description: {{description}}
++description_image: '/posts/container-image-versioning/sm-container-image-versioning.jpg'
 +date: {{timestamp}}
 +draft: false
 +---
  # {{packageName}}.{{classname}}{{#description}}
  {{description}}{{/description}}
  
-@@ -5,13 +11,15 @@ All URIs are relative to *{{basePath}}*
+@@ -5,13 +12,18 @@ All URIs are relative to *{{basePath}}*
  
  Method | HTTP request | Description
  ------------- | ------------- | -------------
@@ -158,13 +159,16 @@ index 32c26d929..1813d007f 100644
  {{#operation}}
  # **{{{operationId}}}**
 -> {{#returnType}}{{{returnType}}} {{/returnType}}{{{operationId}}}({{#allParams}}{{#required}}{{{paramName}}}{{/required}}{{^required}}{{{paramName}}}={{{paramName}}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
-+```
-+{{#returnType}}{{{returnType}}} {{/returnType}}{{{operationId}}}({{#allParams}}{{#required}}{{{paramName}}}{{/required}}{{^required}}{{{paramName}}}={{{paramName}}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
++
++### Signature
++
++```python
++{{{operationId}}}({{#allParams}}{{{paramName}}}: {{#required}}{{#isPrimitiveType}}{{{dataType}}}{{/isPrimitiveType}}{{^isPrimitiveType}}{{{baseType}}}{{/isPrimitiveType}}{{/required}}{{^required}}{{#isPrimitiveType}}Optional[{{{dataType}}}]{{/isPrimitiveType}}{{^isPrimitiveType}}Optional[{{{baseType}}}]{{/isPrimitiveType}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})-> {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}None{{/returnType}} 
 +```
  
  {{{summary}}}{{#notes}}
  
-@@ -63,23 +71,23 @@ except ApiException as e:
+@@ -63,23 +75,23 @@ except ApiException as e:
  {{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
  Name | Type | Description  | Notes
  ------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}
@@ -193,15 +197,17 @@ index 32c26d929..1813d007f 100644
  {{/operation}}
  {{/operations}}
 diff --git a/modules/swagger-codegen/src/main/resources/python/model_doc.mustache b/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
-index 569550df3..175377ae9 100644
+index 569550df3..d103ad055 100644
 --- a/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
 +++ b/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
-@@ -1,11 +1,16 @@
+@@ -1,11 +1,18 @@
 +---
 +title: {{classname}}
 +description: {{description}}
 +date: {{timestamp}}
 +draft: false
++layout: "single"
++weight: 1
 +---
 +
  {{#models}}{{#model}}# {{classname}}
