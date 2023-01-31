@@ -88,7 +88,6 @@ jobs:
     - name: Create merge request on Gitlab
       run: |
         echo ">>>> Create merge request on Gitlab"
-        echo ${{secrets.SSH_PRIVATE_KEY}}
         echo "$SSH_PRIVATE_KEY"
         pwd
         ls -l
