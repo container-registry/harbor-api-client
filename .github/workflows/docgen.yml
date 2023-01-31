@@ -1,8 +1,7 @@
 name: Generate documentation
 
 on:
-  workflow_dispatch 1 runner docker    149 Jan 31 05:56 tox.ini
-58
+  workflow_dispatch
 
 jobs:
   docgen:
