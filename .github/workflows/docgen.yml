@@ -107,7 +107,7 @@ jobs:
 
         git clone git@gitlab.com:8gears/container-registry/container-registry.com
         cd container-registry.com
-        git checkout -b update-harbor-documentation-$(date +"%Y-%m-%d")
+        git checkout -b update-harbor-documentation-$(date +"%Y-%m-%d-%H-%M")
         git status
         ls -l
         cp -r ../swagger-codegen/harbor_client/api/* ./content/docs/harbor-api-client/api/
