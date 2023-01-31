@@ -88,6 +88,26 @@ jobs:
         author_email: development.s004k@simplelogin.com
         message: 'Update documentation'
         add: 'archives'
+    - name: Create merge request on Gitlab
+      run: |
+        echo ">>>> Create merge request on Gitlab"
+        mkdir ~/.ssh/
+        chmod 700 ~/.ssh
+        echo {{ secret.CONTAINER_REGISTRY_REPO_PUSH }} > ~/.ssh/id_ed25519
+        ssh-keyscan -t ed25519 gitlab.com > ~/.ssh/known_hosts
+        chmod 644 ~/.ssh/known_hosts
+        echo "Host gitlab.com" > ~/.ssh/config
+        echo "\tHostname gitlab.com" >> ~/.ssh/config
+        echo "\tIdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
+        echo "\tIdentitiesOnly yes" >> ~/.ssh/config
+        cat ~/.ssh/config
+        git config --global user.name "Github pipeline"
+        git config --global user.email "sandbox@container-registry.com"
+        ssh -T git@$CI_SERVER_HOST
+        git clone git@gitlab.com:8gears/container-registry/container-registry.com
+        ls -l
+        cd container-registry.com
+        git checkout -b update-harbor-documentation-$(date +"%Y-%m-%d")
 #     - name: Create Release
 #       id: create_release
 #       uses: actions/create-release@latest
