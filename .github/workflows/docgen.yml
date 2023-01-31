@@ -117,7 +117,7 @@ jobs:
         git add ./content/docs/harbor-api-client
         git commit -m "Update Harbor documentation"
         git remote -v
-        git push origin update-harbor-documentation-$(date +"%Y-%m-%d") -o merge_request.create
+        git push origin update-harbor-documentation-$(date +"%Y-%m-%d-%H-%M") -o merge_request.create
       shell: bash
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
