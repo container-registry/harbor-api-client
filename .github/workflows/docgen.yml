@@ -92,6 +92,7 @@ jobs:
         mkdir ~/.ssh/
         chmod 700 ~/.ssh
         echo {{ secret.CONTAINER_REGISTRY_REPO_PUSH }} > ~/.ssh/id_ed25519
+        cat ~/.ssh/id_ed25519
         chmod 400 ~/.ssh/id_ed25519
         ssh-keyscan -t ed25519 gitlab.com > ~/.ssh/known_hosts
         chmod 644 ~/.ssh/known_hosts
