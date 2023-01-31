@@ -112,9 +112,9 @@ jobs:
         git checkout -b update-harbor-documentation-$(date +"%Y-%m-%d")
         git status
         ls -l
-        cp -r ../swagger-codegen/harbor_client/api/* ./container-registry.com/content/docs/harbor-api-client/api/
-        cp -r ../swagger-codegen/harbor_client/model/* ./container-registry.com/content/docs/harbor-api-client/model/
-        cp -r ../swagger-codegen/harbor_client/README.md ./container-registry.com/content/docs/harbor-api-client/_index.md
+        cp -r ../swagger-codegen/harbor_client/api/* ./content/docs/harbor-api-client/api/
+        cp -r ../swagger-codegen/harbor_client/model/* ./content/docs/harbor-api-client/model/
+        cp -r ../swagger-codegen/harbor_client/README.md ./content/docs/harbor-api-client/_index.md
 
         git add ./content/docs/harbor-api-client
         git commit -m "Update Harbor documentation"
