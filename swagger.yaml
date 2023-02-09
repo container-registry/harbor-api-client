@@ -3977,7 +3977,8 @@ paths:
         '200':
           description: Get default root certificate successfully.
           schema:
-            type: file
+            type: string
+            format: binary
           headers:
             Content-Disposition:
               description: To set the filename of the downloaded file.
@@ -5864,7 +5865,8 @@ paths:
         '200':
           description: Data file containing the export data
           schema:
-            type: file
+            type: string
+            format: binary
           headers:
             Content-Disposition:
               type: string
@@ -8514,6 +8516,7 @@ definitions:
         description: The webhook job notify type.
       status:
         type: string
+        format: binary
         description: The webhook job status.
       job_detail:
         type: string
