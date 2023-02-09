@@ -1,4 +1,4 @@
-From 50204d67fd96f7fd506c7c1b15ee38fbc5d3dc32 Mon Sep 17 00:00:00 2001
+From 98b3f154d75089db8525340286ecf1887bf5cfce Mon Sep 17 00:00:00 2001
 From: Alexandre Krispin <development.s004k@simplelogin.com>
 Date: Thu, 26 Jan 2023 15:44:12 +0900
 Subject: [PATCH] Customize templates
@@ -6,10 +6,10 @@ Subject: [PATCH] Customize templates
 ---
  .../io/swagger/codegen/CodegenConstants.java  |  3 ++
  .../languages/PythonClientCodegen.java        | 37 +++++++++++++++++--
- .../src/main/resources/python/README.mustache | 17 +++++++--
+ .../src/main/resources/python/README.mustache | 16 ++++++--
  .../main/resources/python/api_doc.mustache    | 24 +++++++++---
  .../main/resources/python/model_doc.mustache  | 13 +++++--
- 5 files changed, 78 insertions(+), 16 deletions(-)
+ 5 files changed, 77 insertions(+), 16 deletions(-)
 
 diff --git a/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java b/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java
 index d04e606ff..bf1714280 100644
@@ -97,10 +97,10 @@ index 9ef2e69e0..c5079eac1 100755
 +    }
  }
 diff --git a/modules/swagger-codegen/src/main/resources/python/README.mustache b/modules/swagger-codegen/src/main/resources/python/README.mustache
-index 0cc707c1f..94f5a833c 100644
+index 0cc707c1f..d4992ede2 100644
 --- a/modules/swagger-codegen/src/main/resources/python/README.mustache
 +++ b/modules/swagger-codegen/src/main/resources/python/README.mustache
-@@ -1,4 +1,15 @@
+@@ -1,4 +1,14 @@
 -# {{{projectName}}}
 +---
 +title: "Python API Client"
@@ -112,12 +112,11 @@ index 0cc707c1f..94f5a833c 100644
 +docIcon: "/docs/harbor-api.svg"
 +---
 +
-+
 +# Harbor API Client
  {{#appDescription}}
  {{{appDescription}}}
  {{/appDescription}}
-@@ -93,12 +104,12 @@ All URIs are relative to *{{basePath}}*
+@@ -93,12 +103,12 @@ All URIs are relative to *{{basePath}}*
  
  Class | Method | HTTP request | Description
  ------------ | ------------- | ------------- | -------------
@@ -128,12 +127,12 @@ index 0cc707c1f..94f5a833c 100644
  ## Documentation For Models
  
 -{{#models}}{{#model}} - [{{{classname}}}]({{modelDocPath}}{{{classname}}}.md)
-+{{#models}}{{#model}} - [{{{classname}}}]({{modelDocPath}}{{#lambda.lowercase}}{{{classname}}}{{/lambda.lowercase}})
++{{#models}}{{#model}} - [{{{classname}}}]({{modelDocPath}}{{#lambda.lowercase}}{{{classname}}}{{/lambda.lowercase}}/)
  {{/model}}{{/models}}
  
  ## Documentation For Authorization
 diff --git a/modules/swagger-codegen/src/main/resources/python/api_doc.mustache b/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
-index 32c26d929..f3173a7df 100644
+index 32c26d929..688a42092 100644
 --- a/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
 +++ b/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
 @@ -1,3 +1,10 @@
@@ -173,13 +172,13 @@ index 32c26d929..f3173a7df 100644
  Name | Type | Description  | Notes
  ------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}
 -{{#allParams}} **{{paramName}}** | {{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}{{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{baseType}}.md){{/isPrimitiveType}}{{/isFile}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
-+{{#allParams}} **{{paramName}}** | {{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}{{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**](../../{{modelDocPath}}/{{#lambda.lowercase}}{{baseType}}{{/lambda.lowercase}}){{/isPrimitiveType}}{{/isFile}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
++{{#allParams}} **{{paramName}}** | {{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}{{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}**[{{dataType}}](../../{{modelDocPath}}{{#lambda.lowercase}}{{baseType}}{{/lambda.lowercase}})**{{/isPrimitiveType}}{{/isFile}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
  {{/allParams}}
  
  ### Return type
  
 -{{#returnType}}{{#returnTypeIsPrimitive}}**{{{returnType}}}**{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}[**{{{returnType}}}**]({{returnBaseType}}.md){{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}void (empty response body){{/returnType}}
-+{{#returnType}}{{#returnTypeIsPrimitive}}**{{{returnType}}}**{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}**[{{{returnType}}}](../../{{modelDocPath}}/{{#lambda.lowercase}}{{returnBaseType}}{{/lambda.lowercase}})**{{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}void (empty response body){{/returnType}}
++{{#returnType}}{{#returnTypeIsPrimitive}}**{{{returnType}}}**{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}**[{{{returnType}}}](../../{{modelDocPath}}{{#lambda.lowercase}}{{returnBaseType}}{{/lambda.lowercase}})**{{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}void (empty response body){{/returnType}}
  
  ### Authorization
  
@@ -197,7 +196,7 @@ index 32c26d929..f3173a7df 100644
  {{/operation}}
  {{/operations}}
 diff --git a/modules/swagger-codegen/src/main/resources/python/model_doc.mustache b/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
-index 569550df3..d103ad055 100644
+index 569550df3..2ee9b5cc1 100644
 --- a/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
 +++ b/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
 @@ -1,11 +1,18 @@
@@ -216,7 +215,7 @@ index 569550df3..d103ad055 100644
  Name | Type | Description | Notes
  ------------ | ------------- | ------------- | -------------
 -{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{datatype}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{datatype}}**]({{complexType}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
-+{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{datatype}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{datatype}}**](../{{#lambda.lowercase}}{{complexType}}{{/lambda.lowercase}}){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
++{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{datatype}}**{{/isPrimitiveType}}{{^isPrimitiveType}}**[{{datatype}}](../{{#lambda.lowercase}}{{complexType}}{{/lambda.lowercase}})**{{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
  {{/vars}}
  
 -[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
