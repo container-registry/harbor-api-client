@@ -1,15 +1,16 @@
-From 98b3f154d75089db8525340286ecf1887bf5cfce Mon Sep 17 00:00:00 2001
+From 6ebbd5b6f0271d1f2bfff20ace78d5a53b5cc450 Mon Sep 17 00:00:00 2001
 From: Alexandre Krispin <development.s004k@simplelogin.com>
 Date: Thu, 26 Jan 2023 15:44:12 +0900
 Subject: [PATCH] Customize templates
 
 ---
  .../io/swagger/codegen/CodegenConstants.java  |  3 ++
+ .../io/swagger/codegen/DefaultCodegen.java    |  1 +
  .../languages/PythonClientCodegen.java        | 37 +++++++++++++++++--
  .../src/main/resources/python/README.mustache | 16 ++++++--
  .../main/resources/python/api_doc.mustache    | 24 +++++++++---
  .../main/resources/python/model_doc.mustache  | 13 +++++--
- 5 files changed, 77 insertions(+), 16 deletions(-)
+ 6 files changed, 78 insertions(+), 16 deletions(-)
 
 diff --git a/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java b/modules/swagger-codegen/src/main/java/io/swagger/codegen/CodegenConstants.java
 index d04e606ff..bf1714280 100644
@@ -25,6 +26,18 @@ index d04e606ff..bf1714280 100644
      public static final String GIT_USER_ID = "gitUserId";
      public static final String GIT_USER_ID_DESC = "Git user ID, e.g. swagger-api.";
  
+diff --git a/modules/swagger-codegen/src/main/java/io/swagger/codegen/DefaultCodegen.java b/modules/swagger-codegen/src/main/java/io/swagger/codegen/DefaultCodegen.java
+index 637fb68e7..0c30e0fcb 100644
+--- a/modules/swagger-codegen/src/main/java/io/swagger/codegen/DefaultCodegen.java
++++ b/modules/swagger-codegen/src/main/java/io/swagger/codegen/DefaultCodegen.java
+@@ -2631,6 +2631,7 @@ public class DefaultCodegen {
+                 p.baseType = pr.datatype;
+                 p.isContainer = true;
+                 p.isListContainer = true;
++                p.isPrimitiveType = pr.isPrimitiveType;
+ 
+                 // recursively add import
+                 while (pr != null) {
 diff --git a/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/PythonClientCodegen.java b/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/PythonClientCodegen.java
 index 9ef2e69e0..c5079eac1 100755
 --- a/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/PythonClientCodegen.java
