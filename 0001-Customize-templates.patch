@@ -1,4 +1,4 @@
-From 34118346e37caa4df62c17aec9bcb568f7af7423 Mon Sep 17 00:00:00 2001
+From 665e0eb3aa604f0d2a3db2693bdf2a1e8b3f812c Mon Sep 17 00:00:00 2001
 From: Alexandre Krispin <development.s004k@simplelogin.com>
 Date: Thu, 26 Jan 2023 15:44:12 +0900
 Subject: [PATCH] Customize templates
@@ -209,7 +209,7 @@ index 32c26d929..e1301214e 100644
  {{/operation}}
  {{/operations}}
 diff --git a/modules/swagger-codegen/src/main/resources/python/model_doc.mustache b/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
-index 569550df3..2ee9b5cc1 100644
+index 569550df3..6f1d65e58 100644
 --- a/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
 +++ b/modules/swagger-codegen/src/main/resources/python/model_doc.mustache
 @@ -1,11 +1,18 @@
@@ -228,7 +228,7 @@ index 569550df3..2ee9b5cc1 100644
  Name | Type | Description | Notes
  ------------ | ------------- | ------------- | -------------
 -{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{datatype}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{datatype}}**]({{complexType}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
-+{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{datatype}}**{{/isPrimitiveType}}{{^isPrimitiveType}}**[{{datatype}}](../{{#lambda.lowercase}}{{complexType}}{{/lambda.lowercase}})**{{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
++{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{datatype}}**{{/isPrimitiveType}}{{^isPrimitiveType}}**[{{datatype}}](../{{#lambda.lowercase}}{{complexType}}/{{/lambda.lowercase}})**{{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
  {{/vars}}
  
 -[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
