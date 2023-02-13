@@ -1,4 +1,4 @@
-From 0b1c5adba70544e3d94fde2affc42ccb6c652a4c Mon Sep 17 00:00:00 2001
+From 34118346e37caa4df62c17aec9bcb568f7af7423 Mon Sep 17 00:00:00 2001
 From: Alexandre Krispin <development.s004k@simplelogin.com>
 Date: Thu, 26 Jan 2023 15:44:12 +0900
 Subject: [PATCH] Customize templates
@@ -145,7 +145,7 @@ index 0cc707c1f..d4992ede2 100644
  
  ## Documentation For Authorization
 diff --git a/modules/swagger-codegen/src/main/resources/python/api_doc.mustache b/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
-index 32c26d929..cf2627491 100644
+index 32c26d929..e1301214e 100644
 --- a/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
 +++ b/modules/swagger-codegen/src/main/resources/python/api_doc.mustache
 @@ -1,3 +1,10 @@
@@ -175,7 +175,7 @@ index 32c26d929..cf2627491 100644
 +### Signature
 +
 +```python
-+{{{operationId}}}({{#allParams}}{{{paramName}}}: {{#required}}{{#isPrimitiveType}}{{{dataType}}}{{/isPrimitiveType}}{{^isPrimitiveType}}{{{baseType}}}/{{/isPrimitiveType}}{{/required}}{{^required}}{{#isPrimitiveType}}Optional[{{{dataType}}}]{{/isPrimitiveType}}{{^isPrimitiveType}}Optional[{{{baseType}}}]/{{/isPrimitiveType}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})-> {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}None{{/returnType}}
++{{{operationId}}}({{#allParams}}{{{paramName}}}: {{#required}}{{#isPrimitiveType}}{{{dataType}}}{{/isPrimitiveType}}{{^isPrimitiveType}}{{{baseType}}}{{/isPrimitiveType}}{{/required}}{{^required}}{{#isPrimitiveType}}Optional[{{{dataType}}}]{{/isPrimitiveType}}{{^isPrimitiveType}}Optional[{{{baseType}}}]{{/isPrimitiveType}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})-> {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}None{{/returnType}}
 +```
  
  {{{summary}}}{{#notes}}
@@ -185,7 +185,7 @@ index 32c26d929..cf2627491 100644
  Name | Type | Description  | Notes
  ------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}
 -{{#allParams}} **{{paramName}}** | {{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}{{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{baseType}}.md){{/isPrimitiveType}}{{/isFile}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
-+{{#allParams}} **{{paramName}}** | {{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}{{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}**[{{dataType}}](../../{{modelDocPath}}{{#lambda.lowercase}}{{baseType}}{{/lambda.lowercase}})**{{/isPrimitiveType}}{{/isFile}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
++{{#allParams}} **{{paramName}}** | {{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}{{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}**[{{dataType}}](../../{{modelDocPath}}{{#lambda.lowercase}}{{baseType}}/{{/lambda.lowercase}})**{{/isPrimitiveType}}{{/isFile}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
  {{/allParams}}
  
  ### Return type
