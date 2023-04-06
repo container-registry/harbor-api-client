@@ -49,8 +49,8 @@ class ScannerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.create_scanner_with_http_info(registration, **kwargs)  # noqa: E501
         else:
             (data) = self.create_scanner_with_http_info(registration, **kwargs)  # noqa: E501
@@ -73,29 +73,34 @@ class ScannerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['registration', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["registration", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_scanner" % key
+                    "Got an unexpected keyword argument '%s'" " to method create_scanner" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'registration' is set
-        if self.api_client.client_side_validation and ('registration' not in params or
-                                                       params['registration'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `registration` when calling `create_scanner`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "registration" not in params or params["registration"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `registration` when calling `create_scanner`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `create_scanner`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `create_scanner`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -103,28 +108,31 @@ class ScannerApi(object):
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'registration' in params:
-            body_params = params['registration']
+        if "registration" in params:
+            body_params = params["registration"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/scanners', 'POST',
+            "/scanners",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -133,11 +141,12 @@ class ScannerApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def delete_scanner(self, registration_id, **kwargs):  # noqa: E501
         """Delete a scanner registration  # noqa: E501
@@ -155,8 +164,8 @@ class ScannerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.delete_scanner_with_http_info(registration_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_scanner_with_http_info(registration_id, **kwargs)  # noqa: E501
@@ -179,71 +188,80 @@ class ScannerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['registration_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["registration_id", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_scanner" % key
+                    "Got an unexpected keyword argument '%s'" " to method delete_scanner" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'registration_id' is set
-        if self.api_client.client_side_validation and ('registration_id' not in params or
-                                                       params['registration_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `registration_id` when calling `delete_scanner`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "registration_id" not in params or params["registration_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `registration_id` when calling `delete_scanner`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `delete_scanner`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `delete_scanner`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'registration_id' in params:
-            path_params['registration_id'] = params['registration_id']  # noqa: E501
+        if "registration_id" in params:
+            path_params["registration_id"] = params["registration_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/scanners/{registration_id}', 'DELETE',
+            "/scanners/{registration_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ScannerRegistration',  # noqa: E501
+            response_type="ScannerRegistration",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_scanner(self, registration_id, **kwargs):  # noqa: E501
         """Get a scanner registration details  # noqa: E501
@@ -261,8 +279,8 @@ class ScannerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.get_scanner_with_http_info(registration_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_scanner_with_http_info(registration_id, **kwargs)  # noqa: E501
@@ -285,71 +303,80 @@ class ScannerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['registration_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["registration_id", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_scanner" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_scanner" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'registration_id' is set
-        if self.api_client.client_side_validation and ('registration_id' not in params or
-                                                       params['registration_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `registration_id` when calling `get_scanner`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "registration_id" not in params or params["registration_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `registration_id` when calling `get_scanner`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_scanner`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_scanner`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'registration_id' in params:
-            path_params['registration_id'] = params['registration_id']  # noqa: E501
+        if "registration_id" in params:
+            path_params["registration_id"] = params["registration_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/scanners/{registration_id}', 'GET',
+            "/scanners/{registration_id}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ScannerRegistration',  # noqa: E501
+            response_type="ScannerRegistration",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_scanner_metadata(self, registration_id, **kwargs):  # noqa: E501
         """Get the metadata of the specified scanner registration  # noqa: E501
@@ -367,11 +394,13 @@ class ScannerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.get_scanner_metadata_with_http_info(registration_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_scanner_metadata_with_http_info(registration_id, **kwargs)  # noqa: E501
+            (data) = self.get_scanner_metadata_with_http_info(
+                registration_id, **kwargs
+            )  # noqa: E501
             return data
 
     def get_scanner_metadata_with_http_info(self, registration_id, **kwargs):  # noqa: E501
@@ -391,71 +420,81 @@ class ScannerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['registration_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["registration_id", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_scanner_metadata" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'registration_id' is set
-        if self.api_client.client_side_validation and ('registration_id' not in params or
-                                                       params['registration_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `registration_id` when calling `get_scanner_metadata`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "registration_id" not in params or params["registration_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `registration_id` when calling `get_scanner_metadata`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_scanner_metadata`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_scanner_metadata`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'registration_id' in params:
-            path_params['registration_id'] = params['registration_id']  # noqa: E501
+        if "registration_id" in params:
+            path_params["registration_id"] = params["registration_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/scanners/{registration_id}/metadata', 'GET',
+            "/scanners/{registration_id}/metadata",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ScannerAdapterMetadata',  # noqa: E501
+            response_type="ScannerAdapterMetadata",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_scanners(self, **kwargs):  # noqa: E501
         """List scanner registrations  # noqa: E501
@@ -476,8 +515,8 @@ class ScannerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.list_scanners_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_scanners_with_http_info(**kwargs)  # noqa: E501
@@ -503,75 +542,85 @@ class ScannerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["x_request_id", "q", "sort", "page", "page_size"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_scanners" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_scanners" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_scanners`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_scanners`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_scanners`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_scanners`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/scanners', 'GET',
+            "/scanners",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[ScannerRegistration]',  # noqa: E501
+            response_type="list[ScannerRegistration]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def ping_scanner(self, settings, **kwargs):  # noqa: E501
         """Tests scanner registration settings  # noqa: E501
@@ -589,8 +638,8 @@ class ScannerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.ping_scanner_with_http_info(settings, **kwargs)  # noqa: E501
         else:
             (data) = self.ping_scanner_with_http_info(settings, **kwargs)  # noqa: E501
@@ -613,29 +662,34 @@ class ScannerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['settings', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["settings", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ping_scanner" % key
+                    "Got an unexpected keyword argument '%s'" " to method ping_scanner" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'settings' is set
-        if self.api_client.client_side_validation and ('settings' not in params or
-                                                       params['settings'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `settings` when calling `ping_scanner`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "settings" not in params or params["settings"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `settings` when calling `ping_scanner`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `ping_scanner`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `ping_scanner`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -643,28 +697,31 @@ class ScannerApi(object):
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'settings' in params:
-            body_params = params['settings']
+        if "settings" in params:
+            body_params = params["settings"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/scanners/ping', 'POST',
+            "/scanners/ping",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -673,11 +730,12 @@ class ScannerApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def set_scanner_as_default(self, registration_id, payload, **kwargs):  # noqa: E501
         """Set system default scanner registration  # noqa: E501
@@ -696,14 +754,20 @@ class ScannerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.set_scanner_as_default_with_http_info(registration_id, payload, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.set_scanner_as_default_with_http_info(
+                registration_id, payload, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.set_scanner_as_default_with_http_info(registration_id, payload, **kwargs)  # noqa: E501
+            (data) = self.set_scanner_as_default_with_http_info(
+                registration_id, payload, **kwargs
+            )  # noqa: E501
             return data
 
-    def set_scanner_as_default_with_http_info(self, registration_id, payload, **kwargs):  # noqa: E501
+    def set_scanner_as_default_with_http_info(
+        self, registration_id, payload, **kwargs
+    ):  # noqa: E501
         """Set system default scanner registration  # noqa: E501
 
         Set the specified scanner registration as the system default one.   # noqa: E501
@@ -721,64 +785,76 @@ class ScannerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['registration_id', 'payload', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["registration_id", "payload", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method set_scanner_as_default" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'registration_id' is set
-        if self.api_client.client_side_validation and ('registration_id' not in params or
-                                                       params['registration_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `registration_id` when calling `set_scanner_as_default`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "registration_id" not in params or params["registration_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `registration_id` when calling `set_scanner_as_default`"
+            )  # noqa: E501
         # verify the required parameter 'payload' is set
-        if self.api_client.client_side_validation and ('payload' not in params or
-                                                       params['payload'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `payload` when calling `set_scanner_as_default`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "payload" not in params or params["payload"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `payload` when calling `set_scanner_as_default`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `set_scanner_as_default`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `set_scanner_as_default`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'registration_id' in params:
-            path_params['registration_id'] = params['registration_id']  # noqa: E501
+        if "registration_id" in params:
+            path_params["registration_id"] = params["registration_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'payload' in params:
-            body_params = params['payload']
+        if "payload" in params:
+            body_params = params["payload"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/scanners/{registration_id}', 'PATCH',
+            "/scanners/{registration_id}",
+            "PATCH",
             path_params,
             query_params,
             header_params,
@@ -787,11 +863,12 @@ class ScannerApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def update_scanner(self, registration_id, registration, **kwargs):  # noqa: E501
         """Update a scanner registration  # noqa: E501
@@ -810,11 +887,15 @@ class ScannerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_scanner_with_http_info(registration_id, registration, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.update_scanner_with_http_info(
+                registration_id, registration, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.update_scanner_with_http_info(registration_id, registration, **kwargs)  # noqa: E501
+            (data) = self.update_scanner_with_http_info(
+                registration_id, registration, **kwargs
+            )  # noqa: E501
             return data
 
     def update_scanner_with_http_info(self, registration_id, registration, **kwargs):  # noqa: E501
@@ -835,64 +916,75 @@ class ScannerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['registration_id', 'registration', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["registration_id", "registration", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_scanner" % key
+                    "Got an unexpected keyword argument '%s'" " to method update_scanner" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'registration_id' is set
-        if self.api_client.client_side_validation and ('registration_id' not in params or
-                                                       params['registration_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `registration_id` when calling `update_scanner`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "registration_id" not in params or params["registration_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `registration_id` when calling `update_scanner`"
+            )  # noqa: E501
         # verify the required parameter 'registration' is set
-        if self.api_client.client_side_validation and ('registration' not in params or
-                                                       params['registration'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `registration` when calling `update_scanner`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "registration" not in params or params["registration"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `registration` when calling `update_scanner`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `update_scanner`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `update_scanner`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'registration_id' in params:
-            path_params['registration_id'] = params['registration_id']  # noqa: E501
+        if "registration_id" in params:
+            path_params["registration_id"] = params["registration_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'registration' in params:
-            body_params = params['registration']
+        if "registration" in params:
+            body_params = params["registration"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/scanners/{registration_id}', 'PUT',
+            "/scanners/{registration_id}",
+            "PUT",
             path_params,
             query_params,
             header_params,
@@ -901,8 +993,9 @@ class ScannerApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

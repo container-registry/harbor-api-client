@@ -33,32 +33,45 @@ class WebhookPolicy(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'name': 'str',
-        'description': 'str',
-        'project_id': 'int',
-        'targets': 'list[WebhookTargetObject]',
-        'event_types': 'list[str]',
-        'creator': 'str',
-        'creation_time': 'datetime',
-        'update_time': 'datetime',
-        'enabled': 'bool'
+        "id": "int",
+        "name": "str",
+        "description": "str",
+        "project_id": "int",
+        "targets": "list[WebhookTargetObject]",
+        "event_types": "list[str]",
+        "creator": "str",
+        "creation_time": "datetime",
+        "update_time": "datetime",
+        "enabled": "bool",
     }
 
     attribute_map = {
-        'id': 'id',
-        'name': 'name',
-        'description': 'description',
-        'project_id': 'project_id',
-        'targets': 'targets',
-        'event_types': 'event_types',
-        'creator': 'creator',
-        'creation_time': 'creation_time',
-        'update_time': 'update_time',
-        'enabled': 'enabled'
+        "id": "id",
+        "name": "name",
+        "description": "description",
+        "project_id": "project_id",
+        "targets": "targets",
+        "event_types": "event_types",
+        "creator": "creator",
+        "creation_time": "creation_time",
+        "update_time": "update_time",
+        "enabled": "enabled",
     }
 
-    def __init__(self, id=None, name=None, description=None, project_id=None, targets=None, event_types=None, creator=None, creation_time=None, update_time=None, enabled=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        name=None,
+        description=None,
+        project_id=None,
+        targets=None,
+        event_types=None,
+        creator=None,
+        creation_time=None,
+        update_time=None,
+        enabled=None,
+        _configuration=None,
+    ):  # noqa: E501
         """WebhookPolicy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -330,18 +343,20 @@ class WebhookPolicy(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(WebhookPolicy, dict):

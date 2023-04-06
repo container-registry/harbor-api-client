@@ -34,8 +34,12 @@ from harbor_client.models.chart_version import ChartVersion
 from harbor_client.models.component_health_status import ComponentHealthStatus
 from harbor_client.models.configurations import Configurations
 from harbor_client.models.configurations_response import ConfigurationsResponse
-from harbor_client.models.configurations_response_scan_all_policy import ConfigurationsResponseScanAllPolicy
-from harbor_client.models.configurations_response_scan_all_policy_parameter import ConfigurationsResponseScanAllPolicyParameter
+from harbor_client.models.configurations_response_scan_all_policy import (
+    ConfigurationsResponseScanAllPolicy,
+)
+from harbor_client.models.configurations_response_scan_all_policy_parameter import (
+    ConfigurationsResponseScanAllPolicyParameter,
+)
 from harbor_client.models.endpoint import Endpoint
 from harbor_client.models.error import Error
 from harbor_client.models.errors import Errors
@@ -91,7 +95,9 @@ from harbor_client.models.registry_credential import RegistryCredential
 from harbor_client.models.registry_endpoint import RegistryEndpoint
 from harbor_client.models.registry_info import RegistryInfo
 from harbor_client.models.registry_ping import RegistryPing
-from harbor_client.models.registry_provider_credential_pattern import RegistryProviderCredentialPattern
+from harbor_client.models.registry_provider_credential_pattern import (
+    RegistryProviderCredentialPattern,
+)
 from harbor_client.models.registry_provider_endpoint_pattern import RegistryProviderEndpointPattern
 from harbor_client.models.registry_provider_info import RegistryProviderInfo
 from harbor_client.models.registry_update import RegistryUpdate

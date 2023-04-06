@@ -33,28 +33,39 @@ class Repository(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'project_id': 'int',
-        'name': 'str',
-        'description': 'str',
-        'artifact_count': 'int',
-        'pull_count': 'int',
-        'creation_time': 'datetime',
-        'update_time': 'datetime'
+        "id": "int",
+        "project_id": "int",
+        "name": "str",
+        "description": "str",
+        "artifact_count": "int",
+        "pull_count": "int",
+        "creation_time": "datetime",
+        "update_time": "datetime",
     }
 
     attribute_map = {
-        'id': 'id',
-        'project_id': 'project_id',
-        'name': 'name',
-        'description': 'description',
-        'artifact_count': 'artifact_count',
-        'pull_count': 'pull_count',
-        'creation_time': 'creation_time',
-        'update_time': 'update_time'
+        "id": "id",
+        "project_id": "project_id",
+        "name": "name",
+        "description": "description",
+        "artifact_count": "artifact_count",
+        "pull_count": "pull_count",
+        "creation_time": "creation_time",
+        "update_time": "update_time",
     }
 
-    def __init__(self, id=None, project_id=None, name=None, description=None, artifact_count=None, pull_count=None, creation_time=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        project_id=None,
+        name=None,
+        description=None,
+        artifact_count=None,
+        pull_count=None,
+        creation_time=None,
+        update_time=None,
+        _configuration=None,
+    ):  # noqa: E501
         """Repository - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -278,18 +289,20 @@ class Repository(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(Repository, dict):

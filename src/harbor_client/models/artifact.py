@@ -33,50 +33,72 @@ class Artifact(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'type': 'str',
-        'media_type': 'str',
-        'manifest_media_type': 'str',
-        'project_id': 'int',
-        'repository_id': 'int',
-        'digest': 'str',
-        'size': 'int',
-        'icon': 'str',
-        'push_time': 'datetime',
-        'pull_time': 'datetime',
-        'extra_attrs': 'ExtraAttrs',
-        'annotations': 'Annotations',
-        'references': 'list[Reference]',
-        'tags': 'list[Tag]',
-        'addition_links': 'AdditionLinks',
-        'labels': 'list[Label]',
-        'scan_overview': 'ScanOverview',
-        'accessories': 'list[Accessory]'
+        "id": "int",
+        "type": "str",
+        "media_type": "str",
+        "manifest_media_type": "str",
+        "project_id": "int",
+        "repository_id": "int",
+        "digest": "str",
+        "size": "int",
+        "icon": "str",
+        "push_time": "datetime",
+        "pull_time": "datetime",
+        "extra_attrs": "ExtraAttrs",
+        "annotations": "Annotations",
+        "references": "list[Reference]",
+        "tags": "list[Tag]",
+        "addition_links": "AdditionLinks",
+        "labels": "list[Label]",
+        "scan_overview": "ScanOverview",
+        "accessories": "list[Accessory]",
     }
 
     attribute_map = {
-        'id': 'id',
-        'type': 'type',
-        'media_type': 'media_type',
-        'manifest_media_type': 'manifest_media_type',
-        'project_id': 'project_id',
-        'repository_id': 'repository_id',
-        'digest': 'digest',
-        'size': 'size',
-        'icon': 'icon',
-        'push_time': 'push_time',
-        'pull_time': 'pull_time',
-        'extra_attrs': 'extra_attrs',
-        'annotations': 'annotations',
-        'references': 'references',
-        'tags': 'tags',
-        'addition_links': 'addition_links',
-        'labels': 'labels',
-        'scan_overview': 'scan_overview',
-        'accessories': 'accessories'
+        "id": "id",
+        "type": "type",
+        "media_type": "media_type",
+        "manifest_media_type": "manifest_media_type",
+        "project_id": "project_id",
+        "repository_id": "repository_id",
+        "digest": "digest",
+        "size": "size",
+        "icon": "icon",
+        "push_time": "push_time",
+        "pull_time": "pull_time",
+        "extra_attrs": "extra_attrs",
+        "annotations": "annotations",
+        "references": "references",
+        "tags": "tags",
+        "addition_links": "addition_links",
+        "labels": "labels",
+        "scan_overview": "scan_overview",
+        "accessories": "accessories",
     }
 
-    def __init__(self, id=None, type=None, media_type=None, manifest_media_type=None, project_id=None, repository_id=None, digest=None, size=None, icon=None, push_time=None, pull_time=None, extra_attrs=None, annotations=None, references=None, tags=None, addition_links=None, labels=None, scan_overview=None, accessories=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        type=None,
+        media_type=None,
+        manifest_media_type=None,
+        project_id=None,
+        repository_id=None,
+        digest=None,
+        size=None,
+        icon=None,
+        push_time=None,
+        pull_time=None,
+        extra_attrs=None,
+        annotations=None,
+        references=None,
+        tags=None,
+        addition_links=None,
+        labels=None,
+        scan_overview=None,
+        accessories=None,
+        _configuration=None,
+    ):  # noqa: E501
         """Artifact - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -572,18 +594,20 @@ class Artifact(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(Artifact, dict):

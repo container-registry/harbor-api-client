@@ -51,11 +51,15 @@ class Robotv1Api(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_robot_v1_with_http_info(project_name_or_id, robot, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.create_robot_v1_with_http_info(
+                project_name_or_id, robot, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.create_robot_v1_with_http_info(project_name_or_id, robot, **kwargs)  # noqa: E501
+            (data) = self.create_robot_v1_with_http_info(
+                project_name_or_id, robot, **kwargs
+            )  # noqa: E501
             return data
 
     def create_robot_v1_with_http_info(self, project_name_or_id, robot, **kwargs):  # noqa: E501
@@ -77,79 +81,96 @@ class Robotv1Api(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'robot', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "robot",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_robot_v1" % key
+                    "Got an unexpected keyword argument '%s'" " to method create_robot_v1" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `create_robot_v1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `create_robot_v1`"
+            )  # noqa: E501
         # verify the required parameter 'robot' is set
-        if self.api_client.client_side_validation and ('robot' not in params or
-                                                       params['robot'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `robot` when calling `create_robot_v1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "robot" not in params or params["robot"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `robot` when calling `create_robot_v1`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `create_robot_v1`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `create_robot_v1`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'robot' in params:
-            body_params = params['robot']
+        if "robot" in params:
+            body_params = params["robot"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/robots', 'POST',
+            "/projects/{project_name_or_id}/robots",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RobotCreated',  # noqa: E501
+            response_type="RobotCreated",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def delete_robot_v1(self, project_name_or_id, robot_id, **kwargs):  # noqa: E501
         """Delete a robot account  # noqa: E501
@@ -169,11 +190,15 @@ class Robotv1Api(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_robot_v1_with_http_info(project_name_or_id, robot_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.delete_robot_v1_with_http_info(
+                project_name_or_id, robot_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.delete_robot_v1_with_http_info(project_name_or_id, robot_id, **kwargs)  # noqa: E501
+            (data) = self.delete_robot_v1_with_http_info(
+                project_name_or_id, robot_id, **kwargs
+            )  # noqa: E501
             return data
 
     def delete_robot_v1_with_http_info(self, project_name_or_id, robot_id, **kwargs):  # noqa: E501
@@ -195,66 +220,82 @@ class Robotv1Api(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'robot_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "robot_id",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_robot_v1" % key
+                    "Got an unexpected keyword argument '%s'" " to method delete_robot_v1" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `delete_robot_v1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `delete_robot_v1`"
+            )  # noqa: E501
         # verify the required parameter 'robot_id' is set
-        if self.api_client.client_side_validation and ('robot_id' not in params or
-                                                       params['robot_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `robot_id` when calling `delete_robot_v1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "robot_id" not in params or params["robot_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `robot_id` when calling `delete_robot_v1`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `delete_robot_v1`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `delete_robot_v1`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
-        if 'robot_id' in params:
-            path_params['robot_id'] = params['robot_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
+        if "robot_id" in params:
+            path_params["robot_id"] = params["robot_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/robots/{robot_id}', 'DELETE',
+            "/projects/{project_name_or_id}/robots/{robot_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -263,11 +304,12 @@ class Robotv1Api(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_robot_by_idv1(self, project_name_or_id, robot_id, **kwargs):  # noqa: E501
         """Get a robot account  # noqa: E501
@@ -287,14 +329,20 @@ class Robotv1Api(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_robot_by_idv1_with_http_info(project_name_or_id, robot_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_robot_by_idv1_with_http_info(
+                project_name_or_id, robot_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_robot_by_idv1_with_http_info(project_name_or_id, robot_id, **kwargs)  # noqa: E501
+            (data) = self.get_robot_by_idv1_with_http_info(
+                project_name_or_id, robot_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def get_robot_by_idv1_with_http_info(self, project_name_or_id, robot_id, **kwargs):  # noqa: E501
+    def get_robot_by_idv1_with_http_info(
+        self, project_name_or_id, robot_id, **kwargs
+    ):  # noqa: E501
         """Get a robot account  # noqa: E501
 
         This endpoint returns specific robot account information by robot ID.  # noqa: E501
@@ -313,79 +361,96 @@ class Robotv1Api(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'robot_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "robot_id",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_robot_by_idv1" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_robot_by_idv1" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `get_robot_by_idv1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `get_robot_by_idv1`"
+            )  # noqa: E501
         # verify the required parameter 'robot_id' is set
-        if self.api_client.client_side_validation and ('robot_id' not in params or
-                                                       params['robot_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `robot_id` when calling `get_robot_by_idv1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "robot_id" not in params or params["robot_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `robot_id` when calling `get_robot_by_idv1`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_robot_by_idv1`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_robot_by_idv1`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
-        if 'robot_id' in params:
-            path_params['robot_id'] = params['robot_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
+        if "robot_id" in params:
+            path_params["robot_id"] = params["robot_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/robots/{robot_id}', 'GET',
+            "/projects/{project_name_or_id}/robots/{robot_id}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Robot',  # noqa: E501
+            response_type="Robot",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_robot_v1(self, project_name_or_id, **kwargs):  # noqa: E501
         """Get all robot accounts of specified project  # noqa: E501
@@ -408,8 +473,8 @@ class Robotv1Api(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.list_robot_v1_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
         else:
             (data) = self.list_robot_v1_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
@@ -437,83 +502,104 @@ class Robotv1Api(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name', 'page', 'page_size', 'q', 'sort']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "x_request_id",
+            "x_is_resource_name",
+            "page",
+            "page_size",
+            "q",
+            "sort",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_robot_v1" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_robot_v1" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `list_robot_v1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `list_robot_v1`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_robot_v1`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_robot_v1`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_robot_v1`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_robot_v1`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/robots', 'GET',
+            "/projects/{project_name_or_id}/robots",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Robot]',  # noqa: E501
+            response_type="list[Robot]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def update_robot_v1(self, project_name_or_id, robot_id, robot, **kwargs):  # noqa: E501
         """Update status of robot account.  # noqa: E501
@@ -534,14 +620,20 @@ class Robotv1Api(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_robot_v1_with_http_info(project_name_or_id, robot_id, robot, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.update_robot_v1_with_http_info(
+                project_name_or_id, robot_id, robot, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.update_robot_v1_with_http_info(project_name_or_id, robot_id, robot, **kwargs)  # noqa: E501
+            (data) = self.update_robot_v1_with_http_info(
+                project_name_or_id, robot_id, robot, **kwargs
+            )  # noqa: E501
             return data
 
-    def update_robot_v1_with_http_info(self, project_name_or_id, robot_id, robot, **kwargs):  # noqa: E501
+    def update_robot_v1_with_http_info(
+        self, project_name_or_id, robot_id, robot, **kwargs
+    ):  # noqa: E501
         """Update status of robot account.  # noqa: E501
 
         Used to disable/enable a specified robot account.  # noqa: E501
@@ -561,72 +653,92 @@ class Robotv1Api(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'robot_id', 'robot', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "robot_id",
+            "robot",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_robot_v1" % key
+                    "Got an unexpected keyword argument '%s'" " to method update_robot_v1" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `update_robot_v1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `update_robot_v1`"
+            )  # noqa: E501
         # verify the required parameter 'robot_id' is set
-        if self.api_client.client_side_validation and ('robot_id' not in params or
-                                                       params['robot_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `robot_id` when calling `update_robot_v1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "robot_id" not in params or params["robot_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `robot_id` when calling `update_robot_v1`"
+            )  # noqa: E501
         # verify the required parameter 'robot' is set
-        if self.api_client.client_side_validation and ('robot' not in params or
-                                                       params['robot'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `robot` when calling `update_robot_v1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "robot" not in params or params["robot"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `robot` when calling `update_robot_v1`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `update_robot_v1`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `update_robot_v1`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
-        if 'robot_id' in params:
-            path_params['robot_id'] = params['robot_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
+        if "robot_id" in params:
+            path_params["robot_id"] = params["robot_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'robot' in params:
-            body_params = params['robot']
+        if "robot" in params:
+            body_params = params["robot"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/robots/{robot_id}', 'PUT',
+            "/projects/{project_name_or_id}/robots/{robot_id}",
+            "PUT",
             path_params,
             query_params,
             header_params,
@@ -635,8 +747,9 @@ class Robotv1Api(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

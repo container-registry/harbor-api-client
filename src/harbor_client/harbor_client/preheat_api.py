@@ -49,8 +49,8 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.create_instance_with_http_info(instance, **kwargs)  # noqa: E501
         else:
             (data) = self.create_instance_with_http_info(instance, **kwargs)  # noqa: E501
@@ -73,29 +73,34 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instance', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["instance", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_instance" % key
+                    "Got an unexpected keyword argument '%s'" " to method create_instance" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'instance' is set
-        if self.api_client.client_side_validation and ('instance' not in params or
-                                                       params['instance'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `instance` when calling `create_instance`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "instance" not in params or params["instance"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `instance` when calling `create_instance`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `create_instance`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `create_instance`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -103,28 +108,31 @@ class PreheatApi(object):
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'instance' in params:
-            body_params = params['instance']
+        if "instance" in params:
+            body_params = params["instance"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/p2p/preheat/instances', 'POST',
+            "/p2p/preheat/instances",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -133,11 +141,12 @@ class PreheatApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def create_policy(self, project_name, policy, **kwargs):  # noqa: E501
         """Create a preheat policy under a project  # noqa: E501
@@ -156,8 +165,8 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.create_policy_with_http_info(project_name, policy, **kwargs)  # noqa: E501
         else:
             (data) = self.create_policy_with_http_info(project_name, policy, **kwargs)  # noqa: E501
@@ -181,64 +190,75 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'policy', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name", "policy", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_policy" % key
+                    "Got an unexpected keyword argument '%s'" " to method create_policy" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `create_policy`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `create_policy`"
+            )  # noqa: E501
         # verify the required parameter 'policy' is set
-        if self.api_client.client_side_validation and ('policy' not in params or
-                                                       params['policy'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `policy` when calling `create_policy`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "policy" not in params or params["policy"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `policy` when calling `create_policy`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `create_policy`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `create_policy`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'policy' in params:
-            body_params = params['policy']
+        if "policy" in params:
+            body_params = params["policy"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies', 'POST',
+            "/projects/{project_name}/preheat/policies",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -247,11 +267,12 @@ class PreheatApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def delete_instance(self, preheat_instance_name, **kwargs):  # noqa: E501
         """Delete the specified P2P provider instance  # noqa: E501
@@ -269,11 +290,15 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.delete_instance_with_http_info(
+                preheat_instance_name, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.delete_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
+            (data) = self.delete_instance_with_http_info(
+                preheat_instance_name, **kwargs
+            )  # noqa: E501
             return data
 
     def delete_instance_with_http_info(self, preheat_instance_name, **kwargs):  # noqa: E501
@@ -293,58 +318,66 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['preheat_instance_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["preheat_instance_name", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_instance" % key
+                    "Got an unexpected keyword argument '%s'" " to method delete_instance" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'preheat_instance_name' is set
-        if self.api_client.client_side_validation and ('preheat_instance_name' not in params or
-                                                       params['preheat_instance_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_instance_name` when calling `delete_instance`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_instance_name" not in params or params["preheat_instance_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_instance_name` when calling `delete_instance`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `delete_instance`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `delete_instance`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'preheat_instance_name' in params:
-            path_params['preheat_instance_name'] = params['preheat_instance_name']  # noqa: E501
+        if "preheat_instance_name" in params:
+            path_params["preheat_instance_name"] = params["preheat_instance_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/p2p/preheat/instances/{preheat_instance_name}', 'DELETE',
+            "/p2p/preheat/instances/{preheat_instance_name}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -353,11 +386,12 @@ class PreheatApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def delete_policy(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
         """Delete a preheat policy  # noqa: E501
@@ -376,14 +410,20 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.delete_policy_with_http_info(
+                project_name, preheat_policy_name, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.delete_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
+            (data) = self.delete_policy_with_http_info(
+                project_name, preheat_policy_name, **kwargs
+            )  # noqa: E501
             return data
 
-    def delete_policy_with_http_info(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
+    def delete_policy_with_http_info(
+        self, project_name, preheat_policy_name, **kwargs
+    ):  # noqa: E501
         """Delete a preheat policy  # noqa: E501
 
         Delete a preheat policy  # noqa: E501
@@ -401,64 +441,75 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name", "preheat_policy_name", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_policy" % key
+                    "Got an unexpected keyword argument '%s'" " to method delete_policy" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `delete_policy`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `delete_policy`"
+            )  # noqa: E501
         # verify the required parameter 'preheat_policy_name' is set
-        if self.api_client.client_side_validation and ('preheat_policy_name' not in params or
-                                                       params['preheat_policy_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_policy_name` when calling `delete_policy`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_policy_name" not in params or params["preheat_policy_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_policy_name` when calling `delete_policy`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `delete_policy`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `delete_policy`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'preheat_policy_name' in params:
-            path_params['preheat_policy_name'] = params['preheat_policy_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "preheat_policy_name" in params:
+            path_params["preheat_policy_name"] = params["preheat_policy_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies/{preheat_policy_name}', 'DELETE',
+            "/projects/{project_name}/preheat/policies/{preheat_policy_name}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -467,13 +518,16 @@ class PreheatApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def get_execution(self, project_name, preheat_policy_name, execution_id, **kwargs):  # noqa: E501
+    def get_execution(
+        self, project_name, preheat_policy_name, execution_id, **kwargs
+    ):  # noqa: E501
         """Get a execution detail by id  # noqa: E501
 
         Get a execution detail by id  # noqa: E501
@@ -491,14 +545,20 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_execution_with_http_info(project_name, preheat_policy_name, execution_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_execution_with_http_info(
+                project_name, preheat_policy_name, execution_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_execution_with_http_info(project_name, preheat_policy_name, execution_id, **kwargs)  # noqa: E501
+            (data) = self.get_execution_with_http_info(
+                project_name, preheat_policy_name, execution_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def get_execution_with_http_info(self, project_name, preheat_policy_name, execution_id, **kwargs):  # noqa: E501
+    def get_execution_with_http_info(
+        self, project_name, preheat_policy_name, execution_id, **kwargs
+    ):  # noqa: E501
         """Get a execution detail by id  # noqa: E501
 
         Get a execution detail by id  # noqa: E501
@@ -517,83 +577,103 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'execution_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "preheat_policy_name",
+            "execution_id",
+            "x_request_id",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_execution" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_execution" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `get_execution`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `get_execution`"
+            )  # noqa: E501
         # verify the required parameter 'preheat_policy_name' is set
-        if self.api_client.client_side_validation and ('preheat_policy_name' not in params or
-                                                       params['preheat_policy_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_policy_name` when calling `get_execution`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_policy_name" not in params or params["preheat_policy_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_policy_name` when calling `get_execution`"
+            )  # noqa: E501
         # verify the required parameter 'execution_id' is set
-        if self.api_client.client_side_validation and ('execution_id' not in params or
-                                                       params['execution_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `execution_id` when calling `get_execution`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "execution_id" not in params or params["execution_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `execution_id` when calling `get_execution`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_execution`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_execution`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'preheat_policy_name' in params:
-            path_params['preheat_policy_name'] = params['preheat_policy_name']  # noqa: E501
-        if 'execution_id' in params:
-            path_params['execution_id'] = params['execution_id']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "preheat_policy_name" in params:
+            path_params["preheat_policy_name"] = params["preheat_policy_name"]  # noqa: E501
+        if "execution_id" in params:
+            path_params["execution_id"] = params["execution_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions/{execution_id}', 'GET',
+            "/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions/{execution_id}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Execution',  # noqa: E501
+            response_type="Execution",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_instance(self, preheat_instance_name, **kwargs):  # noqa: E501
         """Get a P2P provider instance  # noqa: E501
@@ -611,8 +691,8 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.get_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
         else:
             (data) = self.get_instance_with_http_info(preheat_instance_name, **kwargs)  # noqa: E501
@@ -635,71 +715,80 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['preheat_instance_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["preheat_instance_name", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_instance" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_instance" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'preheat_instance_name' is set
-        if self.api_client.client_side_validation and ('preheat_instance_name' not in params or
-                                                       params['preheat_instance_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_instance_name` when calling `get_instance`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_instance_name" not in params or params["preheat_instance_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_instance_name` when calling `get_instance`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_instance`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_instance`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'preheat_instance_name' in params:
-            path_params['preheat_instance_name'] = params['preheat_instance_name']  # noqa: E501
+        if "preheat_instance_name" in params:
+            path_params["preheat_instance_name"] = params["preheat_instance_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/p2p/preheat/instances/{preheat_instance_name}', 'GET',
+            "/p2p/preheat/instances/{preheat_instance_name}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Instance',  # noqa: E501
+            response_type="Instance",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_policy(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
         """Get a preheat policy  # noqa: E501
@@ -718,11 +807,15 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_policy_with_http_info(
+                project_name, preheat_policy_name, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_policy_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
+            (data) = self.get_policy_with_http_info(
+                project_name, preheat_policy_name, **kwargs
+            )  # noqa: E501
             return data
 
     def get_policy_with_http_info(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
@@ -743,79 +836,93 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name", "preheat_policy_name", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_policy" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_policy" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `get_policy`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `get_policy`"
+            )  # noqa: E501
         # verify the required parameter 'preheat_policy_name' is set
-        if self.api_client.client_side_validation and ('preheat_policy_name' not in params or
-                                                       params['preheat_policy_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_policy_name` when calling `get_policy`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_policy_name" not in params or params["preheat_policy_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_policy_name` when calling `get_policy`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_policy`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_policy`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'preheat_policy_name' in params:
-            path_params['preheat_policy_name'] = params['preheat_policy_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "preheat_policy_name" in params:
+            path_params["preheat_policy_name"] = params["preheat_policy_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies/{preheat_policy_name}', 'GET',
+            "/projects/{project_name}/preheat/policies/{preheat_policy_name}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PreheatPolicy',  # noqa: E501
+            response_type="PreheatPolicy",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def get_preheat_log(self, project_name, preheat_policy_name, execution_id, task_id, **kwargs):  # noqa: E501
+    def get_preheat_log(
+        self, project_name, preheat_policy_name, execution_id, task_id, **kwargs
+    ):  # noqa: E501
         """Get the log text stream of the specified task for the given execution  # noqa: E501
 
         Get the log text stream of the specified task for the given execution  # noqa: E501
@@ -834,14 +941,20 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_preheat_log_with_http_info(project_name, preheat_policy_name, execution_id, task_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_preheat_log_with_http_info(
+                project_name, preheat_policy_name, execution_id, task_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_preheat_log_with_http_info(project_name, preheat_policy_name, execution_id, task_id, **kwargs)  # noqa: E501
+            (data) = self.get_preheat_log_with_http_info(
+                project_name, preheat_policy_name, execution_id, task_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def get_preheat_log_with_http_info(self, project_name, preheat_policy_name, execution_id, task_id, **kwargs):  # noqa: E501
+    def get_preheat_log_with_http_info(
+        self, project_name, preheat_policy_name, execution_id, task_id, **kwargs
+    ):  # noqa: E501
         """Get the log text stream of the specified task for the given execution  # noqa: E501
 
         Get the log text stream of the specified task for the given execution  # noqa: E501
@@ -861,89 +974,111 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'execution_id', 'task_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "preheat_policy_name",
+            "execution_id",
+            "task_id",
+            "x_request_id",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_preheat_log" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_preheat_log" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `get_preheat_log`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `get_preheat_log`"
+            )  # noqa: E501
         # verify the required parameter 'preheat_policy_name' is set
-        if self.api_client.client_side_validation and ('preheat_policy_name' not in params or
-                                                       params['preheat_policy_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_policy_name` when calling `get_preheat_log`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_policy_name" not in params or params["preheat_policy_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_policy_name` when calling `get_preheat_log`"
+            )  # noqa: E501
         # verify the required parameter 'execution_id' is set
-        if self.api_client.client_side_validation and ('execution_id' not in params or
-                                                       params['execution_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `execution_id` when calling `get_preheat_log`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "execution_id" not in params or params["execution_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `execution_id` when calling `get_preheat_log`"
+            )  # noqa: E501
         # verify the required parameter 'task_id' is set
-        if self.api_client.client_side_validation and ('task_id' not in params or
-                                                       params['task_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `task_id` when calling `get_preheat_log`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "task_id" not in params or params["task_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `task_id` when calling `get_preheat_log`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_preheat_log`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_preheat_log`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'preheat_policy_name' in params:
-            path_params['preheat_policy_name'] = params['preheat_policy_name']  # noqa: E501
-        if 'execution_id' in params:
-            path_params['execution_id'] = params['execution_id']  # noqa: E501
-        if 'task_id' in params:
-            path_params['task_id'] = params['task_id']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "preheat_policy_name" in params:
+            path_params["preheat_policy_name"] = params["preheat_policy_name"]  # noqa: E501
+        if "execution_id" in params:
+            path_params["execution_id"] = params["execution_id"]  # noqa: E501
+        if "task_id" in params:
+            path_params["task_id"] = params["task_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(["text/plain"])  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions/{execution_id}/tasks/{task_id}/logs', 'GET',
+            "/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions/{execution_id}/tasks/{task_id}/logs",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_type="str",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_executions(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
         """List executions for the given policy  # noqa: E501
@@ -966,14 +1101,20 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_executions_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.list_executions_with_http_info(
+                project_name, preheat_policy_name, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.list_executions_with_http_info(project_name, preheat_policy_name, **kwargs)  # noqa: E501
+            (data) = self.list_executions_with_http_info(
+                project_name, preheat_policy_name, **kwargs
+            )  # noqa: E501
             return data
 
-    def list_executions_with_http_info(self, project_name, preheat_policy_name, **kwargs):  # noqa: E501
+    def list_executions_with_http_info(
+        self, project_name, preheat_policy_name, **kwargs
+    ):  # noqa: E501
         """List executions for the given policy  # noqa: E501
 
         List executions for the given policy  # noqa: E501
@@ -995,87 +1136,111 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'x_request_id', 'page', 'page_size', 'q', 'sort']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "preheat_policy_name",
+            "x_request_id",
+            "page",
+            "page_size",
+            "q",
+            "sort",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_executions" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_executions" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `list_executions`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `list_executions`"
+            )  # noqa: E501
         # verify the required parameter 'preheat_policy_name' is set
-        if self.api_client.client_side_validation and ('preheat_policy_name' not in params or
-                                                       params['preheat_policy_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_policy_name` when calling `list_executions`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_policy_name" not in params or params["preheat_policy_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_policy_name` when calling `list_executions`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_executions`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_executions`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_executions`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_executions`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'preheat_policy_name' in params:
-            path_params['preheat_policy_name'] = params['preheat_policy_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "preheat_policy_name" in params:
+            path_params["preheat_policy_name"] = params["preheat_policy_name"]  # noqa: E501
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions', 'GET',
+            "/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Execution]',  # noqa: E501
+            response_type="list[Execution]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_instances(self, **kwargs):  # noqa: E501
         """List P2P provider instances  # noqa: E501
@@ -1096,8 +1261,8 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.list_instances_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_instances_with_http_info(**kwargs)  # noqa: E501
@@ -1123,75 +1288,85 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'page', 'page_size', 'q', 'sort']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["x_request_id", "page", "page_size", "q", "sort"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_instances" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_instances" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_instances`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_instances`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_instances`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_instances`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/p2p/preheat/instances', 'GET',
+            "/p2p/preheat/instances",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Instance]',  # noqa: E501
+            response_type="list[Instance]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_policies(self, project_name, **kwargs):  # noqa: E501
         """List preheat policies  # noqa: E501
@@ -1213,8 +1388,8 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.list_policies_with_http_info(project_name, **kwargs)  # noqa: E501
         else:
             (data) = self.list_policies_with_http_info(project_name, **kwargs)  # noqa: E501
@@ -1241,81 +1416,101 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'x_request_id', 'page', 'page_size', 'q', 'sort']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "x_request_id",
+            "page",
+            "page_size",
+            "q",
+            "sort",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_policies" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_policies" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `list_policies`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `list_policies`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_policies`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_policies`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_policies`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_policies`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies', 'GET',
+            "/projects/{project_name}/preheat/policies",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[PreheatPolicy]',  # noqa: E501
+            response_type="list[PreheatPolicy]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_providers(self, **kwargs):  # noqa: E501
         """List P2P providers  # noqa: E501
@@ -1332,8 +1527,8 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.list_providers_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_providers_with_http_info(**kwargs)  # noqa: E501
@@ -1355,25 +1550,27 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_providers" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_providers" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_providers`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_providers`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1381,39 +1578,43 @@ class PreheatApi(object):
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/p2p/preheat/providers', 'GET',
+            "/p2p/preheat/providers",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Metadata]',  # noqa: E501
+            response_type="list[Metadata]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_providers_under_project(self, project_name, **kwargs):  # noqa: E501
         """Get all providers at project level  # noqa: E501
@@ -1431,11 +1632,15 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_providers_under_project_with_http_info(project_name, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.list_providers_under_project_with_http_info(
+                project_name, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.list_providers_under_project_with_http_info(project_name, **kwargs)  # noqa: E501
+            (data) = self.list_providers_under_project_with_http_info(
+                project_name, **kwargs
+            )  # noqa: E501
             return data
 
     def list_providers_under_project_with_http_info(self, project_name, **kwargs):  # noqa: E501
@@ -1455,71 +1660,81 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_providers_under_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `list_providers_under_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `list_providers_under_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_providers_under_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_providers_under_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/providers', 'GET',
+            "/projects/{project_name}/preheat/providers",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[ProviderUnderProject]',  # noqa: E501
+            response_type="list[ProviderUnderProject]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_tasks(self, project_name, preheat_policy_name, execution_id, **kwargs):  # noqa: E501
         """List all the related tasks for the given execution  # noqa: E501
@@ -1543,14 +1758,20 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_tasks_with_http_info(project_name, preheat_policy_name, execution_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.list_tasks_with_http_info(
+                project_name, preheat_policy_name, execution_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.list_tasks_with_http_info(project_name, preheat_policy_name, execution_id, **kwargs)  # noqa: E501
+            (data) = self.list_tasks_with_http_info(
+                project_name, preheat_policy_name, execution_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def list_tasks_with_http_info(self, project_name, preheat_policy_name, execution_id, **kwargs):  # noqa: E501
+    def list_tasks_with_http_info(
+        self, project_name, preheat_policy_name, execution_id, **kwargs
+    ):  # noqa: E501
         """List all the related tasks for the given execution  # noqa: E501
 
         List all the related tasks for the given execution  # noqa: E501
@@ -1573,93 +1794,121 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'execution_id', 'x_request_id', 'page', 'page_size', 'q', 'sort']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "preheat_policy_name",
+            "execution_id",
+            "x_request_id",
+            "page",
+            "page_size",
+            "q",
+            "sort",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_tasks" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_tasks" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `list_tasks`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `list_tasks`"
+            )  # noqa: E501
         # verify the required parameter 'preheat_policy_name' is set
-        if self.api_client.client_side_validation and ('preheat_policy_name' not in params or
-                                                       params['preheat_policy_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_policy_name` when calling `list_tasks`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_policy_name" not in params or params["preheat_policy_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_policy_name` when calling `list_tasks`"
+            )  # noqa: E501
         # verify the required parameter 'execution_id' is set
-        if self.api_client.client_side_validation and ('execution_id' not in params or
-                                                       params['execution_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `execution_id` when calling `list_tasks`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "execution_id" not in params or params["execution_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `execution_id` when calling `list_tasks`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_tasks`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_tasks`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_tasks`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_tasks`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'preheat_policy_name' in params:
-            path_params['preheat_policy_name'] = params['preheat_policy_name']  # noqa: E501
-        if 'execution_id' in params:
-            path_params['execution_id'] = params['execution_id']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "preheat_policy_name" in params:
+            path_params["preheat_policy_name"] = params["preheat_policy_name"]  # noqa: E501
+        if "execution_id" in params:
+            path_params["execution_id"] = params["execution_id"]  # noqa: E501
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions/{execution_id}/tasks', 'GET',
+            "/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions/{execution_id}/tasks",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Task]',  # noqa: E501
+            response_type="list[Task]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def manual_preheat(self, project_name, preheat_policy_name, policy, **kwargs):  # noqa: E501
         """Manual preheat  # noqa: E501
@@ -1679,14 +1928,20 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.manual_preheat_with_http_info(project_name, preheat_policy_name, policy, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.manual_preheat_with_http_info(
+                project_name, preheat_policy_name, policy, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.manual_preheat_with_http_info(project_name, preheat_policy_name, policy, **kwargs)  # noqa: E501
+            (data) = self.manual_preheat_with_http_info(
+                project_name, preheat_policy_name, policy, **kwargs
+            )  # noqa: E501
             return data
 
-    def manual_preheat_with_http_info(self, project_name, preheat_policy_name, policy, **kwargs):  # noqa: E501
+    def manual_preheat_with_http_info(
+        self, project_name, preheat_policy_name, policy, **kwargs
+    ):  # noqa: E501
         """Manual preheat  # noqa: E501
 
         Manual preheat  # noqa: E501
@@ -1705,70 +1960,84 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'policy', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name", "preheat_policy_name", "policy", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method manual_preheat" % key
+                    "Got an unexpected keyword argument '%s'" " to method manual_preheat" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `manual_preheat`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `manual_preheat`"
+            )  # noqa: E501
         # verify the required parameter 'preheat_policy_name' is set
-        if self.api_client.client_side_validation and ('preheat_policy_name' not in params or
-                                                       params['preheat_policy_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_policy_name` when calling `manual_preheat`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_policy_name" not in params or params["preheat_policy_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_policy_name` when calling `manual_preheat`"
+            )  # noqa: E501
         # verify the required parameter 'policy' is set
-        if self.api_client.client_side_validation and ('policy' not in params or
-                                                       params['policy'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `policy` when calling `manual_preheat`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "policy" not in params or params["policy"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `policy` when calling `manual_preheat`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `manual_preheat`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `manual_preheat`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'preheat_policy_name' in params:
-            path_params['preheat_policy_name'] = params['preheat_policy_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "preheat_policy_name" in params:
+            path_params["preheat_policy_name"] = params["preheat_policy_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'policy' in params:
-            body_params = params['policy']
+        if "policy" in params:
+            body_params = params["policy"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies/{preheat_policy_name}', 'POST',
+            "/projects/{project_name}/preheat/policies/{preheat_policy_name}",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -1777,11 +2046,12 @@ class PreheatApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def ping_instances(self, instance, **kwargs):  # noqa: E501
         """Ping status of a instance.  # noqa: E501
@@ -1799,8 +2069,8 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.ping_instances_with_http_info(instance, **kwargs)  # noqa: E501
         else:
             (data) = self.ping_instances_with_http_info(instance, **kwargs)  # noqa: E501
@@ -1823,29 +2093,34 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instance', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["instance", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ping_instances" % key
+                    "Got an unexpected keyword argument '%s'" " to method ping_instances" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'instance' is set
-        if self.api_client.client_side_validation and ('instance' not in params or
-                                                       params['instance'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `instance` when calling `ping_instances`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "instance" not in params or params["instance"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `instance` when calling `ping_instances`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `ping_instances`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `ping_instances`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1853,28 +2128,31 @@ class PreheatApi(object):
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'instance' in params:
-            body_params = params['instance']
+        if "instance" in params:
+            body_params = params["instance"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/p2p/preheat/instances/ping', 'POST',
+            "/p2p/preheat/instances/ping",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -1883,13 +2161,16 @@ class PreheatApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def stop_execution(self, project_name, preheat_policy_name, execution_id, execution, **kwargs):  # noqa: E501
+    def stop_execution(
+        self, project_name, preheat_policy_name, execution_id, execution, **kwargs
+    ):  # noqa: E501
         """Stop a execution  # noqa: E501
 
         Stop a execution  # noqa: E501
@@ -1908,14 +2189,20 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.stop_execution_with_http_info(project_name, preheat_policy_name, execution_id, execution, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.stop_execution_with_http_info(
+                project_name, preheat_policy_name, execution_id, execution, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.stop_execution_with_http_info(project_name, preheat_policy_name, execution_id, execution, **kwargs)  # noqa: E501
+            (data) = self.stop_execution_with_http_info(
+                project_name, preheat_policy_name, execution_id, execution, **kwargs
+            )  # noqa: E501
             return data
 
-    def stop_execution_with_http_info(self, project_name, preheat_policy_name, execution_id, execution, **kwargs):  # noqa: E501
+    def stop_execution_with_http_info(
+        self, project_name, preheat_policy_name, execution_id, execution, **kwargs
+    ):  # noqa: E501
         """Stop a execution  # noqa: E501
 
         Stop a execution  # noqa: E501
@@ -1935,76 +2222,99 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'execution_id', 'execution', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "preheat_policy_name",
+            "execution_id",
+            "execution",
+            "x_request_id",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method stop_execution" % key
+                    "Got an unexpected keyword argument '%s'" " to method stop_execution" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `stop_execution`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `stop_execution`"
+            )  # noqa: E501
         # verify the required parameter 'preheat_policy_name' is set
-        if self.api_client.client_side_validation and ('preheat_policy_name' not in params or
-                                                       params['preheat_policy_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_policy_name` when calling `stop_execution`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_policy_name" not in params or params["preheat_policy_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_policy_name` when calling `stop_execution`"
+            )  # noqa: E501
         # verify the required parameter 'execution_id' is set
-        if self.api_client.client_side_validation and ('execution_id' not in params or
-                                                       params['execution_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `execution_id` when calling `stop_execution`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "execution_id" not in params or params["execution_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `execution_id` when calling `stop_execution`"
+            )  # noqa: E501
         # verify the required parameter 'execution' is set
-        if self.api_client.client_side_validation and ('execution' not in params or
-                                                       params['execution'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `execution` when calling `stop_execution`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "execution" not in params or params["execution"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `execution` when calling `stop_execution`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `stop_execution`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `stop_execution`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'preheat_policy_name' in params:
-            path_params['preheat_policy_name'] = params['preheat_policy_name']  # noqa: E501
-        if 'execution_id' in params:
-            path_params['execution_id'] = params['execution_id']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "preheat_policy_name" in params:
+            path_params["preheat_policy_name"] = params["preheat_policy_name"]  # noqa: E501
+        if "execution_id" in params:
+            path_params["execution_id"] = params["execution_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'execution' in params:
-            body_params = params['execution']
+        if "execution" in params:
+            body_params = params["execution"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions/{execution_id}', 'PATCH',
+            "/projects/{project_name}/preheat/policies/{preheat_policy_name}/executions/{execution_id}",
+            "PATCH",
             path_params,
             query_params,
             header_params,
@@ -2013,11 +2323,12 @@ class PreheatApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def update_instance(self, preheat_instance_name, instance, **kwargs):  # noqa: E501
         """Update the specified P2P provider instance  # noqa: E501
@@ -2036,14 +2347,20 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_instance_with_http_info(preheat_instance_name, instance, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.update_instance_with_http_info(
+                preheat_instance_name, instance, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.update_instance_with_http_info(preheat_instance_name, instance, **kwargs)  # noqa: E501
+            (data) = self.update_instance_with_http_info(
+                preheat_instance_name, instance, **kwargs
+            )  # noqa: E501
             return data
 
-    def update_instance_with_http_info(self, preheat_instance_name, instance, **kwargs):  # noqa: E501
+    def update_instance_with_http_info(
+        self, preheat_instance_name, instance, **kwargs
+    ):  # noqa: E501
         """Update the specified P2P provider instance  # noqa: E501
 
         Update the specified P2P provider instance  # noqa: E501
@@ -2061,64 +2378,75 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['preheat_instance_name', 'instance', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["preheat_instance_name", "instance", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_instance" % key
+                    "Got an unexpected keyword argument '%s'" " to method update_instance" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'preheat_instance_name' is set
-        if self.api_client.client_side_validation and ('preheat_instance_name' not in params or
-                                                       params['preheat_instance_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_instance_name` when calling `update_instance`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_instance_name" not in params or params["preheat_instance_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_instance_name` when calling `update_instance`"
+            )  # noqa: E501
         # verify the required parameter 'instance' is set
-        if self.api_client.client_side_validation and ('instance' not in params or
-                                                       params['instance'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `instance` when calling `update_instance`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "instance" not in params or params["instance"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `instance` when calling `update_instance`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `update_instance`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `update_instance`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'preheat_instance_name' in params:
-            path_params['preheat_instance_name'] = params['preheat_instance_name']  # noqa: E501
+        if "preheat_instance_name" in params:
+            path_params["preheat_instance_name"] = params["preheat_instance_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'instance' in params:
-            body_params = params['instance']
+        if "instance" in params:
+            body_params = params["instance"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/p2p/preheat/instances/{preheat_instance_name}', 'PUT',
+            "/p2p/preheat/instances/{preheat_instance_name}",
+            "PUT",
             path_params,
             query_params,
             header_params,
@@ -2127,11 +2455,12 @@ class PreheatApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def update_policy(self, project_name, preheat_policy_name, policy, **kwargs):  # noqa: E501
         """Update preheat policy  # noqa: E501
@@ -2151,14 +2480,20 @@ class PreheatApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_policy_with_http_info(project_name, preheat_policy_name, policy, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.update_policy_with_http_info(
+                project_name, preheat_policy_name, policy, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.update_policy_with_http_info(project_name, preheat_policy_name, policy, **kwargs)  # noqa: E501
+            (data) = self.update_policy_with_http_info(
+                project_name, preheat_policy_name, policy, **kwargs
+            )  # noqa: E501
             return data
 
-    def update_policy_with_http_info(self, project_name, preheat_policy_name, policy, **kwargs):  # noqa: E501
+    def update_policy_with_http_info(
+        self, project_name, preheat_policy_name, policy, **kwargs
+    ):  # noqa: E501
         """Update preheat policy  # noqa: E501
 
         Update preheat policy  # noqa: E501
@@ -2177,70 +2512,84 @@ class PreheatApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'preheat_policy_name', 'policy', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name", "preheat_policy_name", "policy", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_policy" % key
+                    "Got an unexpected keyword argument '%s'" " to method update_policy" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `update_policy`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `update_policy`"
+            )  # noqa: E501
         # verify the required parameter 'preheat_policy_name' is set
-        if self.api_client.client_side_validation and ('preheat_policy_name' not in params or
-                                                       params['preheat_policy_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `preheat_policy_name` when calling `update_policy`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "preheat_policy_name" not in params or params["preheat_policy_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `preheat_policy_name` when calling `update_policy`"
+            )  # noqa: E501
         # verify the required parameter 'policy' is set
-        if self.api_client.client_side_validation and ('policy' not in params or
-                                                       params['policy'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `policy` when calling `update_policy`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "policy" not in params or params["policy"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `policy` when calling `update_policy`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `update_policy`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `update_policy`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'preheat_policy_name' in params:
-            path_params['preheat_policy_name'] = params['preheat_policy_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "preheat_policy_name" in params:
+            path_params["preheat_policy_name"] = params["preheat_policy_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'policy' in params:
-            body_params = params['policy']
+        if "policy" in params:
+            body_params = params["policy"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/preheat/policies/{preheat_policy_name}', 'PUT',
+            "/projects/{project_name}/preheat/policies/{preheat_policy_name}",
+            "PUT",
             path_params,
             query_params,
             header_params,
@@ -2249,8 +2598,9 @@ class PreheatApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

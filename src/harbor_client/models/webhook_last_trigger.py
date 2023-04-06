@@ -33,22 +33,30 @@ class WebhookLastTrigger(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'policy_name': 'str',
-        'event_type': 'str',
-        'enabled': 'bool',
-        'creation_time': 'datetime',
-        'last_trigger_time': 'datetime'
+        "policy_name": "str",
+        "event_type": "str",
+        "enabled": "bool",
+        "creation_time": "datetime",
+        "last_trigger_time": "datetime",
     }
 
     attribute_map = {
-        'policy_name': 'policy_name',
-        'event_type': 'event_type',
-        'enabled': 'enabled',
-        'creation_time': 'creation_time',
-        'last_trigger_time': 'last_trigger_time'
+        "policy_name": "policy_name",
+        "event_type": "event_type",
+        "enabled": "enabled",
+        "creation_time": "creation_time",
+        "last_trigger_time": "last_trigger_time",
     }
 
-    def __init__(self, policy_name=None, event_type=None, enabled=None, creation_time=None, last_trigger_time=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        policy_name=None,
+        event_type=None,
+        enabled=None,
+        creation_time=None,
+        last_trigger_time=None,
+        _configuration=None,
+    ):  # noqa: E501
         """WebhookLastTrigger - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -194,18 +202,20 @@ class WebhookLastTrigger(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(WebhookLastTrigger, dict):

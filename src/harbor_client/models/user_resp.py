@@ -33,32 +33,45 @@ class UserResp(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'email': 'str',
-        'realname': 'str',
-        'comment': 'str',
-        'user_id': 'int',
-        'username': 'str',
-        'sysadmin_flag': 'bool',
-        'admin_role_in_auth': 'bool',
-        'oidc_user_meta': 'OIDCUserInfo',
-        'creation_time': 'datetime',
-        'update_time': 'datetime'
+        "email": "str",
+        "realname": "str",
+        "comment": "str",
+        "user_id": "int",
+        "username": "str",
+        "sysadmin_flag": "bool",
+        "admin_role_in_auth": "bool",
+        "oidc_user_meta": "OIDCUserInfo",
+        "creation_time": "datetime",
+        "update_time": "datetime",
     }
 
     attribute_map = {
-        'email': 'email',
-        'realname': 'realname',
-        'comment': 'comment',
-        'user_id': 'user_id',
-        'username': 'username',
-        'sysadmin_flag': 'sysadmin_flag',
-        'admin_role_in_auth': 'admin_role_in_auth',
-        'oidc_user_meta': 'oidc_user_meta',
-        'creation_time': 'creation_time',
-        'update_time': 'update_time'
+        "email": "email",
+        "realname": "realname",
+        "comment": "comment",
+        "user_id": "user_id",
+        "username": "username",
+        "sysadmin_flag": "sysadmin_flag",
+        "admin_role_in_auth": "admin_role_in_auth",
+        "oidc_user_meta": "oidc_user_meta",
+        "creation_time": "creation_time",
+        "update_time": "update_time",
     }
 
-    def __init__(self, email=None, realname=None, comment=None, user_id=None, username=None, sysadmin_flag=None, admin_role_in_auth=None, oidc_user_meta=None, creation_time=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        email=None,
+        realname=None,
+        comment=None,
+        user_id=None,
+        username=None,
+        sysadmin_flag=None,
+        admin_role_in_auth=None,
+        oidc_user_meta=None,
+        creation_time=None,
+        update_time=None,
+        _configuration=None,
+    ):  # noqa: E501
         """UserResp - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -320,18 +333,20 @@ class UserResp(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(UserResp, dict):

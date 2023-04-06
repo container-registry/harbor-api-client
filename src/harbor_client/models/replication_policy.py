@@ -33,46 +33,66 @@ class ReplicationPolicy(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'name': 'str',
-        'description': 'str',
-        'src_registry': 'Registry',
-        'dest_registry': 'Registry',
-        'dest_namespace': 'str',
-        'dest_namespace_replace_count': 'int',
-        'trigger': 'ReplicationTrigger',
-        'filters': 'list[ReplicationFilter]',
-        'replicate_deletion': 'bool',
-        'deletion': 'bool',
-        'override': 'bool',
-        'enabled': 'bool',
-        'creation_time': 'datetime',
-        'update_time': 'datetime',
-        'speed': 'int',
-        'copy_by_chunk': 'bool'
+        "id": "int",
+        "name": "str",
+        "description": "str",
+        "src_registry": "Registry",
+        "dest_registry": "Registry",
+        "dest_namespace": "str",
+        "dest_namespace_replace_count": "int",
+        "trigger": "ReplicationTrigger",
+        "filters": "list[ReplicationFilter]",
+        "replicate_deletion": "bool",
+        "deletion": "bool",
+        "override": "bool",
+        "enabled": "bool",
+        "creation_time": "datetime",
+        "update_time": "datetime",
+        "speed": "int",
+        "copy_by_chunk": "bool",
     }
 
     attribute_map = {
-        'id': 'id',
-        'name': 'name',
-        'description': 'description',
-        'src_registry': 'src_registry',
-        'dest_registry': 'dest_registry',
-        'dest_namespace': 'dest_namespace',
-        'dest_namespace_replace_count': 'dest_namespace_replace_count',
-        'trigger': 'trigger',
-        'filters': 'filters',
-        'replicate_deletion': 'replicate_deletion',
-        'deletion': 'deletion',
-        'override': 'override',
-        'enabled': 'enabled',
-        'creation_time': 'creation_time',
-        'update_time': 'update_time',
-        'speed': 'speed',
-        'copy_by_chunk': 'copy_by_chunk'
+        "id": "id",
+        "name": "name",
+        "description": "description",
+        "src_registry": "src_registry",
+        "dest_registry": "dest_registry",
+        "dest_namespace": "dest_namespace",
+        "dest_namespace_replace_count": "dest_namespace_replace_count",
+        "trigger": "trigger",
+        "filters": "filters",
+        "replicate_deletion": "replicate_deletion",
+        "deletion": "deletion",
+        "override": "override",
+        "enabled": "enabled",
+        "creation_time": "creation_time",
+        "update_time": "update_time",
+        "speed": "speed",
+        "copy_by_chunk": "copy_by_chunk",
     }
 
-    def __init__(self, id=None, name=None, description=None, src_registry=None, dest_registry=None, dest_namespace=None, dest_namespace_replace_count=None, trigger=None, filters=None, replicate_deletion=None, deletion=None, override=None, enabled=None, creation_time=None, update_time=None, speed=None, copy_by_chunk=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        name=None,
+        description=None,
+        src_registry=None,
+        dest_registry=None,
+        dest_namespace=None,
+        dest_namespace_replace_count=None,
+        trigger=None,
+        filters=None,
+        replicate_deletion=None,
+        deletion=None,
+        override=None,
+        enabled=None,
+        creation_time=None,
+        update_time=None,
+        speed=None,
+        copy_by_chunk=None,
+        _configuration=None,
+    ):  # noqa: E501
         """ReplicationPolicy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -528,18 +548,20 @@ class ReplicationPolicy(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(ReplicationPolicy, dict):

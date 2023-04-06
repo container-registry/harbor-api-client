@@ -33,22 +33,24 @@ class RetentionPolicy(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'algorithm': 'str',
-        'rules': 'list[RetentionRule]',
-        'trigger': 'RetentionRuleTrigger',
-        'scope': 'RetentionPolicyScope'
+        "id": "int",
+        "algorithm": "str",
+        "rules": "list[RetentionRule]",
+        "trigger": "RetentionRuleTrigger",
+        "scope": "RetentionPolicyScope",
     }
 
     attribute_map = {
-        'id': 'id',
-        'algorithm': 'algorithm',
-        'rules': 'rules',
-        'trigger': 'trigger',
-        'scope': 'scope'
+        "id": "id",
+        "algorithm": "algorithm",
+        "rules": "rules",
+        "trigger": "trigger",
+        "scope": "scope",
     }
 
-    def __init__(self, id=None, algorithm=None, rules=None, trigger=None, scope=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self, id=None, algorithm=None, rules=None, trigger=None, scope=None, _configuration=None
+    ):  # noqa: E501
         """RetentionPolicy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -184,18 +186,20 @@ class RetentionPolicy(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(RetentionPolicy, dict):

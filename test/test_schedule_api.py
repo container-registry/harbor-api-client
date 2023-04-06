@@ -30,17 +30,13 @@ class TestScheduleApi(unittest.TestCase):
         pass
 
     def test_get_schedule_paused(self):
-        """Test case for get_schedule_paused
-
-        """
+        """Test case for get_schedule_paused"""
         pass
 
     def test_list_schedules(self):
-        """Test case for list_schedules
-
-        """
+        """Test case for list_schedules"""
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

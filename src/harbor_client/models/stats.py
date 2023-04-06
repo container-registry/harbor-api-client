@@ -33,22 +33,30 @@ class Stats(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'total': 'int',
-        'completed': 'int',
-        'metrics': 'dict(str, int)',
-        'ongoing': 'bool',
-        'trigger': 'str'
+        "total": "int",
+        "completed": "int",
+        "metrics": "dict(str, int)",
+        "ongoing": "bool",
+        "trigger": "str",
     }
 
     attribute_map = {
-        'total': 'total',
-        'completed': 'completed',
-        'metrics': 'metrics',
-        'ongoing': 'ongoing',
-        'trigger': 'trigger'
+        "total": "total",
+        "completed": "completed",
+        "metrics": "metrics",
+        "ongoing": "ongoing",
+        "trigger": "trigger",
     }
 
-    def __init__(self, total=None, completed=None, metrics=None, ongoing=None, trigger=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        total=None,
+        completed=None,
+        metrics=None,
+        ongoing=None,
+        trigger=None,
+        _configuration=None,
+    ):  # noqa: E501
         """Stats - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -185,11 +193,11 @@ class Stats(object):
         :type: str
         """
         allowed_values = ["Manual", "Schedule", "Event"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                trigger not in allowed_values):
+        if self._configuration.client_side_validation and trigger not in allowed_values:
             raise ValueError(
-                "Invalid value for `trigger` ({0}), must be one of {1}"  # noqa: E501
-                .format(trigger, allowed_values)
+                "Invalid value for `trigger` ({0}), must be one of {1}".format(  # noqa: E501
+                    trigger, allowed_values
+                )
             )
 
         self._trigger = trigger
@@ -201,18 +209,20 @@ class Stats(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(Stats, dict):

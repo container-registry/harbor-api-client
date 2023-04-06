@@ -32,17 +32,9 @@ class FilterStyle(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'type': 'str',
-        'style': 'str',
-        'values': 'list[str]'
-    }
+    swagger_types = {"type": "str", "style": "str", "values": "list[str]"}
 
-    attribute_map = {
-        'type': 'type',
-        'style': 'style',
-        'values': 'values'
-    }
+    attribute_map = {"type": "type", "style": "style", "values": "values"}
 
     def __init__(self, type=None, style=None, values=None, _configuration=None):  # noqa: E501
         """FilterStyle - a model defined in Swagger"""  # noqa: E501
@@ -138,18 +130,20 @@ class FilterStyle(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(FilterStyle, dict):

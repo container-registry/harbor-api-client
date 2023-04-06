@@ -50,8 +50,8 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.create_project_with_http_info(project, **kwargs)  # noqa: E501
         else:
             (data) = self.create_project_with_http_info(project, **kwargs)  # noqa: E501
@@ -75,29 +75,34 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project', 'x_request_id', 'x_resource_name_in_location']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project", "x_request_id", "x_resource_name_in_location"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_project" % key
+                    "Got an unexpected keyword argument '%s'" " to method create_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in params or
-                                                       params['project'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project` when calling `create_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project" not in params or params["project"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project` when calling `create_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `create_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `create_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -105,30 +110,35 @@ class ProjectApi(object):
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_resource_name_in_location' in params:
-            header_params['X-Resource-Name-In-Location'] = params['x_resource_name_in_location']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_resource_name_in_location" in params:
+            header_params["X-Resource-Name-In-Location"] = params[
+                "x_resource_name_in_location"
+            ]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'project' in params:
-            body_params = params['project']
+        if "project" in params:
+            body_params = params["project"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects', 'POST',
+            "/projects",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -137,11 +147,12 @@ class ProjectApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def delete_project(self, project_name_or_id, **kwargs):  # noqa: E501
         """Delete project by projectID  # noqa: E501
@@ -160,8 +171,8 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.delete_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
         else:
             (data) = self.delete_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
@@ -185,60 +196,68 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name_or_id", "x_request_id", "x_is_resource_name"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_project" % key
+                    "Got an unexpected keyword argument '%s'" " to method delete_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `delete_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `delete_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `delete_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `delete_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}', 'DELETE',
+            "/projects/{project_name_or_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -247,11 +266,12 @@ class ProjectApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_logs(self, project_name, **kwargs):  # noqa: E501
         """Get recent logs of the projects  # noqa: E501
@@ -273,8 +293,8 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.get_logs_with_http_info(project_name, **kwargs)  # noqa: E501
         else:
             (data) = self.get_logs_with_http_info(project_name, **kwargs)  # noqa: E501
@@ -301,81 +321,101 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'x_request_id', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "x_request_id",
+            "q",
+            "sort",
+            "page",
+            "page_size",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_logs" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_logs" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `get_logs`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `get_logs`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_logs`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `get_logs`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_logs`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `get_logs`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
 
         query_params = []
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/logs', 'GET',
+            "/projects/{project_name}/logs",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[AuditLog]',  # noqa: E501
+            response_type="list[AuditLog]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_project(self, project_name_or_id, **kwargs):  # noqa: E501
         """Return specific project detail information  # noqa: E501
@@ -394,8 +434,8 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.get_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
         else:
             (data) = self.get_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
@@ -419,73 +459,82 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name_or_id", "x_request_id", "x_is_resource_name"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_project" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `get_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `get_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}', 'GET',
+            "/projects/{project_name_or_id}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Project',  # noqa: E501
+            response_type="Project",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_project_deletable(self, project_name_or_id, **kwargs):  # noqa: E501
         """Get the deletable status of the project  # noqa: E501
@@ -504,11 +553,15 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_project_deletable_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_project_deletable_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_project_deletable_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+            (data) = self.get_project_deletable_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
             return data
 
     def get_project_deletable_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
@@ -529,73 +582,83 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name_or_id", "x_request_id", "x_is_resource_name"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_project_deletable" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `get_project_deletable`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `get_project_deletable`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_project_deletable`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_project_deletable`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/_deletable', 'GET',
+            "/projects/{project_name_or_id}/_deletable",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ProjectDeletable',  # noqa: E501
+            response_type="ProjectDeletable",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_project_summary(self, project_name_or_id, **kwargs):  # noqa: E501
         """Get summary of the project.  # noqa: E501
@@ -614,11 +677,15 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_project_summary_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_project_summary_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_project_summary_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+            (data) = self.get_project_summary_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
             return data
 
     def get_project_summary_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
@@ -639,73 +706,82 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name_or_id", "x_request_id", "x_is_resource_name"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_project_summary" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_project_summary" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `get_project_summary`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `get_project_summary`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_project_summary`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_project_summary`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/summary', 'GET',
+            "/projects/{project_name_or_id}/summary",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ProjectSummary',  # noqa: E501
+            response_type="ProjectSummary",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_scanner_of_project(self, project_name_or_id, **kwargs):  # noqa: E501
         """Get project level scanner  # noqa: E501
@@ -724,11 +800,15 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_scanner_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_scanner_of_project_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_scanner_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+            (data) = self.get_scanner_of_project_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
             return data
 
     def get_scanner_of_project_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
@@ -749,73 +829,83 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name_or_id", "x_request_id", "x_is_resource_name"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_scanner_of_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `get_scanner_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `get_scanner_of_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_scanner_of_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_scanner_of_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/scanner', 'GET',
+            "/projects/{project_name_or_id}/scanner",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ScannerRegistration',  # noqa: E501
+            response_type="ScannerRegistration",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def head_project(self, project_name, **kwargs):  # noqa: E501
         """Check if the project name user provided already exists.  # noqa: E501
@@ -833,8 +923,8 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.head_project_with_http_info(project_name, **kwargs)  # noqa: E501
         else:
             (data) = self.head_project_with_http_info(project_name, **kwargs)  # noqa: E501
@@ -857,58 +947,66 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method head_project" % key
+                    "Got an unexpected keyword argument '%s'" " to method head_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `head_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `head_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `head_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `head_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'project_name' in params:
-            query_params.append(('project_name', params['project_name']))  # noqa: E501
+        if "project_name" in params:
+            query_params.append(("project_name", params["project_name"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects', 'HEAD',
+            "/projects",
+            "HEAD",
             path_params,
             query_params,
             header_params,
@@ -917,11 +1015,12 @@ class ProjectApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_projects(self, **kwargs):  # noqa: E501
         """List projects  # noqa: E501
@@ -946,8 +1045,8 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.list_projects_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.list_projects_with_http_info(**kwargs)  # noqa: E501
@@ -977,83 +1076,103 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'q', 'page', 'page_size', 'sort', 'name', 'public', 'owner', 'with_detail']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "x_request_id",
+            "q",
+            "page",
+            "page_size",
+            "sort",
+            "name",
+            "public",
+            "owner",
+            "with_detail",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_projects" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_projects" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_projects`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_projects`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_projects`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_projects`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
-        if 'name' in params:
-            query_params.append(('name', params['name']))  # noqa: E501
-        if 'public' in params:
-            query_params.append(('public', params['public']))  # noqa: E501
-        if 'owner' in params:
-            query_params.append(('owner', params['owner']))  # noqa: E501
-        if 'with_detail' in params:
-            query_params.append(('with_detail', params['with_detail']))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
+        if "name" in params:
+            query_params.append(("name", params["name"]))  # noqa: E501
+        if "public" in params:
+            query_params.append(("public", params["public"]))  # noqa: E501
+        if "owner" in params:
+            query_params.append(("owner", params["owner"]))  # noqa: E501
+        if "with_detail" in params:
+            query_params.append(("with_detail", params["with_detail"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects', 'GET',
+            "/projects",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Project]',  # noqa: E501
+            response_type="list[Project]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_scanner_candidates_of_project(self, project_name_or_id, **kwargs):  # noqa: E501
         """Get scanner registration candidates for configurating project level scanner  # noqa: E501
@@ -1076,14 +1195,20 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_scanner_candidates_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.list_scanner_candidates_of_project_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.list_scanner_candidates_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+            (data) = self.list_scanner_candidates_of_project_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def list_scanner_candidates_of_project_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def list_scanner_candidates_of_project_with_http_info(
+        self, project_name_or_id, **kwargs
+    ):  # noqa: E501
         """Get scanner registration candidates for configurating project level scanner  # noqa: E501
 
         Retrieve the system configured scanner registrations as candidates of setting project level scanner.  # noqa: E501
@@ -1105,83 +1230,105 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "x_request_id",
+            "x_is_resource_name",
+            "q",
+            "sort",
+            "page",
+            "page_size",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_scanner_candidates_of_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `list_scanner_candidates_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `list_scanner_candidates_of_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_scanner_candidates_of_project`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_scanner_candidates_of_project`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_scanner_candidates_of_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_scanner_candidates_of_project`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/scanner/candidates', 'GET',
+            "/projects/{project_name_or_id}/scanner/candidates",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[ScannerRegistration]',  # noqa: E501
+            response_type="list[ScannerRegistration]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def set_scanner_of_project(self, project_name_or_id, payload, **kwargs):  # noqa: E501
         """Configure scanner for the specified project  # noqa: E501
@@ -1201,14 +1348,20 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.set_scanner_of_project_with_http_info(project_name_or_id, payload, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.set_scanner_of_project_with_http_info(
+                project_name_or_id, payload, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.set_scanner_of_project_with_http_info(project_name_or_id, payload, **kwargs)  # noqa: E501
+            (data) = self.set_scanner_of_project_with_http_info(
+                project_name_or_id, payload, **kwargs
+            )  # noqa: E501
             return data
 
-    def set_scanner_of_project_with_http_info(self, project_name_or_id, payload, **kwargs):  # noqa: E501
+    def set_scanner_of_project_with_http_info(
+        self, project_name_or_id, payload, **kwargs
+    ):  # noqa: E501
         """Configure scanner for the specified project  # noqa: E501
 
         Set one of the system configured scanner registration as the indepndent scanner of the specified project.  # noqa: E501
@@ -1227,66 +1380,83 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'payload', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "payload",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method set_scanner_of_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `set_scanner_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `set_scanner_of_project`"
+            )  # noqa: E501
         # verify the required parameter 'payload' is set
-        if self.api_client.client_side_validation and ('payload' not in params or
-                                                       params['payload'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `payload` when calling `set_scanner_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "payload" not in params or params["payload"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `payload` when calling `set_scanner_of_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `set_scanner_of_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `set_scanner_of_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'payload' in params:
-            body_params = params['payload']
+        if "payload" in params:
+            body_params = params["payload"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/scanner', 'PUT',
+            "/projects/{project_name_or_id}/scanner",
+            "PUT",
             path_params,
             query_params,
             header_params,
@@ -1295,11 +1465,12 @@ class ProjectApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def update_project(self, project_name_or_id, project, **kwargs):  # noqa: E501
         """Update properties for a selected project.  # noqa: E501
@@ -1319,11 +1490,15 @@ class ProjectApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_project_with_http_info(project_name_or_id, project, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.update_project_with_http_info(
+                project_name_or_id, project, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.update_project_with_http_info(project_name_or_id, project, **kwargs)  # noqa: E501
+            (data) = self.update_project_with_http_info(
+                project_name_or_id, project, **kwargs
+            )  # noqa: E501
             return data
 
     def update_project_with_http_info(self, project_name_or_id, project, **kwargs):  # noqa: E501
@@ -1345,66 +1520,82 @@ class ProjectApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'project', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "project",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_project" % key
+                    "Got an unexpected keyword argument '%s'" " to method update_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `update_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `update_project`"
+            )  # noqa: E501
         # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in params or
-                                                       params['project'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project` when calling `update_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project" not in params or params["project"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project` when calling `update_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `update_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `update_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'project' in params:
-            body_params = params['project']
+        if "project" in params:
+            body_params = params["project"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}', 'PUT',
+            "/projects/{project_name_or_id}",
+            "PUT",
             path_params,
             query_params,
             header_params,
@@ -1413,8 +1604,9 @@ class ProjectApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

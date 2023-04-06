@@ -33,34 +33,48 @@ class RetentionExecutionTask(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'execution_id': 'int',
-        'repository': 'str',
-        'job_id': 'str',
-        'status': 'str',
-        'status_code': 'int',
-        'status_revision': 'int',
-        'start_time': 'str',
-        'end_time': 'str',
-        'total': 'int',
-        'retained': 'int'
+        "id": "int",
+        "execution_id": "int",
+        "repository": "str",
+        "job_id": "str",
+        "status": "str",
+        "status_code": "int",
+        "status_revision": "int",
+        "start_time": "str",
+        "end_time": "str",
+        "total": "int",
+        "retained": "int",
     }
 
     attribute_map = {
-        'id': 'id',
-        'execution_id': 'execution_id',
-        'repository': 'repository',
-        'job_id': 'job_id',
-        'status': 'status',
-        'status_code': 'status_code',
-        'status_revision': 'status_revision',
-        'start_time': 'start_time',
-        'end_time': 'end_time',
-        'total': 'total',
-        'retained': 'retained'
+        "id": "id",
+        "execution_id": "execution_id",
+        "repository": "repository",
+        "job_id": "job_id",
+        "status": "status",
+        "status_code": "status_code",
+        "status_revision": "status_revision",
+        "start_time": "start_time",
+        "end_time": "end_time",
+        "total": "total",
+        "retained": "retained",
     }
 
-    def __init__(self, id=None, execution_id=None, repository=None, job_id=None, status=None, status_code=None, status_revision=None, start_time=None, end_time=None, total=None, retained=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        execution_id=None,
+        repository=None,
+        job_id=None,
+        status=None,
+        status_code=None,
+        status_revision=None,
+        start_time=None,
+        end_time=None,
+        total=None,
+        retained=None,
+        _configuration=None,
+    ):  # noqa: E501
         """RetentionExecutionTask - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -340,18 +354,20 @@ class RetentionExecutionTask(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(RetentionExecutionTask, dict):

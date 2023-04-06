@@ -33,34 +33,48 @@ class ChartMetadata(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str',
-        'home': 'str',
-        'sources': 'list[str]',
-        'version': 'str',
-        'description': 'str',
-        'keywords': 'list[str]',
-        'engine': 'str',
-        'icon': 'str',
-        'api_version': 'str',
-        'app_version': 'str',
-        'deprecated': 'bool'
+        "name": "str",
+        "home": "str",
+        "sources": "list[str]",
+        "version": "str",
+        "description": "str",
+        "keywords": "list[str]",
+        "engine": "str",
+        "icon": "str",
+        "api_version": "str",
+        "app_version": "str",
+        "deprecated": "bool",
     }
 
     attribute_map = {
-        'name': 'name',
-        'home': 'home',
-        'sources': 'sources',
-        'version': 'version',
-        'description': 'description',
-        'keywords': 'keywords',
-        'engine': 'engine',
-        'icon': 'icon',
-        'api_version': 'apiVersion',
-        'app_version': 'appVersion',
-        'deprecated': 'deprecated'
+        "name": "name",
+        "home": "home",
+        "sources": "sources",
+        "version": "version",
+        "description": "description",
+        "keywords": "keywords",
+        "engine": "engine",
+        "icon": "icon",
+        "api_version": "apiVersion",
+        "app_version": "appVersion",
+        "deprecated": "deprecated",
     }
 
-    def __init__(self, name=None, home=None, sources=None, version=None, description=None, keywords=None, engine=None, icon=None, api_version=None, app_version=None, deprecated=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        name=None,
+        home=None,
+        sources=None,
+        version=None,
+        description=None,
+        keywords=None,
+        engine=None,
+        icon=None,
+        api_version=None,
+        app_version=None,
+        deprecated=None,
+        _configuration=None,
+    ):  # noqa: E501
         """ChartMetadata - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -368,18 +382,20 @@ class ChartMetadata(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(ChartMetadata, dict):

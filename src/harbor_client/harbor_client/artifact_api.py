@@ -52,14 +52,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.add_label_with_http_info(project_name, repository_name, reference, label, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.add_label_with_http_info(
+                project_name, repository_name, reference, label, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.add_label_with_http_info(project_name, repository_name, reference, label, **kwargs)  # noqa: E501
+            (data) = self.add_label_with_http_info(
+                project_name, repository_name, reference, label, **kwargs
+            )  # noqa: E501
             return data
 
-    def add_label_with_http_info(self, project_name, repository_name, reference, label, **kwargs):  # noqa: E501
+    def add_label_with_http_info(
+        self, project_name, repository_name, reference, label, **kwargs
+    ):  # noqa: E501
         """Add label to artifact  # noqa: E501
 
         Add label to the specified artiact.  # noqa: E501
@@ -79,76 +85,99 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'label', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "reference",
+            "label",
+            "x_request_id",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method add_label" % key
+                    "Got an unexpected keyword argument '%s'" " to method add_label" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `add_label`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `add_label`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `add_label`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `add_label`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `add_label`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `add_label`"
+            )  # noqa: E501
         # verify the required parameter 'label' is set
-        if self.api_client.client_side_validation and ('label' not in params or
-                                                       params['label'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `label` when calling `add_label`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "label" not in params or params["label"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `label` when calling `add_label`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `add_label`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `add_label`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'label' in params:
-            body_params = params['label']
+        if "label" in params:
+            body_params = params["label"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/labels', 'POST',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/labels",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -157,11 +186,12 @@ class ArtifactApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def copy_artifact(self, project_name, repository_name, _from, **kwargs):  # noqa: E501
         """Copy artifact  # noqa: E501
@@ -181,14 +211,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.copy_artifact_with_http_info(project_name, repository_name, _from, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.copy_artifact_with_http_info(
+                project_name, repository_name, _from, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.copy_artifact_with_http_info(project_name, repository_name, _from, **kwargs)  # noqa: E501
+            (data) = self.copy_artifact_with_http_info(
+                project_name, repository_name, _from, **kwargs
+            )  # noqa: E501
             return data
 
-    def copy_artifact_with_http_info(self, project_name, repository_name, _from, **kwargs):  # noqa: E501
+    def copy_artifact_with_http_info(
+        self, project_name, repository_name, _from, **kwargs
+    ):  # noqa: E501
         """Copy artifact  # noqa: E501
 
         Copy the artifact specified in the \"from\" parameter to the repository.  # noqa: E501
@@ -207,70 +243,84 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', '_from', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name", "repository_name", "_from", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method copy_artifact" % key
+                    "Got an unexpected keyword argument '%s'" " to method copy_artifact" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `copy_artifact`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `copy_artifact`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `copy_artifact`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `copy_artifact`"
+            )  # noqa: E501
         # verify the required parameter '_from' is set
-        if self.api_client.client_side_validation and ('_from' not in params or
-                                                       params['_from'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `_from` when calling `copy_artifact`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "_from" not in params or params["_from"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `_from` when calling `copy_artifact`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `copy_artifact`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `copy_artifact`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
 
         query_params = []
-        if '_from' in params:
-            query_params.append(('from', params['_from']))  # noqa: E501
+        if "_from" in params:
+            query_params.append(("from", params["_from"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts', 'POST',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -279,11 +329,12 @@ class ArtifactApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def create_tag(self, project_name, repository_name, reference, tag, **kwargs):  # noqa: E501
         """Create tag  # noqa: E501
@@ -304,14 +355,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_tag_with_http_info(project_name, repository_name, reference, tag, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.create_tag_with_http_info(
+                project_name, repository_name, reference, tag, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.create_tag_with_http_info(project_name, repository_name, reference, tag, **kwargs)  # noqa: E501
+            (data) = self.create_tag_with_http_info(
+                project_name, repository_name, reference, tag, **kwargs
+            )  # noqa: E501
             return data
 
-    def create_tag_with_http_info(self, project_name, repository_name, reference, tag, **kwargs):  # noqa: E501
+    def create_tag_with_http_info(
+        self, project_name, repository_name, reference, tag, **kwargs
+    ):  # noqa: E501
         """Create tag  # noqa: E501
 
         Create a tag for the specified artifact  # noqa: E501
@@ -331,76 +388,99 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'tag', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "reference",
+            "tag",
+            "x_request_id",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_tag" % key
+                    "Got an unexpected keyword argument '%s'" " to method create_tag" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `create_tag`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `create_tag`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `create_tag`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `create_tag`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `create_tag`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `create_tag`"
+            )  # noqa: E501
         # verify the required parameter 'tag' is set
-        if self.api_client.client_side_validation and ('tag' not in params or
-                                                       params['tag'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `tag` when calling `create_tag`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "tag" not in params or params["tag"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `tag` when calling `create_tag`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `create_tag`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `create_tag`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'tag' in params:
-            body_params = params['tag']
+        if "tag" in params:
+            body_params = params["tag"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/tags', 'POST',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/tags",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -409,11 +489,12 @@ class ArtifactApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def delete_artifact(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
         """Delete the specific artifact  # noqa: E501
@@ -433,14 +514,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.delete_artifact_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.delete_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+            (data) = self.delete_artifact_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
             return data
 
-    def delete_artifact_with_http_info(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def delete_artifact_with_http_info(
+        self, project_name, repository_name, reference, **kwargs
+    ):  # noqa: E501
         """Delete the specific artifact  # noqa: E501
 
         Delete the artifact specified by the reference under the project and repository. The reference can be digest or tag  # noqa: E501
@@ -459,70 +546,84 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name", "repository_name", "reference", "x_request_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_artifact" % key
+                    "Got an unexpected keyword argument '%s'" " to method delete_artifact" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `delete_artifact`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `delete_artifact`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `delete_artifact`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `delete_artifact`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `delete_artifact`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `delete_artifact`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `delete_artifact`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `delete_artifact`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}', 'DELETE',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -531,13 +632,16 @@ class ArtifactApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def delete_tag(self, project_name, repository_name, reference, tag_name, **kwargs):  # noqa: E501
+    def delete_tag(
+        self, project_name, repository_name, reference, tag_name, **kwargs
+    ):  # noqa: E501
         """Delete tag  # noqa: E501
 
         Delete the tag of the specified artifact  # noqa: E501
@@ -556,14 +660,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_tag_with_http_info(project_name, repository_name, reference, tag_name, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.delete_tag_with_http_info(
+                project_name, repository_name, reference, tag_name, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.delete_tag_with_http_info(project_name, repository_name, reference, tag_name, **kwargs)  # noqa: E501
+            (data) = self.delete_tag_with_http_info(
+                project_name, repository_name, reference, tag_name, **kwargs
+            )  # noqa: E501
             return data
 
-    def delete_tag_with_http_info(self, project_name, repository_name, reference, tag_name, **kwargs):  # noqa: E501
+    def delete_tag_with_http_info(
+        self, project_name, repository_name, reference, tag_name, **kwargs
+    ):  # noqa: E501
         """Delete tag  # noqa: E501
 
         Delete the tag of the specified artifact  # noqa: E501
@@ -583,76 +693,99 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'tag_name', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "reference",
+            "tag_name",
+            "x_request_id",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_tag" % key
+                    "Got an unexpected keyword argument '%s'" " to method delete_tag" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `delete_tag`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `delete_tag`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `delete_tag`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `delete_tag`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `delete_tag`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `delete_tag`"
+            )  # noqa: E501
         # verify the required parameter 'tag_name' is set
-        if self.api_client.client_side_validation and ('tag_name' not in params or
-                                                       params['tag_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `tag_name` when calling `delete_tag`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "tag_name" not in params or params["tag_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `tag_name` when calling `delete_tag`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `delete_tag`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `delete_tag`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
-        if 'tag_name' in params:
-            path_params['tag_name'] = params['tag_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
+        if "tag_name" in params:
+            path_params["tag_name"] = params["tag_name"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/tags/{tag_name}', 'DELETE',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/tags/{tag_name}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -661,13 +794,16 @@ class ArtifactApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def get_addition(self, project_name, repository_name, reference, addition, **kwargs):  # noqa: E501
+    def get_addition(
+        self, project_name, repository_name, reference, addition, **kwargs
+    ):  # noqa: E501
         """Get the addition of the specific artifact  # noqa: E501
 
         Get the addition of the artifact specified by the reference under the project and repository.  # noqa: E501
@@ -686,14 +822,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_addition_with_http_info(project_name, repository_name, reference, addition, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_addition_with_http_info(
+                project_name, repository_name, reference, addition, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_addition_with_http_info(project_name, repository_name, reference, addition, **kwargs)  # noqa: E501
+            (data) = self.get_addition_with_http_info(
+                project_name, repository_name, reference, addition, **kwargs
+            )  # noqa: E501
             return data
 
-    def get_addition_with_http_info(self, project_name, repository_name, reference, addition, **kwargs):  # noqa: E501
+    def get_addition_with_http_info(
+        self, project_name, repository_name, reference, addition, **kwargs
+    ):  # noqa: E501
         """Get the addition of the specific artifact  # noqa: E501
 
         Get the addition of the artifact specified by the reference under the project and repository.  # noqa: E501
@@ -713,89 +855,113 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'addition', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "reference",
+            "addition",
+            "x_request_id",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_addition" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_addition" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `get_addition`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `get_addition`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `get_addition`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `get_addition`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `get_addition`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `get_addition`"
+            )  # noqa: E501
         # verify the required parameter 'addition' is set
-        if self.api_client.client_side_validation and ('addition' not in params or
-                                                       params['addition'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `addition` when calling `get_addition`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "addition" not in params or params["addition"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `addition` when calling `get_addition`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_addition`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_addition`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
-        if 'addition' in params:
-            path_params['addition'] = params['addition']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
+        if "addition" in params:
+            path_params["addition"] = params["addition"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/additions/{addition}', 'GET',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/additions/{addition}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_type="str",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_artifact(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
         """Get the specific artifact  # noqa: E501
@@ -824,14 +990,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_artifact_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_artifact_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+            (data) = self.get_artifact_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
             return data
 
-    def get_artifact_with_http_info(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def get_artifact_with_http_info(
+        self, project_name, repository_name, reference, **kwargs
+    ):  # noqa: E501
         """Get the specific artifact  # noqa: E501
 
         Get the artifact specified by the reference under the project and repository. The reference can be digest or tag.  # noqa: E501
@@ -859,105 +1031,144 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'x_request_id', 'page', 'page_size', 'x_accept_vulnerabilities', 'with_tag', 'with_label', 'with_scan_overview', 'with_accessory', 'with_signature', 'with_immutable_status']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "reference",
+            "x_request_id",
+            "page",
+            "page_size",
+            "x_accept_vulnerabilities",
+            "with_tag",
+            "with_label",
+            "with_scan_overview",
+            "with_accessory",
+            "with_signature",
+            "with_immutable_status",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_artifact" % key
+                    "Got an unexpected keyword argument '%s'" " to method get_artifact" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `get_artifact`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `get_artifact`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `get_artifact`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `get_artifact`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `get_artifact`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `get_artifact`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_artifact`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `get_artifact`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_artifact`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `get_artifact`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'with_tag' in params:
-            query_params.append(('with_tag', params['with_tag']))  # noqa: E501
-        if 'with_label' in params:
-            query_params.append(('with_label', params['with_label']))  # noqa: E501
-        if 'with_scan_overview' in params:
-            query_params.append(('with_scan_overview', params['with_scan_overview']))  # noqa: E501
-        if 'with_accessory' in params:
-            query_params.append(('with_accessory', params['with_accessory']))  # noqa: E501
-        if 'with_signature' in params:
-            query_params.append(('with_signature', params['with_signature']))  # noqa: E501
-        if 'with_immutable_status' in params:
-            query_params.append(('with_immutable_status', params['with_immutable_status']))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "with_tag" in params:
+            query_params.append(("with_tag", params["with_tag"]))  # noqa: E501
+        if "with_label" in params:
+            query_params.append(("with_label", params["with_label"]))  # noqa: E501
+        if "with_scan_overview" in params:
+            query_params.append(("with_scan_overview", params["with_scan_overview"]))  # noqa: E501
+        if "with_accessory" in params:
+            query_params.append(("with_accessory", params["with_accessory"]))  # noqa: E501
+        if "with_signature" in params:
+            query_params.append(("with_signature", params["with_signature"]))  # noqa: E501
+        if "with_immutable_status" in params:
+            query_params.append(
+                ("with_immutable_status", params["with_immutable_status"])
+            )  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_accept_vulnerabilities' in params:
-            header_params['X-Accept-Vulnerabilities'] = params['x_accept_vulnerabilities']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_accept_vulnerabilities" in params:
+            header_params["X-Accept-Vulnerabilities"] = params[
+                "x_accept_vulnerabilities"
+            ]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}', 'GET',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Artifact',  # noqa: E501
+            response_type="Artifact",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def get_vulnerabilities_addition(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def get_vulnerabilities_addition(
+        self, project_name, repository_name, reference, **kwargs
+    ):  # noqa: E501
         """Get the vulnerabilities addition of the specific artifact  # noqa: E501
 
         Get the vulnerabilities addition of the artifact specified by the reference under the project and repository.  # noqa: E501
@@ -976,14 +1187,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_vulnerabilities_addition_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_vulnerabilities_addition_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_vulnerabilities_addition_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+            (data) = self.get_vulnerabilities_addition_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
             return data
 
-    def get_vulnerabilities_addition_with_http_info(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def get_vulnerabilities_addition_with_http_info(
+        self, project_name, repository_name, reference, **kwargs
+    ):  # noqa: E501
         """Get the vulnerabilities addition of the specific artifact  # noqa: E501
 
         Get the vulnerabilities addition of the artifact specified by the reference under the project and repository.  # noqa: E501
@@ -1003,85 +1220,109 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'x_request_id', 'x_accept_vulnerabilities']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "reference",
+            "x_request_id",
+            "x_accept_vulnerabilities",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_vulnerabilities_addition" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `get_vulnerabilities_addition`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `get_vulnerabilities_addition`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `get_vulnerabilities_addition`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `get_vulnerabilities_addition`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `get_vulnerabilities_addition`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `get_vulnerabilities_addition`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_vulnerabilities_addition`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_vulnerabilities_addition`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_accept_vulnerabilities' in params:
-            header_params['X-Accept-Vulnerabilities'] = params['x_accept_vulnerabilities']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_accept_vulnerabilities" in params:
+            header_params["X-Accept-Vulnerabilities"] = params[
+                "x_accept_vulnerabilities"
+            ]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/additions/vulnerabilities', 'GET',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/additions/vulnerabilities",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_type="str",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_accessories(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
         """List accessories  # noqa: E501
@@ -1105,14 +1346,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_accessories_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.list_accessories_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.list_accessories_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+            (data) = self.list_accessories_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
             return data
 
-    def list_accessories_with_http_info(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def list_accessories_with_http_info(
+        self, project_name, repository_name, reference, **kwargs
+    ):  # noqa: E501
         """List accessories  # noqa: E501
 
         List accessories of the specific artifact  # noqa: E501
@@ -1135,93 +1382,121 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'x_request_id', 'q', 'sort', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "reference",
+            "x_request_id",
+            "q",
+            "sort",
+            "page",
+            "page_size",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_accessories" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_accessories" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `list_accessories`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `list_accessories`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `list_accessories`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `list_accessories`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `list_accessories`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `list_accessories`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_accessories`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_accessories`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_accessories`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_accessories`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
 
         query_params = []
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/accessories', 'GET',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/accessories",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Accessory]',  # noqa: E501
+            response_type="list[Accessory]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_artifacts(self, project_name, repository_name, **kwargs):  # noqa: E501
         """List artifacts  # noqa: E501
@@ -1251,11 +1526,15 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_artifacts_with_http_info(project_name, repository_name, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.list_artifacts_with_http_info(
+                project_name, repository_name, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.list_artifacts_with_http_info(project_name, repository_name, **kwargs)  # noqa: E501
+            (data) = self.list_artifacts_with_http_info(
+                project_name, repository_name, **kwargs
+            )  # noqa: E501
             return data
 
     def list_artifacts_with_http_info(self, project_name, repository_name, **kwargs):  # noqa: E501
@@ -1287,101 +1566,136 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'x_request_id', 'q', 'sort', 'page', 'page_size', 'x_accept_vulnerabilities', 'with_tag', 'with_label', 'with_scan_overview', 'with_signature', 'with_immutable_status', 'with_accessory']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "x_request_id",
+            "q",
+            "sort",
+            "page",
+            "page_size",
+            "x_accept_vulnerabilities",
+            "with_tag",
+            "with_label",
+            "with_scan_overview",
+            "with_signature",
+            "with_immutable_status",
+            "with_accessory",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_artifacts" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_artifacts" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `list_artifacts`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `list_artifacts`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `list_artifacts`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `list_artifacts`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_artifacts`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_artifacts`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_artifacts`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_artifacts`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
 
         query_params = []
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'with_tag' in params:
-            query_params.append(('with_tag', params['with_tag']))  # noqa: E501
-        if 'with_label' in params:
-            query_params.append(('with_label', params['with_label']))  # noqa: E501
-        if 'with_scan_overview' in params:
-            query_params.append(('with_scan_overview', params['with_scan_overview']))  # noqa: E501
-        if 'with_signature' in params:
-            query_params.append(('with_signature', params['with_signature']))  # noqa: E501
-        if 'with_immutable_status' in params:
-            query_params.append(('with_immutable_status', params['with_immutable_status']))  # noqa: E501
-        if 'with_accessory' in params:
-            query_params.append(('with_accessory', params['with_accessory']))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "with_tag" in params:
+            query_params.append(("with_tag", params["with_tag"]))  # noqa: E501
+        if "with_label" in params:
+            query_params.append(("with_label", params["with_label"]))  # noqa: E501
+        if "with_scan_overview" in params:
+            query_params.append(("with_scan_overview", params["with_scan_overview"]))  # noqa: E501
+        if "with_signature" in params:
+            query_params.append(("with_signature", params["with_signature"]))  # noqa: E501
+        if "with_immutable_status" in params:
+            query_params.append(
+                ("with_immutable_status", params["with_immutable_status"])
+            )  # noqa: E501
+        if "with_accessory" in params:
+            query_params.append(("with_accessory", params["with_accessory"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_accept_vulnerabilities' in params:
-            header_params['X-Accept-Vulnerabilities'] = params['x_accept_vulnerabilities']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_accept_vulnerabilities" in params:
+            header_params["X-Accept-Vulnerabilities"] = params[
+                "x_accept_vulnerabilities"
+            ]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts', 'GET',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Artifact]',  # noqa: E501
+            response_type="list[Artifact]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_tags(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
         """List tags  # noqa: E501
@@ -1407,14 +1721,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_tags_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.list_tags_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.list_tags_with_http_info(project_name, repository_name, reference, **kwargs)  # noqa: E501
+            (data) = self.list_tags_with_http_info(
+                project_name, repository_name, reference, **kwargs
+            )  # noqa: E501
             return data
 
-    def list_tags_with_http_info(self, project_name, repository_name, reference, **kwargs):  # noqa: E501
+    def list_tags_with_http_info(
+        self, project_name, repository_name, reference, **kwargs
+    ):  # noqa: E501
         """List tags  # noqa: E501
 
         List tags of the specific artifact  # noqa: E501
@@ -1439,99 +1759,133 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'x_request_id', 'q', 'sort', 'page', 'page_size', 'with_signature', 'with_immutable_status']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "reference",
+            "x_request_id",
+            "q",
+            "sort",
+            "page",
+            "page_size",
+            "with_signature",
+            "with_immutable_status",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_tags" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_tags" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `list_tags`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `list_tags`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `list_tags`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `list_tags`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `list_tags`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `list_tags`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_tags`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_tags`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_tags`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_tags`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
 
         query_params = []
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'with_signature' in params:
-            query_params.append(('with_signature', params['with_signature']))  # noqa: E501
-        if 'with_immutable_status' in params:
-            query_params.append(('with_immutable_status', params['with_immutable_status']))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "with_signature" in params:
+            query_params.append(("with_signature", params["with_signature"]))  # noqa: E501
+        if "with_immutable_status" in params:
+            query_params.append(
+                ("with_immutable_status", params["with_immutable_status"])
+            )  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/tags', 'GET',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/tags",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Tag]',  # noqa: E501
+            response_type="list[Tag]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def remove_label(self, project_name, repository_name, reference, label_id, **kwargs):  # noqa: E501
+    def remove_label(
+        self, project_name, repository_name, reference, label_id, **kwargs
+    ):  # noqa: E501
         """Remove label from artifact  # noqa: E501
 
         Remove the label from the specified artiact.  # noqa: E501
@@ -1550,14 +1904,20 @@ class ArtifactApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.remove_label_with_http_info(project_name, repository_name, reference, label_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.remove_label_with_http_info(
+                project_name, repository_name, reference, label_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.remove_label_with_http_info(project_name, repository_name, reference, label_id, **kwargs)  # noqa: E501
+            (data) = self.remove_label_with_http_info(
+                project_name, repository_name, reference, label_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def remove_label_with_http_info(self, project_name, repository_name, reference, label_id, **kwargs):  # noqa: E501
+    def remove_label_with_http_info(
+        self, project_name, repository_name, reference, label_id, **kwargs
+    ):  # noqa: E501
         """Remove label from artifact  # noqa: E501
 
         Remove the label from the specified artiact.  # noqa: E501
@@ -1577,76 +1937,99 @@ class ArtifactApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name', 'repository_name', 'reference', 'label_id', 'x_request_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name",
+            "repository_name",
+            "reference",
+            "label_id",
+            "x_request_id",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method remove_label" % key
+                    "Got an unexpected keyword argument '%s'" " to method remove_label" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name' is set
-        if self.api_client.client_side_validation and ('project_name' not in params or
-                                                       params['project_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name` when calling `remove_label`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name" not in params or params["project_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name` when calling `remove_label`"
+            )  # noqa: E501
         # verify the required parameter 'repository_name' is set
-        if self.api_client.client_side_validation and ('repository_name' not in params or
-                                                       params['repository_name'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repository_name` when calling `remove_label`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "repository_name" not in params or params["repository_name"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `repository_name` when calling `remove_label`"
+            )  # noqa: E501
         # verify the required parameter 'reference' is set
-        if self.api_client.client_side_validation and ('reference' not in params or
-                                                       params['reference'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `reference` when calling `remove_label`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "reference" not in params or params["reference"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `reference` when calling `remove_label`"
+            )  # noqa: E501
         # verify the required parameter 'label_id' is set
-        if self.api_client.client_side_validation and ('label_id' not in params or
-                                                       params['label_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `label_id` when calling `remove_label`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "label_id" not in params or params["label_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `label_id` when calling `remove_label`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `remove_label`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `remove_label`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name' in params:
-            path_params['project_name'] = params['project_name']  # noqa: E501
-        if 'repository_name' in params:
-            path_params['repository_name'] = params['repository_name']  # noqa: E501
-        if 'reference' in params:
-            path_params['reference'] = params['reference']  # noqa: E501
-        if 'label_id' in params:
-            path_params['label_id'] = params['label_id']  # noqa: E501
+        if "project_name" in params:
+            path_params["project_name"] = params["project_name"]  # noqa: E501
+        if "repository_name" in params:
+            path_params["repository_name"] = params["repository_name"]  # noqa: E501
+        if "reference" in params:
+            path_params["reference"] = params["reference"]  # noqa: E501
+        if "label_id" in params:
+            path_params["label_id"] = params["label_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/labels/{label_id}', 'DELETE',
+            "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/labels/{label_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -1655,8 +2038,9 @@ class ArtifactApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

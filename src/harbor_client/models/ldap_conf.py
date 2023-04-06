@@ -33,30 +33,42 @@ class LdapConf(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'ldap_url': 'str',
-        'ldap_search_dn': 'str',
-        'ldap_search_password': 'str',
-        'ldap_base_dn': 'str',
-        'ldap_filter': 'str',
-        'ldap_uid': 'str',
-        'ldap_scope': 'int',
-        'ldap_connection_timeout': 'int',
-        'ldap_verify_cert': 'bool'
+        "ldap_url": "str",
+        "ldap_search_dn": "str",
+        "ldap_search_password": "str",
+        "ldap_base_dn": "str",
+        "ldap_filter": "str",
+        "ldap_uid": "str",
+        "ldap_scope": "int",
+        "ldap_connection_timeout": "int",
+        "ldap_verify_cert": "bool",
     }
 
     attribute_map = {
-        'ldap_url': 'ldap_url',
-        'ldap_search_dn': 'ldap_search_dn',
-        'ldap_search_password': 'ldap_search_password',
-        'ldap_base_dn': 'ldap_base_dn',
-        'ldap_filter': 'ldap_filter',
-        'ldap_uid': 'ldap_uid',
-        'ldap_scope': 'ldap_scope',
-        'ldap_connection_timeout': 'ldap_connection_timeout',
-        'ldap_verify_cert': 'ldap_verify_cert'
+        "ldap_url": "ldap_url",
+        "ldap_search_dn": "ldap_search_dn",
+        "ldap_search_password": "ldap_search_password",
+        "ldap_base_dn": "ldap_base_dn",
+        "ldap_filter": "ldap_filter",
+        "ldap_uid": "ldap_uid",
+        "ldap_scope": "ldap_scope",
+        "ldap_connection_timeout": "ldap_connection_timeout",
+        "ldap_verify_cert": "ldap_verify_cert",
     }
 
-    def __init__(self, ldap_url=None, ldap_search_dn=None, ldap_search_password=None, ldap_base_dn=None, ldap_filter=None, ldap_uid=None, ldap_scope=None, ldap_connection_timeout=None, ldap_verify_cert=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        ldap_url=None,
+        ldap_search_dn=None,
+        ldap_search_password=None,
+        ldap_base_dn=None,
+        ldap_filter=None,
+        ldap_uid=None,
+        ldap_scope=None,
+        ldap_connection_timeout=None,
+        ldap_verify_cert=None,
+        _configuration=None,
+    ):  # noqa: E501
         """LdapConf - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -306,18 +318,20 @@ class LdapConf(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(LdapConf, dict):

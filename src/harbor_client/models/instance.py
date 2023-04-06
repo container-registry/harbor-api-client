@@ -33,36 +33,51 @@ class Instance(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'name': 'str',
-        'description': 'str',
-        'vendor': 'str',
-        'endpoint': 'str',
-        'auth_mode': 'str',
-        'auth_info': 'dict(str, str)',
-        'status': 'str',
-        'enabled': 'bool',
-        'default': 'bool',
-        'insecure': 'bool',
-        'setup_timestamp': 'int'
+        "id": "int",
+        "name": "str",
+        "description": "str",
+        "vendor": "str",
+        "endpoint": "str",
+        "auth_mode": "str",
+        "auth_info": "dict(str, str)",
+        "status": "str",
+        "enabled": "bool",
+        "default": "bool",
+        "insecure": "bool",
+        "setup_timestamp": "int",
     }
 
     attribute_map = {
-        'id': 'id',
-        'name': 'name',
-        'description': 'description',
-        'vendor': 'vendor',
-        'endpoint': 'endpoint',
-        'auth_mode': 'auth_mode',
-        'auth_info': 'auth_info',
-        'status': 'status',
-        'enabled': 'enabled',
-        'default': 'default',
-        'insecure': 'insecure',
-        'setup_timestamp': 'setup_timestamp'
+        "id": "id",
+        "name": "name",
+        "description": "description",
+        "vendor": "vendor",
+        "endpoint": "endpoint",
+        "auth_mode": "auth_mode",
+        "auth_info": "auth_info",
+        "status": "status",
+        "enabled": "enabled",
+        "default": "default",
+        "insecure": "insecure",
+        "setup_timestamp": "setup_timestamp",
     }
 
-    def __init__(self, id=None, name=None, description=None, vendor=None, endpoint=None, auth_mode=None, auth_info=None, status=None, enabled=None, default=None, insecure=None, setup_timestamp=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        name=None,
+        description=None,
+        vendor=None,
+        endpoint=None,
+        auth_mode=None,
+        auth_info=None,
+        status=None,
+        enabled=None,
+        default=None,
+        insecure=None,
+        setup_timestamp=None,
+        _configuration=None,
+    ):  # noqa: E501
         """Instance - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -390,18 +405,20 @@ class Instance(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(Instance, dict):

@@ -33,28 +33,39 @@ class ScannerRegistrationReq(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str',
-        'description': 'str',
-        'url': 'str',
-        'auth': 'str',
-        'access_credential': 'str',
-        'skip_cert_verify': 'bool',
-        'use_internal_addr': 'bool',
-        'disabled': 'bool'
+        "name": "str",
+        "description": "str",
+        "url": "str",
+        "auth": "str",
+        "access_credential": "str",
+        "skip_cert_verify": "bool",
+        "use_internal_addr": "bool",
+        "disabled": "bool",
     }
 
     attribute_map = {
-        'name': 'name',
-        'description': 'description',
-        'url': 'url',
-        'auth': 'auth',
-        'access_credential': 'access_credential',
-        'skip_cert_verify': 'skip_certVerify',
-        'use_internal_addr': 'use_internal_addr',
-        'disabled': 'disabled'
+        "name": "name",
+        "description": "description",
+        "url": "url",
+        "auth": "auth",
+        "access_credential": "access_credential",
+        "skip_cert_verify": "skip_certVerify",
+        "use_internal_addr": "use_internal_addr",
+        "disabled": "disabled",
     }
 
-    def __init__(self, name=None, description=None, url=None, auth=None, access_credential=None, skip_cert_verify=False, use_internal_addr=False, disabled=False, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        name=None,
+        description=None,
+        url=None,
+        auth=None,
+        access_credential=None,
+        skip_cert_verify=False,
+        use_internal_addr=False,
+        disabled=False,
+        _configuration=None,
+    ):  # noqa: E501
         """ScannerRegistrationReq - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -280,18 +291,20 @@ class ScannerRegistrationReq(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(ScannerRegistrationReq, dict):
