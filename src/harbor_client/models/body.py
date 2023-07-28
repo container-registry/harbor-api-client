@@ -32,13 +32,9 @@ class Body(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'dry_run': 'bool'
-    }
+    swagger_types = {"dry_run": "bool"}
 
-    attribute_map = {
-        'dry_run': 'dry_run'
-    }
+    attribute_map = {"dry_run": "dry_run"}
 
     def __init__(self, dry_run=None, _configuration=None):  # noqa: E501
         """Body - a model defined in Swagger"""  # noqa: E501
@@ -80,18 +76,20 @@ class Body(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(Body, dict):

@@ -33,22 +33,30 @@ class UserCreationReq(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'email': 'str',
-        'realname': 'str',
-        'comment': 'str',
-        'password': 'str',
-        'username': 'str'
+        "email": "str",
+        "realname": "str",
+        "comment": "str",
+        "password": "str",
+        "username": "str",
     }
 
     attribute_map = {
-        'email': 'email',
-        'realname': 'realname',
-        'comment': 'comment',
-        'password': 'password',
-        'username': 'username'
+        "email": "email",
+        "realname": "realname",
+        "comment": "comment",
+        "password": "password",
+        "username": "username",
     }
 
-    def __init__(self, email=None, realname=None, comment=None, password=None, username=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        email=None,
+        realname=None,
+        comment=None,
+        password=None,
+        username=None,
+        _configuration=None,
+    ):  # noqa: E501
         """UserCreationReq - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -90,9 +98,10 @@ class UserCreationReq(object):
         :param email: The email of this UserCreationReq.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                email is not None and len(email) > 255):
-            raise ValueError("Invalid value for `email`, length must be less than or equal to `255`")  # noqa: E501
+        if self._configuration.client_side_validation and email is not None and len(email) > 255:
+            raise ValueError(
+                "Invalid value for `email`, length must be less than or equal to `255`"
+            )  # noqa: E501
 
         self._email = email
 
@@ -177,9 +186,14 @@ class UserCreationReq(object):
         :param username: The username of this UserCreationReq.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                username is not None and len(username) > 255):
-            raise ValueError("Invalid value for `username`, length must be less than or equal to `255`")  # noqa: E501
+        if (
+            self._configuration.client_side_validation
+            and username is not None
+            and len(username) > 255
+        ):
+            raise ValueError(
+                "Invalid value for `username`, length must be less than or equal to `255`"
+            )  # noqa: E501
 
         self._username = username
 
@@ -190,18 +204,20 @@ class UserCreationReq(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(UserCreationReq, dict):

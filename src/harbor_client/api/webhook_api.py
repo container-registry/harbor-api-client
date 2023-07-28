@@ -51,14 +51,20 @@ class WebhookApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_webhook_policy_of_project_with_http_info(project_name_or_id, policy, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.create_webhook_policy_of_project_with_http_info(
+                project_name_or_id, policy, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.create_webhook_policy_of_project_with_http_info(project_name_or_id, policy, **kwargs)  # noqa: E501
+            (data) = self.create_webhook_policy_of_project_with_http_info(
+                project_name_or_id, policy, **kwargs
+            )  # noqa: E501
             return data
 
-    def create_webhook_policy_of_project_with_http_info(self, project_name_or_id, policy, **kwargs):  # noqa: E501
+    def create_webhook_policy_of_project_with_http_info(
+        self, project_name_or_id, policy, **kwargs
+    ):  # noqa: E501
         """Create project webhook policy.  # noqa: E501
 
         This endpoint create a webhook policy if the project does not have one.   # noqa: E501
@@ -77,66 +83,83 @@ class WebhookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'policy', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "policy",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_webhook_policy_of_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `create_webhook_policy_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `create_webhook_policy_of_project`"
+            )  # noqa: E501
         # verify the required parameter 'policy' is set
-        if self.api_client.client_side_validation and ('policy' not in params or
-                                                       params['policy'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `policy` when calling `create_webhook_policy_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "policy" not in params or params["policy"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `policy` when calling `create_webhook_policy_of_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `create_webhook_policy_of_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `create_webhook_policy_of_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'policy' in params:
-            body_params = params['policy']
+        if "policy" in params:
+            body_params = params["policy"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/webhook/policies', 'POST',
+            "/projects/{project_name_or_id}/webhook/policies",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -145,13 +168,16 @@ class WebhookApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def delete_webhook_policy_of_project(self, project_name_or_id, webhook_policy_id, **kwargs):  # noqa: E501
+    def delete_webhook_policy_of_project(
+        self, project_name_or_id, webhook_policy_id, **kwargs
+    ):  # noqa: E501
         """Delete webhook policy of a project  # noqa: E501
 
         This endpoint is aimed to delete webhookpolicy of a project.   # noqa: E501
@@ -169,14 +195,20 @@ class WebhookApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_webhook_policy_of_project_with_http_info(project_name_or_id, webhook_policy_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.delete_webhook_policy_of_project_with_http_info(
+                project_name_or_id, webhook_policy_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.delete_webhook_policy_of_project_with_http_info(project_name_or_id, webhook_policy_id, **kwargs)  # noqa: E501
+            (data) = self.delete_webhook_policy_of_project_with_http_info(
+                project_name_or_id, webhook_policy_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def delete_webhook_policy_of_project_with_http_info(self, project_name_or_id, webhook_policy_id, **kwargs):  # noqa: E501
+    def delete_webhook_policy_of_project_with_http_info(
+        self, project_name_or_id, webhook_policy_id, **kwargs
+    ):  # noqa: E501
         """Delete webhook policy of a project  # noqa: E501
 
         This endpoint is aimed to delete webhookpolicy of a project.   # noqa: E501
@@ -195,66 +227,83 @@ class WebhookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'webhook_policy_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "webhook_policy_id",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method delete_webhook_policy_of_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `delete_webhook_policy_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `delete_webhook_policy_of_project`"
+            )  # noqa: E501
         # verify the required parameter 'webhook_policy_id' is set
-        if self.api_client.client_side_validation and ('webhook_policy_id' not in params or
-                                                       params['webhook_policy_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `webhook_policy_id` when calling `delete_webhook_policy_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "webhook_policy_id" not in params or params["webhook_policy_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `webhook_policy_id` when calling `delete_webhook_policy_of_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `delete_webhook_policy_of_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `delete_webhook_policy_of_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
-        if 'webhook_policy_id' in params:
-            path_params['webhook_policy_id'] = params['webhook_policy_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
+        if "webhook_policy_id" in params:
+            path_params["webhook_policy_id"] = params["webhook_policy_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/webhook/policies/{webhook_policy_id}', 'DELETE',
+            "/projects/{project_name_or_id}/webhook/policies/{webhook_policy_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -263,11 +312,12 @@ class WebhookApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_supported_event_types(self, project_name_or_id, **kwargs):  # noqa: E501
         """Get supported event types and notify types.  # noqa: E501
@@ -286,11 +336,15 @@ class WebhookApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_supported_event_types_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_supported_event_types_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_supported_event_types_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+            (data) = self.get_supported_event_types_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
             return data
 
     def get_supported_event_types_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
@@ -311,75 +365,87 @@ class WebhookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name_or_id", "x_request_id", "x_is_resource_name"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_supported_event_types" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `get_supported_event_types`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `get_supported_event_types`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_supported_event_types`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_supported_event_types`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/webhook/events', 'GET',
+            "/projects/{project_name_or_id}/webhook/events",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SupportedWebhookEventTypes',  # noqa: E501
+            response_type="SupportedWebhookEventTypes",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def get_webhook_policy_of_project(self, project_name_or_id, webhook_policy_id, **kwargs):  # noqa: E501
+    def get_webhook_policy_of_project(
+        self, project_name_or_id, webhook_policy_id, **kwargs
+    ):  # noqa: E501
         """Get project webhook policy  # noqa: E501
 
         This endpoint returns specified webhook policy of a project.   # noqa: E501
@@ -397,14 +463,20 @@ class WebhookApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_webhook_policy_of_project_with_http_info(project_name_or_id, webhook_policy_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.get_webhook_policy_of_project_with_http_info(
+                project_name_or_id, webhook_policy_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.get_webhook_policy_of_project_with_http_info(project_name_or_id, webhook_policy_id, **kwargs)  # noqa: E501
+            (data) = self.get_webhook_policy_of_project_with_http_info(
+                project_name_or_id, webhook_policy_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def get_webhook_policy_of_project_with_http_info(self, project_name_or_id, webhook_policy_id, **kwargs):  # noqa: E501
+    def get_webhook_policy_of_project_with_http_info(
+        self, project_name_or_id, webhook_policy_id, **kwargs
+    ):  # noqa: E501
         """Get project webhook policy  # noqa: E501
 
         This endpoint returns specified webhook policy of a project.   # noqa: E501
@@ -423,79 +495,97 @@ class WebhookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'webhook_policy_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "webhook_policy_id",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_webhook_policy_of_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `get_webhook_policy_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `get_webhook_policy_of_project`"
+            )  # noqa: E501
         # verify the required parameter 'webhook_policy_id' is set
-        if self.api_client.client_side_validation and ('webhook_policy_id' not in params or
-                                                       params['webhook_policy_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `webhook_policy_id` when calling `get_webhook_policy_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "webhook_policy_id" not in params or params["webhook_policy_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `webhook_policy_id` when calling `get_webhook_policy_of_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `get_webhook_policy_of_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `get_webhook_policy_of_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
-        if 'webhook_policy_id' in params:
-            path_params['webhook_policy_id'] = params['webhook_policy_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
+        if "webhook_policy_id" in params:
+            path_params["webhook_policy_id"] = params["webhook_policy_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/webhook/policies/{webhook_policy_id}', 'GET',
+            "/projects/{project_name_or_id}/webhook/policies/{webhook_policy_id}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='WebhookPolicy',  # noqa: E501
+            response_type="WebhookPolicy",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def last_trigger(self, project_name_or_id, **kwargs):  # noqa: E501
         """Get project webhook policy last trigger info  # noqa: E501
@@ -514,8 +604,8 @@ class WebhookApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.last_trigger_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
         else:
             (data) = self.last_trigger_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
@@ -539,73 +629,82 @@ class WebhookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["project_name_or_id", "x_request_id", "x_is_resource_name"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method last_trigger" % key
+                    "Got an unexpected keyword argument '%s'" " to method last_trigger" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `last_trigger`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `last_trigger`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `last_trigger`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `last_trigger`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/webhook/lasttrigger', 'GET',
+            "/projects/{project_name_or_id}/webhook/lasttrigger",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[WebhookLastTrigger]',  # noqa: E501
+            response_type="list[WebhookLastTrigger]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_webhook_policies_of_project(self, project_name_or_id, **kwargs):  # noqa: E501
         """List project webhook policies.  # noqa: E501
@@ -628,14 +727,20 @@ class WebhookApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_webhook_policies_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.list_webhook_policies_of_project_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.list_webhook_policies_of_project_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
+            (data) = self.list_webhook_policies_of_project_with_http_info(
+                project_name_or_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def list_webhook_policies_of_project_with_http_info(self, project_name_or_id, **kwargs):  # noqa: E501
+    def list_webhook_policies_of_project_with_http_info(
+        self, project_name_or_id, **kwargs
+    ):  # noqa: E501
         """List project webhook policies.  # noqa: E501
 
         This endpoint returns webhook policies of a project.   # noqa: E501
@@ -657,85 +762,109 @@ class WebhookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name', 'sort', 'q', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "x_request_id",
+            "x_is_resource_name",
+            "sort",
+            "q",
+            "page",
+            "page_size",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method list_webhook_policies_of_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `list_webhook_policies_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `list_webhook_policies_of_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_webhook_policies_of_project`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_webhook_policies_of_project`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_webhook_policies_of_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_webhook_policies_of_project`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/webhook/policies', 'GET',
+            "/projects/{project_name_or_id}/webhook/policies",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[WebhookPolicy]',  # noqa: E501
+            response_type="list[WebhookPolicy]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def update_webhook_policy_of_project(self, project_name_or_id, webhook_policy_id, policy, **kwargs):  # noqa: E501
+    def update_webhook_policy_of_project(
+        self, project_name_or_id, webhook_policy_id, policy, **kwargs
+    ):  # noqa: E501
         """Update webhook policy of a project.  # noqa: E501
 
         This endpoint is aimed to update the webhook policy of a project.   # noqa: E501
@@ -754,14 +883,20 @@ class WebhookApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_webhook_policy_of_project_with_http_info(project_name_or_id, webhook_policy_id, policy, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.update_webhook_policy_of_project_with_http_info(
+                project_name_or_id, webhook_policy_id, policy, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.update_webhook_policy_of_project_with_http_info(project_name_or_id, webhook_policy_id, policy, **kwargs)  # noqa: E501
+            (data) = self.update_webhook_policy_of_project_with_http_info(
+                project_name_or_id, webhook_policy_id, policy, **kwargs
+            )  # noqa: E501
             return data
 
-    def update_webhook_policy_of_project_with_http_info(self, project_name_or_id, webhook_policy_id, policy, **kwargs):  # noqa: E501
+    def update_webhook_policy_of_project_with_http_info(
+        self, project_name_or_id, webhook_policy_id, policy, **kwargs
+    ):  # noqa: E501
         """Update webhook policy of a project.  # noqa: E501
 
         This endpoint is aimed to update the webhook policy of a project.   # noqa: E501
@@ -781,72 +916,93 @@ class WebhookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'webhook_policy_id', 'policy', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "webhook_policy_id",
+            "policy",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_webhook_policy_of_project" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `update_webhook_policy_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `update_webhook_policy_of_project`"
+            )  # noqa: E501
         # verify the required parameter 'webhook_policy_id' is set
-        if self.api_client.client_side_validation and ('webhook_policy_id' not in params or
-                                                       params['webhook_policy_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `webhook_policy_id` when calling `update_webhook_policy_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "webhook_policy_id" not in params or params["webhook_policy_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `webhook_policy_id` when calling `update_webhook_policy_of_project`"
+            )  # noqa: E501
         # verify the required parameter 'policy' is set
-        if self.api_client.client_side_validation and ('policy' not in params or
-                                                       params['policy'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `policy` when calling `update_webhook_policy_of_project`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "policy" not in params or params["policy"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `policy` when calling `update_webhook_policy_of_project`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `update_webhook_policy_of_project`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `update_webhook_policy_of_project`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
-        if 'webhook_policy_id' in params:
-            path_params['webhook_policy_id'] = params['webhook_policy_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
+        if "webhook_policy_id" in params:
+            path_params["webhook_policy_id"] = params["webhook_policy_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'policy' in params:
-            body_params = params['policy']
+        if "policy" in params:
+            body_params = params["policy"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/webhook/policies/{webhook_policy_id}', 'PUT',
+            "/projects/{project_name_or_id}/webhook/policies/{webhook_policy_id}",
+            "PUT",
             path_params,
             query_params,
             header_params,
@@ -855,8 +1011,9 @@ class WebhookApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

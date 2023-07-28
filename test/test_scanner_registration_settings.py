@@ -16,7 +16,9 @@ from __future__ import absolute_import
 import unittest
 
 import harbor_client
-from harbor_client.models.scanner_registration_settings import ScannerRegistrationSettings  # noqa: E501
+from harbor_client.models.scanner_registration_settings import (
+    ScannerRegistrationSettings,
+)  # noqa: E501
 from harbor_client.rest import ApiException
 
 
@@ -36,5 +38,5 @@ class TestScannerRegistrationSettings(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

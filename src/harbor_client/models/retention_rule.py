@@ -33,28 +33,39 @@ class RetentionRule(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'priority': 'int',
-        'disabled': 'bool',
-        'action': 'str',
-        'template': 'str',
-        'params': 'dict(str, object)',
-        'tag_selectors': 'list[RetentionSelector]',
-        'scope_selectors': 'dict(str, list[RetentionSelector])'
+        "id": "int",
+        "priority": "int",
+        "disabled": "bool",
+        "action": "str",
+        "template": "str",
+        "params": "dict(str, object)",
+        "tag_selectors": "list[RetentionSelector]",
+        "scope_selectors": "dict(str, list[RetentionSelector])",
     }
 
     attribute_map = {
-        'id': 'id',
-        'priority': 'priority',
-        'disabled': 'disabled',
-        'action': 'action',
-        'template': 'template',
-        'params': 'params',
-        'tag_selectors': 'tag_selectors',
-        'scope_selectors': 'scope_selectors'
+        "id": "id",
+        "priority": "priority",
+        "disabled": "disabled",
+        "action": "action",
+        "template": "template",
+        "params": "params",
+        "tag_selectors": "tag_selectors",
+        "scope_selectors": "scope_selectors",
     }
 
-    def __init__(self, id=None, priority=None, disabled=None, action=None, template=None, params=None, tag_selectors=None, scope_selectors=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        priority=None,
+        disabled=None,
+        action=None,
+        template=None,
+        params=None,
+        tag_selectors=None,
+        scope_selectors=None,
+        _configuration=None,
+    ):  # noqa: E501
         """RetentionRule - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -262,18 +273,20 @@ class RetentionRule(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(RetentionRule, dict):

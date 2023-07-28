@@ -32,17 +32,16 @@ class ScannerCapability(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'consumes_mime_types': 'list[str]',
-        'produces_mime_types': 'list[str]'
-    }
+    swagger_types = {"consumes_mime_types": "list[str]", "produces_mime_types": "list[str]"}
 
     attribute_map = {
-        'consumes_mime_types': 'consumes_mime_types',
-        'produces_mime_types': 'produces_mime_types'
+        "consumes_mime_types": "consumes_mime_types",
+        "produces_mime_types": "produces_mime_types",
     }
 
-    def __init__(self, consumes_mime_types=None, produces_mime_types=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self, consumes_mime_types=None, produces_mime_types=None, _configuration=None
+    ):  # noqa: E501
         """ScannerCapability - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -106,18 +105,20 @@ class ScannerCapability(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(ScannerCapability, dict):

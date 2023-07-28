@@ -33,26 +33,36 @@ class ProjectMemberEntity(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'project_id': 'int',
-        'entity_name': 'str',
-        'role_name': 'str',
-        'role_id': 'int',
-        'entity_id': 'int',
-        'entity_type': 'str'
+        "id": "int",
+        "project_id": "int",
+        "entity_name": "str",
+        "role_name": "str",
+        "role_id": "int",
+        "entity_id": "int",
+        "entity_type": "str",
     }
 
     attribute_map = {
-        'id': 'id',
-        'project_id': 'project_id',
-        'entity_name': 'entity_name',
-        'role_name': 'role_name',
-        'role_id': 'role_id',
-        'entity_id': 'entity_id',
-        'entity_type': 'entity_type'
+        "id": "id",
+        "project_id": "project_id",
+        "entity_name": "entity_name",
+        "role_name": "role_name",
+        "role_id": "role_id",
+        "entity_id": "entity_id",
+        "entity_type": "entity_type",
     }
 
-    def __init__(self, id=None, project_id=None, entity_name=None, role_name=None, role_id=None, entity_id=None, entity_type=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        project_id=None,
+        entity_name=None,
+        role_name=None,
+        role_id=None,
+        entity_id=None,
+        entity_type=None,
+        _configuration=None,
+    ):  # noqa: E501
         """ProjectMemberEntity - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -250,18 +260,20 @@ class ProjectMemberEntity(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(ProjectMemberEntity, dict):

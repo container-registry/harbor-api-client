@@ -33,40 +33,57 @@ class GeneralInfo(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'current_time': 'datetime',
-        'with_notary': 'bool',
-        'with_chartmuseum': 'bool',
-        'registry_url': 'str',
-        'external_url': 'str',
-        'auth_mode': 'str',
-        'project_creation_restriction': 'str',
-        'self_registration': 'bool',
-        'has_ca_root': 'bool',
-        'harbor_version': 'str',
-        'registry_storage_provider_name': 'str',
-        'read_only': 'bool',
-        'notification_enable': 'bool',
-        'authproxy_settings': 'AuthproxySetting'
+        "current_time": "datetime",
+        "with_notary": "bool",
+        "with_chartmuseum": "bool",
+        "registry_url": "str",
+        "external_url": "str",
+        "auth_mode": "str",
+        "project_creation_restriction": "str",
+        "self_registration": "bool",
+        "has_ca_root": "bool",
+        "harbor_version": "str",
+        "registry_storage_provider_name": "str",
+        "read_only": "bool",
+        "notification_enable": "bool",
+        "authproxy_settings": "AuthproxySetting",
     }
 
     attribute_map = {
-        'current_time': 'current_time',
-        'with_notary': 'with_notary',
-        'with_chartmuseum': 'with_chartmuseum',
-        'registry_url': 'registry_url',
-        'external_url': 'external_url',
-        'auth_mode': 'auth_mode',
-        'project_creation_restriction': 'project_creation_restriction',
-        'self_registration': 'self_registration',
-        'has_ca_root': 'has_ca_root',
-        'harbor_version': 'harbor_version',
-        'registry_storage_provider_name': 'registry_storage_provider_name',
-        'read_only': 'read_only',
-        'notification_enable': 'notification_enable',
-        'authproxy_settings': 'authproxy_settings'
+        "current_time": "current_time",
+        "with_notary": "with_notary",
+        "with_chartmuseum": "with_chartmuseum",
+        "registry_url": "registry_url",
+        "external_url": "external_url",
+        "auth_mode": "auth_mode",
+        "project_creation_restriction": "project_creation_restriction",
+        "self_registration": "self_registration",
+        "has_ca_root": "has_ca_root",
+        "harbor_version": "harbor_version",
+        "registry_storage_provider_name": "registry_storage_provider_name",
+        "read_only": "read_only",
+        "notification_enable": "notification_enable",
+        "authproxy_settings": "authproxy_settings",
     }
 
-    def __init__(self, current_time=None, with_notary=None, with_chartmuseum=None, registry_url=None, external_url=None, auth_mode=None, project_creation_restriction=None, self_registration=None, has_ca_root=None, harbor_version=None, registry_storage_provider_name=None, read_only=None, notification_enable=None, authproxy_settings=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        current_time=None,
+        with_notary=None,
+        with_chartmuseum=None,
+        registry_url=None,
+        external_url=None,
+        auth_mode=None,
+        project_creation_restriction=None,
+        self_registration=None,
+        has_ca_root=None,
+        harbor_version=None,
+        registry_storage_provider_name=None,
+        read_only=None,
+        notification_enable=None,
+        authproxy_settings=None,
+        _configuration=None,
+    ):  # noqa: E501
         """GeneralInfo - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -446,18 +463,20 @@ class GeneralInfo(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(GeneralInfo, dict):

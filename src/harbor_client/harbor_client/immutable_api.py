@@ -51,14 +51,20 @@ class ImmutableApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_immu_rule_with_http_info(project_name_or_id, immutable_rule, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.create_immu_rule_with_http_info(
+                project_name_or_id, immutable_rule, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.create_immu_rule_with_http_info(project_name_or_id, immutable_rule, **kwargs)  # noqa: E501
+            (data) = self.create_immu_rule_with_http_info(
+                project_name_or_id, immutable_rule, **kwargs
+            )  # noqa: E501
             return data
 
-    def create_immu_rule_with_http_info(self, project_name_or_id, immutable_rule, **kwargs):  # noqa: E501
+    def create_immu_rule_with_http_info(
+        self, project_name_or_id, immutable_rule, **kwargs
+    ):  # noqa: E501
         """Add an immutable tag rule to current project  # noqa: E501
 
         This endpoint add an immutable tag rule to the project   # noqa: E501
@@ -77,66 +83,82 @@ class ImmutableApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'immutable_rule', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "immutable_rule",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_immu_rule" % key
+                    "Got an unexpected keyword argument '%s'" " to method create_immu_rule" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `create_immu_rule`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `create_immu_rule`"
+            )  # noqa: E501
         # verify the required parameter 'immutable_rule' is set
-        if self.api_client.client_side_validation and ('immutable_rule' not in params or
-                                                       params['immutable_rule'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `immutable_rule` when calling `create_immu_rule`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "immutable_rule" not in params or params["immutable_rule"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `immutable_rule` when calling `create_immu_rule`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `create_immu_rule`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `create_immu_rule`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'immutable_rule' in params:
-            body_params = params['immutable_rule']
+        if "immutable_rule" in params:
+            body_params = params["immutable_rule"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/immutabletagrules', 'POST',
+            "/projects/{project_name_or_id}/immutabletagrules",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -145,11 +167,12 @@ class ImmutableApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def delete_immu_rule(self, project_name_or_id, immutable_rule_id, **kwargs):  # noqa: E501
         """Delete the immutable tag rule.  # noqa: E501
@@ -168,14 +191,20 @@ class ImmutableApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.delete_immu_rule_with_http_info(
+                project_name_or_id, immutable_rule_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.delete_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, **kwargs)  # noqa: E501
+            (data) = self.delete_immu_rule_with_http_info(
+                project_name_or_id, immutable_rule_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def delete_immu_rule_with_http_info(self, project_name_or_id, immutable_rule_id, **kwargs):  # noqa: E501
+    def delete_immu_rule_with_http_info(
+        self, project_name_or_id, immutable_rule_id, **kwargs
+    ):  # noqa: E501
         """Delete the immutable tag rule.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -193,66 +222,82 @@ class ImmutableApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'immutable_rule_id', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "immutable_rule_id",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_immu_rule" % key
+                    "Got an unexpected keyword argument '%s'" " to method delete_immu_rule" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `delete_immu_rule`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `delete_immu_rule`"
+            )  # noqa: E501
         # verify the required parameter 'immutable_rule_id' is set
-        if self.api_client.client_side_validation and ('immutable_rule_id' not in params or
-                                                       params['immutable_rule_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `immutable_rule_id` when calling `delete_immu_rule`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "immutable_rule_id" not in params or params["immutable_rule_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `immutable_rule_id` when calling `delete_immu_rule`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `delete_immu_rule`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `delete_immu_rule`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
-        if 'immutable_rule_id' in params:
-            path_params['immutable_rule_id'] = params['immutable_rule_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
+        if "immutable_rule_id" in params:
+            path_params["immutable_rule_id"] = params["immutable_rule_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/immutabletagrules/{immutable_rule_id}', 'DELETE',
+            "/projects/{project_name_or_id}/immutabletagrules/{immutable_rule_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -261,11 +306,12 @@ class ImmutableApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def list_immu_rules(self, project_name_or_id, **kwargs):  # noqa: E501
         """List all immutable tag rules of current project  # noqa: E501
@@ -288,8 +334,8 @@ class ImmutableApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.list_immu_rules_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
         else:
             (data) = self.list_immu_rules_with_http_info(project_name_or_id, **kwargs)  # noqa: E501
@@ -317,85 +363,108 @@ class ImmutableApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'x_request_id', 'x_is_resource_name', 'page', 'page_size', 'q', 'sort']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "x_request_id",
+            "x_is_resource_name",
+            "page",
+            "page_size",
+            "q",
+            "sort",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_immu_rules" % key
+                    "Got an unexpected keyword argument '%s'" " to method list_immu_rules" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `list_immu_rules`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `list_immu_rules`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `list_immu_rules`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and ('page_size' in params and params['page_size'] > 100):  # noqa: E501
-            raise ValueError("Invalid value for parameter `page_size` when calling `list_immu_rules`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `list_immu_rules`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "page_size" in params and params["page_size"] > 100
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `page_size` when calling `list_immu_rules`, must be a value less than or equal to `100`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-        if 'q' in params:
-            query_params.append(('q', params['q']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('sort', params['sort']))  # noqa: E501
+        if "page" in params:
+            query_params.append(("page", params["page"]))  # noqa: E501
+        if "page_size" in params:
+            query_params.append(("page_size", params["page_size"]))  # noqa: E501
+        if "q" in params:
+            query_params.append(("q", params["q"]))  # noqa: E501
+        if "sort" in params:
+            query_params.append(("sort", params["sort"]))  # noqa: E501
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/immutabletagrules', 'GET',
+            "/projects/{project_name_or_id}/immutabletagrules",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[ImmutableRule]',  # noqa: E501
+            response_type="list[ImmutableRule]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def update_immu_rule(self, project_name_or_id, immutable_rule_id, immutable_rule, **kwargs):  # noqa: E501
+    def update_immu_rule(
+        self, project_name_or_id, immutable_rule_id, immutable_rule, **kwargs
+    ):  # noqa: E501
         """Update the immutable tag rule or enable or disable the rule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -413,14 +482,20 @@ class ImmutableApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, immutable_rule, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.update_immu_rule_with_http_info(
+                project_name_or_id, immutable_rule_id, immutable_rule, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.update_immu_rule_with_http_info(project_name_or_id, immutable_rule_id, immutable_rule, **kwargs)  # noqa: E501
+            (data) = self.update_immu_rule_with_http_info(
+                project_name_or_id, immutable_rule_id, immutable_rule, **kwargs
+            )  # noqa: E501
             return data
 
-    def update_immu_rule_with_http_info(self, project_name_or_id, immutable_rule_id, immutable_rule, **kwargs):  # noqa: E501
+    def update_immu_rule_with_http_info(
+        self, project_name_or_id, immutable_rule_id, immutable_rule, **kwargs
+    ):  # noqa: E501
         """Update the immutable tag rule or enable or disable the rule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -439,72 +514,92 @@ class ImmutableApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_name_or_id', 'immutable_rule_id', 'immutable_rule', 'x_request_id', 'x_is_resource_name']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "project_name_or_id",
+            "immutable_rule_id",
+            "immutable_rule",
+            "x_request_id",
+            "x_is_resource_name",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_immu_rule" % key
+                    "Got an unexpected keyword argument '%s'" " to method update_immu_rule" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'project_name_or_id' is set
-        if self.api_client.client_side_validation and ('project_name_or_id' not in params or
-                                                       params['project_name_or_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `project_name_or_id` when calling `update_immu_rule`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "project_name_or_id" not in params or params["project_name_or_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `project_name_or_id` when calling `update_immu_rule`"
+            )  # noqa: E501
         # verify the required parameter 'immutable_rule_id' is set
-        if self.api_client.client_side_validation and ('immutable_rule_id' not in params or
-                                                       params['immutable_rule_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `immutable_rule_id` when calling `update_immu_rule`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "immutable_rule_id" not in params or params["immutable_rule_id"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `immutable_rule_id` when calling `update_immu_rule`"
+            )  # noqa: E501
         # verify the required parameter 'immutable_rule' is set
-        if self.api_client.client_side_validation and ('immutable_rule' not in params or
-                                                       params['immutable_rule'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `immutable_rule` when calling `update_immu_rule`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "immutable_rule" not in params or params["immutable_rule"] is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `immutable_rule` when calling `update_immu_rule`"
+            )  # noqa: E501
 
-        if self.api_client.client_side_validation and ('x_request_id' in params and
-                                                       len(params['x_request_id']) < 1):
-            raise ValueError("Invalid value for parameter `x_request_id` when calling `update_immu_rule`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "x_request_id" in params and len(params["x_request_id"]) < 1
+        ):
+            raise ValueError(
+                "Invalid value for parameter `x_request_id` when calling `update_immu_rule`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
-        if 'project_name_or_id' in params:
-            path_params['project_name_or_id'] = params['project_name_or_id']  # noqa: E501
-        if 'immutable_rule_id' in params:
-            path_params['immutable_rule_id'] = params['immutable_rule_id']  # noqa: E501
+        if "project_name_or_id" in params:
+            path_params["project_name_or_id"] = params["project_name_or_id"]  # noqa: E501
+        if "immutable_rule_id" in params:
+            path_params["immutable_rule_id"] = params["immutable_rule_id"]  # noqa: E501
 
         query_params = []
 
         header_params = {}
-        if 'x_request_id' in params:
-            header_params['X-Request-Id'] = params['x_request_id']  # noqa: E501
-        if 'x_is_resource_name' in params:
-            header_params['X-Is-Resource-Name'] = params['x_is_resource_name']  # noqa: E501
+        if "x_request_id" in params:
+            header_params["X-Request-Id"] = params["x_request_id"]  # noqa: E501
+        if "x_is_resource_name" in params:
+            header_params["X-Is-Resource-Name"] = params["x_is_resource_name"]  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
-        if 'immutable_rule' in params:
-            body_params = params['immutable_rule']
+        if "immutable_rule" in params:
+            body_params = params["immutable_rule"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params["Content-Type"] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['basic']  # noqa: E501
+        auth_settings = ["basic"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/projects/{project_name_or_id}/immutabletagrules/{immutable_rule_id}', 'PUT',
+            "/projects/{project_name_or_id}/immutabletagrules/{immutable_rule_id}",
+            "PUT",
             path_params,
             query_params,
             header_params,
@@ -513,8 +608,9 @@ class ImmutableApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

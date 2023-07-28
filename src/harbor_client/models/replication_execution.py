@@ -33,36 +33,51 @@ class ReplicationExecution(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'policy_id': 'int',
-        'status': 'str',
-        'trigger': 'str',
-        'start_time': 'datetime',
-        'end_time': 'datetime',
-        'status_text': 'str',
-        'total': 'int',
-        'failed': 'int',
-        'succeed': 'int',
-        'in_progress': 'int',
-        'stopped': 'int'
+        "id": "int",
+        "policy_id": "int",
+        "status": "str",
+        "trigger": "str",
+        "start_time": "datetime",
+        "end_time": "datetime",
+        "status_text": "str",
+        "total": "int",
+        "failed": "int",
+        "succeed": "int",
+        "in_progress": "int",
+        "stopped": "int",
     }
 
     attribute_map = {
-        'id': 'id',
-        'policy_id': 'policy_id',
-        'status': 'status',
-        'trigger': 'trigger',
-        'start_time': 'start_time',
-        'end_time': 'end_time',
-        'status_text': 'status_text',
-        'total': 'total',
-        'failed': 'failed',
-        'succeed': 'succeed',
-        'in_progress': 'in_progress',
-        'stopped': 'stopped'
+        "id": "id",
+        "policy_id": "policy_id",
+        "status": "status",
+        "trigger": "trigger",
+        "start_time": "start_time",
+        "end_time": "end_time",
+        "status_text": "status_text",
+        "total": "total",
+        "failed": "failed",
+        "succeed": "succeed",
+        "in_progress": "in_progress",
+        "stopped": "stopped",
     }
 
-    def __init__(self, id=None, policy_id=None, status=None, trigger=None, start_time=None, end_time=None, status_text=None, total=None, failed=None, succeed=None, in_progress=None, stopped=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        policy_id=None,
+        status=None,
+        trigger=None,
+        start_time=None,
+        end_time=None,
+        status_text=None,
+        total=None,
+        failed=None,
+        succeed=None,
+        in_progress=None,
+        stopped=None,
+        _configuration=None,
+    ):  # noqa: E501
         """ReplicationExecution - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -390,18 +405,20 @@ class ReplicationExecution(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(ReplicationExecution, dict):

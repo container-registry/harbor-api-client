@@ -33,30 +33,42 @@ class ScanDataExportExecution(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'user_id': 'int',
-        'status': 'str',
-        'trigger': 'str',
-        'start_time': 'datetime',
-        'end_time': 'datetime',
-        'status_text': 'str',
-        'user_name': 'str',
-        'file_present': 'bool'
+        "id": "int",
+        "user_id": "int",
+        "status": "str",
+        "trigger": "str",
+        "start_time": "datetime",
+        "end_time": "datetime",
+        "status_text": "str",
+        "user_name": "str",
+        "file_present": "bool",
     }
 
     attribute_map = {
-        'id': 'id',
-        'user_id': 'user_id',
-        'status': 'status',
-        'trigger': 'trigger',
-        'start_time': 'start_time',
-        'end_time': 'end_time',
-        'status_text': 'status_text',
-        'user_name': 'user_name',
-        'file_present': 'file_present'
+        "id": "id",
+        "user_id": "user_id",
+        "status": "status",
+        "trigger": "trigger",
+        "start_time": "start_time",
+        "end_time": "end_time",
+        "status_text": "status_text",
+        "user_name": "user_name",
+        "file_present": "file_present",
     }
 
-    def __init__(self, id=None, user_id=None, status=None, trigger=None, start_time=None, end_time=None, status_text=None, user_name=None, file_present=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        user_id=None,
+        status=None,
+        trigger=None,
+        start_time=None,
+        end_time=None,
+        status_text=None,
+        user_name=None,
+        file_present=None,
+        _configuration=None,
+    ):  # noqa: E501
         """ScanDataExportExecution - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -306,18 +318,20 @@ class ScanDataExportExecution(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(ScanDataExportExecution, dict):

@@ -32,21 +32,18 @@ class UserGroup(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'id': 'int',
-        'group_name': 'str',
-        'group_type': 'int',
-        'ldap_group_dn': 'str'
-    }
+    swagger_types = {"id": "int", "group_name": "str", "group_type": "int", "ldap_group_dn": "str"}
 
     attribute_map = {
-        'id': 'id',
-        'group_name': 'group_name',
-        'group_type': 'group_type',
-        'ldap_group_dn': 'ldap_group_dn'
+        "id": "id",
+        "group_name": "group_name",
+        "group_type": "group_type",
+        "ldap_group_dn": "ldap_group_dn",
     }
 
-    def __init__(self, id=None, group_name=None, group_type=None, ldap_group_dn=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self, id=None, group_name=None, group_type=None, ldap_group_dn=None, _configuration=None
+    ):  # noqa: E501
         """UserGroup - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -166,18 +163,20 @@ class UserGroup(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(UserGroup, dict):

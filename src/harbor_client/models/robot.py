@@ -33,36 +33,51 @@ class Robot(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'int',
-        'name': 'str',
-        'description': 'str',
-        'secret': 'str',
-        'level': 'str',
-        'duration': 'int',
-        'editable': 'bool',
-        'disable': 'bool',
-        'expires_at': 'int',
-        'permissions': 'list[RobotPermission]',
-        'creation_time': 'datetime',
-        'update_time': 'datetime'
+        "id": "int",
+        "name": "str",
+        "description": "str",
+        "secret": "str",
+        "level": "str",
+        "duration": "int",
+        "editable": "bool",
+        "disable": "bool",
+        "expires_at": "int",
+        "permissions": "list[RobotPermission]",
+        "creation_time": "datetime",
+        "update_time": "datetime",
     }
 
     attribute_map = {
-        'id': 'id',
-        'name': 'name',
-        'description': 'description',
-        'secret': 'secret',
-        'level': 'level',
-        'duration': 'duration',
-        'editable': 'editable',
-        'disable': 'disable',
-        'expires_at': 'expires_at',
-        'permissions': 'permissions',
-        'creation_time': 'creation_time',
-        'update_time': 'update_time'
+        "id": "id",
+        "name": "name",
+        "description": "description",
+        "secret": "secret",
+        "level": "level",
+        "duration": "duration",
+        "editable": "editable",
+        "disable": "disable",
+        "expires_at": "expires_at",
+        "permissions": "permissions",
+        "creation_time": "creation_time",
+        "update_time": "update_time",
     }
 
-    def __init__(self, id=None, name=None, description=None, secret=None, level=None, duration=None, editable=None, disable=None, expires_at=None, permissions=None, creation_time=None, update_time=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        name=None,
+        description=None,
+        secret=None,
+        level=None,
+        duration=None,
+        editable=None,
+        disable=None,
+        expires_at=None,
+        permissions=None,
+        creation_time=None,
+        update_time=None,
+        _configuration=None,
+    ):  # noqa: E501
         """Robot - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -388,18 +403,20 @@ class Robot(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(Robot, dict):

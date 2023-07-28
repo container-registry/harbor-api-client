@@ -33,24 +33,33 @@ class ProjectReq(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'project_name': 'str',
-        'public': 'bool',
-        'metadata': 'ProjectMetadata',
-        'cve_allowlist': 'CVEAllowlist',
-        'storage_limit': 'int',
-        'registry_id': 'int'
+        "project_name": "str",
+        "public": "bool",
+        "metadata": "ProjectMetadata",
+        "cve_allowlist": "CVEAllowlist",
+        "storage_limit": "int",
+        "registry_id": "int",
     }
 
     attribute_map = {
-        'project_name': 'project_name',
-        'public': 'public',
-        'metadata': 'metadata',
-        'cve_allowlist': 'cve_allowlist',
-        'storage_limit': 'storage_limit',
-        'registry_id': 'registry_id'
+        "project_name": "project_name",
+        "public": "public",
+        "metadata": "metadata",
+        "cve_allowlist": "cve_allowlist",
+        "storage_limit": "storage_limit",
+        "registry_id": "registry_id",
     }
 
-    def __init__(self, project_name=None, public=None, metadata=None, cve_allowlist=None, storage_limit=None, registry_id=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        project_name=None,
+        public=None,
+        metadata=None,
+        cve_allowlist=None,
+        storage_limit=None,
+        registry_id=None,
+        _configuration=None,
+    ):  # noqa: E501
         """ProjectReq - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -97,9 +106,14 @@ class ProjectReq(object):
         :param project_name: The project_name of this ProjectReq.  # noqa: E501
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                project_name is not None and len(project_name) > 255):
-            raise ValueError("Invalid value for `project_name`, length must be less than or equal to `255`")  # noqa: E501
+        if (
+            self._configuration.client_side_validation
+            and project_name is not None
+            and len(project_name) > 255
+        ):
+            raise ValueError(
+                "Invalid value for `project_name`, length must be less than or equal to `255`"
+            )  # noqa: E501
 
         self._project_name = project_name
 
@@ -225,18 +239,20 @@ class ProjectReq(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(ProjectReq, dict):

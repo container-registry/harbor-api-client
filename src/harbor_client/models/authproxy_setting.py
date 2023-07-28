@@ -33,22 +33,30 @@ class AuthproxySetting(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'endpoint': 'str',
-        'tokenreivew_endpoint': 'str',
-        'skip_search': 'bool',
-        'verify_cert': 'bool',
-        'server_certificate': 'str'
+        "endpoint": "str",
+        "tokenreivew_endpoint": "str",
+        "skip_search": "bool",
+        "verify_cert": "bool",
+        "server_certificate": "str",
     }
 
     attribute_map = {
-        'endpoint': 'endpoint',
-        'tokenreivew_endpoint': 'tokenreivew_endpoint',
-        'skip_search': 'skip_search',
-        'verify_cert': 'verify_cert',
-        'server_certificate': 'server_certificate'
+        "endpoint": "endpoint",
+        "tokenreivew_endpoint": "tokenreivew_endpoint",
+        "skip_search": "skip_search",
+        "verify_cert": "verify_cert",
+        "server_certificate": "server_certificate",
     }
 
-    def __init__(self, endpoint=None, tokenreivew_endpoint=None, skip_search=None, verify_cert=None, server_certificate=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        endpoint=None,
+        tokenreivew_endpoint=None,
+        skip_search=None,
+        verify_cert=None,
+        server_certificate=None,
+        _configuration=None,
+    ):  # noqa: E501
         """AuthproxySetting - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -194,18 +202,20 @@ class AuthproxySetting(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(AuthproxySetting, dict):

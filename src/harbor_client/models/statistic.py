@@ -33,26 +33,36 @@ class Statistic(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'private_project_count': 'int',
-        'private_repo_count': 'int',
-        'public_project_count': 'int',
-        'public_repo_count': 'int',
-        'total_project_count': 'int',
-        'total_repo_count': 'int',
-        'total_storage_consumption': 'int'
+        "private_project_count": "int",
+        "private_repo_count": "int",
+        "public_project_count": "int",
+        "public_repo_count": "int",
+        "total_project_count": "int",
+        "total_repo_count": "int",
+        "total_storage_consumption": "int",
     }
 
     attribute_map = {
-        'private_project_count': 'private_project_count',
-        'private_repo_count': 'private_repo_count',
-        'public_project_count': 'public_project_count',
-        'public_repo_count': 'public_repo_count',
-        'total_project_count': 'total_project_count',
-        'total_repo_count': 'total_repo_count',
-        'total_storage_consumption': 'total_storage_consumption'
+        "private_project_count": "private_project_count",
+        "private_repo_count": "private_repo_count",
+        "public_project_count": "public_project_count",
+        "public_repo_count": "public_repo_count",
+        "total_project_count": "total_project_count",
+        "total_repo_count": "total_repo_count",
+        "total_storage_consumption": "total_storage_consumption",
     }
 
-    def __init__(self, private_project_count=None, private_repo_count=None, public_project_count=None, public_repo_count=None, total_project_count=None, total_repo_count=None, total_storage_consumption=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        private_project_count=None,
+        private_repo_count=None,
+        public_project_count=None,
+        public_repo_count=None,
+        total_project_count=None,
+        total_repo_count=None,
+        total_storage_consumption=None,
+        _configuration=None,
+    ):  # noqa: E501
         """Statistic - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -250,18 +260,20 @@ class Statistic(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(Statistic, dict):

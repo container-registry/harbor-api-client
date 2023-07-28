@@ -33,42 +33,60 @@ class Project(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'project_id': 'int',
-        'owner_id': 'int',
-        'name': 'str',
-        'registry_id': 'int',
-        'creation_time': 'datetime',
-        'update_time': 'datetime',
-        'deleted': 'bool',
-        'owner_name': 'str',
-        'togglable': 'bool',
-        'current_user_role_id': 'int',
-        'current_user_role_ids': 'list[int]',
-        'repo_count': 'int',
-        'chart_count': 'int',
-        'metadata': 'ProjectMetadata',
-        'cve_allowlist': 'CVEAllowlist'
+        "project_id": "int",
+        "owner_id": "int",
+        "name": "str",
+        "registry_id": "int",
+        "creation_time": "datetime",
+        "update_time": "datetime",
+        "deleted": "bool",
+        "owner_name": "str",
+        "togglable": "bool",
+        "current_user_role_id": "int",
+        "current_user_role_ids": "list[int]",
+        "repo_count": "int",
+        "chart_count": "int",
+        "metadata": "ProjectMetadata",
+        "cve_allowlist": "CVEAllowlist",
     }
 
     attribute_map = {
-        'project_id': 'project_id',
-        'owner_id': 'owner_id',
-        'name': 'name',
-        'registry_id': 'registry_id',
-        'creation_time': 'creation_time',
-        'update_time': 'update_time',
-        'deleted': 'deleted',
-        'owner_name': 'owner_name',
-        'togglable': 'togglable',
-        'current_user_role_id': 'current_user_role_id',
-        'current_user_role_ids': 'current_user_role_ids',
-        'repo_count': 'repo_count',
-        'chart_count': 'chart_count',
-        'metadata': 'metadata',
-        'cve_allowlist': 'cve_allowlist'
+        "project_id": "project_id",
+        "owner_id": "owner_id",
+        "name": "name",
+        "registry_id": "registry_id",
+        "creation_time": "creation_time",
+        "update_time": "update_time",
+        "deleted": "deleted",
+        "owner_name": "owner_name",
+        "togglable": "togglable",
+        "current_user_role_id": "current_user_role_id",
+        "current_user_role_ids": "current_user_role_ids",
+        "repo_count": "repo_count",
+        "chart_count": "chart_count",
+        "metadata": "metadata",
+        "cve_allowlist": "cve_allowlist",
     }
 
-    def __init__(self, project_id=None, owner_id=None, name=None, registry_id=None, creation_time=None, update_time=None, deleted=None, owner_name=None, togglable=None, current_user_role_id=None, current_user_role_ids=None, repo_count=None, chart_count=None, metadata=None, cve_allowlist=None, _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        project_id=None,
+        owner_id=None,
+        name=None,
+        registry_id=None,
+        creation_time=None,
+        update_time=None,
+        deleted=None,
+        owner_name=None,
+        togglable=None,
+        current_user_role_id=None,
+        current_user_role_ids=None,
+        repo_count=None,
+        chart_count=None,
+        metadata=None,
+        cve_allowlist=None,
+        _configuration=None,
+    ):  # noqa: E501
         """Project - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -474,18 +492,20 @@ class Project(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(Project, dict):

@@ -33,44 +33,63 @@ class ScannerRegistration(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'uuid': 'str',
-        'name': 'str',
-        'description': 'str',
-        'url': 'str',
-        'disabled': 'bool',
-        'is_default': 'bool',
-        'auth': 'str',
-        'access_credential': 'str',
-        'skip_cert_verify': 'bool',
-        'use_internal_addr': 'bool',
-        'create_time': 'datetime',
-        'update_time': 'datetime',
-        'adapter': 'str',
-        'vendor': 'str',
-        'version': 'str',
-        'health': 'str'
+        "uuid": "str",
+        "name": "str",
+        "description": "str",
+        "url": "str",
+        "disabled": "bool",
+        "is_default": "bool",
+        "auth": "str",
+        "access_credential": "str",
+        "skip_cert_verify": "bool",
+        "use_internal_addr": "bool",
+        "create_time": "datetime",
+        "update_time": "datetime",
+        "adapter": "str",
+        "vendor": "str",
+        "version": "str",
+        "health": "str",
     }
 
     attribute_map = {
-        'uuid': 'uuid',
-        'name': 'name',
-        'description': 'description',
-        'url': 'url',
-        'disabled': 'disabled',
-        'is_default': 'is_default',
-        'auth': 'auth',
-        'access_credential': 'access_credential',
-        'skip_cert_verify': 'skip_certVerify',
-        'use_internal_addr': 'use_internal_addr',
-        'create_time': 'create_time',
-        'update_time': 'update_time',
-        'adapter': 'adapter',
-        'vendor': 'vendor',
-        'version': 'version',
-        'health': 'health'
+        "uuid": "uuid",
+        "name": "name",
+        "description": "description",
+        "url": "url",
+        "disabled": "disabled",
+        "is_default": "is_default",
+        "auth": "auth",
+        "access_credential": "access_credential",
+        "skip_cert_verify": "skip_certVerify",
+        "use_internal_addr": "use_internal_addr",
+        "create_time": "create_time",
+        "update_time": "update_time",
+        "adapter": "adapter",
+        "vendor": "vendor",
+        "version": "version",
+        "health": "health",
     }
 
-    def __init__(self, uuid=None, name=None, description=None, url=None, disabled=False, is_default=False, auth='', access_credential=None, skip_cert_verify=False, use_internal_addr=False, create_time=None, update_time=None, adapter=None, vendor=None, version=None, health='', _configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        uuid=None,
+        name=None,
+        description=None,
+        url=None,
+        disabled=False,
+        is_default=False,
+        auth="",
+        access_credential=None,
+        skip_cert_verify=False,
+        use_internal_addr=False,
+        create_time=None,
+        update_time=None,
+        adapter=None,
+        vendor=None,
+        version=None,
+        health="",
+        _configuration=None,
+    ):  # noqa: E501
         """ScannerRegistration - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -502,18 +521,20 @@ class ScannerRegistration(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(ScannerRegistration, dict):
