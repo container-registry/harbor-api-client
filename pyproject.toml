@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "harbor-api-client"
-version = "2.7.5"
+version = "2.7.6"
 description = "Client for the Harbor API"
 authors = ["Vadim Bauer <vb@container-registry.com>", "Alexandre Krispin <development.s004k@simplelogin.com>"]
 keywords = ["Swagger", "Harbor API"]
